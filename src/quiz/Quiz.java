@@ -28,4 +28,8 @@ public class Quiz {
 			return question;
 		}
 	}
+
+	public int getQuestionNumber() {
+		return questionNumber;
+	}
 }
