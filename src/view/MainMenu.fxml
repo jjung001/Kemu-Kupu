@@ -4,38 +4,34 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Rectangle fill="#2197ff00" height="550.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="750.0" x="25.0" y="25.0" />
-      <Text fill="#714e42" layoutX="313.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu">
+      <Text fill="#714e42" layoutX="323.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
          <font>
-            <Font name="Arimo Bold" size="70.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="70.0" />
          </font>
       </Text>
-      <Text fill="#714e42" layoutX="316.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE">
+      <Text fill="#714e42" layoutX="323.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE" textAlignment="CENTER">
          <font>
-            <Font name="Arimo Bold" size="20.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
          </font>
       </Text>
-      <Text fill="#2e979b" layoutX="127.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. ">
+      <Text fill="#2e979b" layoutX="112.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. " textAlignment="CENTER">
          <font>
-            <Font name="Arimo Bold" size="22.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
          </font>
       </Text>
       <ImageView fitHeight="232.0" fitWidth="331.0" layoutX="105.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" rotate="164.19">
          <image>
             <Image url="@../../../../../../media/sf_SharedFolder2/1632196316763-1.png" />
          </image></ImageView>
-      <Text fill="#a2c6ac" layoutX="283.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games Module">
+      <ToggleButton layoutX="250.0" layoutY="330.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-background-color: #714e42; -fx-font-size: 30; -fx-font-family: Arimo; -fx-text-fill: A2C6AC;" text="Games Module" textFill="#7c4040">
          <font>
-            <Font name="Arimo Bold" size="30.0" />
-         </font>
-      </Text>
-      <ToggleButton layoutX="250.0" layoutY="330.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-background-color: #714e42; -fx-font-size: 30; -fx-font-family: Arimo; -fx-text-fill: A2C6AC;" text="Games Module" />
+            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+         </font></ToggleButton>
       <ToggleButton layoutX="250.0" layoutY="419.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-text-fill: #714e42; -fx-background-color: A2C6AC; -fx-border-color: #714e42; -fx-font-size: 30; -fx-font-family: Arimo; -fx-border-width: 5;" text="Quit" />
       <ToggleButton layoutX="25.0" layoutY="451.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="114.0" style="-fx-background-color: transparent;">
          <graphic>
