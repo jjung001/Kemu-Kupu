@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Quiz {
-	public ArrayList<String> words;
+	private ArrayList<String> words;
 	private int maximumNumberOfQuestions;
 	private int questionNumber;
 
