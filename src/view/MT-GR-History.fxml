@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="482.0" style="-fx-background-color: #CCCCCC; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="17.0" layoutY="14.0" prefHeight="281.0" prefWidth="448.0" style="-fx-background-color: transparent;">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-font-family: dejavu sans condensed; -fx-pref-width: 224; -fx-pref-height: 40;" text="WORD" />
+          <TableColumn prefWidth="75.0" style="-fx-font-family: dejavu sans condensed; -fx-pref-width: 224; -fx-pref-height: 40;" text="TIME TAKEN (SEC)" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
