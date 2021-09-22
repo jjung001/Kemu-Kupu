@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="482.0" style="-fx-background-radius: 6; -fx-background-color: #888888;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="277.0" prefWidth="482.0" style="-fx-background-color: #CCCCCC; -fx-background-radius: 6;">
+         <children>
+            <PieChart prefHeight="277.0" prefWidth="482.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
