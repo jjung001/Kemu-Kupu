@@ -24,9 +24,9 @@
                   <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                </font>
             </Text>
-            <Button layoutX="240.0" layoutY="486.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
+            <Button layoutX="276.0" layoutY="492.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="248.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
                <font>
-                  <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+                  <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                </font>
             </Button>
             <Button layoutX="38.0" layoutY="509.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
