@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="482.0" style="-fx-background-color: #CCCCCC; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Score&#10;&#10;Average Daily Increase in Height (Total)&#10;Highest Height Gained in a Day&#10;&#10;Average Daily Increase in Height (Past Week)&#10;Highest Height Gained in a Day (Past Week)&#10;&#10;Average Daily Increase in Height (Past Month)&#10;Highest Height Gained in a Day (Past Month)&#10;&#10;Average Daily Increase in Height (Past Year)&#10;Highest Height Gained in a Day (Past Year)&#10;&#10;Profile">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
