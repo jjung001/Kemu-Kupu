@@ -8,9 +8,9 @@ public class Quiz {
 	private int maximumNumberOfQuestions;
 	private int questionNumber;
 
-	public Quiz(Collection<? extends String> words, int maximumNumberOfQuestions) {
+	public Quiz(Collection<? extends String> words) {
 		this.words.addAll(words);
-		this.maximumNumberOfQuestions = maximumNumberOfQuestions;
+		this.maximumNumberOfQuestions = words.size();
 		questionNumber = 0;
 	}
 
