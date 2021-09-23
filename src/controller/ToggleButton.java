@@ -10,14 +10,12 @@ public class ToggleButton extends Button {
 		return this.state;
 	}
 	
-	public void turnOnOrOff(String id) {
+	public void turnOnOrOff() {
 		if (this.getState()) {
 			this.state = false;
-			//TO Do image view becomes turn off image
 		}
 		else {
 			this.state = true;
-			//To Do image view becomes turn on image
 		}
 	}
 	

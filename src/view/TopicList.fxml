@@ -51,9 +51,9 @@
                   </Text>
                   <Button fx:id="colour" layoutX="285.0" layoutY="-52.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="colourSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -72,11 +72,11 @@
                         <Image url="@../../../Downloads/Topic_Weather.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="weather" layoutX="306.0" layoutY="-24.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="49.0" style="-fx-background-color: transparent;">
+                  <Button fx:id="weather" layoutX="306.0" layoutY="-24.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="49.0" style="-fx-background-color: transparent; -fx-background-image: imageView;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="weatherSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -87,9 +87,9 @@
                <children>
                   <Button fx:id="daysOfWeekOne" layoutX="271.0" layoutY="-32.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="daysOfWeekOneSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -120,9 +120,9 @@
                   </Text>
                   <Button fx:id="monthsOfYearOne" layoutX="270.0" layoutY="-39.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="monthsOfYearOneSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -143,9 +143,9 @@
                   </Text>
                   <Button fx:id="daysOfWeekTwo" layoutX="248.0" layoutY="-42.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="daysOfWeekTwoSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -165,9 +165,9 @@
                   </Text>
                   <Button fx:id="monthsOfYearTwo" layoutX="254.0" layoutY="-45.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="monthsOfYearTwoSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -188,9 +188,9 @@
                   </Text>
                   <Button fx:id="baby" layoutX="189.0" layoutY="-75.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="babySwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -210,9 +210,9 @@
                   </Text>
                   <Button fx:id="work" layoutX="227.0" layoutY="-13.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="workSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -233,9 +233,9 @@
                   </Text>
                   <Button fx:id="feeling" layoutX="219.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="feelingSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -256,9 +256,9 @@
                   </Text>
                   <Button fx:id="compassPoint" layoutX="221.0" layoutY="-35.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="compassPointSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -279,9 +279,9 @@
                   </Text>
                   <Button fx:id="university" layoutX="230.0" layoutY="-16.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="universitySwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -302,9 +302,9 @@
                   </Text>
                   <Button fx:id="software" layoutX="220.0" layoutY="-8.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
-                        <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="softwareSwitch" fitHeight="68.0" fitWidth="68.0" onMouseClicked="#changeSwitchImage" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Toggle_Button_Off.png" />
+                              <Image url="@../resources/Toggle_Button_Off.png" />
                            </image>
                         </ImageView>
                      </graphic>
