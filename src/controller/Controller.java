@@ -16,7 +16,7 @@ public class Controller {
 	private Scene scene;
 	private Parent root;
 
-	public void switchScene(ActionEvent event, String nextScene) {
+	public void switchScenes(ActionEvent event, String nextScene) {
 		try {
 			root = FXMLLoader.load(getClass().getResource(nextScene));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -26,10 +26,6 @@ public class Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void backToMain(ActionEvent back) {
-		switchScene(back, "MainMenu.fxml");
 	}
 	
 }
