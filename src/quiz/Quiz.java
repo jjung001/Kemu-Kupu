@@ -20,12 +20,12 @@ public class Quiz {
 
 	public Question getNextQuestion() {
 		if (hasNextQuestion()) {
-			return null;
-		} else {
 			String word = words.get(questionNumber);
 			Question question = new Question(word);
 			questionNumber++;
 			return question;
+		} else {
+			return null;
 		}
 	}
 
