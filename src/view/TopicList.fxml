@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TopicsView">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: A2C6AC;">
          <children>
@@ -24,12 +24,12 @@
                   <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                </font>
             </Text>
-            <Button layoutX="276.0" layoutY="492.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="248.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
+            <Button fx:id="start" layoutX="276.0" layoutY="492.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="248.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="38.0" layoutY="509.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+            <Button fx:id="back" layoutX="38.0" layoutY="509.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,7 +49,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="285.0" layoutY="-52.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: transparent;">
+                  <Button fx:id="colour" layoutX="285.0" layoutY="-52.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -72,7 +72,7 @@
                         <Image url="@../../../Downloads/Topic_Weather.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="306.0" layoutY="-24.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="49.0" style="-fx-background-color: transparent;">
+                  <Button fx:id="weather" layoutX="306.0" layoutY="-24.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="49.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -85,7 +85,7 @@
             </Group>
             <Group layoutX="75.0" layoutY="292.0">
                <children>
-                  <Button layoutX="271.0" layoutY="-32.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="daysOfWeekOne" layoutX="271.0" layoutY="-32.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -118,7 +118,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="270.0" layoutY="-39.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="monthsOfYearOne" layoutX="270.0" layoutY="-39.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -141,7 +141,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="248.0" layoutY="-42.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="daysOfWeekTwo" layoutX="248.0" layoutY="-42.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -163,7 +163,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="254.0" layoutY="-45.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="monthsOfYearTwo" layoutX="254.0" layoutY="-45.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -186,7 +186,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="189.0" layoutY="-75.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="baby" layoutX="189.0" layoutY="-75.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -208,7 +208,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="227.0" layoutY="-13.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="work" layoutX="227.0" layoutY="-13.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -231,7 +231,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="219.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="feeling" layoutX="219.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -254,7 +254,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="221.0" layoutY="-35.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="compassPoint" layoutX="221.0" layoutY="-35.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -277,7 +277,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="230.0" layoutY="-16.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="university" layoutX="230.0" layoutY="-16.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -300,7 +300,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button layoutX="220.0" layoutY="-8.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="software" layoutX="220.0" layoutY="-8.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="68.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                            <image>
