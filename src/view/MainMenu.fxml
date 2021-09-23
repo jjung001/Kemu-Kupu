@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="#714e42" layoutX="323.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2c6ac" height="550.0" layoutX="25.0" layoutY="25.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="750.0" />
+      <Text fill="#714e42" layoutX="326.0" layoutY="136.0" lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="70.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="72.0" />
          </font>
       </Text>
-      <Text fill="#714e42" layoutX="323.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE" textAlignment="CENTER">
-         <font>
-            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
-         </font>
-      </Text>
-      <Text fill="#2e979b" layoutX="112.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. " textAlignment="CENTER">
+      <Text fill="#714e42" layoutX="328.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE" textAlignment="CENTER">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="22.0" />
          </font>
       </Text>
-      <ImageView fitHeight="232.0" fitWidth="331.0" layoutX="105.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" rotate="164.19">
+      <Text fill="#2e979b" layoutX="98.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. " textAlignment="CENTER">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
+         </font>
+      </Text>
+      <Button alignment="CENTER" layoutX="240.0" layoutY="421.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-border-color: #714e42; -fx-border-width: 5; -fx-background-color: transparent;" text="Quit" textFill="#714e42">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="240.0" layoutY="332.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-border-width: 5; -fx-background-color: #714e42;" text="Play Game" textFill="#a2c6ac">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="193.0" fitWidth="202.0" layoutX="187.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" rotate="149.7">
          <image>
-            <Image url="@../../../../../../media/sf_SharedFolder2/1632196316763-1.png" />
-         </image></ImageView>
-      <ToggleButton layoutX="250.0" layoutY="330.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-background-color: #714e42; -fx-font-size: 30; -fx-font-family: Arimo; -fx-text-fill: A2C6AC;" text="Games Module" textFill="#7c4040">
-         <font>
-            <Font name="DejaVu Sans Condensed Bold" size="13.0" />
-         </font></ToggleButton>
-      <ToggleButton layoutX="250.0" layoutY="419.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="320.0" style="-fx-text-fill: #714e42; -fx-background-color: A2C6AC; -fx-border-color: #714e42; -fx-font-size: 30; -fx-font-family: Arimo; -fx-border-width: 5;" text="Quit" />
-      <ToggleButton layoutX="25.0" layoutY="451.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="114.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="122.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../media/sf_SharedFolder2/1632196316763-9.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </ToggleButton>
+            <Image url="@../../../Downloads/KemuKupu_logo%20(1).png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
