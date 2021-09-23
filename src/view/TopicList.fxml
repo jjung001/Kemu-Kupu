@@ -24,12 +24,12 @@
                   <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                </font>
             </Text>
-            <Button fx:id="start" layoutX="276.0" layoutY="492.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="248.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
+            <Button fx:id="start" layoutX="276.0" layoutY="492.0" mnemonicParsing="false" onAction="#startGame" prefHeight="37.0" prefWidth="248.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                </font>
             </Button>
-            <Button fx:id="back" layoutX="38.0" layoutY="509.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+            <Button fx:id="back" layoutX="38.0" layoutY="509.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>

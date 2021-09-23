@@ -1,36 +1,48 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class TopicsView {
+public class TopicsView extends Controller{
 
 	@FXML
-	private Button colour;
+	private ToggleButton colour;
 	@FXML
-	private BButton weather;
+	private ToggleButton weather;
 	@FXML
-	private Button dayOfWeekOne;
+	private ToggleButton dayOfWeekOne;
 	@FXML
-	private Button dayOfWeekTwo;
+	private ToggleButton dayOfWeekTwo;
 	@FXML
-	private Button monthOfYearOne;
+	private ToggleButton monthOfYearOne;
 	@FXML
-	private Button monthOfYearTwo;
+	private ToggleButton monthOfYearTwo;
 	@FXML
-	private Button baby;
+	private ToggleButton baby;
 	@FXML
-	private Button work;
+	private ToggleButton work;
 	@FXML
-	private Button feeling;
+	private ToggleButton feeling;
 	@FXML
-	private Button compassPoint;
+	private ToggleButton compassPoint;
 	@FXML
-	private Button university;
+	private ToggleButton university;
 	@FXML
 	private Button software;
 	@FXML
 	private Button start;
 	@FXML
 	private Button back;
+	
+	public void startGame(ActionEvent start) {
+		switchScene(start, "GameScreen.fxml");
+	}
+	
+	public void toggleTopic(ActionEvent event){
+		ToggleButton pressedButton = (ToggleButton) event.getSource();
+		String id = pressedButton.getId();
+		pressedButton.turnOnOrOff(id);
+		//updateWordList(pressedButton.getState());
+	}
 }
