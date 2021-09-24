@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class TopicsView extends Controller{
+public class TopicsView extends Controller {
 
 	@FXML
 	private ToggleButton colour;
@@ -67,29 +66,38 @@ public class TopicsView extends Controller{
 	
 	Image onButtonImage = new Image(getClass().getResourceAsStream("Toggle_Button_On.png"));
 	Image offButtonImage = new Image(getClass().getResourceAsStream("Toggle_Button_Off.png"));
+	Map <Button, ImageView> buttonsMap = new HashMap<>();
 	
-	ArrayList<ImageView> buttonArray = new ArrayList <>();
-	
-	public void startGame(ActionEvent start) {
-		switchScene(start, "GameScreen.fxml");
+	public void initialize() {
+		buttonsMap.put(colour, colourSwitch);
+		buttonsMap.put(weather, weatherSwitch);
+		buttonsMap.put(dayOfWeekOne, dayOfWeekOneSwitch);
+		buttonsMap.put(dayOfWeekTwo, dayOfWeekTwoSwitch);
+		buttonsMap.put(monthOfYearOne, monthOfYearOneSwitch);
+		buttonsMap.put(baby, babySwitch);
+		buttonsMap.put(work, workSwitch);
+		buttonsMap.put(feeling, feelingSwitch);
+		buttonsMap.put(compassPoint, compassPointSwitch);
+		buttonsMap.put(university, universitySwitch);
+		buttonsMap.put(software, softwareSWitch);
 	}
 	
 	public void toggleTopic(ActionEvent event){
-		ToggleButton pressedTopic = (ToggleButton) event.getSource();
-		pressedTopic.turnOnOrOff();
-		
-		//updateWordList(pressedButton.getState());
-	}
-	
-	public void changeSwitchImage(ActionEvent event) {
-		ImageView switchToToggle = (ImageView) event.getSource();
-		if (switchToToggle.getImage() == onButtonImage) {
-			switchToToggle.setImage(onButtonImage);
+		ToggleButton selectedTopic = (ToggleButton) event.getSource();
+		ImageView toggleSwitchImage = buttonsMap.get(selectedTopic);
+		selectedTopic.turnOnOrOff();
+		boolean topicIsOn = selectedTopic.getState();
+		if (topicIsOn) {
+			toggleSwitchImage.setImage(onButtonImage);
 		}
 		else {
-			switchToToggle.setImage(offButtonImage);
+			toggleSwitchImage.setImage(offButtonImage);
 		}
 	}
 	
+	public void startGame(ActionEvent start) {
+		
+		switchScene(start, "GameScreen.fxml");
+	}
 	
 }
