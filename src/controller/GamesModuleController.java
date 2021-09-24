@@ -13,15 +13,25 @@ public class GamesModuleController extends Controller {
 
 	@FXML
     public Button btnSubmit;
+	@FXML
 	public Button btnIDontKnow;
+	@FXML
 	public Button btnA;
+	@FXML
 	public Button btnE;
+	@FXML
 	public Button btnI;
+	@FXML
 	public Button btnO;
+	@FXML
 	public Button btnU;
+	@FXML
 	public Button btnBack;
+	@FXML
 	public Button btnRepeat;
+	@FXML
 	public TextField wordTextField;
+	@FXML
 	public Label charLabel;
 	
 	public String word;
@@ -31,6 +41,7 @@ public class GamesModuleController extends Controller {
 	public String charO = "ō";
 	public String charU = "ū";
 	public HashMap<Button, String> macron;
+	public String secondLetter = "j";
 	
 	@FXML
     public void quitGame(ActionEvent event) {
@@ -64,10 +75,10 @@ public class GamesModuleController extends Controller {
 	}	
 	
 	@FXML
-    private void initialize() {
-        charLabel.setText("_ _ _ _ _");
-        charLabel.setAlignment(Pos.CENTER);
-    }
+	public void initialize() {
+		charLabel.setText("Hint: the second letter is '"+secondLetter+"'");
+		charLabel.setAlignment(Pos.CENTER);
+	}
 	
 	@FXML
     public void skipButtonAction(ActionEvent event){
