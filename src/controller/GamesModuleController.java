@@ -32,7 +32,13 @@ public class GamesModuleController extends Controller {
 	@FXML
 	public TextField wordTextField;
 	@FXML
-	public Label charLabel;
+	public Label hintLabel;
+	@FXML
+	public Label scoreLabel;
+	@FXML
+	public Label questionNumLabel;
+	@FXML
+	public Label statusLabel;
 	
 	public String word;
 	public String charA = "ā";
@@ -41,16 +47,19 @@ public class GamesModuleController extends Controller {
 	public String charO = "ō";
 	public String charU = "ū";
 	public HashMap<Button, String> macron;
-	public String secondLetter = "j";
+	public String secondLetter;
+	public String score;
+	public String questionNum; 
+	public String status;
 	
 	@FXML
     public void quitGame(ActionEvent event) {
-		// quit game when back button is pressed
+		// quit game when back button is pressed return to Main Menu
     	backToMain(event);
     }
 	
 	@FXML
-    public void pressMacronButtonAction(ActionEvent event){
+    public void pressMacronButton(ActionEvent event){
         // macron button is pressed, input macron into text field
 		macron = new HashMap<>();
 		macron.put(btnA, charA);
@@ -62,31 +71,27 @@ public class GamesModuleController extends Controller {
 		wordTextField.setText(wordTextField.getText()+macron.get(currentEvent));
     }
 	
-	public void playGame(ActionEvent play) {
+	public void endGame(ActionEvent event) {
 		// game ended, switch to resultScreen
-        switchScene(play, "ResultScreen.fxml");
+        switchScene(event, "ResultScreen.fxml");
     }
 	
 	@FXML
-	public void checkWord(ActionEvent event){
-		if (wordTextField.getText().equals("apple")) {
-			System.out.println("correct");
-		}
-	}	
-	
-	@FXML
 	public void initialize() {
-		charLabel.setText("Hint: the second letter is '"+secondLetter+"'");
-		charLabel.setAlignment(Pos.CENTER);
+		// labels show according to progress of game
+		hintLabel.setText("Hint: the second letter is '"+secondLetter+"'");
+//		scoreLabel.setText(score);	
+//		questionNumLabel.setText(questionNum);
+//		statusLabel.setText(status);
 	}
 	
 	@FXML
-    public void skipButtonAction(ActionEvent event){
+    public void skipButton(ActionEvent event){
         // skip word and get next word
     }
 	
 	@FXML
-    public void repeatButtonAAction(ActionEvent event){
+    public void repeatButton(ActionEvent event){
         // repeat word
     }
 	
