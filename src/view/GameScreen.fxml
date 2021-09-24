@@ -93,17 +93,17 @@
                         <Font name="DejaVu Sans Condensed Bold" size="32.0" />
                      </font>
                   </TextField>
-                  <ProgressBar layoutX="-10.0" layoutY="281.0" prefHeight="36.0" prefWidth="223.0" progress="1.0" rotate="-90.0" style="-fx-accent: #36d731;" />
+                  <ProgressBar fx:id="bonusBar" layoutX="-10.0" layoutY="281.0" prefHeight="36.0" prefWidth="223.0" progress="1.0" rotate="-90.0" style="-fx-accent: #36d731;" />
                   <Text fill="#666666" layoutX="62.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BONUS">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                      </font>
                   </Text>
-                  <Slider blockIncrement="30.0" layoutX="612.0" layoutY="543.0" majorTickUnit="30.0" max="30.0" prefHeight="16.0" prefWidth="146.0" value="15.0">
+                  <Slider fx:id="speedOfSpeech" blockIncrement="0.5" layoutX="612.0" layoutY="543.0" majorTickUnit="0.5" max="1.5" min="0.5" minorTickCount="0" onMouseReleased="#adjustSpeed" prefHeight="16.0" prefWidth="146.0" snapToTicks="true" value="1.0">
                      <cursor>
                         <Cursor fx:constant="CROSSHAIR" />
                      </cursor></Slider>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="619.0" layoutY="524.0" prefHeight="18.0" prefWidth="131.0" text="Speed of Speech" textFill="#666666">
+                  <Label fx:id="speedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="619.0" layoutY="524.0" prefHeight="18.0" prefWidth="131.0" text="Speed of Speech" textFill="#666666">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>

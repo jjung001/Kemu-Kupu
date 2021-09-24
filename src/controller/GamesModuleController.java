@@ -2,12 +2,25 @@ package controller;
 
 import java.util.HashMap;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GamesModuleController extends Controller {
 
@@ -39,6 +52,14 @@ public class GamesModuleController extends Controller {
 	public Label questionNumLabel;
 	@FXML
 	public Label statusLabel;
+	@FXML
+	public Label speedLabel;
+	@FXML
+	public Slider speedOfSpeech;
+	@FXML
+	public ProgressBar bonusBar;
+	@FXML
+	public Timeline timeline;
 	
 	public String word;
 	public String charA = "ā";
@@ -51,6 +72,12 @@ public class GamesModuleController extends Controller {
 	public String score;
 	public String questionNum; 
 	public String status;
+	public double currentSpeed;
+	public double progress;
+	public Thread th;
+	public int i;
+	public boolean quitOrNot;
+	public double currentBonus;
 	
 	@FXML
     public void quitGame(ActionEvent event) {
@@ -73,7 +100,10 @@ public class GamesModuleController extends Controller {
 	
 	public void endGame(ActionEvent event) {
 		// game ended, switch to resultScreen
-        switchScene(event, "ResultScreen.fxml");
+		quitOrNot = true;
+		stopThread();
+//        double bonusTime = timeline.getCurrentTime().toSeconds();
+        switchScene(event, "ResultScreen.fxml");     
     }
 	
 	@FXML
@@ -83,6 +113,43 @@ public class GamesModuleController extends Controller {
 //		scoreLabel.setText(score);	
 //		questionNumLabel.setText(questionNum);
 //		statusLabel.setText(status);
+		bonusBar.setProgress(1.0);
+		currentSpeed = speedOfSpeech.getValue();
+		th = new Thread(new hello());
+		th.start();
+//		decreaseProgress();    
+	}
+	
+	class hello implements Runnable {
+		public void run(){
+			// bonusBar decreases for time range 20 seconds
+			quitOrNot = false;
+			for (i = 100; i >= 0; i--) {
+				bonusBar.setProgress(i / 100.0);
+				currentBonus = bonusBar.getProgress()*10;
+				System.out.println("currentBonus = "+currentBonus);
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if (quitOrNot) {
+					System.out.println("breakBonus = "+currentBonus);
+					break;
+				}
+			}
+		}
+	}
+	
+	public void stopThread() {
+		try {
+			th.join();
+			th = null;
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
@@ -94,7 +161,22 @@ public class GamesModuleController extends Controller {
     public void repeatButton(ActionEvent event){
         // repeat word
     }
-	
-	
+		
+	@FXML
+    public void adjustSpeed(MouseEvent event) {
+		// adjust speed of speech by dragging slider - 0.5, 1, 1.5
+		currentSpeed = speedOfSpeech.getValue();
+    }
+
+//	@FXML
+//	public void decreaseProgress() {
+//		IntegerProperty seconds = new SimpleIntegerProperty();
+//		bonusBar.progressProperty().bind(seconds.divide(20.0));
+//		timeline = new Timeline(
+//				new KeyFrame(Duration.ZERO, new KeyValue(seconds, 20)),
+//				new KeyFrame(Duration.seconds(60), new KeyValue(seconds, -60)));
+//		timeline.setCycleCount(Animation.INDEFINITE);
+//		timeline.play();
+//	}
 	
 }
