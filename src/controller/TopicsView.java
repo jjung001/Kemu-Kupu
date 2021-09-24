@@ -62,7 +62,7 @@ public class TopicsView extends Controller {
 	public void startGame(ActionEvent start) {
 		int numTopics = 0;
 		for(ToggleButton topic : toggles) {
-			topic.setUserData(topic.selectedProperty());
+			topic.setUserData(topic.isSelected());
 			if (topic.isSelected()) {
 				numTopics++;
 			}
