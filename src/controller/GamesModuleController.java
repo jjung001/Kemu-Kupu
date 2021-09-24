@@ -75,7 +75,6 @@ public class GamesModuleController extends Controller {
 	public double currentSpeed;
 	public double progress;
 	public Thread th;
-	public int i;
 	public boolean quitOrNot;
 	public double currentBonus;
 	
@@ -85,6 +84,7 @@ public class GamesModuleController extends Controller {
 		quitOrNot = true;
 		stopThread();
     	backToMain(event);
+    	// alert box is needed here 
     }
 	
 	@FXML
@@ -101,11 +101,12 @@ public class GamesModuleController extends Controller {
     }
 	
 	public void endGame(ActionEvent event) {
-		// game ended, switch to resultScreen
+		// game ended after 5 rounds, switch to resultScreen
 		quitOrNot = true;
 		stopThread();
 //        double bonusTime = timeline.getCurrentTime().toSeconds();
-        switchScene(event, "ResultScreen.fxml");     
+        switchScene(event, "ResultScreen.fxml");  
+        // else play next round
     }
 	
 	@FXML
@@ -126,7 +127,7 @@ public class GamesModuleController extends Controller {
 		public void run(){
 			// bonusBar decreases for time range 20 seconds
 			quitOrNot = false;
-			for (i = 100; i >= 0; i--) {
+			for (int i = 100; i >= 0; i--) {
 				bonusBar.setProgress(i / 100.0);
 				currentBonus = bonusBar.getProgress()*10;
 				System.out.println("currentBonus = "+currentBonus);
@@ -180,5 +181,21 @@ public class GamesModuleController extends Controller {
 //		timeline.setCycleCount(Animation.INDEFINITE);
 //		timeline.play();
 //	}
+	
+	@FXML
+    public void setScoreLabel(MouseEvent event) {
+		// show score for each game
+    }
+	
+	@FXML
+    public void setquestionNumLabel(MouseEvent event) {
+		// show question number 
+    }
+	
+	@FXML
+    public void setstatusLabel(MouseEvent event) {
+		// show status of game according to accepting state
+		// "SPELL IT:", "CORRECT", "INCORRECT"
+    }
 	
 }
