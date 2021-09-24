@@ -82,6 +82,8 @@ public class GamesModuleController extends Controller {
 	@FXML
     public void quitGame(ActionEvent event) {
 		// quit game when back button is pressed return to Main Menu
+		quitOrNot = true;
+		stopThread();
     	backToMain(event);
     }
 	
