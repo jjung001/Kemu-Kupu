@@ -2,6 +2,7 @@ package game;
 
 public class ScoreTracker {
 	private int[] scores;
+	private String[] words;
 	private int maximumNumberOfQuestions;
 
 	public ScoreTracker(int maximumNumberOfQuestions) {
@@ -9,12 +10,17 @@ public class ScoreTracker {
 		scores = new int[maximumNumberOfQuestions];
 	}
 
-	public void updateScore(int questionNumber, int score) {
+	public void update(int questionNumber, int score, String word) {
 		scores[questionNumber - 1] = score;
+		words[questionNumber - 1] = word;
 	}
 
 	public int getScore(int questionNumber) {
 		return scores[questionNumber - 1];
+	}
+
+	public String getWord(int questionNumber) {
+		return words[questionNumber - 1];
 	}
 
 	public int getTotalScore() {
