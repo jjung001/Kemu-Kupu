@@ -35,15 +35,15 @@ public class Scorer {
 		noBonusReward *= wordLengthMultiplier;
 	}
 
-	private int getHighBonusReward() {
+	public int getHighBonusReward() {
 		return (int) highBonusReward;
 	}
 
-	private int getLowBonusReward() {
+	public int getLowBonusReward() {
 		return (int) lowBonusReward;
 	}
 
-	private int getNoBonusReward() {
+	public int getNoBonusReward() {
 		return (int) noBonusReward;
 	}
 
