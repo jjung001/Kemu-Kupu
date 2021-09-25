@@ -72,7 +72,7 @@
                         </Label>
                      </children>
                   </Group>
-                  <LineChart layoutX="57.0" layoutY="302.0" prefHeight="187.0" prefWidth="662.0" style="-fx-background-color: transparent;">
+                  <LineChart fx:id="scoreChart" layoutX="57.0" layoutY="316.0" legendVisible="false" prefHeight="187.0" prefWidth="662.0" style="-fx-background-color: transparent;">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -89,6 +89,11 @@
                         <Image url="@../resources/Sprout_icon.png" />
                      </image>
                   </ImageView>
+                  <Text fill="#714e42" layoutX="296.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score sum after each Word">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="15.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>

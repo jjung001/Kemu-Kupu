@@ -2,6 +2,8 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -19,6 +21,8 @@ public class ResultsView extends Controller{
 	private Label levelLabel;
 	@FXML
 	private ImageView treeImage;
+	@FXML
+	LineChart<String, Number> scoreChart;
 	
 	private String scoreDisplay;
 	private String level;
@@ -46,6 +50,8 @@ public class ResultsView extends Controller{
 		levelLabel.setText(level);
 		
 		displayImage(level);
+		
+		setChart(scoreChart);
 	}
 	
 	private String determineLevel(int score) {
@@ -79,6 +85,17 @@ public class ResultsView extends Controller{
 		} else if (level.equals(blooming)) {
 			treeImage.setImage(bloomingImage);
 		}
+	}
+	
+	private void setChart(LineChart<String, Number> chart) {
+		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
+		int  a= 30;
+		series.getData().add(new XYChart.Data<String, Number>("Word 1", a));//getScore(1)));
+		series.getData().add(new XYChart.Data<String, Number>("Word 2", 50));//getScore(2)));
+		series.getData().add(new XYChart.Data<String, Number>("Word 3", 0));//getScore(3)));
+		series.getData().add(new XYChart.Data<String, Number>("Word 4", 40));//getScore(4)));
+		series.getData().add(new XYChart.Data<String, Number>("Word 5", 10));//getScore(5)));
+		chart.getData().add(series);
 	}
 	
 	public void playAgain(ActionEvent event) {
