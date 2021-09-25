@@ -32,4 +32,8 @@ public class Quiz {
 	public int getQuestionNumber() {
 		return questionNumber;
 	}
+
+	public int getTotalNumberOfQuestions() {
+		return maximumNumberOfQuestions;
+	}
 }
