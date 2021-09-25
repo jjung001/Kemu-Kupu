@@ -66,4 +66,8 @@ public class Scorer {
 			return (int) noBonusReward;
 		}
 	}
+
+	public int getFaultedScore() {
+		return (int) 0.5 * getScore();
+	}
 }
