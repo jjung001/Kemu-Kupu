@@ -18,6 +18,10 @@ public class Question {
 		}
 	}
 
+	public String getWord() {
+		return word;
+	}
+
 	public char getSecondLetter() {
 		return word.charAt(1);
 	}
