@@ -16,4 +16,12 @@ public class ScoreTracker {
 	public int getScore(int questionNumber) {
 		return scores[questionNumber - 1];
 	}
+
+	public int getTotalScore() {
+		int totalScore = 0;
+		for (int i = 0; i < scores.length; i++) {
+			totalScore += scores[i];
+		}
+		return totalScore;
+	}
 }
