@@ -18,6 +18,10 @@ public class Question {
 		}
 	}
 
+	public char getSecondLetter() {
+		return word.charAt(1);
+	}
+
 	private AnswerStatus determineAnswerStatusIfCorrect() {
 		switch (attemptNumber) {
 		case (2):
