@@ -38,10 +38,6 @@ public class TopicsView extends Controller {
 		toggles.add(compassPointButton);
 		toggles.add(universityButton);
 		toggles.add(softwareButton);
-		
-		for (ToggleButton topic : toggles) {
-			topic.getUserData();
-		}
 	}
 	
 	public void toggleTopic(ActionEvent event){
@@ -49,17 +45,16 @@ public class TopicsView extends Controller {
 		String id = selectedTopic.getId();
 		if (selectedTopic.isSelected()) {
 			selectedTopic.setGraphic(new ImageView(onButtonImage));
-			//addList(id);
+			addList(id);
 		} else if (!selectedTopic.isSelected()){
 			selectedTopic.setGraphic(new ImageView(offButtonImage));
-			//removeList(id);
+			removeList(id);
 		}
 	}
 	
 	public void startGame(ActionEvent start) {
 		int numTopics = 0;
 		for(ToggleButton topic : toggles) {
-			topic.setUserData(topic.isSelected());
 			if (topic.isSelected()) {
 				numTopics++;
 			}
@@ -67,7 +62,7 @@ public class TopicsView extends Controller {
 		if (numTopics == 0) {
 			startWarning.setVisible(true);
 		} else {
-			switchScene(start, "ResultScreen.fxml");
+			switchScene(start, "GameScreen.fxml");
 		}
 	}	
 	
