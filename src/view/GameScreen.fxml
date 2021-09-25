@@ -21,7 +21,7 @@
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: A2C6AC;">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2c6ac" height="550.0" layoutX="25.0" layoutY="29.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="750.0" />
-                  <Button layoutX="352.0" layoutY="76.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="96.0" style="-fx-background-color: transparent;">
+                  <Button fx:id="btnRepeat" focusTraversable="false" layoutX="352.0" layoutY="76.0" mnemonicParsing="false" onAction="#repeatButton" prefHeight="100.0" prefWidth="96.0" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="91.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -44,7 +44,7 @@
                         </Label>
                      </children>
                   </Group>
-                  <Button fx:id="btnBack" layoutX="40.0" layoutY="506.0" mnemonicParsing="false" onAction="#quitGame" style="-fx-background-color: transparent;">
+                  <Button fx:id="btnBack" focusTraversable="false" layoutX="40.0" layoutY="506.0" mnemonicParsing="false" onAction="#quitGame" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,53 +53,48 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="190.0" layoutY="458.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="I Don't Know" textFill="#714e42">
+                  <Button fx:id="btnIDontKnow" focusTraversable="false" layoutX="190.0" layoutY="458.0" mnemonicParsing="false" onAction="#skipButton" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="I Don't Know" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSubmit" layoutX="410.0" layoutY="457.0" mnemonicParsing="false" onAction="#endGame" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: #714e42;" text="Submit" textFill="#a2c6ac">
+                  <Button fx:id="btnSubmit" focusTraversable="false" layoutX="410.0" layoutY="457.0" mnemonicParsing="false" onAction="#endGame" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: #714e42;" text="Submit" textFill="#a2c6ac">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnA" layoutX="267.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ā" textFill="#714e42">
+                  <Button fx:id="btnA" focusTraversable="false" layoutX="267.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ā" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnE" layoutX="323.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ē" textFill="#714e42">
+                  <Button fx:id="btnE" focusTraversable="false" layoutX="323.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ē" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnI" layoutX="379.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ī" textFill="#714e42">
+                  <Button fx:id="btnI" focusTraversable="false" layoutX="379.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ī" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnO" layoutX="435.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="36.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ō" textFill="#714e42">
+                  <Button fx:id="btnO" focusTraversable="false" layoutX="435.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="36.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ō" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnU" layoutX="491.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ū" textFill="#714e42">
+                  <Button fx:id="btnU" focusTraversable="false" layoutX="491.0" layoutY="398.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="43.0" prefWidth="46.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5;" text="ū" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="wordTextField" alignment="CENTER" layoutX="91.0" layoutY="297.0" prefHeight="75.0" prefWidth="619.0" style="-fx-text-fill: black; -fx-background-color: transparent;">
+                  <TextField fx:id="wordTextField" alignment="CENTER" layoutX="190.0" layoutY="304.0" prefHeight="43.0" prefWidth="420.0" promptText="type here" style="-fx-text-fill: black; -fx-background-color: white;">
                      <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="32.0" />
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </TextField>
                   <ProgressBar fx:id="bonusBar" layoutX="-10.0" layoutY="281.0" prefHeight="36.0" prefWidth="223.0" progress="1.0" rotate="-90.0" style="-fx-accent: #36d731;" />
-                  <Text fill="#666666" layoutX="62.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BONUS">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="22.0" />
-                     </font>
-                  </Text>
-                  <Slider fx:id="speedOfSpeech" blockIncrement="0.5" layoutX="612.0" layoutY="543.0" majorTickUnit="0.5" max="1.5" min="0.5" minorTickCount="0" onMouseReleased="#adjustSpeed" prefHeight="16.0" prefWidth="146.0" snapToTicks="true" value="1.0">
+                  <Slider fx:id="speedOfSpeech" blockIncrement="0.5" focusTraversable="false" layoutX="612.0" layoutY="543.0" majorTickUnit="0.5" max="1.5" min="0.5" minorTickCount="0" onMouseReleased="#adjustSpeed" prefHeight="16.0" prefWidth="146.0" snapToTicks="true" value="1.0">
                      <cursor>
                         <Cursor fx:constant="CROSSHAIR" />
                      </cursor></Slider>
@@ -119,6 +114,11 @@
                      </font>
                   </Label>
                   <Label fx:id="questionNumLabel" layoutX="58.0" layoutY="58.0" style="-fx-text-fill: #666666;" text="1 of 5">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bonusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" text="BONUS" textAlignment="CENTER" textFill="#666666">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                      </font>

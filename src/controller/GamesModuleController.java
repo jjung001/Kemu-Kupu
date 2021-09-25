@@ -2,25 +2,21 @@ package controller;
 
 import java.util.HashMap;
 
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.concurrent.Task;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import application.AlertBox;
 
 public class GamesModuleController extends Controller {
 
@@ -43,6 +39,8 @@ public class GamesModuleController extends Controller {
 	@FXML
 	public Button btnRepeat;
 	@FXML
+	public Button btnIdontKnow;
+	@FXML
 	public TextField wordTextField;
 	@FXML
 	public Label hintLabel;
@@ -54,6 +52,8 @@ public class GamesModuleController extends Controller {
 	public Label statusLabel;
 	@FXML
 	public Label speedLabel;
+	@FXML
+	public Label bonusLabel;
 	@FXML
 	public Slider speedOfSpeech;
 	@FXML
@@ -77,16 +77,15 @@ public class GamesModuleController extends Controller {
 	public Thread th;
 	public boolean quitOrNot;
 	public double currentBonus;
-	
+		
 	@FXML
     public void quitGame(ActionEvent event) {
-		// quit game when back button is pressed return to Main Menu
-		quitOrNot = true;
-		stopThread();
-    	backToMain(event);
-    	// alert box is needed here 
+		// to return to Main Menu confirm exit on AlertBox
+		if (AlertBox.display()) {
+	    	backToMain(event);
+		}
     }
-	
+		
 	@FXML
     public void pressMacronButton(ActionEvent event){
         // macron button is pressed, input macron into text field
@@ -97,14 +96,16 @@ public class GamesModuleController extends Controller {
 		macron.put(btnO, charO);
 		macron.put(btnU, charU);
 		Object currentEvent = event.getSource();
-		wordTextField.setText(wordTextField.getText()+macron.get(currentEvent));
+		int caretPosition = wordTextField.getCaretPosition();
+		String fieldText = wordTextField.getText();
+		String leftPart = fieldText.substring(0, caretPosition);
+		String rightPart = fieldText.substring(caretPosition);
+		wordTextField.setText(leftPart+macron.get(currentEvent)+rightPart);
+		wordTextField.positionCaret(caretPosition+1);
     }
 	
 	public void endGame(ActionEvent event) {
 		// game ended after 5 rounds, switch to resultScreen
-		quitOrNot = true;
-		stopThread();
-//        double bonusTime = timeline.getCurrentTime().toSeconds();
         switchScene(event, "ResultScreen.fxml");  
         // else play next round
     }
@@ -118,41 +119,21 @@ public class GamesModuleController extends Controller {
 //		statusLabel.setText(status);
 		bonusBar.setProgress(1.0);
 		currentSpeed = speedOfSpeech.getValue();
-		th = new Thread(new hello());
-		th.start();
-//		decreaseProgress();    
-	}
-	
-	class hello implements Runnable {
-		public void run(){
-			// bonusBar decreases for time range 20 seconds
-			quitOrNot = false;
-			for (int i = 100; i >= 0; i--) {
-				bonusBar.setProgress(i / 100.0);
-				currentBonus = bonusBar.getProgress()*10;
-				System.out.println("currentBonus = "+currentBonus);
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				if (quitOrNot) {
-					System.out.println("breakBonus = "+currentBonus);
-					break;
-				}
-			}
-		}
-	}
-	
-	public void stopThread() {
-		try {
-			th.join();
-			th = null;
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		bonusBar.progressProperty().addListener(new ChangeListener<Number>() {
+		      @Override public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+		        double progress = newValue == null ? 0 : newValue.doubleValue();
+		        if (progress > 0.667) {
+		        	bonusBar.setStyle("-fx-accent: green");
+		        	bonusLabel.setText("BONUS ×6");
+		        } else if (progress > 0){
+		        	bonusBar.setStyle("-fx-accent: orange");
+		        	bonusLabel.setText("BONUS ×2");
+		        } else {
+		        	bonusLabel.setText("NO BONUS");
+		        }
+		      }
+		    });
+		decreaseProgress();    
 	}
 	
 	@FXML
@@ -171,16 +152,13 @@ public class GamesModuleController extends Controller {
 		currentSpeed = speedOfSpeech.getValue();
     }
 
-//	@FXML
-//	public void decreaseProgress() {
-//		IntegerProperty seconds = new SimpleIntegerProperty();
-//		bonusBar.progressProperty().bind(seconds.divide(20.0));
-//		timeline = new Timeline(
-//				new KeyFrame(Duration.ZERO, new KeyValue(seconds, 20)),
-//				new KeyFrame(Duration.seconds(60), new KeyValue(seconds, -60)));
-//		timeline.setCycleCount(Animation.INDEFINITE);
-//		timeline.play();
-//	}
+	@FXML
+	public void decreaseProgress() {
+		timeline = new Timeline(
+				new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
+				new KeyFrame(Duration.millis(15000), new KeyValue(bonusBar.progressProperty(), 0)));
+		timeline.play();
+	}
 	
 	@FXML
     public void setScoreLabel(MouseEvent event) {
