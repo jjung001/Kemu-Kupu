@@ -22,11 +22,18 @@ public class Scorer {
 		lowBonusTimeDuration = 15;
 
 		setWordLengthMultiplier();
+		setBonusTimes();
 		setRewardScheme();
 	}
 
 	private void setWordLengthMultiplier() {
 		wordLengthMultiplier = (double) word.length() / averageWordLength;
+	}
+
+	// Rationale: Longer words need more time to type, and vice versa.
+	private void setBonusTimes() {
+		highBonusTimeDuration = Long.max((long) (5 * ((double) word.length() / averageWordLength)), 3);
+		lowBonusTimeDuration = highBonusTimeDuration * 3;
 	}
 
 	private void setRewardScheme() {
