@@ -1,4 +1,4 @@
-package quiz;
+package game;
 
 public class Question {
 	private String word;

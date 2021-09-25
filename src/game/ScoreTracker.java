@@ -1,4 +1,4 @@
-package quiz;
+package game;
 
 public class ScoreTracker {
 	private int[] scores;

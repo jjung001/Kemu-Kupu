@@ -1,4 +1,4 @@
-package quiz;
+package game;
 
 public enum AnswerStatus {
 	MASTERED,
