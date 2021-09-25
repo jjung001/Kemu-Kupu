@@ -15,6 +15,10 @@ public class WordList {
 		wordList.add(word);
 	}
 
+	public HashSet<String> getAllWords() {
+		return wordList;
+	}
+
 	public HashSet<String> getRandomWords(int count) {
 		HashSet<String> selection = new HashSet<>();
 		count = Integer.min(count, wordList.size());
