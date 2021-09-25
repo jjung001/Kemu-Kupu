@@ -54,6 +54,13 @@ public class Scorer {
 		return (int) noBonusReward;
 	}
 
+	public long getHighBonusTimeDuration() {
+		return (long) highBonusTimeDuration;
+	}
+
+	public long getLowBonusTimeDuration() {
+		return (long) lowBonusTimeDuration;
+	}
 
 	public void startTiming() {
 		startTime = System.currentTimeMillis() / 1000L;
