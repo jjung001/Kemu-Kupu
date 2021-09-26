@@ -8,6 +8,7 @@ public class ScoreTracker {
 	public ScoreTracker(int maximumNumberOfQuestions) {
 		this.maximumNumberOfQuestions = maximumNumberOfQuestions;
 		scores = new int[maximumNumberOfQuestions];
+		words = new String[maximumNumberOfQuestions];
 	}
 
 	public void update(int questionNumber, int score, String word) {
