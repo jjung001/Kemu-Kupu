@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,14 +16,15 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import words.WordFileReader;
 import words.WordList;
 import words.WordListManager;
 
 public class TopicsView extends Controller {
 
 	@FXML
-	private ToggleButton colourButton, weatherButton, dayOneButton, dayTwoButton, monthOneButton, monthTwoButton,
-			babyButton, workButton, feelingButton, compassPointButton, universityButton, softwareButton;
+	private ToggleButton colour, weather, dayOne, dayTwo, monthOne, monthTwo,
+			baby, work, feeling, compassPoint, university, software;
 	@FXML
 	private Button start, back;
 	@FXML
@@ -33,23 +35,26 @@ public class TopicsView extends Controller {
 	private ArrayList<ToggleButton> toggles = new ArrayList<ToggleButton>();
 	private WordList combinedWordList;
 	private WordListManager wordListManager;
+	private WordFileReader wordFileReader;
 
+	
 	@FXML
 	private void initialize() {
-		toggles.add(colourButton);
-		toggles.add(weatherButton);
-		toggles.add(dayOneButton);
-		toggles.add(dayTwoButton);
-		toggles.add(monthOneButton);
-		toggles.add(monthTwoButton);
-		toggles.add(babyButton);
-		toggles.add(workButton);
-		toggles.add(feelingButton);
-		toggles.add(compassPointButton);
-		toggles.add(universityButton);
-		toggles.add(softwareButton);
+		toggles.add(colour);
+		toggles.add(weather);
+		toggles.add(dayOne);
+		toggles.add(dayTwo);
+		toggles.add(monthOne);
+		toggles.add(monthTwo);
+		toggles.add(baby);
+		toggles.add(work);
+		toggles.add(feeling);
+		toggles.add(compassPoint);
+		toggles.add(university);
+		toggles.add(software);
 
 		// TODO Get word lists from files
+		wordFileReader = new WordFileReader();
 		wordListManager = new WordListManager();
 	}
 
@@ -58,10 +63,16 @@ public class TopicsView extends Controller {
 		String id = selectedTopic.getId();
 		if (selectedTopic.isSelected()) {
 			selectedTopic.setGraphic(new ImageView(onButtonImage));
-			// TODO Add specific list to word list manager
+			try {
+				wordListManager.addWordList(wordFileReader.readLines(id));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} else if (!selectedTopic.isSelected()) {
 			selectedTopic.setGraphic(new ImageView(offButtonImage));
 			// TODO Remove specific list to word list manager
+//			wordListManager.removeWordList();
 		}
 	}
 

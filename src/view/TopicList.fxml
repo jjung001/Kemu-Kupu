@@ -107,7 +107,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button fx:id="dayOfWeekTwo" layoutX="249.0" layoutY="-42.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
                </children></Group>
             <Group layoutX="91.0" layoutY="441.0">
                <children>
@@ -121,7 +120,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                      </font>
                   </Text>
-                  <Button fx:id="monthsOfYearTwo" layoutX="254.0" layoutY="-45.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
                </children>
             </Group>
             <Group layoutX="479.0" layoutY="247.0">
@@ -212,18 +210,18 @@
                   <Font name="DejaVu Sans Condensed Bold" size="15.0" />
                </font>
             </Label>
-            <ToggleButton fx:id="colourButton" layoutX="356.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="weatherButton" layoutX="356.0" layoutY="233.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="dayOneButton" layoutX="356.0" layoutY="277.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="monthOneButton" layoutX="356.0" layoutY="321.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="dayTwoButton" layoutX="356.0" layoutY="365.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="monthTwoButton" layoutX="356.0" layoutY="409.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="babyButton" layoutX="658.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="workButton" layoutX="658.0" layoutY="233.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="feelingButton" layoutX="658.0" layoutY="277.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="compassPointButton" layoutX="658.0" layoutY="321.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="universityButton" layoutX="658.0" layoutY="365.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <ToggleButton fx:id="softwareButton" layoutX="658.0" layoutY="409.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="colour" layoutX="356.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="weather" layoutX="356.0" layoutY="233.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="dayOne" layoutX="356.0" layoutY="277.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="monthOne" layoutX="356.0" layoutY="321.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="dayTwo" layoutX="356.0" layoutY="365.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="monthTwo" layoutX="356.0" layoutY="409.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="baby" layoutX="658.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="work" layoutX="658.0" layoutY="233.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="feeling" layoutX="658.0" layoutY="277.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="compassPoint" layoutX="658.0" layoutY="321.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="university" layoutX="658.0" layoutY="365.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="software" layoutX="658.0" layoutY="409.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
          </children>
       </AnchorPane>
    </children>
