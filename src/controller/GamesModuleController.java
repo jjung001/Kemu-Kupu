@@ -332,13 +332,13 @@ public class GamesModuleController extends Controller {
 				double progress = newValue == null ? 0 : newValue.doubleValue();
 				int highBonusReward = currentScorer.getHighBonusReward();
 				int lowBonusReward = currentScorer.getLowBonusReward();
-				int noBonusReward = currentScorer.getNoBonusReward();\
+				int noBonusReward = currentScorer.getNoBonusReward();
 
-//				if (questionIsFaulted) {
-//					highBonusReward /= 2;
-//					lowBonusReward /= 2;
-//					noBonusReward /= 2;
-//				}
+				if (currentQuestion.isSecondAttempt()) {
+					highBonusReward /= 2;
+					lowBonusReward /= 2;
+					noBonusReward /= 2;
+				}
 
 				if (progress > 0.667) {
 					bonusBar.setStyle("-fx-accent: green");
