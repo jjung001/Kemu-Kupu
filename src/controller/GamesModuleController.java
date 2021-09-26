@@ -164,6 +164,7 @@ public class GamesModuleController extends Controller {
 		bonusBarTimeline.pause();
 		String answer = wordTextField.getText().strip().toLowerCase();
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
+		wordTextField.setText("");
 		currentScorer.endTiming();
 
 		switch (answerStatus) {
@@ -245,7 +246,6 @@ public class GamesModuleController extends Controller {
 
 	private void getNextQuestion() {
 		if (quiz.hasNextQuestion()) {
-			wordTextField.setText("");
 			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
 			currentQuestion = quiz.getNextQuestion();
@@ -378,6 +378,7 @@ public class GamesModuleController extends Controller {
 		// skip word and get next word
 		bonusBarTimeline.pause();
 		failedWord();
+		wordTextField.setText("");
 		PauseTransition pause = new PauseTransition(Duration.seconds(2));
 		pause.setOnFinished(pauseEvent -> {
 			getNextQuestion();
