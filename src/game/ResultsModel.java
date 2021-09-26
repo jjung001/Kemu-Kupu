@@ -5,6 +5,14 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.image.Image;
 
+/**
+ * This is a helper model class that provides methods for the Results View controller class. 
+ * It has the methods to return tree level and its according image based on user's total score. 
+ * It implements the line chart to be displayed in the results screen. 
+ * 
+ * @author Julie Kim
+ *
+ */
 public class ResultsModel {
 
 	private String level;
@@ -16,6 +24,7 @@ public class ResultsModel {
 	private String blooming = "Blooming";
 	private ScoreTracker scoreTracker;
 
+	//Get image from file to display for tree levels
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
 	Image youngImage = new Image(getClass().getResourceAsStream("/resources/Tree_2.png"));
@@ -23,10 +32,19 @@ public class ResultsModel {
 	Image matureImage = new Image(getClass().getResourceAsStream("/resources/Tree_4.png"));
 	Image bloomingImage = new Image(getClass().getResourceAsStream("/resources/Tree_final.png"));
 
+	/**
+	 * Constructor receives the Score Tracker user data from the results view controller, from the games module
+	 * @param scoreTracker	Score Tracker instance with user data of the results of the quiz game. 
+	 */
 	public ResultsModel(ScoreTracker scoreTracker) {
 		this.scoreTracker = scoreTracker;
 	}
 
+	/**
+	 * Returns the tree level name accordingly to the user's score of the quiz. 
+	 * @param score	The total score of the user's quiz
+	 * @return String level	The tree level of the user's last quiz game. 
+	 */
 	public String determineLevel(int score) {
 		if (score < 60) {
 			level = sprout;
@@ -44,6 +62,11 @@ public class ResultsModel {
 		return level;
 	}
 
+	/**
+	 * Returns the image of the user's last quiz game result accordingly to the total score. 
+	 * @param level	The string name of the tree level. 
+	 * @return Image	image of the correct tree level
+	 */
 	public Image displayImage(String level) {
 		if (level.equals(sprout)) {
 			return sproutImage;
@@ -60,6 +83,11 @@ public class ResultsModel {
 		}
 	}
 
+	/**
+	 * Sets up the line chart that displays cumulative score after each word
+	 * Displays the progress of the score through the quiz
+	 * @param chart LineChart with x,y axis propoerties
+	 */
 	public void setChart(LineChart<String, Number> chart) {
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
 		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(1), scoreTracker.getScore(1)));
