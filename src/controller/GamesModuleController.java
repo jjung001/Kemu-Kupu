@@ -256,8 +256,6 @@ public class GamesModuleController extends Controller {
 			int totalNumberOfQuestions = quiz.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
-			System.out.println("NO NEXT QUESTION"); // DEBUG
-			// TODO Pause for a bit...
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/ResultScreen.fxml"));
 			try {
@@ -370,7 +368,6 @@ public class GamesModuleController extends Controller {
 		String currentWord = currentQuestion.getWord();
 		String currentWordSanitised = currentWord.replaceAll("-", " ");
 		speak(currentWordSanitised, true);
-		System.out.println("currentWord" + currentWordSanitised);
 	}
 
 	@FXML
