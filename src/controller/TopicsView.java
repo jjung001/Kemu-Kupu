@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import application.AlertBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,6 +121,15 @@ public class TopicsView extends Controller {
 				alert.setContentText("Please contact the developer.");
 				alert.showAndWait();
 			}
+		}
+	}
+	
+	public void quitTopic(ActionEvent event) {
+		// to return to Main Menu confirm exit on AlertBox
+		String header = "Are you sure you want to go back to Main?";
+		String description = "The topics will not be saved.";
+		if (AlertBox.display(header, description)) {
+			backToMain(event);
 		}
 	}
 
