@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Random;
 
 import application.AlertBox;
 import application.Festival;
@@ -12,6 +13,7 @@ import game.ScoreTracker;
 import game.Scorer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -99,6 +101,7 @@ public class GamesModuleController extends Controller {
 	boolean isBeginning;
 	Question currentQuestion;
 	Scorer currentScorer;
+	private Timeline bonusBarTimeline;
 
 	@FXML
 	public void onKeyPressed(KeyEvent e) {
@@ -145,14 +148,18 @@ public class GamesModuleController extends Controller {
 			getNextQuestion();
 		} else {
 			boolean canProceed = submitQuestion();
-			if (canProceed) {
-				getNextQuestion();
-			}
+			PauseTransition pause = new PauseTransition(Duration.seconds(2));
+			pause.setOnFinished(event -> {
+				if (canProceed) {
+					getNextQuestion();
+				}
+			});
+			pause.play();
 		}
 	}
 
 	private boolean submitQuestion() {
-		bonusBar.setProgress(0);
+		bonusBarTimeline.pause();
 		String answer = wordTextField.getText().strip().toLowerCase();
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
 		currentScorer.endTiming();
@@ -190,11 +197,12 @@ public class GamesModuleController extends Controller {
 		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
 		hintLabel.setText(parsedMessage);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
-		speak("incorrect, spell again", false);
-		sayWord();
-		startProgressBarCountdown();
-		currentScorer.startTiming();
-
+		speak("Incorrect.", false);
+		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
+		pauseBeforeTesting.setOnFinished(event -> {
+			testWord();
+		});
+		pauseBeforeTesting.play();
 	}
 
 	private void faultedWord() {
@@ -203,6 +211,8 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
+		statusLabel.setText("GOOD JOB");
+		speak("Good job.", false);
 	}
 
 	private void failedWord() {
@@ -211,7 +221,24 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		speak("incorrect", false);
+		String encouragingMessage = pickRandomEncouragingMessage();
+		statusLabel.setText(encouragingMessage);
+		speak(encouragingMessage, false);
+	}
+
+	private String pickRandomEncouragingMessage() {
+		Random r = new Random();
+		int index = r.nextInt(4);
+		switch (index) {
+		case 0:
+			return "You got this!";
+		case 1:
+			return "Keep on going!";
+		case 2:
+			return "Nothing is impossible!";
+		default:
+			return "You can do it!";
+		}
 	}
 
 	private void getNextQuestion() {
@@ -221,10 +248,7 @@ public class GamesModuleController extends Controller {
 			statusLabel.setText("SPELL IT:");
 			currentQuestion = quiz.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
-			speak("Spell the word.", false);
-			sayWord();
-			startProgressBarCountdown();
-			currentScorer.startTiming();
+			testWord();
 
 			int questionNumber = quiz.getQuestionNumber();
 			int totalNumberOfQuestions = quiz.getTotalNumberOfQuestions();
@@ -250,6 +274,25 @@ public class GamesModuleController extends Controller {
 				alert.showAndWait();
 			}
 		}
+	}
+
+	private void testWord() {
+		introduceWord();
+		PauseTransition pauseBeforeStartingCountdown = new PauseTransition(Duration.seconds(3));
+		pauseBeforeStartingCountdown.setOnFinished(event -> {
+			startProgressBarCountdown();
+			currentScorer.startTiming();
+		});
+		pauseBeforeStartingCountdown.play();
+	}
+
+	private void introduceWord() {
+		speak("Spell the word.", false);
+		PauseTransition pauseBeforeSayingWord = new PauseTransition(Duration.seconds(2));
+		pauseBeforeSayingWord.setOnFinished(event -> {
+			sayWord();
+		});
+		pauseBeforeSayingWord.play();
 	}
 
 	public void setUp(WordList combinedWordList) {
@@ -287,14 +330,24 @@ public class GamesModuleController extends Controller {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 				double progress = newValue == null ? 0 : newValue.doubleValue();
+				int highBonusReward = currentScorer.getHighBonusReward();
+				int lowBonusReward = currentScorer.getLowBonusReward();
+				int noBonusReward = currentScorer.getNoBonusReward();\
+
+//				if (questionIsFaulted) {
+//					highBonusReward /= 2;
+//					lowBonusReward /= 2;
+//					noBonusReward /= 2;
+//				}
+
 				if (progress > 0.667) {
 					bonusBar.setStyle("-fx-accent: green");
-					bonusLabel.setText("+" + Integer.toString(currentScorer.getHighBonusReward()));
+					bonusLabel.setText("+" + Integer.toString(highBonusReward));
 				} else if (progress > 0) {
 					bonusBar.setStyle("-fx-accent: orange");
-					bonusLabel.setText("+" + Integer.toString(currentScorer.getLowBonusReward()));
+					bonusLabel.setText("+" + Integer.toString(lowBonusReward));
 				} else {
-					bonusLabel.setText("+" + Integer.toString(currentScorer.getNoBonusReward()));
+					bonusLabel.setText("+" + Integer.toString(noBonusReward));
 				}
 			}
 		});
@@ -315,13 +368,19 @@ public class GamesModuleController extends Controller {
 		String currentWord = currentQuestion.getWord();
 		String currentWordSanitised = currentWord.replaceAll("-", " ");
 		speak(currentWordSanitised, true);
-		System.out.println("currentWord" +currentWordSanitised);
+		System.out.println("currentWord" + currentWordSanitised);
 	}
 
 	@FXML
 	public void skipButton(ActionEvent event) {
 		// skip word and get next word
-		getNextQuestion();
+		bonusBarTimeline.pause();
+		failedWord();
+		PauseTransition pause = new PauseTransition(Duration.seconds(2));
+		pause.setOnFinished(pauseEvent -> {
+			getNextQuestion();
+		});
+		pause.play();
 	}
 
 	@FXML
@@ -338,9 +397,9 @@ public class GamesModuleController extends Controller {
 
 	@FXML
 	public void decreaseProgress(long totalDuration) {
-		timeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
+		bonusBarTimeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
 				new KeyFrame(Duration.millis(totalDuration * 1000), new KeyValue(bonusBar.progressProperty(), 0)));
-		timeline.play();
+		bonusBarTimeline.play();
 	}
 
 }
