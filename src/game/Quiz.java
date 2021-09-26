@@ -16,7 +16,7 @@ public class Quiz {
 	}
 
 	public Boolean hasNextQuestion() {
-		return (questionNumber >= maximumNumberOfQuestions);
+		return (questionNumber < maximumNumberOfQuestions);
 	}
 
 	public Question getNextQuestion() {
