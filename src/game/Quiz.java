@@ -9,6 +9,7 @@ public class Quiz {
 	private int questionNumber;
 
 	public Quiz(Collection<? extends String> words) {
+		this.words = new ArrayList<>();
 		this.words.addAll(words);
 		this.maximumNumberOfQuestions = words.size();
 		questionNumber = 0;
