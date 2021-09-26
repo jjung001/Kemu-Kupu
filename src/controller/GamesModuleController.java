@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import application.AlertBox;
+import application.Festival;
 
 public class GamesModuleController extends Controller {
 
@@ -144,6 +145,7 @@ public class GamesModuleController extends Controller {
 	@FXML
     public void repeatButton(ActionEvent event){
         // repeat word
+		Festival.festival(1.5, "hello");
     }
 		
 	@FXML
