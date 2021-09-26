@@ -2,8 +2,26 @@ package application;
 
 import java.io.IOException;
 
+/**
+ * Communicates specifically with Festival TTS to speak words.
+ *
+ * @author Jared Daniel Recomendable
+ * @author Julie Kim
+ * @author Juwon Wong
+ *
+ */
 public class Festival {
 
+	/**
+	 * Tells Festival to speak with the input parameters to consider.
+	 *
+	 * @param speed    A double that indicates the scaling of time that Festival
+	 *                 speaks in. A smaller number indiccates a faster speed of
+	 *                 speech.
+	 * @param word     A String containing what Festival should say.
+	 * @param language A Language enum that indicates what language Festival should
+	 *                 speak in.
+	 */
 	public static void festival(double speed, String word, Language language) {
 		String voice;
 		if (language.equals(Language.MAORI)) {
