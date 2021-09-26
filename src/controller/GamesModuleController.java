@@ -124,6 +124,7 @@ public class GamesModuleController extends Controller {
 			btnSubmit.setText("Submit");
 			btnIDontKnow.setDisable(false);
 			statusLabel.setText("SPELL IT:");
+			wordTextField.setDisable(false);
 
 			// Gather the first question
 			getNextQuestion(event);
@@ -165,6 +166,7 @@ public class GamesModuleController extends Controller {
 		int score = currentScorer.getScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
+		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 	}
 
 	private void incorrectWord() {
@@ -181,6 +183,7 @@ public class GamesModuleController extends Controller {
 		int score = currentScorer.getFaultedScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
+		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 	}
 
 	private void failedWord() {
@@ -188,6 +191,7 @@ public class GamesModuleController extends Controller {
 		int score = 0;
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
+		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 	}
 
 	private void getNextQuestion(ActionEvent event) {
@@ -234,6 +238,8 @@ public class GamesModuleController extends Controller {
 		bonusBar.setProgress(0);
 		statusLabel.setText("Press \"Start\" to begin!");
 		questionNumLabel.setText("");
+		scoreLabel.setText("0");
+		wordTextField.setDisable(true);
 	}
 
 	private void startProgressBarCountdown() {
@@ -253,7 +259,8 @@ public class GamesModuleController extends Controller {
 				}
 			}
 		});
-		decreaseProgress();
+		long totalDuration = currentScorer.getLowBonusTimeDuration();
+		decreaseProgress(totalDuration);
 	}
 
 	private void speak(String text) {
@@ -285,9 +292,9 @@ public class GamesModuleController extends Controller {
 	}
 
 	@FXML
-	public void decreaseProgress() {
+	public void decreaseProgress(long totalDuration) {
 		timeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
-				new KeyFrame(Duration.millis(15000), new KeyValue(bonusBar.progressProperty(), 0)));
+				new KeyFrame(Duration.millis(totalDuration * 1000), new KeyValue(bonusBar.progressProperty(), 0)));
 		timeline.play();
 	}
 
