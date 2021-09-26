@@ -409,6 +409,7 @@ public class GamesModuleController extends Controller {
 	public void adjustSpeed(MouseEvent event) {
 		// adjust speed of speech after dragging slider - 0.5, 1, 1.5
 		currentSpeed = speedOfSpeech.getValue();
+		updateSpeedLabel(event);
 	}
 
 	@FXML
