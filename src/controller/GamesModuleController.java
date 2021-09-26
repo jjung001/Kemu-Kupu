@@ -113,7 +113,9 @@ public class GamesModuleController extends Controller {
 	@FXML
 	public void quitGame(ActionEvent event) {
 		// to return to Main Menu confirm exit on AlertBox
-		if (AlertBox.display()) {
+		String header = "Are you sure you want to quit the game?";
+		String description = "Your tree will die.";
+		if (AlertBox.display(header, description)) {
 			backToMain(event);
 		}
 	}
