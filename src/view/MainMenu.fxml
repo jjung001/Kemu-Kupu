@@ -29,7 +29,7 @@
       </Group>
       <ImageView fitHeight="199.0" fitWidth="199.0" layoutX="184.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" rotate="156.2">
          <image>
-            <Image url="file:/home/student/Documents/assignment-3-and-project-team-23/src/resources/KemuKupu_logo.png" />
+            <Image url="@/resources/KemuKupu_logo.png" />
          </image>
          <rotationAxis>
             <Point3D z="7.0" />
