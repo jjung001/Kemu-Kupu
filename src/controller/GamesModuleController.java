@@ -23,7 +23,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -268,11 +267,6 @@ public class GamesModuleController extends Controller {
 				primaryStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle("Spelling Quiz Error");
-				alert.setHeaderText("IOException Caught, Results Screen");
-				alert.setContentText("Please contact the developer.");
-				alert.showAndWait();
 			}
 		}
 	}

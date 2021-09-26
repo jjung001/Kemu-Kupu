@@ -19,12 +19,12 @@ public class ScoreTracker {
 	public int getScore(int questionNumber) {
 		return scores[questionNumber - 1];
 	}
-	
+
 	public int getCumulativeScore(int questionNumber) {
 		int i;
 		int cumulativeScore = 0;
 		for (i = 1; i <= questionNumber; i++) {
-			cumulativeScore+=getScore(i);
+			cumulativeScore += getScore(i);
 		}
 		return cumulativeScore;
 	}
