@@ -8,7 +8,7 @@ public class Festival {
 
 	public static void festival(double speed, String word) {
 
-		String cmd = "echo \"(voice_akl_nz_cw_cg_cg) (Parameter.set 'Duration_Stretch " + speed + ") (SayText \\\"" + word + "\\\")\" | festival --pipe";
+		String cmd = "echo \"(voice_akl_mi_pk06_cg) (Parameter.set 'Duration_Stretch " + speed + ") (SayText \\\"" + word + "\\\")\" | festival --pipe";
 		ProcessBuilder builder = new ProcessBuilder("/bin/bash", "-c", cmd);
 		try {
 			Process process = builder.start();
