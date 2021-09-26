@@ -6,6 +6,7 @@ import java.util.Random;
 
 import application.AlertBox;
 import application.Festival;
+import application.Language;
 import game.AnswerStatus;
 import game.Question;
 import game.Quiz;
@@ -358,9 +359,9 @@ public class GamesModuleController extends Controller {
 	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
 		if (isMaori) {
-			Festival.festival(speed, text);
+			Festival.festival(speed, text, Language.MAORI);
 		} else {
-			Festival.festivalEnglish(speed, text);
+			Festival.festival(speed, text, Language.ENGLISH);
 		}
 	}
 
