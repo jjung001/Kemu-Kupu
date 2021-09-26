@@ -10,7 +10,10 @@ public class Question {
 	}
 
 	public AnswerStatus checkAnswer(String answer) {
-		if (word.equals(answer)) {
+		String wordSanitised = word.strip();
+		String answerSanitised = answer.strip();
+
+		if (wordSanitised.equalsIgnoreCase(answerSanitised)) {
 			return determineAnswerStatusIfCorrect();
 		} else {
 			attemptNumber++;
