@@ -195,6 +195,7 @@ public class GamesModuleController extends Controller {
 			hintLabel.setText("");
 			currentQuestion = quiz.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
+			speak("Spell the word.");
 			sayWord();
 			startProgressBarCountdown();
 			currentScorer.startTiming();
@@ -255,11 +256,15 @@ public class GamesModuleController extends Controller {
 		decreaseProgress();
 	}
 
+	private void speak(String text) {
+		double speed = speedOfSpeech.getValue();
+		Festival.festival(speed, text);
+	}
+
 	private void sayWord() {
 		String currentWord = currentQuestion.getWord();
 		String currentWordSanitised = currentWord.replaceAll("-", " ");
-		double speed = speedOfSpeech.getValue();
-		Festival.festival(speed, currentWordSanitised);
+		speak(currentWordSanitised);
 	}
 
 	@FXML
