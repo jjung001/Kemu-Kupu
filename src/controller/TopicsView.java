@@ -123,11 +123,11 @@ public class TopicsView extends Controller {
 			}
 		}
 	}
-	
+
 	public void quitTopic(ActionEvent event) {
 		// to return to Main Menu confirm exit on AlertBox
-		String header = "Are you sure you want to go back to Main?";
-		String description = "The topics will not be saved.";
+		String header = "Are you sure you want to go back?";
+		String description = "Your selected topics will not be saved.";
 		if (AlertBox.display(header, description)) {
 			backToMain(event);
 		}
