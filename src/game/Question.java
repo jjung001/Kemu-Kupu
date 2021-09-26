@@ -29,6 +29,10 @@ public class Question {
 		return word.charAt(1);
 	}
 
+	public boolean isSecondAttempt() {
+		return (attemptNumber == 2);
+	}
+
 	private AnswerStatus determineAnswerStatusIfCorrect() {
 		switch (attemptNumber) {
 		case (2):
