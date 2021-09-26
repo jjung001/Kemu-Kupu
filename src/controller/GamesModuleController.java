@@ -192,11 +192,10 @@ public class GamesModuleController extends Controller {
 
 	private void getNextQuestion(ActionEvent event) {
 		if (quiz.hasNextQuestion()) {
-			System.out.println("THERE IS NEXT QUESTION"); // DEBUG
 			hintLabel.setText("");
 			currentQuestion = quiz.getNextQuestion();
-			System.out.println("CALLED GET NEXT QUESTION"); // DEBUG
 			currentScorer = new Scorer(currentQuestion.getWord());
+			sayWord();
 			startProgressBarCountdown();
 			currentScorer.startTiming();
 
