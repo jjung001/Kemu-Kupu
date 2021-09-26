@@ -392,8 +392,21 @@ public class GamesModuleController extends Controller {
 	}
 
 	@FXML
+	public void updateSpeedLabel(MouseEvent event) {
+		// update the speed label during dragging of slider
+		double speed = speedOfSpeech.getValue();
+		if (speed < 0.75) {
+			speedLabel.setText("Speed: Fast");
+		} else if (speed < 1.25) {
+			speedLabel.setText("Speed: Normal");
+		} else {
+			speedLabel.setText("Speed: Slow");
+		}
+	}
+
+	@FXML
 	public void adjustSpeed(MouseEvent event) {
-		// adjust speed of speech by dragging slider - 0.5, 1, 1.5
+		// adjust speed of speech after dragging slider - 0.5, 1, 1.5
 		currentSpeed = speedOfSpeech.getValue();
 	}
 

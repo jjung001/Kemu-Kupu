@@ -91,7 +91,7 @@
                      </font>
                   </TextField>
                   <ProgressBar fx:id="bonusBar" layoutX="-10.0" layoutY="281.0" prefHeight="36.0" prefWidth="223.0" progress="1.0" rotate="-90.0" style="-fx-accent: #36d731;" />
-                  <Slider fx:id="speedOfSpeech" blockIncrement="0.5" focusTraversable="false" layoutX="612.0" layoutY="543.0" majorTickUnit="0.5" max="1.5" min="0.5" minorTickCount="0" onMouseReleased="#adjustSpeed" prefHeight="16.0" prefWidth="146.0" snapToTicks="true" value="1.0">
+                  <Slider fx:id="speedOfSpeech" blockIncrement="0.5" focusTraversable="false" layoutX="612.0" layoutY="543.0" majorTickUnit="0.5" max="1.5" min="0.5" minorTickCount="0" onMouseDragged="#updateSpeedLabel" onMouseReleased="#adjustSpeed" prefHeight="16.0" prefWidth="146.0" rotate="180.0" showTickMarks="true" snapToTicks="true" value="1.0">
                      <cursor>
                         <Cursor fx:constant="CROSSHAIR" />
                      </cursor></Slider>
