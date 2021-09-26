@@ -29,17 +29,17 @@ public class ResultsModel {
 	}
 	
 	public String determineLevel(int score) {
-		if (score < 50) {
+		if (score < 60) {
 			level = sprout;
-		} else if (score >= 50 && score < 100) {
+		} else if (score < 160) {
 			level = sapling;
-		} else if (score >= 100 && score < 150) {
+		} else if (score < 300) {
 			level = young;
-		} else if (score >= 150 && score < 200) {
+		} else if (score < 650) {
 			level = grown;
-		} else if (score >= 200 && score < 250) {
+		} else if (score < 1000) {
 			level = mature;
-		} else if (score >= 250) {
+		} else {
 			level = blooming;
 		}
 		return level;
