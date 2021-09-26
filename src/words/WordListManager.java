@@ -14,6 +14,10 @@ public class WordListManager {
 		wordLists.add(wordList);
 	}
 
+	public void removeWordList(WordList wordList) {
+		wordLists.remove(wordList);
+	}
+
 	public WordList getCombinedWords() {
 		WordList combinedWordList = new WordList();
 		combineWordLists(combinedWordList);
