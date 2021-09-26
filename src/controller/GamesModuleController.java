@@ -145,7 +145,6 @@ public class GamesModuleController extends Controller {
 			getNextQuestion();
 		} else {
 			boolean canProceed = submitQuestion();
-			wordTextField.setText("");
 			if (canProceed) {
 				getNextQuestion();
 			}
@@ -212,11 +211,14 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
+		speak("incorrect", false);
 	}
 
 	private void getNextQuestion() {
 		if (quiz.hasNextQuestion()) {
+			wordTextField.setText("");
 			hintLabel.setText("");
+			statusLabel.setText("SPELL IT:");
 			currentQuestion = quiz.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
 			speak("Spell the word.", false);
@@ -319,6 +321,7 @@ public class GamesModuleController extends Controller {
 	@FXML
 	public void skipButton(ActionEvent event) {
 		// skip word and get next word
+		getNextQuestion();
 	}
 
 	@FXML
@@ -338,22 +341,6 @@ public class GamesModuleController extends Controller {
 		timeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
 				new KeyFrame(Duration.millis(totalDuration * 1000), new KeyValue(bonusBar.progressProperty(), 0)));
 		timeline.play();
-	}
-
-	@FXML
-	public void setScoreLabel(MouseEvent event) {
-		// show score for each game
-	}
-
-	@FXML
-	public void setquestionNumLabel(MouseEvent event) {
-		// show question number
-	}
-
-	@FXML
-	public void setstatusLabel(MouseEvent event) {
-		// show status of game according to accepting state
-		// "SPELL IT:", "CORRECT", "INCORRECT"
 	}
 
 }
