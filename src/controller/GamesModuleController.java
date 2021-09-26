@@ -34,7 +34,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import words.WordList;
-
+/**
+ * This is the controller class for the Games module. 
+ * It starts the game Kēmu Kupu. 
+ * @author Jared Daniel Recomendable
+ * @author Juwon Jung
+ *
+ */
 public class GamesModuleController extends Controller {
 
 	private static final ActionEvent ActionEvent = null;
@@ -103,6 +109,11 @@ public class GamesModuleController extends Controller {
 	Scorer currentScorer;
 	private Timeline bonusBarTimeline;
 
+	/**
+	 * When ENTER key is pressed the word is submitted to check if spelt correclty,
+	 * instead of pressing the submit button.
+	 * @param e KeyEvent when ENTER is pressed on keyboard
+	 */
 	@FXML
 	public void onKeyPressed(KeyEvent e) {
 		if (e.getCode().equals(KeyCode.ENTER)) {
@@ -110,6 +121,11 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Alert Box appears when back button is pressed.
+	 * If ok is selected the screen returns to main main.
+	 * @param event ActionEvent when back button is pressed
+	 */
 	@FXML
 	public void quitGame(ActionEvent event) {
 		// to return to Main Menu confirm exit on AlertBox
@@ -120,6 +136,10 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Inputs macron character into textField when macaron button is pressd.
+	 * @param event ActionEvent when maracon character is pressed
+	 */
 	@FXML
 	public void pressMacronButton(ActionEvent event) {
 		// macron button is pressed, input macron into text field
@@ -138,6 +158,13 @@ public class GamesModuleController extends Controller {
 		wordTextField.positionCaret(caretPosition + 1);
 	}
 
+	/** 
+	 * Sets up the interface for accepting question and gets the first word.
+	 * If there is another question canProceed boolean is true, to run getNextQuestion.
+	 * Pauses the screen for a duration of two seconds before moving onto next word or next screen
+	 * to show the status label. 
+	 * Sets the status label as Spell it on the first attempt of the word.
+	 */
 	public void submitButton() {
 		if (isBeginning) {
 			// Set up the interface for accepting questions
@@ -160,6 +187,14 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Checks if word is spelt correct case insensitive.
+	 * BonbuBar pauses from decreasing when answer is being checked.
+	 * WordTextField is reset to empty after each attempt.
+	 * Gets current bonus points from end of timing and store in current score.
+	 * Stores each state of answer as emu AnswerStatus
+	 * @return the state of answer and whether to proceed to next question or give another attempt.
+	 */
 	private boolean submitQuestion() {
 		bonusBarTimeline.pause();
 		String answer = wordTextField.getText().strip().toLowerCase();
@@ -185,6 +220,12 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Answer status as mastered and question gains a score.
+	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
+	 * Status label replaces with CORRECT.
+	 * Method speak is calls to run festival command "correct." in english voice.
+	 */
 	private void masteredWord() {
 		int questionNumber = quiz.getQuestionNumber();
 		int score = currentScorer.getScore();
@@ -195,6 +236,13 @@ public class GamesModuleController extends Controller {
 		speak("correct", false);
 	}
 
+	/**
+	 * Answer status is incorrect.
+	 * Provides the user with a hint with second character of word.
+	 * Status label is updated to "INCORRECT, SPELL AGAIN".
+	 * Method speak calls to run festival command "incorrect." in english voice.
+	 * Pauses transition for two seconds before giving next attempt of the word.
+	 */
 	private void incorrectWord() {
 		char secondCharacter = currentQuestion.getSecondLetter();
 		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
@@ -208,6 +256,12 @@ public class GamesModuleController extends Controller {
 		pauseBeforeTesting.play();
 	}
 
+	/**
+	 * Answer status is faulted.
+	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
+	 * Status label is updated to "GOOD JOB".
+	 * Method speak calls to run festival command "Good job." in english voice.
+	 */
 	private void faultedWord() {
 		int questionNumber = quiz.getQuestionNumber();
 		int score = currentScorer.getFaultedScore();
@@ -218,6 +272,12 @@ public class GamesModuleController extends Controller {
 		speak("Good job.", false);
 	}
 
+	/**
+	 * Answer status is failed and question fails to gain score.
+	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
+	 * Status label shows encouraging message.
+	 * Method speak calls to run festival command of encouraging message in english voice.
+	 */
 	private void failedWord() {
 		int questionNumber = quiz.getQuestionNumber();
 		int score = 0;
@@ -229,6 +289,10 @@ public class GamesModuleController extends Controller {
 		speak(encouragingMessage, false);
 	}
 
+	/**
+	 * Picks a random encouraging message of 4 cases.
+	 * @return String encouraging message
+	 */
 	private String pickRandomEncouragingMessage() {
 		Random r = new Random();
 		int index = r.nextInt(4);
@@ -244,6 +308,13 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Gets next question of the word list and tests.
+	 * Hint label is set as empty.
+	 * Status label updates to "SPELL IT".
+	 * QuestionNum label shows the current question number out of 5.
+	 * If there is no question left, screen changes to results screen.
+	 */
 	private void getNextQuestion() {
 		if (quiz.hasNextQuestion()) {
 			hintLabel.setText("");
@@ -271,6 +342,10 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Tests the 
+	 * Pauses transition for three seconds before time counts down.
+	 */
 	private void testWord() {
 		introduceWord();
 		PauseTransition pauseBeforeStartingCountdown = new PauseTransition(Duration.seconds(3));
@@ -281,6 +356,10 @@ public class GamesModuleController extends Controller {
 		pauseBeforeStartingCountdown.play();
 	}
 
+	/**
+	 * Method speak calls to run festival command of "Spell the word." in english voice.
+	 * Pauses transition for two seconds before saying the question word.
+	 */
 	private void introduceWord() {
 		speak("Spell the word.", false);
 		PauseTransition pauseBeforeSayingWord = new PauseTransition(Duration.seconds(2));
@@ -290,6 +369,10 @@ public class GamesModuleController extends Controller {
 		pauseBeforeSayingWord.play();
 	}
 
+	/**
+	 * Setup of games module prior to start the game and initliaizes models for spelling quiz.
+	 * @param combinedWordList selectedWords is implemented to get the random words.
+	 */
 	public void setUp(WordList combinedWordList) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
@@ -308,6 +391,10 @@ public class GamesModuleController extends Controller {
 		toggleButtonVisibility(isBeginning);
 	}
 
+	/**
+	 * All Buttons expect for Start and wordTextField set as disabled prior to starting the game.
+	 * @param visibilityState boolean set as true for buttons and textField that is disabled.
+	 */
 	private void toggleButtonVisibility(boolean visibilityState) {
 		btnIDontKnow.setDisable(visibilityState);
 		wordTextField.setDisable(visibilityState);
@@ -319,6 +406,12 @@ public class GamesModuleController extends Controller {
 		btnRepeat.setDisable(visibilityState);
 	}
 
+	/**
+	 * ProgressBar decreases as it counts down in seconds from dependent bonus points for each question and attempt number.
+	 * The possible amount of bonus score available is visible on top of the progress bar.
+	 * When ProgressBar is in high bonus range progress Bar is green, changes to orange in low bonus bar
+	 * and no bonus range when progress bar is empty.
+	 */
 	private void startProgressBarCountdown() {
 		bonusBar.setProgress(1.0);
 		bonusBar.progressProperty().addListener(new ChangeListener<Number>() {
@@ -350,6 +443,11 @@ public class GamesModuleController extends Controller {
 		decreaseProgress(totalDuration);
 	}
 
+	/**
+	 * Method sends run festival command.
+	 * @param text String word wanting to be spoken.
+	 * @param isMaori Boolean of whether Maori or English voice is required.
+	 */
 	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
 		if (isMaori) {
@@ -359,12 +457,21 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Calls speak method with the "-" replaced with " " as Maori voice cannot read "-".
+	 */
 	private void sayWord() {
 		String currentWord = currentQuestion.getWord();
 		String currentWordSanitised = currentWord.replaceAll("-", " ");
 		speak(currentWordSanitised, true);
 	}
 
+	/**
+	 * Skips word if I dont Know button is pressed.
+	 * Progress Bar stops decreasing and wordTextField is reset to empty.
+	 * Pauses transition for two seconds before going onto next question word.
+	 * @param event
+	 */
 	@FXML
 	public void skipButton(ActionEvent event) {
 		// skip word and get next word
@@ -378,12 +485,22 @@ public class GamesModuleController extends Controller {
 		pause.play();
 	}
 
+	/**
+	 * Repeats the word as many times as the user wants.
+	 * @param event ActionEvene from the repeatButton.
+	 */
 	@FXML
 	public void repeatButton(ActionEvent event) {
 		// repeat word
 		sayWord();
 	}
 
+	/**
+	 * Updates speed label according to slider changes.
+	 * If speed slider drags to < 0.75 Speed is determined as fast,
+	 * speed < 1.25 is normal else is determined as slow.
+	 * @param event MouseEvent slider is dragged in speed ranges.
+	 */
 	@FXML
 	public void updateSpeedLabel(MouseEvent event) {
 		// update the speed label during dragging of slider
@@ -397,6 +514,10 @@ public class GamesModuleController extends Controller {
 		}
 	}
 
+	/**
+	 * Adjusts speed when user updates and changes speed with speed slider.
+	 * @param event MouseEvent slider is dragged onto speed levels 0.5, 1, 1.5
+	 */
 	@FXML
 	public void adjustSpeed(MouseEvent event) {
 		// adjust speed of speech after dragging slider - 0.5, 1, 1.5
@@ -404,6 +525,10 @@ public class GamesModuleController extends Controller {
 		updateSpeedLabel(event);
 	}
 
+	/**
+	 * Progress Bar decreases according to bonus score for each question.
+	 * @param totalDuration duration of progressbar
+	 */
 	@FXML
 	public void decreaseProgress(long totalDuration) {
 		bonusBarTimeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),

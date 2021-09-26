@@ -11,9 +11,9 @@ public class Festival {
 	/**
 	 * Runs the festival interpreter according to speed of speech, 
 	 * current word and voice of language.
-	 * @param speed
-	 * @param word
-	 * @param language
+	 * @param speed the speed of speech
+	 * @param word the current word to be read out from festival
+	 * @param language voice for festival to interpret with different language voices
 	 */
 	public static void festival(double speed, String word, Language language) {
 		String voice;

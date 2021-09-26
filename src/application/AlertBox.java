@@ -19,8 +19,8 @@ public class AlertBox {
 	/**
 	 * Displays alert box when user tries to exit out of scene.
 	 * User needs to select quit button to exit from current scene.
-	 * @param header
-	 * @param content
+	 * @param header String to put into header of alert box
+	 * @param content String to put into context of alert box
 	 * @return
 	 */
 	public static boolean display(String header, String content) {
