@@ -31,7 +31,7 @@
                   <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                </font>
             </Button>
-            <Button fx:id="back" layoutX="38.0" layoutY="509.0" mnemonicParsing="false" onAction="#quitTopic" prefHeight="50.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+            <Button fx:id="back" layoutX="40.0" layoutY="506.0" mnemonicParsing="false" onAction="#quitTopic" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
