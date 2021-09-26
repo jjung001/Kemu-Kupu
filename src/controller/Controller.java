@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 
@@ -27,7 +28,7 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+	}
 	
 	public void backToMain(ActionEvent back) {
 		switchScene(back, "MainMenu.fxml");

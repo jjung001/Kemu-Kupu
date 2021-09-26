@@ -5,7 +5,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResultsView">
    <children>
       <AnchorPane>
          <children>
@@ -23,67 +23,77 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2c6ac" height="550.0" layoutX="25.0" layoutY="28.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="750.0" />
                   <Button layoutX="362.0" layoutY="90.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="49.0" style="-fx-background-color: transparent;" />
                   <Group layoutX="587.0" layoutY="33.0" />
-                  <Button layoutX="40.0" layoutY="506.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="backButton" layoutX="40.0" layoutY="506.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../Downloads/Back_icon.png" />
+                              <Image url="file:/home/student/assignment-3-and-project-team-23/src/resources/Back_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="541.0" layoutY="502.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="207.0" style="-fx-background-color: #714e42;" text="Play Again" textFill="#a2c6ac">
+                  <Button fx:id="playAgainButton" layoutX="541.0" layoutY="502.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="56.0" prefWidth="207.0" style="-fx-background-color: #714e42;" text="Play Again" textFill="#a2c6ac">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Text fill="#714e42" layoutX="275.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result:" textAlignment="CENTER">
+                  <Text fill="#714e42" layoutX="274.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result:" textAlignment="CENTER">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="70.0" />
                      </font>
                   </Text>
-                  <Group layoutX="88.0" layoutY="109.0">
+                  <Group layoutX="569.0" layoutY="125.0" />
+                  <Group layoutX="74.0" layoutY="152.0">
                      <children>
-                        <Ellipse fill="WHITE" layoutX="90.0" layoutY="90.0" radiusX="79.0" radiusY="79.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="5.0" />
-                        <ImageView fitHeight="142.0" fitWidth="142.0" layoutX="22.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../Downloads/Sprout_icon.png" />
-                           </image>
-                        </ImageView>
-                        <TextField alignment="CENTER" layoutX="-22.0" layoutY="164.0" prefHeight="40.0" prefWidth="224.0" style="-fx-text-fill: black; -fx-background-color: transparent;" text="Your level is: Sprout">
-                           <font>
-                              <Font name="DejaVu Sans Condensed Bold" size="14.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </Group>
-                  <Group layoutX="301.0" layoutY="168.0">
-                     <children>
-                        <Text layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!">
+                        <Text layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!">
                            <font>
                               <Font name="DejaVu Sans Condensed Bold" size="30.0" />
                            </font>
                         </Text>
-                        <Text layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your tree grew by:">
+                        <Text layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You scored:">
                            <font>
                               <Font name="DejaVu Sans Condensed Bold" size="30.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="275.0" layoutY="25.0" prefHeight="75.0" prefWidth="186.0" style="-fx-text-fill: #2e979b; -fx-background-color: transparent;" text="0m">
+                        <Label fx:id="scoreLabel" layoutX="186.0" layoutY="35.0" prefHeight="51.0" prefWidth="142.0" textFill="#2e979b">
                            <font>
-                              <Font name="DejaVu Sans Condensed Bold" size="32.0" />
+                              <Font name="DejaVu Sans Condensed Bold" size="38.0" />
                            </font>
-                        </TextField>
+                        </Label>
+                        <Text fill="#714e42" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Tree Level is:">
+                           <font>
+                              <Font name="DejaVu Sans Condensed Bold" size="30.0" />
+                           </font>
+                        </Text>
+                        <Label fx:id="levelLabel" layoutX="290.0" layoutY="84.0" prefHeight="51.0" prefWidth="185.0" textFill="#2e979b">
+                           <font>
+                              <Font name="DejaVu Sans Condensed Bold" size="34.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Group>
-                  <LineChart layoutX="60.0" layoutY="302.0" prefHeight="187.0" prefWidth="662.0" style="-fx-background-color: transparent;">
+                  <LineChart fx:id="scoreChart" layoutX="57.0" layoutY="316.0" legendVisible="false" prefHeight="187.0" prefWidth="662.0" style="-fx-background-color: transparent;">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis label="Score" side="LEFT" tickMarkVisible="false">
+                           <tickLabelFont>
+                              <Font name="DejaVu Sans Condensed Bold" size="12.0" />
+                           </tickLabelFont></NumberAxis>
                     </yAxis>
                   </LineChart>
+                  <Ellipse fill="WHITE" layoutX="631.0" layoutY="206.0" radiusX="82.0" radiusY="82.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="5.0" />
+                  <ImageView fx:id="treeImage" fitHeight="142.0" fitWidth="142.0" layoutX="560.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Sprout_icon.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#714e42" layoutX="296.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score sum after each Word">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="15.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>
