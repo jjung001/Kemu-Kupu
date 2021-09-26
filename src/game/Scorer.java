@@ -18,8 +18,8 @@ public class Scorer {
 		highBonusReward = 300;
 		lowBonusReward = 100;
 		noBonusReward = 50;
-		highBonusTimeDuration = 5;
-		lowBonusTimeDuration = 15;
+		highBonusTimeDuration = 10;
+		lowBonusTimeDuration = 30;
 
 		setWordLengthMultiplier();
 		setBonusTimes();
@@ -55,11 +55,11 @@ public class Scorer {
 	}
 
 	public long getHighBonusTimeDuration() {
-		return (long) highBonusTimeDuration;
+		return highBonusTimeDuration;
 	}
 
 	public long getLowBonusTimeDuration() {
-		return (long) lowBonusTimeDuration;
+		return lowBonusTimeDuration;
 	}
 
 	public void startTiming() {
