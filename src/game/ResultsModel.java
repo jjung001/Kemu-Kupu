@@ -1,4 +1,4 @@
-package model;
+package game;
 
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
@@ -14,6 +14,8 @@ public class ResultsModel {
 	private String grown = "Grown";
 	private String mature = "Mature";
 	private String blooming = "Blooming";
+	private ScoreTracker scoreTracker;
+	
 	
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
@@ -21,6 +23,10 @@ public class ResultsModel {
 	Image grownImage = new Image(getClass().getResourceAsStream("/resources/Tree_3.png"));
 	Image matureImage = new Image(getClass().getResourceAsStream("/resources/Tree_4.png"));
 	Image bloomingImage = new Image(getClass().getResourceAsStream("/resources/Tree_final.png"));
+	
+	public ResultsModel(ScoreTracker scoreTracker) {
+		this.scoreTracker = scoreTracker;
+	}
 	
 	public String determineLevel(int score) {
 		if (score < 50) {
@@ -57,12 +63,11 @@ public class ResultsModel {
 	
 	public void setChart(LineChart<String, Number> chart) {
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
-		int  sumScore = getScore(1);
-		series.getData().add(new XYChart.Data<String, Number>("Word 1", sumScore));
-		series.getData().add(new XYChart.Data<String, Number>("Word 2", sumScore+=getScore(2)));
-		series.getData().add(new XYChart.Data<String, Number>("Word 3", sumScore+=getScore(3)));
-		series.getData().add(new XYChart.Data<String, Number>("Word 4", sumScore+=getScore(4)));
-		series.getData().add(new XYChart.Data<String, Number>("Word 5", sumScore+=getScore(5)));
+		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(1), scoreTracker.getScore(1)));
+		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(2), scoreTracker.getCumulativeScore(2)));
+		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(3), scoreTracker.getCumulativeScore(3)));
+		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(4), scoreTracker.getCumulativeScore(4)));
+		series.getData().add(new XYChart.Data<String, Number>(scoreTracker.getWord(5), scoreTracker.getCumulativeScore(5)));
 		chart.getData().add(series);
 		Node line = series.getNode().lookup(".chart-series-line");
 		line.setStyle("-fx-stroke: #2e979b");

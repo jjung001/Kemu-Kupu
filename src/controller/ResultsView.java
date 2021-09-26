@@ -1,5 +1,7 @@
 package controller;
 
+import game.ResultsModel;
+import game.ScoreTracker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -9,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.ResultsModel;
 
 public class ResultsView extends Controller{
 
@@ -29,21 +30,23 @@ public class ResultsView extends Controller{
 	private String scoreDisplay;
 	private String level;
 	private int totalScore;
+	private ResultsModel resultsModel;
 	
-	public void initialize () {
-		totalScore = getTotalScore();
+	public void setUp (ScoreTracker scoreTracker) {
+		
+		resultsModel = new ResultsModel(scoreTracker);
+		
+		totalScore = scoreTracker.getTotalScore();
 		scoreDisplay = String.valueOf(totalScore);
 		scoreLabel.setText(scoreDisplay);
 		
-		ResultsModel model = new ResultsModel();
-		
-		level = model.determineLevel(totalScore);
+		level = resultsModel.determineLevel(totalScore);
 		levelLabel.setText(level);
 		
-		model.displayImage(level);
-		treeImage.setImage(model.displayImage(level));
+		resultsModel.displayImage(level);
+		treeImage.setImage(resultsModel.displayImage(level));
 		
-		model.setChart(scoreChart);
+		resultsModel.setChart(scoreChart);
 	}
 	
 	public void playAgain(ActionEvent event) {
