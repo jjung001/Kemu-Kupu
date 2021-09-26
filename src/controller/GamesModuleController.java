@@ -175,12 +175,17 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
+		statusLabel.setText("CORRECT");
+		speak("correct", false);
 	}
 
 	private void incorrectWord() {
 		char secondCharacter = currentQuestion.getSecondLetter();
 		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
 		hintLabel.setText(parsedMessage);
+		statusLabel.setText("INCORRECT, SPELL AGAIN:");
+		speak("incorrect, spell again", false);
+		sayWord();
 		startProgressBarCountdown();
 		currentScorer.startTiming();
 
@@ -207,7 +212,7 @@ public class GamesModuleController extends Controller {
 			hintLabel.setText("");
 			currentQuestion = quiz.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
-			speak("Spell the word.");
+			speak("Spell the word.", false);
 			sayWord();
 			startProgressBarCountdown();
 			currentScorer.startTiming();
@@ -250,6 +255,7 @@ public class GamesModuleController extends Controller {
 		btnI.setDisable(visibilityState);
 		btnO.setDisable(visibilityState);
 		btnU.setDisable(visibilityState);
+		btnRepeat.setDisable(visibilityState);
 	}
 
 	private void startProgressBarCountdown() {
@@ -273,15 +279,20 @@ public class GamesModuleController extends Controller {
 		decreaseProgress(totalDuration);
 	}
 
-	private void speak(String text) {
+	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
-		Festival.festival(speed, text);
+		if (isMaori) {
+			Festival.festival(speed, text);
+		} else {
+			Festival.festivalEnglish(speed, text);
+		}
 	}
 
 	private void sayWord() {
 		String currentWord = currentQuestion.getWord();
 		String currentWordSanitised = currentWord.replaceAll("-", " ");
-		speak(currentWordSanitised);
+		speak(currentWordSanitised, true);
+		System.out.println("currentWord" +currentWordSanitised);
 	}
 
 	@FXML
