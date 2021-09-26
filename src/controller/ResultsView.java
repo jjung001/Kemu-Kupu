@@ -9,6 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
+/**
+ * This is a controller class for the Results View screen. 
+ * It displays the result of the quiz taken. 
+ * The informations displayed are: total score, the tree level of the user, the tree image, and a graph of score progress. 
+ * 
+ * @author Julie Kim
+ *
+ */
 public class ResultsView extends Controller {
 
 	@FXML
@@ -29,6 +37,13 @@ public class ResultsView extends Controller {
 	private int totalScore;
 	private ResultsModel resultsModel;
 
+	/**
+	 * Initially sets up the controller.
+	 * It calls methods from the helper model class ResultsModel to get the values and image to display. 
+	 * It sets up the total score, the level and image of tree of the test, and a line chart. 
+	 * 
+	 * @param scoreTracker	ScoreTracker user data from the previous game screen that stores the score datas of questions
+	 */
 	public void setUp(ScoreTracker scoreTracker) {
 
 		resultsModel = new ResultsModel(scoreTracker);
@@ -46,6 +61,10 @@ public class ResultsView extends Controller {
 		resultsModel.setChart(scoreChart);
 	}
 
+	/**
+	 * Switches current scene to the topic list scene for another game. 
+	 * @param event	ActionEvent from the play again button. 
+	 */
 	public void playAgain(ActionEvent event) {
 		switchScene(event, "TopicList.fxml");
 	}
