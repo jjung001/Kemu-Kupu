@@ -80,6 +80,6 @@ public class Scorer {
 	}
 
 	public int getFaultedScore() {
-		return (int) 0.5 * getScore();
+		return (int) (0.5 * getScore());
 	}
 }
