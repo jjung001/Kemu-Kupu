@@ -225,13 +225,6 @@ public class GamesModuleController extends Controller {
 	}
 
 	public void setUp(WordList combinedWordList) {
-		// TEMP
-		combinedWordList.addWord("alpha");
-		combinedWordList.addWord("bravo");
-		combinedWordList.addWord("charlie");
-		combinedWordList.addWord("delta");
-		combinedWordList.addWord("echo");
-
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 

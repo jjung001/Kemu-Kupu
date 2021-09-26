@@ -3,6 +3,7 @@ package controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,8 +24,8 @@ import words.WordListManager;
 public class TopicsView extends Controller {
 
 	@FXML
-	private ToggleButton colour, weather, dayOne, dayTwo, monthOne, monthTwo,
-			baby, work, feeling, compassPoint, university, software;
+	private ToggleButton colour, weather, dayOne, dayTwo, monthOne, monthTwo, baby, work, feeling, compassPoint,
+			university, software;
 	@FXML
 	private Button start, back;
 	@FXML
@@ -36,8 +37,8 @@ public class TopicsView extends Controller {
 	private WordList combinedWordList;
 	private WordListManager wordListManager;
 	private WordFileReader wordFileReader;
+	private HashMap<String, WordList> loadedWordListHashMap;
 
-	
 	@FXML
 	private void initialize() {
 		toggles.add(colour);
@@ -56,23 +57,38 @@ public class TopicsView extends Controller {
 		// TODO Get word lists from files
 		wordFileReader = new WordFileReader();
 		wordListManager = new WordListManager();
+		loadedWordListHashMap = new HashMap<>();
 	}
 
 	public void toggleTopic(ActionEvent event) {
-		ToggleButton selectedTopic = (ToggleButton) event.getSource();
-		String id = selectedTopic.getId();
-		if (selectedTopic.isSelected()) {
-			selectedTopic.setGraphic(new ImageView(onButtonImage));
-			try {
-				wordListManager.addWordList(wordFileReader.readLines(id));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			ToggleButton selectedTopic = (ToggleButton) event.getSource();
+			String id = selectedTopic.getId();
+			WordList targetWordList;
+
+			if (selectedTopic.isSelected()) {
+				// Set the toggle button image
+				selectedTopic.setGraphic(new ImageView(onButtonImage));
+
+				if (loadedWordListHashMap.containsKey(id)) {
+					targetWordList = loadedWordListHashMap.get(id);
+				} else {
+					targetWordList = wordFileReader.readLines(id);
+					loadedWordListHashMap.put(id, targetWordList);
+				}
+				wordListManager.addWordList(targetWordList);
+			} else if (!selectedTopic.isSelected()) {
+				selectedTopic.setGraphic(new ImageView(offButtonImage));
+				targetWordList = loadedWordListHashMap.get(id);
+				wordListManager.removeWordList(targetWordList);
 			}
-		} else if (!selectedTopic.isSelected()) {
-			selectedTopic.setGraphic(new ImageView(offButtonImage));
-			// TODO Remove specific list to word list manager
-//			wordListManager.removeWordList();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Spelling Quiz Error");
+			alert.setHeaderText("FileNotFound Caught");
+			alert.setContentText("Please contact the developer.");
+			alert.showAndWait();
 		}
 	}
 
