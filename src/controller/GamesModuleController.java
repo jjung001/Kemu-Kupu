@@ -21,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import words.WordList;
@@ -92,6 +94,13 @@ public class GamesModuleController extends Controller {
 	Scorer currentScorer;
 
 	@FXML
+	public void onKeyPressed(KeyEvent e) {
+		if (e.getCode().equals(KeyCode.ENTER)) {
+			submitButton();
+		}
+	}
+
+	@FXML
 	public void quitGame(ActionEvent event) {
 		// to return to Main Menu confirm exit on AlertBox
 		if (AlertBox.display()) {
@@ -117,31 +126,30 @@ public class GamesModuleController extends Controller {
 		wordTextField.positionCaret(caretPosition + 1);
 	}
 
-	public void submitButton(ActionEvent event) {
+	public void submitButton() {
 		if (isBeginning) {
 			// Set up the interface for accepting questions
 			isBeginning = false;
 			btnSubmit.setText("Submit");
-			btnIDontKnow.setDisable(false);
 			statusLabel.setText("SPELL IT:");
-			wordTextField.setDisable(false);
+			toggleButtonVisibility(isBeginning);
 
 			// Gather the first question
-			getNextQuestion(event);
+			getNextQuestion();
 		} else {
 			boolean canProceed = submitQuestion();
 			wordTextField.setText("");
 			if (canProceed) {
-				getNextQuestion(event);
+				getNextQuestion();
 			}
 		}
 	}
 
 	private boolean submitQuestion() {
+		bonusBar.setProgress(0);
 		String answer = wordTextField.getText().strip().toLowerCase();
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
 		currentScorer.endTiming();
-		bonusBar.setProgress(0);
 
 		switch (answerStatus) {
 		case MASTERED:
@@ -194,7 +202,7 @@ public class GamesModuleController extends Controller {
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 	}
 
-	private void getNextQuestion(ActionEvent event) {
+	private void getNextQuestion() {
 		if (quiz.hasNextQuestion()) {
 			hintLabel.setText("");
 			currentQuestion = quiz.getNextQuestion();
@@ -218,11 +226,11 @@ public class GamesModuleController extends Controller {
 
 	public void setUp(WordList combinedWordList) {
 		// TEMP
-		combinedWordList.addWord("Alpha");
-		combinedWordList.addWord("Bravo");
-		combinedWordList.addWord("Charlie");
-		combinedWordList.addWord("Delta");
-		combinedWordList.addWord("Echo");
+		combinedWordList.addWord("alpha");
+		combinedWordList.addWord("bravo");
+		combinedWordList.addWord("charlie");
+		combinedWordList.addWord("delta");
+		combinedWordList.addWord("echo");
 
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
@@ -234,12 +242,21 @@ public class GamesModuleController extends Controller {
 		// Set up interface prior to start of game
 		isBeginning = true;
 		btnSubmit.setText("Start");
-		btnIDontKnow.setDisable(true);
 		bonusBar.setProgress(0);
-		statusLabel.setText("Press \"Start\" to begin!");
+		statusLabel.setText("Press \"Start\"!");
 		questionNumLabel.setText("");
 		scoreLabel.setText("0");
-		wordTextField.setDisable(true);
+		toggleButtonVisibility(isBeginning);
+	}
+
+	private void toggleButtonVisibility(boolean visibilityState) {
+		btnIDontKnow.setDisable(visibilityState);
+		wordTextField.setDisable(visibilityState);
+		btnA.setDisable(visibilityState);
+		btnE.setDisable(visibilityState);
+		btnI.setDisable(visibilityState);
+		btnO.setDisable(visibilityState);
+		btnU.setDisable(visibilityState);
 	}
 
 	private void startProgressBarCountdown() {

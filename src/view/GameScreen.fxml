@@ -88,7 +88,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="wordTextField" alignment="CENTER" layoutX="190.0" layoutY="304.0" prefHeight="43.0" prefWidth="420.0" promptText="type here" style="-fx-text-fill: black; -fx-background-color: white;">
+                  <TextField fx:id="wordTextField" alignment="CENTER" layoutX="190.0" layoutY="304.0" onKeyPressed="#onKeyPressed" prefHeight="43.0" prefWidth="420.0" promptText="type here" style="-fx-text-fill: black; -fx-background-color: white;">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
