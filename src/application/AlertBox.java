@@ -48,11 +48,11 @@ public class AlertBox {
 //		window.setScene(scene);
 //		window.showAndWait();
 //	}
-	public static boolean display() {
+	public static boolean display(String header, String content) {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Quit?");
-		alert.setHeaderText("Are you sure you want to quit?");
-		alert.setContentText("Your tree will die.");
+		alert.setHeaderText(header);
+		alert.setContentText(content);
 		Optional<ButtonType> result = alert.showAndWait();
 
 		if (result.isPresent() && (result.get() == ButtonType.OK)) {
