@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import application.AlertBox;
@@ -16,6 +17,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -24,11 +29,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import words.WordList;
 
 public class GamesModuleController extends Controller {
 
+	private static final ActionEvent ActionEvent = null;
 	@FXML
 	public Button btnSubmit;
 	@FXML
@@ -223,9 +230,23 @@ public class GamesModuleController extends Controller {
 		} else {
 			System.out.println("NO NEXT QUESTION"); // DEBUG
 			// TODO Pause for a bit...
-//			Stage primaryStage = (Stage) scoreLabel.getScene().getWindow();
-//			primaryStage.setUserData(scoreTracker);
-//			switchScene(event, "ResultScreen.fxml");
+			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/ResultScreen.fxml"));
+			try {
+				Parent root = (Parent) loader.load();
+				ResultsView controller = loader.getController();
+				controller.setUp(scoreTracker);
+				Scene scene = new Scene(root);
+				primaryStage.setScene(scene);
+				primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Spelling Quiz Error");
+				alert.setHeaderText("IOException Caught, Results Screen");
+				alert.setContentText("Please contact the developer.");
+				alert.showAndWait();
+			}
 		}
 	}
 
