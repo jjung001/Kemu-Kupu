@@ -1,19 +1,26 @@
 package application;
 
 import java.io.IOException;
+
 /**
- * Runs Festival interpreter.
+ * Communicates specifically with Festival TTS to speak words.
+ *
  * @author Juwon Jung
+ * @author Jared Daniel Recomendable
+ * @author Julie Kim
  *
  */
 public class Festival {
-	
+
 	/**
-	 * Runs the festival interpreter according to speed of speech, 
-	 * current word and voice of language.
-	 * @param speed the speed of speech
-	 * @param word the current word to be read out from festival
-	 * @param language voice for festival to interpret with different language voices
+	 * Tells Festival to speak with the input parameters to consider.
+	 *
+	 * @param speed    A double that indicates the scaling of time that Festival
+	 *                 speaks in. A smaller number indiccates a faster speed of
+	 *                 speech.
+	 * @param word     A String containing what Festival should say.
+	 * @param language A Language enum that indicates what language Festival should
+	 *                 speak in.
 	 */
 	public static void festival(double speed, String word, Language language) {
 		String voice;
