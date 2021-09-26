@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -85,11 +84,6 @@ public class TopicsView extends Controller {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Spelling Quiz Error");
-			alert.setHeaderText("FileNotFound Caught");
-			alert.setContentText("Please contact the developer.");
-			alert.showAndWait();
 		}
 	}
 
@@ -115,11 +109,6 @@ public class TopicsView extends Controller {
 				primaryStage.show();
 			} catch (IOException e) {
 				e.printStackTrace();
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle("Spelling Quiz Error");
-				alert.setHeaderText("IOException Caught, Game Setup Screen");
-				alert.setContentText("Please contact the developer.");
-				alert.showAndWait();
 			}
 		}
 	}
