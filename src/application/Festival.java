@@ -1,9 +1,20 @@
 package application;
 
 import java.io.IOException;
-
+/**
+ * Runs Festival interpreter.
+ * @author Juwon Jung
+ *
+ */
 public class Festival {
-
+	
+	/**
+	 * Runs the festival interpreter according to speed of speech, 
+	 * current word and voice of language.
+	 * @param speed
+	 * @param word
+	 * @param language
+	 */
 	public static void festival(double speed, String word, Language language) {
 		String voice;
 		if (language.equals(Language.MAORI)) {
