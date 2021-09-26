@@ -5,9 +5,9 @@ import java.io.IOException;
 /**
  * Communicates specifically with Festival TTS to speak words.
  *
+ * @author Juwon Wong
  * @author Jared Daniel Recomendable
  * @author Julie Kim
- * @author Juwon Wong
  *
  */
 public class Festival {

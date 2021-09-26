@@ -5,8 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+/**
+ * Starts Main application.
+ * @author Juwon Jung
+ *
+ */
 public class Main extends Application {
+	/**
+	 * Starts application from main menu screen.
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
