@@ -250,12 +250,12 @@ public class GamesModuleController extends Controller {
 				double progress = newValue == null ? 0 : newValue.doubleValue();
 				if (progress > 0.667) {
 					bonusBar.setStyle("-fx-accent: green");
-					bonusLabel.setText("BONUS ×6");
+					bonusLabel.setText("+" + Integer.toString(currentScorer.getHighBonusReward()));
 				} else if (progress > 0) {
 					bonusBar.setStyle("-fx-accent: orange");
-					bonusLabel.setText("BONUS ×2");
+					bonusLabel.setText("+" + Integer.toString(currentScorer.getLowBonusReward()));
 				} else {
-					bonusLabel.setText("NO BONUS");
+					bonusLabel.setText("+" + Integer.toString(currentScorer.getNoBonusReward()));
 				}
 			}
 		});
