@@ -21,6 +21,16 @@ import words.WordFileReader;
 import words.WordList;
 import words.WordListManager;
 
+/**
+ * This is a controller class of the Topic list scene. 
+ * It reads the user's selection of topics by the toggle buttons allocated for each word list. 
+ * Then according to the selection, it calls model class to read file and generate a word list to be passed to the game
+ * 
+ * @author Julie Kim
+ * @author Juwon Jung
+ * @author Jared Daniel Recomendable
+ *
+ */
 public class TopicsView extends Controller {
 
 	@FXML
@@ -39,6 +49,10 @@ public class TopicsView extends Controller {
 	private WordFileReader wordFileReader;
 	private HashMap<String, WordList> loadedWordListHashMap;
 
+	/**
+	 * Initialises the class by adding all toggle buttons in to an Arraylist. 
+	 * Initiates instances from model classes to use for generating word list
+	 */
 	@FXML
 	private void initialize() {
 		toggles.add(colour);
@@ -54,12 +68,19 @@ public class TopicsView extends Controller {
 		toggles.add(university);
 		toggles.add(software);
 
-		// TODO Get word lists from files
 		wordFileReader = new WordFileReader();
 		wordListManager = new WordListManager();
 		loadedWordListHashMap = new HashMap<>();
 	}
 
+	/**
+	 * Toggles topic when user clicks on the toggle button allocated to each topic. 
+	 * Reads toggle button status, and adds the word list of selected to the combined word list to send to games module. 
+	 * Removes the word list from combined word list when button is untoggled. 
+	 * Displays the toggle-untoggle by changing graphics image to on button image and off button image accordingly. 
+	 * 
+	 * @param event	ActionEvent from the toggle buttons (On or off)
+	 */
 	public void toggleTopic(ActionEvent event) {
 		try {
 			ToggleButton selectedTopic = (ToggleButton) event.getSource();
@@ -69,7 +90,7 @@ public class TopicsView extends Controller {
 			if (selectedTopic.isSelected()) {
 				// Set the toggle button image
 				selectedTopic.setGraphic(new ImageView(onButtonImage));
-
+				// Check if word list is already included
 				if (loadedWordListHashMap.containsKey(id)) {
 					targetWordList = loadedWordListHashMap.get(id);
 				} else {
@@ -77,6 +98,7 @@ public class TopicsView extends Controller {
 					loadedWordListHashMap.put(id, targetWordList);
 				}
 				wordListManager.addWordList(targetWordList);
+				//When button un-toggled, set image and remove word list. 
 			} else if (!selectedTopic.isSelected()) {
 				selectedTopic.setGraphic(new ImageView(offButtonImage));
 				targetWordList = loadedWordListHashMap.get(id);
@@ -87,7 +109,14 @@ public class TopicsView extends Controller {
 		}
 	}
 
+	/**
+	 * Starts the game when at least one topic button is toggled.
+	 * Displays warning message to select a topic if pressed without any toggled button. 
+	 * Passes the combinedWordList generate accordingly to the user's selection to the Games scene. 
+	 * @param start ActionEvent of the start button. 
+	 */
 	public void startGame(ActionEvent start) {
+		//Search to hash map of toggle buttons to check number of toggled buttons. 
 		int numTopics = 0;
 		for (ToggleButton topic : toggles) {
 			if (topic.isSelected()) {
@@ -97,6 +126,7 @@ public class TopicsView extends Controller {
 		if (numTopics == 0) {
 			startWarning.setVisible(true);
 		} else {
+			//Call next scene (Game screen) 
 			Stage primaryStage = (Stage) startWarning.getScene().getWindow();
 			combinedWordList = wordListManager.getCombinedWords();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/GameScreen.fxml"));
@@ -113,6 +143,10 @@ public class TopicsView extends Controller {
 		}
 	}
 
+	/**
+	 * Quits from the topic list and returns to the Main menu screen when user confirms the alert message
+	 * @param event ActionEvent of the back button. 
+	 */
 	public void quitTopic(ActionEvent event) {
 		// to return to Main Menu confirm exit on AlertBox
 		String header = "Are you sure you want to go back?";
