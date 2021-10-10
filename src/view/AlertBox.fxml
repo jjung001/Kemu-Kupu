@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="417.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle fill="#a2c6ac" height="177.6" layoutX="12.0" layoutY="7.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="392.5" />
+      <Label layoutX="38.0" layoutY="38.0" prefHeight="28.0" prefWidth="340.0" text="Are you sure you want to go back?">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="74.0" prefHeight="28.0" prefWidth="340.0" text="Your selected topics will not be saved." textFill="#666666">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="142.0" layoutY="125.0" mnemonicParsing="false" prefHeight="30.86" prefWidth="114.88" style="-fx-background-color: #a2c6ac; -fx-border-width: 5; -fx-border-color: #714e42;" text="Cancel" textFill="#714e42">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="271.0" layoutY="125.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #714e42;" text="OK" textFill="#a2c6ac">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
