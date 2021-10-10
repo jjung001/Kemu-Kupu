@@ -19,12 +19,12 @@
             <Font name="DejaVu Sans Condensed Bold" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnCancel" layoutX="142.0" layoutY="125.0" mnemonicParsing="false" onAction="#cancelAlert" prefHeight="30.86" prefWidth="114.88" style="-fx-background-color: #a2c6ac; -fx-border-width: 5; -fx-border-color: #714e42;" text="No" textFill="#714e42">
+      <Button fx:id="btnCancel" layoutX="142.0" layoutY="125.0" onAction="#cancelAlert" prefHeight="30.86" prefWidth="114.88" style="-fx-background-color: #a2c6ac; -fx-border-width: 5; -fx-border-color: #714e42;" text="_No" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnOK" layoutX="271.0" layoutY="125.0" mnemonicParsing="false" onAction="#OKAlert" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #714e42;" text="Yes" textFill="#a2c6ac">
+      <Button fx:id="btnOK" layoutX="271.0" layoutY="125.0" onAction="#OKAlert" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #714e42;" text="_Yes" textFill="#a2c6ac">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="16.0" />
          </font>
