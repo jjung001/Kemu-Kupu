@@ -177,7 +177,7 @@ public class GamesModuleController extends Controller {
 		if (isBeginning) {
 			// Set up the interface for accepting questions
 			isBeginning = false;
-			btnSubmit.setText("Submit");
+			btnSubmit.setText("_Submit");
 			statusLabel.setText("SPELL IT:");
 
 			// Gather the first question
@@ -396,7 +396,7 @@ public class GamesModuleController extends Controller {
 
 		// Set up interface prior to start of game
 		isBeginning = true;
-		btnSubmit.setText("Start");
+		btnSubmit.setText("_Start");
 		bonusBar.setProgress(0);
 		statusLabel.setText("Press \"Start\"!");
 		questionNumLabel.setText("");
