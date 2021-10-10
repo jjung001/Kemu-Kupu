@@ -131,7 +131,10 @@ public class GamesModuleController extends Controller {
 		// to return to Main Menu confirm exit on AlertBox
 		String header = "Are you sure you want to quit the game?";
 		String description = "Your tree will die.";
-		if (AlertBox.display(header, description)) {
+		AlertBox alertBox = new AlertBox(header, description);
+		boolean result = alertBox.displayAndGetResult();
+		
+		if (result) {
 			backToMain(event);
 		}
 	}

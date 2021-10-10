@@ -151,9 +151,14 @@ public class TopicsView extends Controller {
 		// to return to Main Menu confirm exit on AlertBox
 		String header = "Are you sure you want to go back?";
 		String description = "Your selected topics will not be saved.";
-		if (AlertBox.display(header, description)) {
+
+		AlertBox alertBox = new AlertBox(header, description);
+		boolean result = alertBox.displayAndGetResult();
+		
+		if (result) {
 			backToMain(event);
 		}
+		
 	}
 
 }

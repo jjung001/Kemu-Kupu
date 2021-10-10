@@ -1,10 +1,10 @@
 package application;
 
-import java.util.Optional;
-
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import controller.AlertBoxView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 /**
  * Creates Alert Boxes.
@@ -13,26 +13,34 @@ import javafx.stage.Stage;
  */
 public class AlertBox {
 
-	Stage stage;
-	Button btn;
+	String header;
+	String description;
+	
+	public AlertBox(String header, String description) {
+		this.header = header;
+		this.description = description;
+	}
 
-	/**
-	 * Displays alert box when user tries to exit out of scene.
-	 * User needs to select quit button to exit from current scene.
-	 * @param header String to put into header of alert box
-	 * @param content String to put into context of alert box
-	 * @return
-	 */
-	public static boolean display(String header, String content) {
-		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-		alert.setTitle("Quit?");
-		alert.setHeaderText(header);
-		alert.setContentText(content);
-		Optional<ButtonType> result = alert.showAndWait();
+	public boolean displayAndGetResult() {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AlertBox.fxml"));
+		try {
+			Parent root = (Parent) loader.load();
+			AlertBoxView controller = loader.getController();
+			controller.setUp(header, description);
 
-		if (result.isPresent() && (result.get() == ButtonType.OK)) {
-			return true;
-		} else {
+			Stage stage = new Stage();
+			stage.initModality(Modality.APPLICATION_MODAL);
+
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+
+			stage.showAndWait();
+			boolean result = controller.getResult();
+			return result;
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
