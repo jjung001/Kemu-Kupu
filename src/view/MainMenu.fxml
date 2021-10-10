@@ -39,12 +39,12 @@
             <Font name="DejaVu Sans Condensed Bold" size="22.0" />
          </font>
       </Text>
-      <Button fx:id="gameButton" layoutX="240.0" layoutY="339.0" mnemonicParsing="false" onAction="#playGame" prefHeight="65.0" prefWidth="320.0" style="-fx-background-color: #714e42;" text="Play Game" textFill="#a2c6ac">
+      <Button fx:id="gameButton" layoutX="240.0" layoutY="339.0" onAction="#playGame" prefHeight="65.0" prefWidth="320.0" style="-fx-background-color: #714e42;" text="Play _Game" textFill="#a2c6ac">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="240.0" layoutY="430.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="65.0" prefWidth="320.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="Quit" textFill="#714e42">
+      <Button fx:id="quitButton" layoutX="240.0" layoutY="430.0" onAction="#quitGame" prefHeight="65.0" prefWidth="320.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Quit" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>

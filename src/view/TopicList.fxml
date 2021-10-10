@@ -26,7 +26,7 @@
                   <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                </font>
             </Text>
-            <Button fx:id="start" layoutX="240.0" layoutY="492.0" mnemonicParsing="false" onAction="#startGame" prefHeight="58.0" prefWidth="320.0" style="-fx-background-color: #714e42;" text="Start" textFill="#a2c6ac">
+            <Button fx:id="start" layoutX="240.0" layoutY="492.0" onAction="#startGame" prefHeight="58.0" prefWidth="320.0" style="-fx-background-color: #714e42;" text="_Start" textFill="#a2c6ac">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                </font>

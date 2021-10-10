@@ -50,12 +50,12 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btnIDontKnow" focusTraversable="false" layoutX="190.0" layoutY="458.0" mnemonicParsing="false" onAction="#skipButton" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="I Don't Know" textFill="#714e42">
+                  <Button fx:id="btnIDontKnow" focusTraversable="false" layoutX="190.0" layoutY="458.0" onAction="#skipButton" prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="I _Don't Know" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSubmit" focusTraversable="false" layoutX="410.0" layoutY="457.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: #714e42;" text="Submit" textFill="#a2c6ac">
+                  <Button fx:id="btnSubmit" focusTraversable="false" layoutX="410.0" layoutY="457.0" onAction="#submitButton" prefHeight="56.0" prefWidth="200.0" style="-fx-background-color: #714e42;" text="_Submit" textFill="#a2c6ac">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
