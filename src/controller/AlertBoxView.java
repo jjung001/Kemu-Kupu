@@ -5,6 +5,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * This the controller class for AlertBox.
+ * It is a pop-up screen for confirmation of exiting screen.
+ * @author Juwon Jung
+ * @author Jared Daniel Recomendable
+ *
+ */
 public class AlertBoxView {
 
 	@FXML
@@ -24,6 +31,9 @@ public class AlertBoxView {
 		description.setText(descriptionText);
 	}
 	
+	/**
+	 * When NO is pressed the pop-up screen closes.
+	 */
 	@FXML
 	private void cancelAlert() {
 		result = false;
@@ -31,6 +41,9 @@ public class AlertBoxView {
 		stage.close();
 	}
 
+	/**
+	 * When YES is pressed the pop-up screen closes.
+	 */
 	@FXML
 	private void OKAlert() {
 		result = true;
@@ -38,6 +51,10 @@ public class AlertBoxView {
 		stage.close();
 	}
 	
+	/**
+	 * Gets result when NO and YES button is pressed.
+	 * @return result
+	 */
 	public boolean getResult() {
 		return result;
 	}

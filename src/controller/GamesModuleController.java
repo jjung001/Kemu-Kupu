@@ -121,9 +121,6 @@ public class GamesModuleController extends Controller {
 		if (result) {
 			backToMain(event);
 		}
-//		if (AlertBox.display(header, description)) {
-//			backToMain(event);
-//		}
 	}
 
 	@FXML
