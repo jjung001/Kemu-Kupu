@@ -6,7 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+/**
+ * Creates Alert Boxes.
+ * @author Juwon Jung
+ *
+ */
 public class AlertBox {
 
 	String header;
@@ -33,6 +37,7 @@ public class AlertBox {
 			stage.showAndWait();
 			boolean result = controller.getResult();
 			return result;
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
