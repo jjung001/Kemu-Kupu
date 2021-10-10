@@ -331,7 +331,7 @@ public class GamesModuleController extends Controller {
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/ResultScreen.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ResultScreen.fxml"));
 			try {
 				Parent root = (Parent) loader.load();
 				ResultsView controller = loader.getController();

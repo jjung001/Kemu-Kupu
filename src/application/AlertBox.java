@@ -22,7 +22,7 @@ public class AlertBox {
 	}
 
 	public boolean displayAndGetResult() {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/AlertBox.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AlertBox.fxml"));
 		try {
 			Parent root = (Parent) loader.load();
 			AlertBoxView controller = loader.getController();

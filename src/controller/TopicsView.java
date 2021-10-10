@@ -41,8 +41,8 @@ public class TopicsView extends Controller {
 	@FXML
 	private Label startWarning;
 
-	Image onButtonImage = new Image(getClass().getResourceAsStream("../resources/Toggle_Button_On.png"));
-	Image offButtonImage = new Image(getClass().getResourceAsStream("../resources/Toggle_Button_Off.png"));
+	Image onButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_On.png"));
+	Image offButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_Off.png"));
 	private ArrayList<ToggleButton> toggles = new ArrayList<ToggleButton>();
 	private WordList combinedWordList;
 	private WordListManager wordListManager;
@@ -129,7 +129,7 @@ public class TopicsView extends Controller {
 			//Call next scene (Game screen) 
 			Stage primaryStage = (Stage) startWarning.getScene().getWindow();
 			combinedWordList = wordListManager.getCombinedWords();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/GameScreen.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GameScreen.fxml"));
 			try {
 				Parent root = (Parent) loader.load();
 				GamesModuleController controller = loader.getController();
