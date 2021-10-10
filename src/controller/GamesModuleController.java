@@ -34,6 +34,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import words.WordList;
+
 /**
  * This is the controller class for the Games module. 
  * It starts the game Kēmu Kupu. 
@@ -133,7 +134,7 @@ public class GamesModuleController extends Controller {
 		String description = "Your tree will die.";
 		AlertBox alertBox = new AlertBox(header, description);
 		boolean result = alertBox.displayAndGetResult();
-		
+
 		if (result) {
 			backToMain(event);
 		}
@@ -141,6 +142,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Inputs macron character into textField when macaron button is pressd.
+	 *
 	 * @param event ActionEvent when maracon character is pressed
 	 */
 	@FXML
@@ -169,12 +171,14 @@ public class GamesModuleController extends Controller {
 	 * Sets the status label as Spell it on the first attempt of the word.
 	 */
 	public void submitButton() {
+		toggleButtonVisibility(true, true, false);
+		wordTextField.setDisable(true);
+
 		if (isBeginning) {
 			// Set up the interface for accepting questions
 			isBeginning = false;
 			btnSubmit.setText("Submit");
 			statusLabel.setText("SPELL IT:");
-			toggleButtonVisibility(isBeginning);
 
 			// Gather the first question
 			getNextQuestion();
@@ -192,7 +196,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Checks if word is spelt correct case insensitive.
-	 * BonbuBar pauses from decreasing when answer is being checked.
+	 * BonusBar pauses from decreasing when answer is being checked.
 	 * WordTextField is reset to empty after each attempt.
 	 * Gets current bonus points from end of timing and store in current score.
 	 * Stores each state of answer as emu AnswerStatus
@@ -263,7 +267,7 @@ public class GamesModuleController extends Controller {
 	 * Answer status is faulted.
 	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
 	 * Status label is updated to "GOOD JOB".
-	 * Method speak calls to run festival command "Good job." in english voice.
+	 * Method speak calls to run festival command "Good job." in English voice.
 	 */
 	private void faultedWord() {
 		int questionNumber = quiz.getQuestionNumber();
@@ -279,7 +283,8 @@ public class GamesModuleController extends Controller {
 	 * Answer status is failed and question fails to gain score.
 	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
 	 * Status label shows encouraging message.
-	 * Method speak calls to run festival command of encouraging message in english voice.
+	 * Method speak calls to run festival command of encouraging message in English voice.
+
 	 */
 	private void failedWord() {
 		int questionNumber = quiz.getQuestionNumber();
@@ -294,6 +299,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Picks a random encouraging message of 4 cases.
+	 *
 	 * @return String encouraging message
 	 */
 	private String pickRandomEncouragingMessage() {
@@ -317,6 +323,7 @@ public class GamesModuleController extends Controller {
 	 * Status label updates to "SPELL IT".
 	 * QuestionNum label shows the current question number out of 5.
 	 * If there is no question left, screen changes to results screen.
+
 	 */
 	private void getNextQuestion() {
 		if (quiz.hasNextQuestion()) {
@@ -346,7 +353,6 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Tests the 
 	 * Pauses transition for three seconds before time counts down.
 	 */
 	private void testWord() {
@@ -355,12 +361,15 @@ public class GamesModuleController extends Controller {
 		pauseBeforeStartingCountdown.setOnFinished(event -> {
 			startProgressBarCountdown();
 			currentScorer.startTiming();
+
+			toggleButtonVisibility(false, true, true);
+			wordTextField.setDisable(false);
 		});
 		pauseBeforeStartingCountdown.play();
 	}
 
 	/**
-	 * Method speak calls to run festival command of "Spell the word." in english voice.
+	 * Method speak calls to run festival command of "Spell the word." in English voice.
 	 * Pauses transition for two seconds before saying the question word.
 	 */
 	private void introduceWord() {
@@ -374,6 +383,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Setup of games module prior to start the game and initliaizes models for spelling quiz.
+	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
 	public void setUp(WordList combinedWordList) {
@@ -391,22 +401,30 @@ public class GamesModuleController extends Controller {
 		statusLabel.setText("Press \"Start\"!");
 		questionNumLabel.setText("");
 		scoreLabel.setText("0");
-		toggleButtonVisibility(isBeginning);
+		toggleButtonVisibility(isBeginning, true, true);
+		wordTextField.setDisable(true);
+		btnSubmit.setDisable(false);
 	}
 
 	/**
 	 * All Buttons expect for Start and wordTextField set as disabled prior to starting the game.
 	 * @param visibilityState boolean set as true for buttons and textField that is disabled.
 	 */
-	private void toggleButtonVisibility(boolean visibilityState) {
-		btnIDontKnow.setDisable(visibilityState);
-		wordTextField.setDisable(visibilityState);
-		btnA.setDisable(visibilityState);
-		btnE.setDisable(visibilityState);
-		btnI.setDisable(visibilityState);
-		btnO.setDisable(visibilityState);
-		btnU.setDisable(visibilityState);
-		btnRepeat.setDisable(visibilityState);
+	private void toggleButtonVisibility(boolean visibilityState, boolean applyToControlButtons,
+			boolean applyToMacrons) {
+		if (applyToControlButtons) {
+			btnSubmit.setDisable(visibilityState);
+			btnIDontKnow.setDisable(visibilityState);
+			btnRepeat.setDisable(visibilityState);
+		}
+
+		if (applyToMacrons) {
+			btnA.setDisable(visibilityState);
+			btnE.setDisable(visibilityState);
+			btnI.setDisable(visibilityState);
+			btnO.setDisable(visibilityState);
+			btnU.setDisable(visibilityState);
+		}
 	}
 
 	/**
@@ -473,12 +491,16 @@ public class GamesModuleController extends Controller {
 	 * Skips word if I dont Know button is pressed.
 	 * Progress Bar stops decreasing and wordTextField is reset to empty.
 	 * Pauses transition for two seconds before going onto next question word.
+
+	 *
 	 * @param event
 	 */
 	@FXML
 	public void skipButton(ActionEvent event) {
 		// skip word and get next word
 		bonusBarTimeline.pause();
+		toggleButtonVisibility(true, true, false);
+		wordTextField.setDisable(true);
 		failedWord();
 		wordTextField.setText("");
 		PauseTransition pause = new PauseTransition(Duration.seconds(2));
@@ -490,11 +512,19 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Repeats the word as many times as the user wants.
+	 *
 	 * @param event ActionEvene from the repeatButton.
 	 */
 	@FXML
 	public void repeatButton(ActionEvent event) {
 		// repeat word
+		toggleButtonVisibility(true, true, false);
+		PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
+		pause.setOnFinished(pauseEvent -> {
+			toggleButtonVisibility(false, true, false);
+		});
+		pause.play();
+
 		sayWord();
 	}
 
@@ -519,6 +549,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Adjusts speed when user updates and changes speed with speed slider.
+	 *
 	 * @param event MouseEvent slider is dragged onto speed levels 0.5, 1, 1.5
 	 */
 	@FXML
@@ -530,6 +561,7 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Progress Bar decreases according to bonus score for each question.
+	 *
 	 * @param totalDuration duration of progressbar
 	 */
 	@FXML
