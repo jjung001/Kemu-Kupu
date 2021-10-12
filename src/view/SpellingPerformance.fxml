@@ -222,5 +222,15 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Button layoutX="1041.0" layoutY="54.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="85.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <Button layoutX="919.0" layoutY="54.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="85.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
