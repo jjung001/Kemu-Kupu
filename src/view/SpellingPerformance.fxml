@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
+   <children>
+      <Rectangle fill="#2197ff00" height="830.0" layoutX="10.0" layoutY="10.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="1130.0" x="25.0" y="25.0" />
+      <Rectangle fill="#714e42" height="110.0" layoutX="40.0" layoutY="40.0" stroke="#714e42" strokeType="INSIDE" width="1120.0" />
+      <Text fill="WHITE" layoutX="156.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelling Performance">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="50.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
