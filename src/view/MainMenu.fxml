@@ -15,44 +15,71 @@
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Group layoutX="498.0" layoutY="166.0">
          <children>
-            <Text fill="#714e42" layoutX="-102.0" layoutY="-5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
+            <Text fill="#714e42" layoutX="-102.0" layoutY="-10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="84.0" />
                </font>
             </Text>
-            <Text fill="#714e42" layoutX="-96.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE&#10;" textAlignment="CENTER">
+            <Text fill="#714e42" layoutX="-96.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE&#10;" textAlignment="CENTER">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="25.0" />
                </font>
             </Text>
          </children>
       </Group>
-      <ImageView fitHeight="222.0" fitWidth="207.0" layoutX="238.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" rotate="164.44">
+      <ImageView fitHeight="222.0" fitWidth="207.0" layoutX="238.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true" rotate="164.44">
          <rotationAxis>
             <Point3D z="7.0" />
          </rotationAxis>
          <image>
             <Image url="@../resources/KemuKupu_logo.png" />
          </image></ImageView>
-      <Text fill="#2e979b" layoutX="123.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. &#10;" textAlignment="CENTER">
+      <Text fill="#2e979b" layoutX="145.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu" textAlignment="CENTER">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="26.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="25.0" />
          </font>
       </Text>
-      <Button fx:id="gameButton" layoutX="288.0" layoutY="365.0" onAction="#playGame" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: #714e42; -fx-border-color: #714e42;" text="Play _Game" textFill="#a2c6ac">
+      <Button fx:id="gameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="355.0" onAction="#playGame" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: #714e42; -fx-border-color: #714e42; button-hover-color: #7fc97f;" text="Play Game" textFill="#a2c6ac">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="288.0" layoutY="455.0" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Practice" textFill="#714e42">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="438.0" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 6;" text="Practice" textFill="#714e42">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="288.0" layoutY="545.0" onAction="#quitGame" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Quit" textFill="#714e42">
+      <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="524.0" onAction="#quitGame" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 6;" text="Quit" textFill="#714e42">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>
+      </Button>
+      <Button layoutX="23.0" layoutY="560.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="105.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="136.0" fitWidth="115.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/View_tree_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="26.0" layoutY="456.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="109.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Spelling_Performance_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="823.0" layoutY="573.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="105.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="87.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Reset_bin_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
    </children>
 </AnchorPane>

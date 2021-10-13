@@ -197,7 +197,7 @@
                   <Font name="DejaVu Sans Condensed Bold" size="15.0" />
                </font>
             </Label>
-            <ToggleButton fx:id="colour" layoutX="356.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="colour" layoutX="356.0" layoutY="189.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent; button-hover-fx-graphic: url('resources/Toggle_Button_On.png');" />
             <ToggleButton fx:id="weather" layoutX="356.0" layoutY="233.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
             <ToggleButton fx:id="dayOne" layoutX="356.0" layoutY="277.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
             <ToggleButton fx:id="monthOne" layoutX="356.0" layoutY="321.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
