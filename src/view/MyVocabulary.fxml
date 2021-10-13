@@ -13,7 +13,7 @@
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="10.0" layoutY="10.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Rectangle fill="#714e42" height="88.0" layoutX="40.0" layoutY="40.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
-      <Text fill="WHITE" layoutX="120.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelling Performance">
+      <Text fill="WHITE" layoutX="120.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Vocabulary">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="40.0" />
          </font>
