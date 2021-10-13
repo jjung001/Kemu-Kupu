@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
+   <children>
+      <Rectangle fill="#2197ff00" height="660.0" layoutX="10.0" layoutY="10.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
+      <Rectangle fill="#714e42" height="88.0" layoutX="40.0" layoutY="40.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
+      <Text fill="WHITE" layoutX="120.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelling Performance">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="40.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="54.0" layoutY="142.0" prefHeight="534.0" prefWidth="862.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
+         <children>
+            <ImageView fitHeight="28.0" fitWidth="58.0" layoutX="119.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Toggle_Button_Off.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="30.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Day">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="19.0" />
+               </font>
+            </Text>
+            <Text layoutX="194.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Week">
+               <font>
+                  <Font name="DejaVu Sans Condensed Bold" size="19.0" />
+               </font>
+            </Text>
+            <AnchorPane layoutX="11.0" layoutY="10.0" prefHeight="48.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Button layoutX="426.0" layoutY="6.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="408.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" text="Proportions" textFill="#666666">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="7.0" layoutY="6.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="408.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" text="Timeline" textFill="#666666">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="11.0" layoutY="68.0" prefHeight="415.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="830.0" layoutY="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <Button layoutX="729.0" layoutY="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
