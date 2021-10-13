@@ -10,43 +10,48 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
    <children>
-      <Rectangle fill="#2197ff00" height="830.0" layoutX="10.0" layoutY="10.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="1130.0" x="25.0" y="25.0" />
-      <Group layoutX="498.0" layoutY="190.0">
+      <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
+      <Group layoutX="498.0" layoutY="166.0">
          <children>
-            <Text fill="#714e42" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
+            <Text fill="#714e42" layoutX="-102.0" layoutY="-5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kēmu&#10;Kupu" textAlignment="CENTER">
                <font>
-                  <Font name="DejaVu Sans Condensed Bold" size="100.0" />
+                  <Font name="DejaVu Sans Condensed Bold" size="84.0" />
                </font>
             </Text>
-            <Text fill="#714e42" layoutX="10.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE&#10;" textAlignment="CENTER">
+            <Text fill="#714e42" layoutX="-96.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROW YOUR TREE&#10;" textAlignment="CENTER">
                <font>
-                  <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+                  <Font name="DejaVu Sans Condensed Bold" size="25.0" />
                </font>
             </Text>
          </children>
       </Group>
-      <ImageView fitHeight="250.0" fitWidth="331.0" layoutX="310.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" rotate="164.2">
+      <ImageView fitHeight="222.0" fitWidth="207.0" layoutX="238.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" rotate="164.44">
          <rotationAxis>
             <Point3D z="7.0" />
          </rotationAxis>
          <image>
-            <Image url="@/resources/KemuKupu_logo.png" />
+            <Image url="@../resources/KemuKupu_logo.png" />
          </image></ImageView>
-      <Text fill="#2e979b" layoutX="298.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. &#10;" textAlignment="CENTER">
+      <Text fill="#2e979b" layoutX="123.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu. &#10;" textAlignment="CENTER">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="22.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="26.0" />
          </font>
       </Text>
-      <Button fx:id="gameButton" layoutX="400.0" layoutY="500.0" onAction="#playGame" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #714e42;" text="Play _Game" textFill="#a2c6ac">
+      <Button fx:id="gameButton" layoutX="288.0" layoutY="365.0" onAction="#playGame" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: #714e42; -fx-border-color: #714e42;" text="Play _Game" textFill="#a2c6ac">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="quitButton" layoutX="400.0" layoutY="600.0" onAction="#quitGame" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Quit" textFill="#714e42">
+      <Button layoutX="288.0" layoutY="455.0" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Practice" textFill="#714e42">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="28.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
+         </font>
+      </Button>
+      <Button fx:id="quitButton" layoutX="288.0" layoutY="545.0" onAction="#quitGame" prefHeight="70.0" prefWidth="375.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5;" text="_Quit" textFill="#714e42">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="34.0" />
          </font>
       </Button>
    </children>
