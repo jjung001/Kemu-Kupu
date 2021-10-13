@@ -28,134 +28,134 @@
             <Image url="@../resources/Tree_4.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="75.0" layoutY="256.0" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="75.0" layoutY="256.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
-            <AnchorPane layoutX="91.0" layoutY="8.0" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label alignment="CENTER" layoutX="4.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Mature">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Mature">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+            <Text fill="WHITE" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="75.0" layoutY="320.0" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="75.0" layoutY="320.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
-            <AnchorPane layoutX="91.0" layoutY="8.0" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label alignment="CENTER" layoutX="4.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="328m">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="328m">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
+            <Text fill="WHITE" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Height">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="75.0" layoutY="384.0" prefHeight="45.0" prefWidth="215.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="75.0" layoutY="384.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
-            <AnchorPane layoutX="91.0" layoutY="8.0" prefHeight="30.0" prefWidth="118.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label alignment="CENTER" layoutX="4.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Excellent">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Excellent">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health">
+            <Text fill="WHITE" layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="671.0" layoutY="248.0" prefHeight="201.0" prefWidth="215.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="671.0" layoutY="248.0" prefHeight="201.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Items">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="8.0" layoutY="44.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="8.0" layoutY="44.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label layoutX="33.0" layoutY="7.0" prefHeight="18.0" prefWidth="70.0" text="Fertiliser">
+                  <Label layoutX="34.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Water">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="103.0" layoutY="7.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" layoutX="156.0" layoutY="3.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #EEEEEE;" text="USE" textFill="#2e979b">
+                  <Button alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
                      <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="10.0" />
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="82.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="8.0" layoutY="82.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label layoutX="33.0" layoutY="7.0" prefHeight="18.0" prefWidth="70.0" text="Fertiliser">
+                  <Label layoutX="34.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Fertiliser">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="103.0" layoutY="7.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" layoutX="156.0" layoutY="3.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #EEEEEE;" text="USE" textFill="#2e979b">
+                  <Button alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
                      <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="10.0" />
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <Button layoutX="67.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="8.0" layoutY="120.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+               <children>
+                  <Label layoutX="34.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Fertiliser">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Button layoutX="76.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
-            <Button layoutX="112.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <Button layoutX="121.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <graphic>
                   <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
-            <AnchorPane layoutX="8.0" layoutY="120.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
-               <children>
-                  <Label layoutX="33.0" layoutY="7.0" prefHeight="18.0" prefWidth="70.0" text="Fertiliser">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER_RIGHT" layoutX="103.0" layoutY="7.0" prefHeight="18.0" prefWidth="48.0" text="1×" textAlignment="RIGHT">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Button alignment="CENTER" layoutX="156.0" layoutY="3.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #EEEEEE;" text="USE" textFill="#2e979b">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="10.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
