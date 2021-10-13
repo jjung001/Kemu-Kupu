@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
+   <children>
+      <Rectangle fill="#2197ff00" height="660.0" layoutX="10.0" layoutY="10.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
+      <Rectangle fill="#714e42" height="88.0" layoutX="40.0" layoutY="40.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
+      <Text fill="WHITE" layoutX="120.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Highest Earnings">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="40.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="54.0" layoutY="142.0" prefHeight="446.0" prefWidth="862.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
+         <children>
+            <AnchorPane layoutX="11.0" layoutY="10.0" prefHeight="77.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 1">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="747.0" layoutY="23.0" prefHeight="30.0" prefWidth="79.0" text="1000">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="11.0" layoutY="97.0" prefHeight="77.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 2">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="747.0" layoutY="23.0" prefHeight="30.0" prefWidth="79.0" text="800">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="11.0" layoutY="184.0" prefHeight="77.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 3">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="747.0" layoutY="23.0" prefHeight="30.0" prefWidth="79.0" text="500">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="11.0" layoutY="271.0" prefHeight="77.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 4">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="747.0" layoutY="23.0" prefHeight="30.0" prefWidth="79.0" text="300">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="11.0" layoutY="358.0" prefHeight="77.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+               <children>
+                  <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 5">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="747.0" layoutY="23.0" prefHeight="30.0" prefWidth="79.0" text="100">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="830.0" layoutY="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <Button layoutX="729.0" layoutY="50.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <Button layoutX="821.0" layoutY="618.0" mnemonicParsing="false" style="-fx-background-color: CCCCCC; -fx-background-radius: 6;" text="Reset">
+         <font>
+            <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
