@@ -205,7 +205,7 @@
             <ToggleButton fx:id="compassPoint" layoutX="799.0" layoutY="377.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
             <ToggleButton fx:id="university" layoutX="799.0" layoutY="435.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
             <ToggleButton fx:id="software" layoutX="799.0" layoutY="493.0" mnemonicParsing="false" onAction="#toggleTopic" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
-            <Text fill="#eeeeee" layoutX="383.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Topic List:">
+            <Text fill="#eeeeee" layoutX="140.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Topic List:">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="40.0" />
                </font>
