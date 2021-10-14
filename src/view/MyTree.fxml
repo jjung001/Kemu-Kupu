@@ -18,7 +18,7 @@
             <Font name="DejaVu Sans Condensed Bold" size="40.0" />
          </font>
       </Text>
-      <Label alignment="CENTER_RIGHT" layoutX="566.0" layoutY="62.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="CENTER_RIGHT" layoutX="586.0" layoutY="62.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>
@@ -156,6 +156,20 @@
                   <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Button>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="52.8" fitWidth="52.8" layoutX="850.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Coin.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="836.0" layoutY="612.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+         <children>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Axe.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
