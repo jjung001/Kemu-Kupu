@@ -13,7 +13,7 @@
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Rectangle fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
-      <Text fill="WHITE" layoutX="140.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Tree">
+      <Text fill="#eeeeee" layoutX="140.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Tree">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="40.0" />
          </font>
