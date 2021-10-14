@@ -34,9 +34,9 @@
          <image>
             <Image url="@../resources/KemuKupu_logo.png" />
          </image></ImageView>
-      <Text fill="#2e979b" layoutX="145.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu" textAlignment="CENTER">
+      <Text fill="#2e979b" layoutX="171.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu" textAlignment="CENTER">
          <font>
-            <Font name="DejaVu Sans Condensed Bold" size="25.0" />
+            <Font name="DejaVu Sans Condensed Bold" size="23.0" />
          </font>
       </Text>
       <Button fx:id="gameButton" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="355.0" onAction="#playGame" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: #714e42; -fx-border-color: #714e42; button-hover-color: #7fc97f;" text="Play Game" textFill="#a2c6ac">
@@ -63,7 +63,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="26.0" layoutY="456.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" style="-fx-background-color: transparent;">
+      <Button layoutX="123.0" layoutY="572.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="109.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                <image>
