@@ -13,18 +13,18 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
-      <Button layoutX="32.0" layoutY="565.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="105.0" style="-fx-background-color: transparent;">
+      <Button layoutX="35.0" layoutY="580.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="91.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="101.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="89.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/View_tree_icon.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="118.0" layoutY="579.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="123.0" style="-fx-background-color: transparent;">
+      <Button layoutX="112.0" layoutY="574.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="130.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="109.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="117.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/Spelling_Performance_icon.png" />
                </image>
@@ -72,7 +72,7 @@
             <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="823.0" layoutY="573.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="105.0" style="-fx-background-color: transparent;">
+      <Button layoutX="822.0" layoutY="573.0" mnemonicParsing="false" prefHeight="114.0" prefWidth="105.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="87.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
