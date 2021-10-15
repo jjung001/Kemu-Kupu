@@ -87,21 +87,36 @@
                         <Font name="DejaVu Sans Condensed Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="420.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="3">
+                  <Label layoutX="452.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="3">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="560.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="4">
+                  <Label layoutX="580.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="4">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="5">
+                  <Label layoutX="712.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="5">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Mastered_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Faulted_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Failed_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="11.0" layoutY="162.0" prefHeight="65.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
@@ -116,21 +131,36 @@
                         <Font name="DejaVu Sans Condensed Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="420.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="3">
+                  <Label layoutX="452.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="3">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="560.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="4">
+                  <Label layoutX="580.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="4">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="5">
+                  <Label layoutX="712.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="5">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Mastered_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Faulted_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Failed_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="11.0" layoutY="234.0" prefHeight="65.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
@@ -145,21 +175,36 @@
                         <Font name="DejaVu Sans Condensed Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="420.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="3">
+                  <Label layoutX="452.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="3">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="560.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="4">
+                  <Label layoutX="580.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="4">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="5">
+                  <Label layoutX="712.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="5">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Mastered_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Faulted_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Failed_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="11.0" layoutY="306.0" prefHeight="65.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
@@ -174,21 +219,36 @@
                         <Font name="DejaVu Sans Condensed Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="420.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="3">
+                  <Label layoutX="452.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="3">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="560.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="4">
+                  <Label layoutX="580.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="4">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="5">
+                  <Label layoutX="712.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="5">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Mastered_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Faulted_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Failed_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="11.0" layoutY="378.0" prefHeight="65.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
@@ -203,33 +263,55 @@
                         <Font name="DejaVu Sans Condensed Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="420.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="3">
+                  <Label layoutX="452.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="3">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="560.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="4">
+                  <Label layoutX="580.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="4">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="18.0" prefHeight="30.0" prefWidth="50.0" text="5">
+                  <Label layoutX="712.0" layoutY="18.0" prefHeight="30.0" prefWidth="47.0" text="5">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Mastered_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Faulted_icon.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Failed_icon.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Highest_Earnings_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
-      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Spelling_Performance_icon.png" />
+               </image>
+            </ImageView>
          </graphic>
       </Button>
    </children>

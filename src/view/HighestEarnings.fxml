@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
@@ -91,14 +92,20 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Spelling_Performance_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
-      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/My_Vocabulary_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
    </children>

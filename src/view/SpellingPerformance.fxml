@@ -51,14 +51,20 @@
             <AnchorPane layoutX="11.0" layoutY="68.0" prefHeight="415.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;" />
          </children>
       </AnchorPane>
-      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Highest_Earnings_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
-      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="68.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/My_Vocabulary_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
    </children>
