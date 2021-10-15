@@ -16,13 +16,13 @@
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a2c6ac" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="890.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="890.0" />
             <Text fill="#2e979b" layoutX="211.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select at least one topic to add to spelling list:" textAlignment="CENTER">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="24.0" />
                </font>
             </Text>
-            <Button fx:id="start" layoutX="314.0" layoutY="590.0" onAction="#startGame" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: #714e42;" text="_Start" textFill="#a2c6ac">
+            <Button fx:id="start" layoutX="314.0" layoutY="590.0" onAction="#startGame" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: #714e42; -fx-background-radius: 6;" text="_Start" textFill="#a2c6ac">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="30.0" />
                </font>
