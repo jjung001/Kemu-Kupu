@@ -30,7 +30,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import quiz.Question;
-import quiz.Quiz;
+import quiz.QuestionManager;
 import quiz.ScoreTracker;
 import quiz.Scorer;
 import quiz.WordList;
@@ -103,7 +103,7 @@ public class GamesModuleController extends Controller {
 	public boolean quitOrNot;
 	public double currentBonus;
 	private WordList combinedWordList;
-	private Quiz quiz;
+	private QuestionManager questionManager;
 	private ScoreTracker scoreTracker;
 	boolean isBeginning;
 	Question currentQuestion;
@@ -234,7 +234,7 @@ public class GamesModuleController extends Controller {
 	 * Method speak is calls to run festival command "correct." in english voice.
 	 */
 	private void masteredWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -270,7 +270,7 @@ public class GamesModuleController extends Controller {
 	 * Method speak calls to run festival command "Good job." in English voice.
 	 */
 	private void faultedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getFaultedScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -287,7 +287,7 @@ public class GamesModuleController extends Controller {
 
 	 */
 	private void failedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = 0;
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -326,15 +326,15 @@ public class GamesModuleController extends Controller {
 
 	 */
 	private void getNextQuestion() {
-		if (quiz.hasNextQuestion()) {
+		if (questionManager.hasNextQuestion()) {
 			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
-			currentQuestion = quiz.getNextQuestion();
+			currentQuestion = questionManager.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
 			testWord();
 
-			int questionNumber = quiz.getQuestionNumber();
-			int totalNumberOfQuestions = quiz.getTotalNumberOfQuestions();
+			int questionNumber = questionManager.getQuestionNumber();
+			int totalNumberOfQuestions = questionManager.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
@@ -391,7 +391,7 @@ public class GamesModuleController extends Controller {
 		currentSpeed = speedOfSpeech.getValue();
 
 		// Initialize models for spelling quiz
-		quiz = new Quiz(combinedWordList.getRandomWords(5));
+		questionManager = new QuestionManager(combinedWordList.getRandomWords(5));
 		scoreTracker = new ScoreTracker(5);
 
 		// Set up interface prior to start of game
