@@ -52,12 +52,13 @@ public class Question {
 	}
 
 	/**
-	 * Returns the second letter of the word associated with the question.
+	 * Returns the letter of the word associated with the question at the specified
+	 * index .
 	 *
-	 * @return A char containing the second letter of the word.
+	 * @return A char containing the letter at the specified index of the word.
 	 */
-	public char getSecondLetter() {
-		return word.charAt(1);
+	public char getLetter(int index) {
+		return word.charAt(index);
 	}
 
 	/**

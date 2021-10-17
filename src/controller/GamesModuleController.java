@@ -251,7 +251,7 @@ public class GamesModuleController extends Controller {
 	 * Pauses transition for two seconds before giving next attempt of the word.
 	 */
 	private void incorrectWord() {
-		char secondCharacter = currentQuestion.getSecondLetter();
+		char secondCharacter = currentQuestion.getLetter(1);
 		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
 		hintLabel.setText(parsedMessage);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
