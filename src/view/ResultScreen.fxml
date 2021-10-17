@@ -42,7 +42,7 @@
                      </font>
                   </Text>
                   <Group layoutX="569.0" layoutY="125.0" />
-                  <Group layoutX="59.0" layoutY="119.0">
+                  <Group layoutX="59.0" layoutY="124.0">
                      <children>
                         <Text fill="#714e42" layoutX="7.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!">
                            <font>
@@ -72,7 +72,7 @@
                            </tickLabelFont></NumberAxis>
                     </yAxis>
                   </LineChart>
-                  <Group layoutX="262.0" layoutY="312.0">
+                  <Group layoutX="262.0" layoutY="316.0">
                      <children>
                         <Ellipse fill="WHITE" radiusX="66.0" radiusY="66.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="5.0" />
                         <ImageView fx:id="treeImage" fitHeight="93.0" fitWidth="93.0" layoutX="-46.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
