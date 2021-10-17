@@ -33,7 +33,7 @@ import quiz.Question;
 import quiz.QuestionManager;
 import quiz.ScoreTracker;
 import quiz.Scorer;
-import quiz.WordList;
+import quiz.WordStore;
 
 /**
  * This is the controller class for the Games module. 
@@ -102,7 +102,7 @@ public class GamesModuleController extends Controller {
 	public Thread th;
 	public boolean quitOrNot;
 	public double currentBonus;
-	private WordList combinedWordList;
+	private WordStore combinedWordList;
 	private QuestionManager questionManager;
 	private ScoreTracker scoreTracker;
 	boolean isBeginning;
@@ -386,7 +386,7 @@ public class GamesModuleController extends Controller {
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
-	public void setUp(WordList combinedWordList) {
+	public void setUp(WordStore combinedWordList) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 

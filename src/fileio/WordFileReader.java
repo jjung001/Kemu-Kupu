@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import quiz.WordList;
+import quiz.WordStore;
 
 public class WordFileReader {
 
@@ -15,11 +15,11 @@ public class WordFileReader {
 	 *                               not exist, or if the file itself does not
 	 *                               exist.
 	 */
-	public WordList readLines(String fileName) throws FileNotFoundException {
+	public WordStore readLines(String fileName) throws FileNotFoundException {
 		// Initialise variable for words
 		String word = " ";
 		String filePath = "wordlist/" + fileName + ".txt";
-		WordList wordList = new WordList();
+		WordStore wordStore = new WordStore();
 
 		// find and scan a file by using it's file name that has been in put.
 		Scanner sc = new Scanner(new File(filePath));
@@ -27,9 +27,9 @@ public class WordFileReader {
 		// If a line contains a word, add word to the list.
 		while (sc.hasNextLine()) {
 			word = sc.nextLine();
-			wordList.addWord(word.strip());
+			wordStore.addWord(word.strip());
 		}
 		sc.close();
-		return wordList;
+		return wordStore;
 	}
 }

@@ -18,8 +18,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import quiz.WordList;
-import quiz.WordListManager;
+import quiz.WordStore;
+import quiz.WordStoreManager;
 
 /**
  * This is a controller class of the Topic list scene. 
@@ -44,10 +44,10 @@ public class TopicsView extends Controller {
 	Image onButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_On.png"));
 	Image offButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_Off.png"));
 	private ArrayList<ToggleButton> toggles = new ArrayList<ToggleButton>();
-	private WordList combinedWordList;
-	private WordListManager wordListManager;
+	private WordStore combinedWordList;
+	private WordStoreManager wordStoreManager;
 	private WordFileReader wordFileReader;
-	private HashMap<String, WordList> loadedWordListHashMap;
+	private HashMap<String, WordStore> loadedWordListHashMap;
 
 	/**
 	 * Initialises the class by adding all toggle buttons in to an Arraylist. 
@@ -69,7 +69,7 @@ public class TopicsView extends Controller {
 		toggles.add(software);
 
 		wordFileReader = new WordFileReader();
-		wordListManager = new WordListManager();
+		wordStoreManager = new WordStoreManager();
 		loadedWordListHashMap = new HashMap<>();
 	}
 
@@ -85,7 +85,7 @@ public class TopicsView extends Controller {
 		try {
 			ToggleButton selectedTopic = (ToggleButton) event.getSource();
 			String id = selectedTopic.getId();
-			WordList targetWordList;
+			WordStore targetWordList;
 
 			if (selectedTopic.isSelected()) {
 				// Set the toggle button image
@@ -97,12 +97,12 @@ public class TopicsView extends Controller {
 					targetWordList = wordFileReader.readLines(id);
 					loadedWordListHashMap.put(id, targetWordList);
 				}
-				wordListManager.addWordList(targetWordList);
+				wordStoreManager.addWordList(targetWordList);
 				//When button un-toggled, set image and remove word list. 
 			} else if (!selectedTopic.isSelected()) {
 				selectedTopic.setGraphic(new ImageView(offButtonImage));
 				targetWordList = loadedWordListHashMap.get(id);
-				wordListManager.removeWordList(targetWordList);
+				wordStoreManager.removeWordList(targetWordList);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -128,7 +128,7 @@ public class TopicsView extends Controller {
 		} else {
 			//Call next scene (Game screen) 
 			Stage primaryStage = (Stage) startWarning.getScene().getWindow();
-			combinedWordList = wordListManager.getCombinedWords();
+			combinedWordList = wordStoreManager.getCombinedWords();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/GameScreen.fxml"));
 			try {
 				Parent root = (Parent) loader.load();
