@@ -18,7 +18,7 @@
             <Font name="DejaVu Sans Condensed Bold" size="40.0" />
          </font>
       </Text>
-      <Label alignment="CENTER_RIGHT" layoutX="586.0" layoutY="62.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="CENTER_RIGHT" layoutX="586.0" layoutY="62.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="#2e979b">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>
@@ -47,6 +47,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="93.0" layoutY="408.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
@@ -73,6 +78,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="355.0" layoutY="148.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
@@ -99,6 +109,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="617.0" layoutY="148.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
@@ -125,6 +140,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="355.0" layoutY="408.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
@@ -151,6 +171,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="617.0" layoutY="408.0" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
@@ -177,6 +202,11 @@
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
+            <ImageView fitHeight="21.0" fitWidth="24.0" layoutX="20.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Coin.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Button layoutX="43.0" layoutY="372.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="43.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
@@ -194,5 +224,14 @@
             <Image url="@../resources/Coin.png" />
          </image>
       </ImageView>
+      <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#quitTopic" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Back_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
