@@ -62,6 +62,15 @@ public class Question {
 	}
 
 	/**
+	 * Returns the number of letters in the word associated with the question.
+	 *
+	 * @return An integer indicating the number of letters in the word.
+	 */
+	public int getNumberOfLetters() {
+		return word.length();
+	}
+
+	/**
 	 * Returns true if the user is at their second attempt of the question, or false
 	 * otherwise.
 	 *
