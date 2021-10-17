@@ -44,21 +44,31 @@
                   <Group layoutX="569.0" layoutY="125.0" />
                   <Group layoutX="59.0" layoutY="124.0">
                      <children>
-                        <Text fill="#714e42" layoutX="7.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!">
+                        <Text fill="#714e42" layoutX="15.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You earned:            Kēmu Moni">
                            <font>
                               <Font name="DejaVu Sans Condensed Bold" size="25.0" />
                            </font>
                         </Text>
-                        <Text fill="#714e42" layoutX="7.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You earned             tree money">
+                        <Label fx:id="scoreLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="61.0" prefHeight="51.0" prefWidth="142.0" text="1089" textFill="#2e979b">
                            <font>
-                              <Font name="DejaVu Sans Condensed Bold" size="25.0" />
-                           </font>
-                        </Text>
-                        <Label fx:id="scoreLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="130.0" layoutY="62.0" prefHeight="51.0" prefWidth="142.0" text="0" textFill="#2e979b">
-                           <font>
-                              <Font name="DejaVu Sans Condensed Bold" size="32.0" />
+                              <Font name="DejaVu Sans Condensed Bold" size="30.0" />
                            </font>
                         </Label>
+                        <Group layoutX="215.0" layoutY="190.0">
+                           <children>
+                              <Ellipse fill="#eeeeee" radiusX="76.0" radiusY="76.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="0.0" />
+                              <ImageView fx:id="treeImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/Coin_6.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Group>
+                        <Text fill="#714e42" layoutX="13.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!">
+                           <font>
+                              <Font name="DejaVu Sans Condensed Bold" size="25.0" />
+                           </font>
+                        </Text>
                      </children>
                   </Group>
                   <LineChart fx:id="scoreChart" layoutX="66.0" layoutY="423.0" legendVisible="false" prefHeight="164.0" prefWidth="802.0" style="-fx-background-color: transparent;">
@@ -72,16 +82,6 @@
                            </tickLabelFont></NumberAxis>
                     </yAxis>
                   </LineChart>
-                  <Group layoutX="262.0" layoutY="316.0">
-                     <children>
-                        <Ellipse fill="WHITE" radiusX="66.0" radiusY="66.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="5.0" />
-                        <ImageView fx:id="treeImage" fitHeight="93.0" fitWidth="93.0" layoutX="-46.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/Coin.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Group>
                   <Text fill="#714e42" layoutX="393.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score sum after each Word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
@@ -107,7 +107,7 @@
                                     <Image url="@../resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="207.0" layoutY="9.0" text="Kakarikihjihbhgi" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -164,7 +164,7 @@
                                     <Image url="@../resources/Failed_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="207.0" layoutY="9.0" text="Kakarikihjihbhgi" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" text="dfg" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -183,7 +183,7 @@
                                     <Image url="@../resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="207.0" layoutY="9.0" text="Kakarikihjihbhgi" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
