@@ -1,8 +1,10 @@
-package words;
+package fileio;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import words.WordList;
 
 public class WordFileReader {
 
