@@ -6,8 +6,8 @@ import java.util.Random;
 
 import application.AlertBox;
 import application.Festival;
-import application.Language;
 import enums.AnswerStatus;
+import enums.Language;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;

@@ -1,4 +1,4 @@
-package application;
+package enums;
 
 /**
  * Describes whether the language to be used by the TTS is in English or Maori.

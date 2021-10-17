@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 
+import enums.Language;
+
 /**
  * Communicates specifically with Festival TTS to speak words.
  *
