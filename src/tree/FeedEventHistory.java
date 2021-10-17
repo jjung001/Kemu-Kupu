@@ -45,12 +45,20 @@ public class FeedEventHistory {
 	public void removeFeedEventsPastThresholdTimePeriod() {
 		int index = 0;
 		while (index < feedEventList.size()) {
-			FeedEvent feedEvent = feedEventList.get(index);
-			if (feedEvent.isPastTimePeriodSinceFeed(thresholdTimePeriod)) {
-				feedEventList.remove(index);
-			} else {
+			boolean isRemoved = removeFeedEventIfPastThresholdTimePeriod(index);
+			if (!isRemoved) {
 				index++;
 			}
+		}
+	}
+
+	private boolean removeFeedEventIfPastThresholdTimePeriod(int index) {
+		FeedEvent feedEvent = feedEventList.get(index);
+		if (feedEvent.isPastTimePeriodSinceFeed(thresholdTimePeriod)) {
+			feedEventList.remove(index);
+			return true;
+		} else {
+			return false;
 		}
 	}
 }
