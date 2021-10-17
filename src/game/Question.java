@@ -1,5 +1,7 @@
 package game;
 
+import enums.AnswerStatus;
+
 /**
  * Stores the word for each question in the quiz. Also checks if a user's answer
  * has the same spelling as the word stored.

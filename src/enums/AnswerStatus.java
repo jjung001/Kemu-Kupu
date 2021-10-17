@@ -1,4 +1,4 @@
-package game;
+package enums;
 
 /**
  * Describes the state of the user's answer to a spelling quiz question, where

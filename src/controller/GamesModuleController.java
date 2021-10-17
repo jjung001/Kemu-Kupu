@@ -7,7 +7,7 @@ import java.util.Random;
 import application.AlertBox;
 import application.Festival;
 import application.Language;
-import game.AnswerStatus;
+import enums.AnswerStatus;
 import game.Question;
 import game.Quiz;
 import game.ScoreTracker;
