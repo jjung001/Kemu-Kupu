@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import words.WordList;
+import quiz.WordList;
 
 public class WordFileReader {
 

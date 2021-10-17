@@ -18,8 +18,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import words.WordList;
-import words.WordListManager;
+import quiz.WordList;
+import quiz.WordListManager;
 
 /**
  * This is a controller class of the Topic list scene. 

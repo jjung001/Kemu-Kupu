@@ -33,7 +33,7 @@ import quiz.Question;
 import quiz.Quiz;
 import quiz.ScoreTracker;
 import quiz.Scorer;
-import words.WordList;
+import quiz.WordList;
 
 /**
  * This is the controller class for the Games module. 

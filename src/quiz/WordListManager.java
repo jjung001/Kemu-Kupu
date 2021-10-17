@@ -1,4 +1,4 @@
-package words;
+package quiz;
 
 import java.util.ArrayList;
 import java.util.HashSet;
