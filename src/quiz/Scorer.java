@@ -1,4 +1,4 @@
-package game;
+package quiz;
 
 /**
  * Calculates the score of for a particular word/question in the spelling quiz.

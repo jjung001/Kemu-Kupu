@@ -8,10 +8,6 @@ import application.AlertBox;
 import application.Festival;
 import application.Language;
 import enums.AnswerStatus;
-import game.Question;
-import game.Quiz;
-import game.ScoreTracker;
-import game.Scorer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
@@ -33,6 +29,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import quiz.Question;
+import quiz.Quiz;
+import quiz.ScoreTracker;
+import quiz.Scorer;
 import words.WordList;
 
 /**
