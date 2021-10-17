@@ -23,16 +23,21 @@
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="376.0" fitWidth="376.0" layoutX="297.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="376.0" fitWidth="376.0" layoutX="292.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/Tree_4.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="74.0" layoutY="256.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <ImageView fitHeight="650.0" fitWidth="890.0" layoutX="35.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/Grass.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="72.0" layoutY="256.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Mature">
+                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="18.0" prefWidth="111.0" text="Mature" textFill="#2c979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -46,7 +51,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="74.0" layoutY="320.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="72.0" layoutY="320.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
@@ -64,7 +69,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="74.0" layoutY="384.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="72.0" layoutY="384.0" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <AnchorPane layoutX="101.0" layoutY="8.0" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
@@ -82,7 +87,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="663.0" layoutY="216.0" prefHeight="201.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="664.0" layoutY="216.0" prefHeight="201.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Items">
                <font>
@@ -187,12 +192,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="663.0" layoutY="428.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6;" text="Buy Items" textFill="#714e42">
+      <Button layoutX="664.0" layoutY="428.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6;" text="Buy Items" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="706.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="715.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/Shopping_icon.png" />
          </image>
