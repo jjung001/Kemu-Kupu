@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import application.AlertBox;
-import application.Festival;
+import application.TTS;
 import enums.AnswerStatus;
 import enums.Language;
 import javafx.animation.KeyFrame;
@@ -472,9 +472,9 @@ public class GamesModuleController extends Controller {
 	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
 		if (isMaori) {
-			Festival.festival(speed, text, Language.MAORI);
+			TTS.speak(speed, text, Language.MAORI);
 		} else {
-			Festival.festival(speed, text, Language.ENGLISH);
+			TTS.speak(speed, text, Language.ENGLISH);
 		}
 	}
 
