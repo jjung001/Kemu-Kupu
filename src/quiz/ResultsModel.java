@@ -120,12 +120,12 @@ public Image displayImage(int score) {
 	}
 	
 	public Image getStatusImage(int questionNumber) {
-		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAILED) {
-			return failedIcon;
+		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.MASTERED) {
+			return masteredIcon;
 		} else if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAULTED) {
 			return faultedIcon;
 		} else {
-			return masteredIcon;
+			return failedIcon;
 		}
 	}
 }

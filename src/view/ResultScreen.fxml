@@ -54,10 +54,10 @@
                               <Font name="DejaVu Sans Condensed Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Group layoutX="215.0" layoutY="190.0">
+                        <Group layoutX="215.0" layoutY="193.0">
                            <children>
                               <Ellipse fill="#eeeeee" radiusX="76.0" radiusY="76.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="0.0" />
-                              <ImageView fx:id="treeImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="cashImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../resources/Coin_6.png" />
                                  </image>

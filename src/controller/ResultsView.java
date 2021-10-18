@@ -6,6 +6,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import quiz.AnswerAttemptTracker;
+import quiz.AnswerStatusTracker;
 import quiz.ResultsModel;
 import quiz.ScoreTracker;
 
@@ -34,16 +36,16 @@ public class ResultsView extends Controller {
 	@FXML
 	private Label wordOne, wordTwo, wordThree, wordFour, wordFive;
 	@FXML
-	private Label wordOneAttemptLabel, wordTwoAttemptLabel, wordThreeAttemptLabel, wordFourAttmeptLabel, wordFiveAttemptLabel;
+	private Label wordOneAttemptLabel, wordTwoAttemptLabel, wordThreeAttemptLabel, wordFourAttemptLabel, wordFiveAttemptLabel;
 	@FXML
 	private ImageView wordOneStatus, wordTwoStatus, wordThreeStatus, wordFourStatus, wordFiveStatus;
 	@FXML
 	LineChart<String, Number> scoreChart;
 
-	private String scoreDisplay;
-	private String level;
 	private int totalScore;
 	private ResultsModel resultsModel;
+	private AnswerAttemptTracker answerAttemptTracker;
+	private AnswerStatusTracker answerStatusTracker;
 
 	/**
 	 * Initially sets up the controller.
@@ -72,7 +74,7 @@ public class ResultsView extends Controller {
 		wordOneAttemptLabel.setText(resultsModel.getAttempt(1));
 		wordTwoAttemptLabel.setText(resultsModel.getAttempt(2));
 		wordThreeAttemptLabel.setText(resultsModel.getAttempt(3));
-		wordFourAttmeptLabel.setText(resultsModel.getAttempt(4));
+		wordFourAttemptLabel.setText(resultsModel.getAttempt(4));
 		wordFiveAttemptLabel.setText(resultsModel.getAttempt(5));
 		
 		wordOneStatus.setImage(resultsModel.getStatusImage(1));
