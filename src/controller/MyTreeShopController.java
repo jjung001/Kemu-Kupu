@@ -1,6 +1,9 @@
 package controller;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import application.Cash;
 import application.FileSaveLocations;
@@ -42,23 +45,125 @@ public class MyTreeShopController extends Controller {
 	private Cash treeMoney;
 	private ItemStock stock;
 	private Item item;
+	private Item itemWaterEx;
+	private Item itemFertiliser;
+	private Item itemFertiliserPlus;
+	private Item itemSunlight;
+	private Item itemInsecticider;
 
     @FXML
     void quitShop(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
     }
     
+    public HashMap<String, Integer> itemHashMap() {
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap.put("water", 200);
+    	itemHashMap.put("waterEx", 300);
+    	itemHashMap.put("fertiliser", 400);
+    	itemHashMap.put("fertiliserPlus", 500);
+    	itemHashMap.put("sunlight", 200);
+    	itemHashMap.put("insecticide", 600);
+    	return itemHashMap;
+    }
+    
     @FXML
     void buyWater(ActionEvent event) {
-//    	offSetDateTime = OffsetDateTime.now(); 
-    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-    	treeMoney.setCash(treeMoney.getCash());
-    	if (treeMoney.hasEnoughFunds(200)) {
-    		treeMoney.withdraw(200);
-    	} 
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "water";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+    
+    @FXML
+    void buyWaterEx(ActionEvent event) {
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "waterEx";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+    
+    @FXML
+    void buyFertiliser(ActionEvent event) {
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "fertiliser";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+
+    @FXML
+    void buyFertiliserPlus(ActionEvent event) {
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "fertiliserPlus";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+
+    @FXML
+    void buyInsecticide(ActionEvent event) {
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "insecticide";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+
+    @FXML
+    void buySunlight(ActionEvent event) {
+    	storeItemStockAndMoney();
+    	Item item = new Item();
+    	String nameWater = "sunlight";
+    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
+    	itemHashMap = itemHashMap();
+    	item.setName(nameWater);
+    	item.setCost(itemHashMap.get(nameWater));
+    	buyItem(treeMoney, item, stock);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    }
+    
+    private void saveItemStockAndMoney(ItemStockIO itemStockIO, ItemStock stock, OffsetDateTime offSetDateTime,
+    		Cash treeMoney) {
+    	itemStockIO.saveStockNumbers(stock, offSetDateTime);
     	String money = String.valueOf(treeMoney.getCash());
     	moneyLabel.setText(money);   
     	cashIO.saveCash(treeMoney);
+    }
+    
+    public void storeItemStockAndMoney() {
+    	offSetDateTime = OffsetDateTime.now(); 
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	treeMoney.setCash(treeMoney.getCash());
+    }
+    
+    public void buyItem(Cash treeMoney, Item item, ItemStock stock) {
+    	if (treeMoney.hasEnoughFunds(item.getCost())) {
+    		treeMoney.withdraw(item.getCost());
+        	stock.addItem(item);
+    	} 
     }
     
     public void initialize() {
@@ -68,5 +173,10 @@ public class MyTreeShopController extends Controller {
     	treeMoney = cashIO.loadCash();
     	String money = String.valueOf(treeMoney.getCash());
     	moneyLabel.setText(money);
+		stock = new ItemStock();
+
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	itemStockIO.loadStockNumbers();
+    	
     }
 }
