@@ -92,5 +92,9 @@ public class ResultsView extends Controller {
 	public void playAgain(ActionEvent event) {
 		switchScene(event, "TopicList.fxml");
 	}
+	
+	public void viewTree(ActionEvent event) {
+		switchScene(event, "MyTree.fxml");
+	}
 
 }
