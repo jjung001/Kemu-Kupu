@@ -85,5 +85,11 @@ public class MyTreeController extends Controller {
 	void quitMyTree(ActionEvent event) {
 		backToMain(event);
 	}
+	
+	@FXML
+    void buyItems(ActionEvent event) {
+		switchScene(event, "MyTreeShop.fxml");
+    }
+
 
 }
