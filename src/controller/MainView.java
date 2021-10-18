@@ -39,6 +39,10 @@ public class MainView extends Controller {
 	public void viewMyTree(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
 	}
+	
+	public void viewStatistics(ActionEvent event) {
+		switchScene(event, "MyVocabulary.fxml");
+	}
 
 	/**
 	 * Exits and shuts down window when the quit button is pressed. 
