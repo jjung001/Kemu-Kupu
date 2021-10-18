@@ -189,7 +189,7 @@
             <Image url="@../resources/Coin.png" />
          </image>
       </ImageView>
-      <Button layoutX="811.0" layoutY="597.0" mnemonicParsing="false" style="-fx-border-color: #714e42; -fx-border-radius: 6; -fx-border-width: 5; -fx-background-color: transparent;">
+      <Button fx:id="btnAxe" layoutX="811.0" layoutY="597.0" mnemonicParsing="false" onAction="#cutDownTree" style="-fx-border-color: #714e42; -fx-border-radius: 6; -fx-border-width: 5; -fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="54.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
