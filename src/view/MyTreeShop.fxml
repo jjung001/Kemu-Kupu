@@ -39,7 +39,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button fx:id="btnBuyWater" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnBuyWater" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" onAction="#buyWater" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
