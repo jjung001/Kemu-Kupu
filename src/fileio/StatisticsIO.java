@@ -257,10 +257,4 @@ public class StatisticsIO extends FileIO {
 		String score = getStringPartFromLine(record, 4);
 		wordEarnings.addEarningsToWord(word, Integer.parseInt(score));
 	}
-
-	private String getStringPartFromLine(String line, int index) {
-		String formatted = line.strip();
-		String[] splitString = formatted.split("\\s+");
-		return splitString[index];
-	}
 }

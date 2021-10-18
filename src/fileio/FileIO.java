@@ -59,4 +59,10 @@ public abstract class FileIO {
 //			e.printStackTrace();
 		}
 	}
+
+	protected String getStringPartFromLine(String line, int index) {
+		String formatted = line.strip();
+		String[] splitString = formatted.split("\\s+");
+		return splitString[index];
+	}
 }
