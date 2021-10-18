@@ -77,6 +77,12 @@ public class TopicsView extends Controller {
 		loadedWordListHashMap = new HashMap<>();
 		
 		numOfQChoiceBox.getItems().addAll(numberChoice);
+		numOfQChoiceBox.setOnAction(this::getNumberOfQuestions);
+	}
+	
+	public int getNumberOfQuestions(ActionEvent event) {
+		int numberOfQuestions = Integer.parseInt(numOfQChoiceBox.getValue());
+		return numberOfQuestions;
 	}
 
 	/**
