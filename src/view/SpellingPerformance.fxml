@@ -64,7 +64,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#exitScreen" style="-fx-background-color: transparent;">
+      <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
