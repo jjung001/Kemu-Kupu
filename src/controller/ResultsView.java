@@ -24,11 +24,19 @@ public class ResultsView extends Controller {
 	@FXML
 	private Button backButton;
 	@FXML
+	private Button viewTreeButton;
+	@FXML
 	private Label scoreLabel;
 	@FXML
 	private Label levelLabel;
 	@FXML
-	private ImageView treeImage;
+	private ImageView cashImage;
+	@FXML
+	private Label wordOne, wordTwo, wordThree, wordFour, wordFive;
+	@FXML
+	private Label wordOneAttemptLabel, wordTwoAttemptLabel, wordThreeAttemptLabel, wordFourAttmeptLabel, wordFiveAttemptLabel;
+	@FXML
+	private ImageView wordOneStatus, wordTwoStatus, wordThreeStatus, wordFourStatus, wordFiveStatus;
 	@FXML
 	LineChart<String, Number> scoreChart;
 
@@ -45,7 +53,7 @@ public class ResultsView extends Controller {
 	 * @param scoreTracker	ScoreTracker user data from the previous game screen that stores the score datas of questions
 	 */
 	
-	public void setUp(ScoreTracker scoreTracker) {
+	public void setUp(ScoreTracker scoreTracker, ) {
 
 		resultsModel = new ResultsModel(scoreTracker);
 
