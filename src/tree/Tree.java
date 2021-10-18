@@ -1,5 +1,6 @@
 package tree;
 
+import enums.TreeLevel;
 import enums.TreeStatus;
 
 public class Tree {
@@ -50,6 +51,22 @@ public class Tree {
 
 	public double getHeight() {
 		return height;
+	}
+
+	public TreeLevel getTreeLevel() {
+		if (height < 240) {
+			return TreeLevel.SPROUT;
+		} else if (height < 640) {
+			return TreeLevel.SAPLING;
+		} else if (height < 1200) {
+			return TreeLevel.YOUNG;
+		} else if (height < 2600) {
+			return TreeLevel.GROWN;
+		} else if (height < 4000) {
+			return TreeLevel.MATURE;
+		} else {
+			return TreeLevel.BLOOMING;
+		}
 	}
 
 	public double getHealth() {
