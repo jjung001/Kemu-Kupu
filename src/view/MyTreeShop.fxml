@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MyTreeShopController">
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Rectangle fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
@@ -18,7 +18,7 @@
             <Font name="DejaVu Sans Condensed Bold" size="40.0" />
          </font>
       </Text>
-      <Label alignment="CENTER_RIGHT" layoutX="586.0" layoutY="60.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="#2e979b">
+      <Label fx:id="moneyLabel" alignment="CENTER_RIGHT" layoutX="586.0" layoutY="60.0" prefHeight="35.0" prefWidth="243.0" text="5124" textAlignment="RIGHT" textFill="#2e979b">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="28.0" />
          </font>
@@ -39,7 +39,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnBuyWater" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -71,7 +71,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnFertiliserPlus" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -80,7 +80,7 @@
                <image>
                   <Image url="@../resources/Coin.png" />
                </image></ImageView>
-            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="400">
+            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="500">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -103,7 +103,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnBuyExWater" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -112,7 +112,7 @@
                <image>
                   <Image url="@../resources/Coin.png" />
                </image></ImageView>
-            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200">
+            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="300">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -135,7 +135,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnFertiliser" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -144,7 +144,7 @@
                <image>
                   <Image url="@../resources/Coin.png" />
                </image></ImageView>
-            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200">
+            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="400">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -167,7 +167,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="BtnSunlight" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -199,7 +199,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="13.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;" />
-            <Button alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
+            <Button fx:id="btnInsecticide" alignment="CENTER" layoutX="131.0" layoutY="204.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="106.25" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="BUY" textFill="#eeeeee">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
@@ -208,21 +208,27 @@
                <image>
                   <Image url="@../resources/Coin.png" />
                </image></ImageView>
-            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200">
+            <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="600">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <Button layoutX="43.0" layoutY="372.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="43.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button fx:id="btnLeft" layoutX="43.0" layoutY="372.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="43.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Next_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
-      <Button layoutX="875.0" layoutY="372.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="43.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button fx:id="btnRight" layoutX="875.0" layoutY="372.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="43.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
-            <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../resources/Next_icon.png" />
+               </image></ImageView>
          </graphic>
       </Button>
       <ImageView fitHeight="52.8" fitWidth="52.8" layoutX="850.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
@@ -230,7 +236,7 @@
             <Image url="@../resources/Coin.png" />
          </image>
       </ImageView>
-      <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#quitTopic" style="-fx-background-color: transparent;">
+      <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#quitShop" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
