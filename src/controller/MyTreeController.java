@@ -84,6 +84,12 @@ public class MyTreeController extends Controller {
 	Image grownImage = new Image(getClass().getResourceAsStream("/resources/Tree_3.png"));
 	Image matureImage = new Image(getClass().getResourceAsStream("/resources/Tree_4.png"));
 	Image bloomingImage = new Image(getClass().getResourceAsStream("/resources/Tree_final.png"));
+	Image sproutImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Sprout_icon.png"));
+	Image saplingImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_1.png"));
+	Image youngImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_2.png"));
+	Image grownImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_3.png"));
+	Image matureImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_4.png"));
+	Image bloomingImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_final.png"));
 	private String sprout = "SPROUT";
 	private String sapling = "SAPLING";
 	private String young = "YOUNG";
@@ -111,6 +117,7 @@ public class MyTreeController extends Controller {
 		if (result) {
 	    	tree.kill();
 	    	StatusHeightHealth();
+	    	treeStatistics.saveTree(offSetDateTime, tree);
 //			switchScene(event, "MyTree.fxml");
 		}
     }
@@ -130,29 +137,54 @@ public class MyTreeController extends Controller {
     
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
-			return sproutImage;
+			if (tree.getHealth() > 40) {
+				return sproutImage;
+			} else {
+				return sproutImage2;
+			}
 		} else if (level.equals(sapling)) {
-			return saplingImage;
+			if (tree.getHealth() > 40) {
+				return saplingImage;
+			} else {
+				return saplingImage2;
+			}
 		} else if (level.equals(young)) {
-			return youngImage;
+			if (tree.getHealth() > 40) {
+				return youngImage;
+			} else {
+				return youngImage2;
+			}
 		} else if (level.equals(grown)) {
-			return grownImage;
+			if (tree.getHealth() > 40) {
+				return grownImage;
+			} else {
+				return grownImage2;
+			}
 		} else if (level.equals(mature)) {
-			return matureImage;
+			if (tree.getHealth() > 40) {
+				return matureImage;
+			} else {
+				return matureImage2;
+			}
 		} else {
-			return bloomingImage;
+			if (tree.getHealth() > 40) {
+				return bloomingImage;
+			} else {
+				return bloomingImage2;
+			}
 		}
 	}
     
     public void initialize() {
-//    	offSetDateTime = OffsetDateTime.now(); 
+    	offSetDateTime = OffsetDateTime.now(); 
     	tree = new Tree();
     	cashIO = new CashIO(FileSaveLocations.CASH);
     	treeMoney = cashIO.loadCash();
     	String money = String.valueOf(treeMoney.getCash());
     	moneyLabel.setText(money);
-//    	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
-//    	treeStatistics.loadTree();
+    	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
+    	tree = treeStatistics.loadTree();
+    	StatusHeightHealth();
     }
     	
 }
