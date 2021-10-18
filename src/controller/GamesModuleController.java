@@ -391,8 +391,8 @@ public class GamesModuleController extends Controller {
 		currentSpeed = speedOfSpeech.getValue();
 
 		// Initialize models for spelling quiz
-		questionManager = new QuestionManager(combinedWordList.getRandomWords(5));
-		scoreTracker = new ScoreTracker(5);
+		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
+		scoreTracker = new ScoreTracker(numberOfQuestions);
 
 		// Set up interface prior to start of game
 		isBeginning = true;
