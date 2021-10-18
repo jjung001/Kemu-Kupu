@@ -31,7 +31,7 @@
                      </graphic></Button>
                   <Group layoutX="693.0" layoutY="48.0">
                      <children>
-                        <Text fill="#666666" layoutX="-3.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:">
+                        <Text fx:id="scoreTitle" fill="#666666" layoutX="-3.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:">
                            <font>
                               <Font name="DejaVu Sans Condensed Bold" size="32.0" />
                            </font>

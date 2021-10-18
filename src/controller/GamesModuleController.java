@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import quiz.Question;
@@ -85,6 +86,8 @@ public class GamesModuleController extends Controller {
 	public ProgressBar bonusBar;
 	@FXML
 	public Timeline timeline;
+	@FXML
+	public Text scoreTitle;
 
 	public String word;
 	public String charA = "ā";
@@ -393,6 +396,14 @@ public class GamesModuleController extends Controller {
 		// Initialize models for spelling quiz
 		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
 		scoreTracker = new ScoreTracker(numberOfQuestions);
+		
+		if (isPractice) {
+			bonusBar.setDisable(true);
+			bonusBar.setVisible(false);
+			bonusLabel.setVisible(false);
+			scoreLabel.setVisible(false);
+			scoreTitle.setVisible(false);
+		}
 
 		// Set up interface prior to start of game
 		isBeginning = true;
