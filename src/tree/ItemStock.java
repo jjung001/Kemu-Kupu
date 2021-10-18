@@ -1,5 +1,6 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ItemStock {
@@ -11,6 +12,14 @@ public class ItemStock {
 
 	public boolean isInStock(Item item) {
 		return stock.containsKey(item);
+	}
+
+	public ArrayList<Item> getItems() {
+		ArrayList<Item> items = new ArrayList<>();
+		for (Item item : stock.keySet()) {
+			items.add(item);
+		}
+		return items;
 	}
 
 	public int getQuantity(Item item) {
