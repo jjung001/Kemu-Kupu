@@ -48,21 +48,21 @@ public class ResultsModel {
 	 * @param score	The total score of the user's quiz
 	 * @return String level	The tree level of the user's last quiz game. 
 	 */
-	public String determineLevel(int score) {
+	private CashAmount determineLevel(int score) {
 		if (score < 60) {
-			level = sprout;
+			cashAmount = CashAmount.ONECOIN;
 		} else if (score < 160) {
-			level = sapling;
+			cashAmount = CashAmount.TWOCOINS;
 		} else if (score < 300) {
-			level = young;
+			cashAmount = CashAmount.THREECOINS;
 		} else if (score < 650) {
-			level = grown;
+			cashAmount = CashAmount.FOURCOINS;
 		} else if (score < 1000) {
-			level = mature;
+			cashAmount = CashAmount.LOTSCOINS;
 		} else {
-			level = blooming;
+			cashAmount = CashAmount.MAXCOINS;
 		}
-		return level;
+		return cashAmount;
 	}
 
 	/**
