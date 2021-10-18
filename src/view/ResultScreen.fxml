@@ -57,7 +57,7 @@
                         <Group layoutX="215.0" layoutY="190.0">
                            <children>
                               <Ellipse fill="#eeeeee" radiusX="76.0" radiusY="76.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="0.0" />
-                              <ImageView fx:id="cashImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="treeImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../resources/Coin_6.png" />
                                  </image>
@@ -92,21 +92,22 @@
                         <Font name="DejaVu Sans Condensed Bold" size="26.0" />
                      </font>
                   </Button>
+                  <Label fx:id="levelLabel" layoutX="312.0" layoutY="611.0" text="Label" />
                   <AnchorPane layoutX="490.0" layoutY="150.0" prefHeight="240.0" prefWidth="410.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
                      <children>
                         <AnchorPane layoutX="8.0" layoutY="13.0" prefHeight="38.0" prefWidth="394.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
                            <children>
-                              <Label fx:id="wordOneLabel" layoutX="14.0" layoutY="9.0" text="Kakarikihjihbhgi">
+                              <Label layoutX="14.0" layoutY="9.0" text="Kakarikihjihbhgi">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="wordOneStatusImage" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
+                              <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
                                     <Image url="@../resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="wordOneAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="164.0" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -115,17 +116,17 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="57.0" prefHeight="38.0" prefWidth="394.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
                            <children>
-                              <Label fx:id="wordTwoLabel" layoutX="14.0" layoutY="9.0" text="Kakariki">
+                              <Label layoutX="14.0" layoutY="9.0" text="Kakariki">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="wordTwoStatusImage" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
+                              <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
                                     <Image url="@../resources/Failed_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="wordTwoAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="164.0" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" text="ma" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -134,17 +135,17 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="101.0" prefHeight="38.0" prefWidth="394.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
                            <children>
-                              <Label fx:id="wordThreeLabel" layoutX="14.0" layoutY="9.0" text="Kakariki">
+                              <Label layoutX="14.0" layoutY="9.0" text="Kakariki">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="wordThreeStatusImage" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
+                              <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
                                     <Image url="@../resources/Faulted_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="wordThreeAttemptLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="164.0" textAlignment="RIGHT" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" text="Kakarikihjihbhgi" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -153,17 +154,17 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="145.0" prefHeight="38.0" prefWidth="394.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
                            <children>
-                              <Label fx:id="wordFourLabel" layoutX="14.0" layoutY="9.0" text="Kakariki">
+                              <Label layoutX="14.0" layoutY="9.0" text="Kakariki">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="wordFourStatusImage" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
+                              <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
                                     <Image url="@../resources/Failed_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="wordFourAttmeptLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="164.0" textAlignment="RIGHT" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" text="dfg" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
@@ -172,17 +173,17 @@
                         </AnchorPane>
                         <AnchorPane layoutX="8.0" layoutY="189.0" prefHeight="38.0" prefWidth="394.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
                            <children>
-                              <Label fx:id="wordFiveLabel" layoutX="14.0" layoutY="9.0" text="Kakariki">
+                              <Label layoutX="14.0" layoutY="9.0" text="Kakariki">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fx:id="wordFiveStatusImage" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
+                              <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
                                     <Image url="@../resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="wordFiveAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="164.0" textAlignment="RIGHT" textFill="#c05353">
+                              <Label layoutX="207.0" layoutY="9.0" textFill="#c05353">
                                  <font>
                                     <Font name="DejaVu Sans Condensed Bold" size="17.0" />
                                  </font>

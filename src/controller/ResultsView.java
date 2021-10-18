@@ -6,8 +6,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import quiz.AnswerAttemptTracker;
-import quiz.AnswerStatusTracker;
 import quiz.ResultsModel;
 import quiz.ScoreTracker;
 
@@ -28,16 +26,14 @@ public class ResultsView extends Controller {
 	@FXML
 	private Label scoreLabel;
 	@FXML
-	private ImageView cashImage;
+	private Label levelLabel;
 	@FXML
-	private Label wordOneLabel, wordTwoLabel, wordThreeLabel, wordFourLabel, wordFiveLabel;
-	@FXML
-	private Label wordOneAttemptLabel, wordTwoAttemptLabel, wordThreeAttemptLabel, wordFourAttmeptLabel, wordFiveAttemptLabel;
-	@FXML
-	private ImageView wordOneStatusImage, wordTwoStatusImage, wordThreeStatusImage, wordFourStatusImage, wordFiveStatusImage;
+	private ImageView treeImage;
 	@FXML
 	LineChart<String, Number> scoreChart;
 
+	private String scoreDisplay;
+	private String level;
 	private int totalScore;
 	private ResultsModel resultsModel;
 
@@ -48,34 +44,22 @@ public class ResultsView extends Controller {
 	 * 
 	 * @param scoreTracker	ScoreTracker user data from the previous game screen that stores the score datas of questions
 	 */
-	public void setUp(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker) {
+	
+	public void setUp(ScoreTracker scoreTracker) {
 
-		resultsModel = new ResultsModel(scoreTracker, answerAttemptTracker, answerStatusTracker);
+		resultsModel = new ResultsModel(scoreTracker);
 
 		totalScore = scoreTracker.getTotalScore();
-		scoreLabel.setText(String.valueOf(totalScore));
-		cashImage.setImage(resultsModel.displayImage(totalScore));
+		scoreDisplay = String.valueOf(totalScore);
+		scoreLabel.setText(scoreDisplay);
+
+		level = resultsModel.determineLevel(totalScore);
+		levelLabel.setText(level);
+
+		resultsModel.displayImage(level);
+		treeImage.setImage(resultsModel.displayImage(level));
 
 		resultsModel.setChart(scoreChart);
-	
-		wordOneLabel.setText(scoreTracker.getWord(1));
-		wordTwoLabel.setText(scoreTracker.getWord(2));
-		wordThreeLabel.setText(scoreTracker.getWord(3));
-		wordFourLabel.setText(scoreTracker.getWord(4));
-		wordFiveLabel.setText(scoreTracker.getWord(5));
-		
-		wordOneAttemptLabel.setText(resultsModel.getAttempt(1));
-		wordTwoAttemptLabel.setText(resultsModel.getAttempt(2));
-		wordThreeAttemptLabel.setText(resultsModel.getAttempt(3));
-		wordFourAttmeptLabel.setText(resultsModel.getAttempt(4));
-		wordFiveAttemptLabel.setText(resultsModel.getAttempt(5));
-		
-		wordOneStatusImage.setImage(resultsModel.getStatusImage(1));
-		wordTwoStatusImage.setImage(resultsModel.getStatusImage(2));
-		wordThreeStatusImage.setImage(resultsModel.getStatusImage(3));
-		wordFourStatusImage.setImage(resultsModel.getStatusImage(4));
-		wordFiveStatusImage.setImage(resultsModel.getStatusImage(5));
-		
 	}
 
 	/**

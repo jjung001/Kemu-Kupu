@@ -30,8 +30,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import quiz.AnswerAttemptTracker;
-import quiz.AnswerStatusTracker;
 import quiz.Question;
 import quiz.QuestionManager;
 import quiz.ScoreTracker;
@@ -111,8 +109,6 @@ public class GamesModuleController extends Controller {
 	private WordStore combinedWordList;
 	private QuestionManager questionManager;
 	private ScoreTracker scoreTracker;
-	private AnswerAttemptTracker answerAttemptTracker;
-	private AnswerStatusTracker answerStatusTracker;
 	boolean isBeginning;
 	Question currentQuestion;
 	Scorer currentScorer;
@@ -212,11 +208,8 @@ public class GamesModuleController extends Controller {
 	 */
 	private boolean submitQuestion() {
 		bonusBarTimeline.pause();
-		int questionNumber = questionManager.getQuestionNumber();
 		String answer = wordTextField.getText().strip().toLowerCase();
-		answerAttemptTracker.update(questionNumber, answer);
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
-		answerStatusTracker.update(questionNumber, answerStatus);
 		wordTextField.setText("");
 		currentScorer.endTiming();
 
@@ -373,15 +366,11 @@ public class GamesModuleController extends Controller {
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
-			String nextScene = "ResultScreen.fxml";
-			if (isPractice) {
-				nextScene = "PracticeResults.fxml";
-			} 
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + nextScene));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ResultScreen.fxml"));
 			try {
 				Parent root = (Parent) loader.load();
 				ResultsView controller = loader.getController();
-				controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+				controller.setUp(scoreTracker);
 				Scene scene = new Scene(root);
 				primaryStage.setScene(scene);
 				primaryStage.show();
@@ -432,8 +421,6 @@ public class GamesModuleController extends Controller {
 		// Initialize models for spelling quiz
 		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
 		scoreTracker = new ScoreTracker(numberOfQuestions);
-		answerStatusTracker = new AnswerStatusTracker(numberOfQuestions);
-		answerAttemptTracker = new AnswerAttemptTracker(numberOfQuestions);
 		this.isPractice = isPractice;
 		
 		if (isPractice) {
