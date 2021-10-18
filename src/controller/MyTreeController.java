@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -11,7 +12,9 @@ import java.time.OffsetDateTime;
 
 import application.AlertBox;
 import application.Cash;
+import application.FileSaveLocations;
 import enums.TreeStatus;
+import enums.TreeLevel;
 import tree.Tree;
 import fileio.TreeStatisticsIO;
 
@@ -72,6 +75,19 @@ public class MyTreeController extends Controller {
 	private OffsetDateTime offSetDateTime;
 	private TreeStatisticsIO treeStatistics;
 
+	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
+	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
+	Image youngImage = new Image(getClass().getResourceAsStream("/resources/Tree_2.png"));
+	Image grownImage = new Image(getClass().getResourceAsStream("/resources/Tree_3.png"));
+	Image matureImage = new Image(getClass().getResourceAsStream("/resources/Tree_4.png"));
+	Image bloomingImage = new Image(getClass().getResourceAsStream("/resources/Tree_final.png"));
+	private String sprout = "SPROUT";
+	private String sapling = "SAPLING";
+	private String young = "YOUNG";
+	private String grown = "GROWN";
+	private String mature = "MATURE";
+	private String blooming = "BLOOMING";
+	
 	@FXML
 	void quitMyTree(ActionEvent event) {
 		backToMain(event);
@@ -102,11 +118,34 @@ public class MyTreeController extends Controller {
     	healthLabel.setText(name);
     	String height = String.valueOf(tree.getHeight());
     	heightLabel.setText(height+"m");
+    	TreeLevel treeLevel = tree.getTreeLevel();
+    	String level = treeLevel.name();
+    	statusLabel.setText(level);
+    	
+    	treeImage.setImage(displayImage(level));
     }
+    
+    public Image displayImage(String level) {
+		if (level.equals(sprout)) {
+			return sproutImage;
+		} else if (level.equals(sapling)) {
+			return saplingImage;
+		} else if (level.equals(young)) {
+			return youngImage;
+		} else if (level.equals(grown)) {
+			return grownImage;
+		} else if (level.equals(mature)) {
+			return matureImage;
+		} else {
+			return bloomingImage;
+		}
+	}
     
     public void initialize() {
     	offSetDateTime = OffsetDateTime.now(); 
     	tree = new Tree();
+//    	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
+//    	treeStatistics.loadTree();
     }
     	
 }
