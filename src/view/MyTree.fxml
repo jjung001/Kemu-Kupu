@@ -87,7 +87,7 @@
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="664.0" layoutY="216.0" prefHeight="201.0" prefWidth="232.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
+      <AnchorPane layoutX="663.0" layoutY="236.0" prefHeight="275.0" prefWidth="234.0" style="-fx-background-color: #714E42; -fx-background-radius: 6;">
          <children>
             <Text fill="WHITE" layoutX="15.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Items">
                <font>
@@ -96,22 +96,22 @@
             </Text>
             <AnchorPane fx:id="itemPane1" layoutX="8.0" layoutY="44.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label fx:id="itemLabel1" layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Water">
+                  <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Water">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabel1" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemNoLabelWater" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnUse1" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                  <Button fx:id="btnUseWater" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="itemImage1" fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/water_icon.png" />
                      </image>
@@ -120,68 +120,124 @@
             </AnchorPane>
             <AnchorPane fx:id="itemPane2" layoutX="8.0" layoutY="82.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label fx:id="itemLabel2" layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="104.0" text="Fertiliser">
+                  <Label layoutX="14.0" layoutY="1.0" prefHeight="30.0" prefWidth="104.0" text="Extra Mineral &#10;Water">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="itemNoLabelWaterEx" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabel2" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="btnUse2" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                  <Button fx:id="btnUseWaterEx" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="itemImage2" fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/fertiliser_icon.png" />
+                        <Image url="@../resources/good_water_icon.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="itemPane3" layoutX="8.0" layoutY="120.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
-                  <Label fx:id="itemLabel3" layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="84.0" text="Insecticide">
+                  <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="84.0" text="Fertiliser">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabel3" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemNoLabelFertiliser" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnUse3" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                  <Button fx:id="btnUseFertiliser" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="itemImage3" fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/fertiliser_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="itemPane11" layoutX="8.0" layoutY="158.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+               <children>
+                  <Label layoutX="14.0" prefHeight="30.0" prefWidth="74.0" text="Fertiliser &#10;Plus">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="itemNoLabelFertiliserPlus" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnUseFertiliserPlus" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/good_fertiliser_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="itemPane111" layoutX="8.0" layoutY="196.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+               <children>
+                  <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Sunlight">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="itemNoLabelSunlight" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnUseSunlight" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/sunlight_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="itemPane1111" layoutX="8.0" layoutY="234.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+               <children>
+                  <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Insecticide">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="itemNoLabelInsecticide" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnUseInsecticide" alignment="CENTER" layoutX="176.0" layoutY="4.0" mnemonicParsing="false" style="-fx-border-color: #2e979b; -fx-border-width: 2; -fx-background-color: #2E979B; -fx-background-radius: 6; -fx-border-radius: 6;" text="USE" textFill="#eeeeee">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="9.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/insecticide_icon.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <Button fx:id="btnUp" layoutX="76.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../resources/Next_icon2.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btnDown" layoutX="121.0" layoutY="163.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="27.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
-               <graphic>
-                  <ImageView fitHeight="16.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                     <image>
-                        <Image url="@../resources/Next_icon2.png" />
-                     </image></ImageView>
-               </graphic>
-            </Button>
          </children>
       </AnchorPane>
       <ImageView fitHeight="52.8" fitWidth="52.8" layoutX="850.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
@@ -207,12 +263,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="btnBuyItems" layoutX="664.0" layoutY="428.0" mnemonicParsing="false" onAction="#buyItems" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6;" text="Buy Items" textFill="#714e42">
+      <Button fx:id="btnBuyItems" layoutX="664.0" layoutY="173.0" mnemonicParsing="false" onAction="#buyItems" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6;" text="Buy Items" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="715.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="715.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/Shopping_icon.png" />
          </image>
