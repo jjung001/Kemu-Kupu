@@ -71,26 +71,29 @@ public class ResultsModel {
 	 * @return Image	image of the correct tree level
 	 */
 
-	public Image displayImage(String level) {
-		if (level.equals(sprout)) {
-			return sproutImage;
-		} else if (level.equals(sapling)) {
-			return saplingImage;
-		} else if (level.equals(young)) {
-			return youngImage;
-		} else if (level.equals(grown)) {
-			return grownImage;
-		} else if (level.equals(mature)) {
-			return matureImage;
+public Image displayImage(int score) {
+		
+		cashAmount = determineLevel(score);
+		
+		if (cashAmount == CashAmount.ONECOIN) {
+			return oneCoinImage;
+		} else if (cashAmount == CashAmount.TWOCOINS) {
+			return twoCoinImage;
+		} else if (cashAmount == CashAmount.THREECOINS) {
+			return threeCoinImage;
+		} else if (cashAmount == CashAmount.FOURCOINS) {
+			return fourCoinImage;
+		} else if (cashAmount == CashAmount.LOTSCOINS) {
+			return lotCoinImage;
 		} else {
-			return bloomingImage;
+			return maxCoinImage;
 		}
 	}
 
 	/**
 	 * Sets up the line chart that displays cumulative score after each word
 	 * Displays the progress of the score through the quiz
-	 * @param chart LineChart with x,y axis propoerties
+	 * @param chart LineChart with x,y axis properties
 	 */
 	public void setChart(LineChart<String, Number> chart) {
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
