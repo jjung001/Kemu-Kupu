@@ -103,6 +103,21 @@ public class Tree {
 		return chemical;
 	}
 
+	public double getWaterThreshold() {
+		updateThresholds();
+		return waterThreshold;
+	}
+
+	public double getNutrientThreshold() {
+		updateThresholds();
+		return nutrientThreshold;
+	}
+
+	public double getChemicalThreshold() {
+		updateThresholds();
+		return chemicalThreshold;
+	}
+
 	public void setHeight(double height) {
 		this.height = height;
 	}
