@@ -43,6 +43,10 @@ public class MainView extends Controller {
 	public void viewStatistics(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
 	}
+	
+	public void resetAll(ActionEvent event) {
+		
+	}
 
 	/**
 	 * Exits and shuts down window when the quit button is pressed. 
