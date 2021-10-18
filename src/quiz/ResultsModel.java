@@ -37,8 +37,10 @@ public class ResultsModel {
 	 * Constructor receives the Score Tracker user data from the results view controller, from the games module
 	 * @param scoreTracker	Score Tracker instance with user data of the results of the quiz game. 
 	 */
-	public ResultsModel(ScoreTracker scoreTracker) {
+	public ResultsModel(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker) {
 		this.scoreTracker = scoreTracker;
+		this.answerAttemptTracker = answerAttemptTracker;
+		this.answerStatusTracker = answerStatusTracker;
 	}
 
 	/**
