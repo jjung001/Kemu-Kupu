@@ -6,9 +6,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.OffsetDateTime;
+
 import application.AlertBox;
+import application.Cash;
 import enums.TreeStatus;
 import tree.Tree;
+import fileio.TreeStatisticsIO;
 
 public class MyTreeController extends Controller {
 
@@ -64,6 +69,8 @@ public class MyTreeController extends Controller {
 	private Button btnBuyItems;
 	
 	private Tree tree;
+	private OffsetDateTime offSetDateTime;
+	private TreeStatisticsIO treeStatistics;
 
 	@FXML
 	void quitMyTree(ActionEvent event) {
@@ -83,8 +90,23 @@ public class MyTreeController extends Controller {
 		boolean result = alertBox.displayAndGetResult();
 
 		if (result) {
-			switchScene(event, "MyTree.fxml");
+	    	tree.kill();
+	    	StatusHeightHealth();
+//			switchScene(event, "MyTree.fxml");
 		}
     }
-	
+    
+    private void StatusHeightHealth() {
+    	TreeStatus treestatus = tree.getHealthStatus();
+    	String name = treestatus.name();
+    	healthLabel.setText(name);
+    	String height = String.valueOf(tree.getHeight());
+    	heightLabel.setText(height+"m");
+    }
+    
+    public void initialize() {
+    	offSetDateTime = OffsetDateTime.now(); 
+    	tree = new Tree();
+    }
+    	
 }
