@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
@@ -40,6 +41,8 @@ public class TopicsView extends Controller {
 	private Button start, back;
 	@FXML
 	private Label startWarning;
+	@FXML
+	private ChoiceBox<String> numOfQChoiceBox;
 
 	Image onButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_On.png"));
 	Image offButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_Off.png"));
@@ -48,6 +51,7 @@ public class TopicsView extends Controller {
 	private WordStoreManager wordStoreManager;
 	private WordFileReader wordFileReader;
 	private HashMap<String, WordStore> loadedWordListHashMap;
+	private String[] numberChoice = {"5","6","7","8","9","10"};
 
 	/**
 	 * Initialises the class by adding all toggle buttons in to an Arraylist. 
@@ -71,6 +75,8 @@ public class TopicsView extends Controller {
 		wordFileReader = new WordFileReader();
 		wordStoreManager = new WordStoreManager();
 		loadedWordListHashMap = new HashMap<>();
+		
+		numOfQChoiceBox.getItems().addAll(numberChoice);
 	}
 
 	/**

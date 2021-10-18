@@ -232,7 +232,7 @@
                   <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                </font>
             </Text>
-            <ChoiceBox layoutX="733.0" layoutY="157.0" prefHeight="39.0" prefWidth="82.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-radius: 6; -fx-border-width: 4;" />
+            <ChoiceBox fx:id="numOfQChoiceBox" layoutX="733.0" layoutY="157.0" prefHeight="39.0" prefWidth="82.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-radius: 6; -fx-border-width: 4;" />
          </children>
       </AnchorPane>
    </children>
