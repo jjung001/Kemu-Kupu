@@ -65,4 +65,9 @@ public abstract class FileIO {
 		String[] splitString = formatted.split("\\s+");
 		return splitString[index];
 	}
+
+	protected void clearFile() {
+		ArrayList<String> lines = new ArrayList<>();
+		overwriteLines(lines);
+	}
 }
