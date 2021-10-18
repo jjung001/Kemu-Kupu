@@ -52,6 +52,7 @@ public class TopicsView extends Controller {
 	private WordFileReader wordFileReader;
 	private HashMap<String, WordStore> loadedWordListHashMap;
 	private String[] numberChoice = {"5","6","7","8","9","10"};
+	int numberOfQuestions = 5;
 
 	/**
 	 * Initialises the class by adding all toggle buttons in to an Arraylist. 
@@ -76,12 +77,13 @@ public class TopicsView extends Controller {
 		wordStoreManager = new WordStoreManager();
 		loadedWordListHashMap = new HashMap<>();
 		
+		numOfQChoiceBox.setValue(String.valueOf(numberOfQuestions));
 		numOfQChoiceBox.getItems().addAll(numberChoice);
 		numOfQChoiceBox.setOnAction(this::getNumberOfQuestions);
 	}
 	
 	public int getNumberOfQuestions(ActionEvent event) {
-		int numberOfQuestions = Integer.parseInt(numOfQChoiceBox.getValue());
+		numberOfQuestions = Integer.parseInt(numOfQChoiceBox.getValue());
 		return numberOfQuestions;
 	}
 
