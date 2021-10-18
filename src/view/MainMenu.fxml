@@ -62,7 +62,7 @@
             <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="practiceButton" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="440.0" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="Practice" textFill="#714e42">
+      <Button fx:id="practiceButton" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="440.0" onAction="#playPractice" prefHeight="65.0" prefWidth="365.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="Practice" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="30.0" />
          </font>

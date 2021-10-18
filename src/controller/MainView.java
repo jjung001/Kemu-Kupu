@@ -15,6 +15,14 @@ public class MainView extends Controller {
 	private Button gameButton;
 	@FXML
 	private Button quitButton;
+	@FXML
+	private Button practiceButton;
+	@FXML
+	private Button statisticsButton;
+	@FXML
+	private Button myTreeButton;
+	@FXML
+	private Button resetBinButton;
 
 	/**
 	 * Starts game module by switching scene to the topic list scene.
@@ -22,6 +30,10 @@ public class MainView extends Controller {
 	 */
 	public void playGame(ActionEvent play) {
 		switchScene(play, "TopicList.fxml");
+	}
+	
+	public void playPractice(ActionEvent play) {
+		switchScene(play, "PracticeTopic.fxml");
 	}
 
 	/**
