@@ -147,7 +147,7 @@ public class TopicsView extends Controller {
 			try {
 				Parent root = (Parent) loader.load();
 				GamesModuleController controller = loader.getController();
-				controller.setUp(combinedWordList);
+				controller.setUp(combinedWordList, numberOfQuestions);
 				Scene scene = new Scene(root);
 				primaryStage.setScene(scene);
 				primaryStage.show();

@@ -386,7 +386,7 @@ public class GamesModuleController extends Controller {
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
-	public void setUp(WordStore combinedWordList) {
+	public void setUp(WordStore combinedWordList, int numberOfQuestions) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 
