@@ -111,4 +111,21 @@ public Image displayImage(int score) {
 		line.setStyle("-fx-stroke: #2e979b");
 	}
 	
+	public String getAttempt(int questionNumber) {
+		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAILED) {
+			return answerAttemptTracker.getAnswerAttempt(questionNumber);
+		} else {
+			return "";
+		}
+	}
+	
+	public Image getStatusImage(int questionNumber) {
+		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAILED) {
+			return failedIcon;
+		} else if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAULTED) {
+			return faultedIcon;
+		} else {
+			return masteredIcon;
+		}
+	}
 }
