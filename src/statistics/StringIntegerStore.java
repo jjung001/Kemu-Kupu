@@ -1,12 +1,13 @@
 package statistics;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public abstract class StringIntegerStore {
-	protected HashMap<String, Integer> store;
+	protected Map<String, Integer> store;
 
 	protected StringIntegerStore() {
-		store = new HashMap<>();
+		store = new LinkedHashMap<>();
 	}
 
 	protected void addValueToKey(String key, int value) {
