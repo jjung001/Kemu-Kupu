@@ -53,6 +53,7 @@ public class TopicsView extends Controller {
 	private HashMap<String, WordStore> loadedWordListHashMap;
 	private String[] numberChoice = {"5","6","7","8","9","10"};
 	int numberOfQuestions = 5;
+	boolean isPractice = false;
 
 	/**
 	 * Initialises the class by adding all toggle buttons in to an Arraylist. 
@@ -80,6 +81,10 @@ public class TopicsView extends Controller {
 		numOfQChoiceBox.setValue(String.valueOf(numberOfQuestions));
 		numOfQChoiceBox.getItems().addAll(numberChoice);
 		numOfQChoiceBox.setOnAction(this::getNumberOfQuestions);
+		
+		if (!numOfQChoiceBox.isDisable()) {
+			isPractice = true;
+		}
 	}
 	
 	public int getNumberOfQuestions(ActionEvent event) {
@@ -147,7 +152,7 @@ public class TopicsView extends Controller {
 			try {
 				Parent root = (Parent) loader.load();
 				GamesModuleController controller = loader.getController();
-				controller.setUp(combinedWordList, numberOfQuestions);
+				controller.setUp(combinedWordList, numberOfQuestions, isPractice);
 				Scene scene = new Scene(root);
 				primaryStage.setScene(scene);
 				primaryStage.show();
