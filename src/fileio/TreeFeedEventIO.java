@@ -40,7 +40,7 @@ public class TreeFeedEventIO extends FileIO {
 		return feedEventHistory;
 	}
 
-	private void loadFeedEvent(String feedEventRecord, FeedEventHistory feedEventHistory)
+	private void loadFeedEvent(String feedEventRecord, FeedEventHistory feedEventHistory) {
 		FeedType feedType = getFeedTypeOfFeedEvent(feedEventRecord);
 		double amount = getAmount(feedEventRecord);
 		OffsetDateTime feedEventDateTime = getDateTimeOfFeedEvent(feedEventRecord);
