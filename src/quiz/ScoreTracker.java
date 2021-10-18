@@ -1,4 +1,4 @@
-package game;
+package quiz;
 
 /**
  * Keeps track of the scores and the words per question in a spelling quiz.

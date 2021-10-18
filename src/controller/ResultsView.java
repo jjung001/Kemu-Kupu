@@ -1,13 +1,13 @@
 package controller;
 
-import game.ResultsModel;
-import game.ScoreTracker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import quiz.ResultsModel;
+import quiz.ScoreTracker;
 
 /**
  * This is a controller class for the Results View screen. 

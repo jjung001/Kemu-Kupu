@@ -5,13 +5,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 import application.AlertBox;
-import application.Festival;
-import application.Language;
-import game.AnswerStatus;
-import game.Question;
-import game.Quiz;
-import game.ScoreTracker;
-import game.Scorer;
+import application.TTS;
+import enums.AnswerStatus;
+import enums.Language;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
@@ -33,7 +29,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import words.WordList;
+import quiz.Question;
+import quiz.QuestionManager;
+import quiz.ScoreTracker;
+import quiz.Scorer;
+import quiz.WordStore;
 
 /**
  * This is the controller class for the Games module. 
@@ -102,8 +102,8 @@ public class GamesModuleController extends Controller {
 	public Thread th;
 	public boolean quitOrNot;
 	public double currentBonus;
-	private WordList combinedWordList;
-	private Quiz quiz;
+	private WordStore combinedWordList;
+	private QuestionManager questionManager;
 	private ScoreTracker scoreTracker;
 	boolean isBeginning;
 	Question currentQuestion;
@@ -234,7 +234,7 @@ public class GamesModuleController extends Controller {
 	 * Method speak is calls to run festival command "correct." in english voice.
 	 */
 	private void masteredWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -251,7 +251,7 @@ public class GamesModuleController extends Controller {
 	 * Pauses transition for two seconds before giving next attempt of the word.
 	 */
 	private void incorrectWord() {
-		char secondCharacter = currentQuestion.getSecondLetter();
+		char secondCharacter = currentQuestion.getLetter(1);
 		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
 		hintLabel.setText(parsedMessage);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
@@ -270,7 +270,7 @@ public class GamesModuleController extends Controller {
 	 * Method speak calls to run festival command "Good job." in English voice.
 	 */
 	private void faultedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getFaultedScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -287,7 +287,7 @@ public class GamesModuleController extends Controller {
 
 	 */
 	private void failedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = 0;
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
@@ -326,15 +326,15 @@ public class GamesModuleController extends Controller {
 
 	 */
 	private void getNextQuestion() {
-		if (quiz.hasNextQuestion()) {
+		if (questionManager.hasNextQuestion()) {
 			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
-			currentQuestion = quiz.getNextQuestion();
+			currentQuestion = questionManager.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
 			testWord();
 
-			int questionNumber = quiz.getQuestionNumber();
-			int totalNumberOfQuestions = quiz.getTotalNumberOfQuestions();
+			int questionNumber = questionManager.getQuestionNumber();
+			int totalNumberOfQuestions = questionManager.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
@@ -386,12 +386,12 @@ public class GamesModuleController extends Controller {
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
-	public void setUp(WordList combinedWordList) {
+	public void setUp(WordStore combinedWordList) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 
 		// Initialize models for spelling quiz
-		quiz = new Quiz(combinedWordList.getRandomWords(5));
+		questionManager = new QuestionManager(combinedWordList.getRandomWords(5));
 		scoreTracker = new ScoreTracker(5);
 
 		// Set up interface prior to start of game
@@ -472,9 +472,9 @@ public class GamesModuleController extends Controller {
 	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
 		if (isMaori) {
-			Festival.festival(speed, text, Language.MAORI);
+			TTS.speak(speed, text, Language.MAORI);
 		} else {
-			Festival.festival(speed, text, Language.ENGLISH);
+			TTS.speak(speed, text, Language.ENGLISH);
 		}
 	}
 

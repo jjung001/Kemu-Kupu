@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 
+import enums.Language;
+
 /**
  * Communicates specifically with Festival TTS to speak words.
  *
@@ -10,7 +12,7 @@ import java.io.IOException;
  * @author Julie Kim
  *
  */
-public class Festival {
+public class TTS {
 
 	/**
 	 * Tells Festival to speak with the input parameters to consider.
@@ -22,7 +24,7 @@ public class Festival {
 	 * @param language A Language enum that indicates what language Festival should
 	 *                 speak in.
 	 */
-	public static void festival(double speed, String word, Language language) {
+	public static void speak(double speed, String word, Language language) {
 		String voice;
 		if (language.equals(Language.MAORI)) {
 			voice = "voice_akl_mi_pk06_cg";

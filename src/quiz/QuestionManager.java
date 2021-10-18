@@ -1,4 +1,4 @@
-package game;
+package quiz;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.Collection;
  * @author Jared Daniel Recomendable
  *
  */
-public class Quiz {
+public class QuestionManager {
 	private ArrayList<String> words;
 	private int maximumNumberOfQuestions;
 	private int questionNumber;
@@ -21,7 +21,7 @@ public class Quiz {
 	 * @param words A Collection object that contains String objects, where each
 	 *              String object contains the word.
 	 */
-	public Quiz(Collection<? extends String> words) {
+	public QuestionManager(Collection<? extends String> words) {
 		this.words = new ArrayList<>();
 		this.words.addAll(words);
 		this.maximumNumberOfQuestions = words.size();

@@ -1,4 +1,4 @@
-package words;
+package quiz;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,18 +10,18 @@ import java.util.Random;
  * @author Jared Daniel Recomendable
  *
  */
-public class WordList {
+public class WordStore {
 	private HashSet<String> wordList;
 
 	/**
 	 * Creates a WordLists object.
 	 */
-	public WordList() {
+	public WordStore() {
 		wordList = new HashSet<String>();
 	}
 
 	/**
-	 * Adds a word to the WordList object.
+	 * Adds a word to the WordStore object.
 	 *
 	 * @param word A string containing the word to add.
 	 */
@@ -30,23 +30,23 @@ public class WordList {
 	}
 
 	/**
-	 * Returns all words contained within the WordList object.
+	 * Returns all words contained within the WordStore object.
 	 *
 	 * @return A HashSet containing Strings, where each String object contains a
-	 *         word in the WordList object.
+	 *         word in the WordStore object.
 	 */
 	public HashSet<String> getAllWords() {
 		return wordList;
 	}
 
 	/**
-	 * Returns a particular number of words, chosen at random from the WordList
+	 * Returns a particular number of words, chosen at random from the WordStore
 	 * object.
 	 *
 	 * @param count An integer containing the number of words chosen at random to
 	 *              return.
 	 * @return A HashSet containing Strings, where each String object contains a
-	 *         word in the WordList object.
+	 *         word in the WordStore object.
 	 */
 	public HashSet<String> getRandomWords(int count) {
 		HashSet<String> selection = new HashSet<>();
@@ -59,7 +59,7 @@ public class WordList {
 
 	/**
 	 * Private helper method that returns one word chosen at random from the
-	 * WordList object.
+	 * WordStore object.
 	 *
 	 * @return A String containing the word that has been chosen at random.
 	 */

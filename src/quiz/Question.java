@@ -1,4 +1,6 @@
-package game;
+package quiz;
+
+import enums.AnswerStatus;
 
 /**
  * Stores the word for each question in the quiz. Also checks if a user's answer
@@ -50,12 +52,22 @@ public class Question {
 	}
 
 	/**
-	 * Returns the second letter of the word associated with the question.
+	 * Returns the letter of the word associated with the question at the specified
+	 * index .
 	 *
-	 * @return A char containing the second letter of the word.
+	 * @return A char containing the letter at the specified index of the word.
 	 */
-	public char getSecondLetter() {
-		return word.charAt(1);
+	public char getLetter(int index) {
+		return word.charAt(index);
+	}
+
+	/**
+	 * Returns the number of letters in the word associated with the question.
+	 *
+	 * @return An integer indicating the number of letters in the word.
+	 */
+	public int getNumberOfLetters() {
+		return word.length();
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package game;
+package quiz;
 
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
