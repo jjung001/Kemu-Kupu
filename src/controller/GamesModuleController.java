@@ -104,6 +104,7 @@ public class GamesModuleController extends Controller {
 	public double progress;
 	public Thread th;
 	public boolean quitOrNot;
+	public boolean isPractice;
 	public double currentBonus;
 	private WordStore combinedWordList;
 	private QuestionManager questionManager;
@@ -254,9 +255,7 @@ public class GamesModuleController extends Controller {
 	 * Pauses transition for two seconds before giving next attempt of the word.
 	 */
 	private void incorrectWord() {
-		char secondCharacter = currentQuestion.getLetter(1);
-		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
-		hintLabel.setText(parsedMessage);
+		hintLabel.setText(generateHint());
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -298,6 +297,26 @@ public class GamesModuleController extends Controller {
 		String encouragingMessage = pickRandomEncouragingMessage();
 		statusLabel.setText(encouragingMessage);
 		speak(encouragingMessage, false);
+	}
+	
+	private String generateHint() {
+		String parsedMessage = "";
+		
+		if (isPractice) {
+			parsedMessage = "The hint is: ";
+			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+				if (i%3 == 0) {
+					parsedMessage += currentQuestion.getLetter(i) + " ";
+				} else {
+					parsedMessage += "_ ";
+				}
+			}
+		} else {
+			char secondCharacter = currentQuestion.getLetter(1);
+			parsedMessage = "The second letter is '" + secondCharacter + "'.";
+		}
+		
+		return parsedMessage;
 	}
 
 	/**
@@ -396,6 +415,7 @@ public class GamesModuleController extends Controller {
 		// Initialize models for spelling quiz
 		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
 		scoreTracker = new ScoreTracker(numberOfQuestions);
+		this.isPractice = isPractice;
 		
 		if (isPractice) {
 			bonusBar.setDisable(true);
