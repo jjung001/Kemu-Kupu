@@ -16,6 +16,7 @@ import application.FileSaveLocations;
 import enums.TreeStatus;
 import enums.TreeLevel;
 import tree.Tree;
+import fileio.CashIO;
 import fileio.TreeStatisticsIO;
 
 public class MyTreeController extends Controller {
@@ -74,6 +75,8 @@ public class MyTreeController extends Controller {
 	private Tree tree;
 	private OffsetDateTime offSetDateTime;
 	private TreeStatisticsIO treeStatistics;
+	private Cash treeMoney;;
+	private CashIO cashIO;
 
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
@@ -142,8 +145,12 @@ public class MyTreeController extends Controller {
 	}
     
     public void initialize() {
-    	offSetDateTime = OffsetDateTime.now(); 
+//    	offSetDateTime = OffsetDateTime.now(); 
     	tree = new Tree();
+    	cashIO = new CashIO(FileSaveLocations.CASH);
+    	treeMoney = cashIO.loadCash();
+    	String money = String.valueOf(treeMoney.getCash());
+    	moneyLabel.setText(money);
 //    	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
 //    	treeStatistics.loadTree();
     }
