@@ -256,6 +256,7 @@ public class GamesModuleController extends Controller {
 	 */
 	private void incorrectWord() {
 		hintLabel.setText(generateHint());
+		hintLabel.setVisible(true);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -294,9 +295,14 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		String encouragingMessage = pickRandomEncouragingMessage();
-		statusLabel.setText(encouragingMessage);
-		speak(encouragingMessage, false);
+		hintLabel.setVisible(false);
+		if (isPractice) {
+			statusLabel.setText(currentQuestion.getWord());
+		} else {
+			String encouragingMessage = pickRandomEncouragingMessage();
+			statusLabel.setText(encouragingMessage);
+			speak(encouragingMessage, false);
+		}
 	}
 	
 	private String generateHint() {
