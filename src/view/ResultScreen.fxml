@@ -87,7 +87,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Text>
-                  <Button fx:id="viewTreeButton" layoutX="404.0" layoutY="593.0" prefHeight="65.0" prefWidth="240.0" style="-fx-background-color: #a2c6ac; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6; -fx-background-radius: 6;" text="View My Tree" textFill="#714e42">
+                  <Button fx:id="viewTreeButton" layoutX="404.0" layoutY="593.0" onAction="#viewTree" prefHeight="65.0" prefWidth="240.0" style="-fx-background-color: #a2c6ac; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6; -fx-background-radius: 6;" text="View My Tree" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="26.0" />
                      </font>

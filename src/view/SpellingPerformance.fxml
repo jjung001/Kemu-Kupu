@@ -48,7 +48,7 @@
             <ToggleButton fx:id="timeScaleToggle" layoutX="116.0" layoutY="491.0" mnemonicParsing="false" onAction="#toggleTimeScale" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
          </children>
       </AnchorPane>
-      <Button fx:id="controlsWordEarnings" layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button fx:id="controlsWordEarnings" layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,7 +56,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button fx:id="controlsVocabulary" layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button fx:id="controlsVocabulary" layoutX="723.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToMyVocabulary" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>

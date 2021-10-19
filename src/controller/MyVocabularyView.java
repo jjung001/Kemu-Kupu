@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import application.FileSaveLocations;
 import fileio.StatisticsIO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -400,5 +401,15 @@ public class MyVocabularyView extends Controller {
 			word5FaultedLabel.setText(String.valueOf(faulted));
 			word5FailedLabel.setText(String.valueOf(failed));
 		}
+	}
+
+	@FXML
+	private void goToSpellingPerformance(ActionEvent event) {
+		switchScene(event, "SpellingPerformance.fxml");
+	}
+
+	@FXML
+	private void goToHighestEarnings(ActionEvent event) {
+		switchScene(event, "HighestEarnings.fxml");
 	}
 }

@@ -7,6 +7,7 @@ import application.FileSaveLocations;
 import fileio.StatisticsIO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -157,5 +158,15 @@ public class SpellingPerformanceView extends Controller {
 		} else {
 			viewTimeline();
 		}
+	}
+
+	@FXML
+	private void goToMyVocabulary(ActionEvent event) {
+		switchScene(event, "MyVocabulary.fxml");
+	}
+
+	@FXML
+	private void goToHighestEarnings(ActionEvent event) {
+		switchScene(event, "HighestEarnings.fxml");
 	}
 }

@@ -272,7 +272,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -280,7 +280,7 @@
                </image></ImageView>
          </graphic>
       </Button>
-      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="723.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToSpellingPerformance" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>

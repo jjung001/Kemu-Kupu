@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import application.FileSaveLocations;
 import fileio.StatisticsIO;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -133,5 +134,15 @@ public class HighestEarningsView extends Controller {
 		int score = topWordsWithScores.get(word);
 		word5Label.setText(word);
 		score5Label.setText(String.valueOf(score));
+	}
+
+	@FXML
+	private void goToSpellingPerformance(ActionEvent event) {
+		switchScene(event, "SpellingPerformance.fxml");
+	}
+
+	@FXML
+	private void goToMyVocabulary(ActionEvent event) {
+		switchScene(event, "MyVocabulary.fxml");
 	}
 }
