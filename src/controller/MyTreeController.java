@@ -9,14 +9,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import application.AlertBox;
 import application.Cash;
 import application.FileSaveLocations;
 import enums.TreeStatus;
 import enums.TreeLevel;
+import tree.Item;
+import tree.ItemStock;
 import tree.Tree;
 import fileio.CashIO;
+import fileio.ItemStockIO;
 import fileio.TreeStatisticsIO;
 
 public class MyTreeController extends Controller {
@@ -34,39 +41,29 @@ public class MyTreeController extends Controller {
 	@FXML
 	private Label healthLabel;
 	@FXML
-	private AnchorPane itemPane1;
-	@FXML
-	private Label itemLabel1;
-	@FXML
-	private Label itemNoLabel1;
-	@FXML
-	private Button btnUse1;
-	@FXML
-	private ImageView itemImage1;
-	@FXML
-	private AnchorPane itemPane2;
-	@FXML
-	private Label itemLabel2;
-	@FXML
-	private Label itemNoLabel2;
-	@FXML
-	private Button btnUse2;
-	@FXML
-	private ImageView itemImage2;
-	@FXML
-	private AnchorPane itemPane3;
-	@FXML
-	private Label itemLabel3;
-	@FXML
-	private Label itemNoLabel3;
-	@FXML
-	private Button btnUse3;
-	@FXML
-	private ImageView itemImage3;
-	@FXML
-	private Button btnUp;
-	@FXML
-	private Button btnDown;
+    private Label itemNoLabelWater;
+    @FXML
+    private Button btnUseWater;
+    @FXML
+    private Label itemNoLabelWaterEx;
+    @FXML
+    private Button btnUseWaterEx;
+    @FXML
+    private Label itemNoLabelFertiliser;
+    @FXML
+    private Button btnUseFertiliser;
+    @FXML
+    private Label itemNoLabelFertiliserPlus;
+    @FXML
+    private Button btnUseFertiliserPlus;
+    @FXML
+    private Label itemNoLabelSunlight;
+    @FXML
+    private Button btnUseSunlight;
+    @FXML
+    private Label itemNoLabelInsecticide;
+    @FXML
+    private Button btnUseInsecticide;
     @FXML
     private Button btnAxe;
 	@FXML
@@ -77,6 +74,8 @@ public class MyTreeController extends Controller {
 	private TreeStatisticsIO treeStatistics;
 	private Cash treeMoney;;
 	private CashIO cashIO;
+	private ItemStockIO itemStockIO;
+	private ItemStock stock;
 
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
@@ -120,6 +119,36 @@ public class MyTreeController extends Controller {
 	    	treeStatistics.saveTree(offSetDateTime, tree);
 //			switchScene(event, "MyTree.fxml");
 		}
+    }
+    
+    @FXML
+    void useWater(ActionEvent event) {
+
+    }
+
+    @FXML
+    void useWaterEx(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void useFertiliser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void useFertiliserPlus(ActionEvent event) {
+
+    }
+
+    @FXML
+    void useSunlight(ActionEvent event) {
+
+    }
+
+    @FXML
+    void useInsecticide(ActionEvent event) {
+
     }
     
     private void StatusHeightHealth() {
@@ -175,6 +204,35 @@ public class MyTreeController extends Controller {
 		}
 	}
     
+    private void itemNoInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
+    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
+    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+    	    for (HashMap.Entry<String, Label> entry1 : useButtons.entrySet()) {
+    	    	if (entry1.getKey().equals(entry.getKey())) {
+    	    		entry1.getValue().setText("x"+entry.getValue().toString());
+    	    	}
+    	    }
+    	}
+    }
+    
+    private void itemLabelHashMap(HashMap<String, Label> useButtons) {
+    	useButtons.put("water", itemNoLabelWater);
+    	useButtons.put("WaterEx", itemNoLabelWaterEx);
+    	useButtons.put("fertiliser", itemNoLabelFertiliser);
+    	useButtons.put("fertiliserPlus", itemNoLabelFertiliserPlus);
+    	useButtons.put("sunlight", itemNoLabelSunlight);
+    	useButtons.put("insecticide", itemNoLabelInsecticide);
+    }
+    
+    private void initialiseItemLabels() {
+    	itemNoLabelWater.setText("x"+0);
+    	itemNoLabelWaterEx.setText("x"+0);
+    	itemNoLabelFertiliser.setText("x"+0);
+    	itemNoLabelFertiliserPlus.setText("x"+0);
+    	itemNoLabelSunlight.setText("x"+0);
+    	itemNoLabelInsecticide.setText("x"+0);
+    }
+    
     public void initialize() {
     	offSetDateTime = OffsetDateTime.now(); 
     	tree = new Tree();
@@ -185,6 +243,13 @@ public class MyTreeController extends Controller {
     	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
     	tree = treeStatistics.loadTree();
     	StatusHeightHealth();
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	HashMap<String, Label> useButtons = new HashMap<>();
+    	itemLabelHashMap(useButtons);
+    	initialiseItemLabels();
+    	itemNoInventory(stockNumbers, useButtons);
     }
     	
 }
