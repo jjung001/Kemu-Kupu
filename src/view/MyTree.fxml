@@ -94,7 +94,7 @@
                   <Font name="DejaVu Sans Condensed Bold" size="18.0" />
                </font>
             </Text>
-            <AnchorPane layoutX="8.0" layoutY="44.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="44.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Water">
                      <font>
@@ -118,7 +118,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="82.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="82.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="14.0" layoutY="1.0" prefHeight="30.0" prefWidth="104.0" text="Extra Mineral &#10;Water">
                      <font>
@@ -142,7 +142,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="120.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="120.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="84.0" text="Fertiliser">
                      <font>
@@ -166,7 +166,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="158.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="158.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="14.0" prefHeight="30.0" prefWidth="74.0" text="Fertiliser &#10;Plus">
                      <font>
@@ -190,7 +190,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="196.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="196.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Sunlight">
                      <font>
@@ -214,7 +214,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="8.0" layoutY="234.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+            <AnchorPane layoutX="9.0" layoutY="234.0" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
                <children>
                   <Label layoutX="13.0" layoutY="6.0" prefHeight="18.0" prefWidth="74.0" text="Insecticide">
                      <font>
