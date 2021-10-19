@@ -20,9 +20,10 @@ public class StatisticsIO extends FileIO {
 
 	public void recordWordSpelling(OffsetDateTime dateTime, String word, String wordList, AnswerStatus answerStatus,
 			int scoreEarned) {
+		String formatted = word.replace(' ', '-');
 		StringBuilder stringBuilder = new StringBuilder();
 		stringBuilder.append(dateTime.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME) + " ");
-		stringBuilder.append(word + " ");
+		stringBuilder.append(formatted + " ");
 		stringBuilder.append(wordList + " ");
 		stringBuilder.append(answerStatus.toString() + " ");
 		stringBuilder.append(scoreEarned);
