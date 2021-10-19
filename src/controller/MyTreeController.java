@@ -123,7 +123,31 @@ public class MyTreeController extends Controller {
     
     @FXML
     void useWater(ActionEvent event) {
+    	Item item = new Item();
+    	String nameWater = "water";
+    	item.setName(nameWater);
+//    	stock.removeItem(item);
+//    	itemStockIO.loadStockNumbers();
+    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
+    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+    	}
+    	stock.removeItem(item);
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	itemStockIO.loadStockNumbers();
+//    	String waterQuantity = Integer.toString(stock.getQuantity(item));
+//    	itemNoLabelWater.setText(waterQuantity);
+    	if (stock.isInStock(item)) {
+    		stock.getQuantity(item);
+        	System.out.println("water quantity= "+stock.getQuantity(item));
+    	} else {
+        	System.out.println("not in stock");
 
+    	}
+//    	itemNoLabelWater.setText("x2");
+//    	healthLabel.setText("EXCELLENT");
+//    	treeImage.setImage(sproutImage);
     }
 
     @FXML
@@ -206,7 +230,6 @@ public class MyTreeController extends Controller {
     
     private void itemNoInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
     	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
-    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
     	    for (HashMap.Entry<String, Label> entry1 : useButtons.entrySet()) {
     	    	if (entry1.getKey().equals(entry.getKey())) {
     	    		entry1.getValue().setText("x"+entry.getValue().toString());
@@ -250,6 +273,8 @@ public class MyTreeController extends Controller {
     	itemLabelHashMap(useButtons);
     	initialiseItemLabels();
     	itemNoInventory(stockNumbers, useButtons);
+		stock = new ItemStock();
+
     }
     	
 }
