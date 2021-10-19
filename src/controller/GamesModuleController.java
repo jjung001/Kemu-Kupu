@@ -27,8 +27,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import quiz.AnswerAttemptTracker;
+import quiz.AnswerStatusTracker;
 import quiz.Question;
 import quiz.QuestionManager;
 import quiz.ScoreTracker;
@@ -85,6 +88,8 @@ public class GamesModuleController extends Controller {
 	public ProgressBar bonusBar;
 	@FXML
 	public Timeline timeline;
+	@FXML
+	public Text scoreTitle;
 
 	public String word;
 	public String charA = "ā";
@@ -101,6 +106,7 @@ public class GamesModuleController extends Controller {
 	public double progress;
 	public Thread th;
 	public boolean quitOrNot;
+	public boolean isPractice;
 	public double currentBonus;
 	private WordStore combinedWordList;
 	private QuestionManager questionManager;
@@ -109,6 +115,8 @@ public class GamesModuleController extends Controller {
 	Question currentQuestion;
 	Scorer currentScorer;
 	private Timeline bonusBarTimeline;
+	private AnswerStatusTracker answerStatusTracker;
+	private AnswerAttemptTracker answerAttemptTracker;
 
 	/**
 	 * When ENTER key is pressed the word is submitted to check if spelt correclty,
@@ -204,8 +212,11 @@ public class GamesModuleController extends Controller {
 	 */
 	private boolean submitQuestion() {
 		bonusBarTimeline.pause();
+		int questionNumber = questionManager.getQuestionNumber();
 		String answer = wordTextField.getText().strip().toLowerCase();
+		answerAttemptTracker.update(questionNumber, answer);
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
+		answerStatusTracker.update(questionNumber, answerStatus);
 		wordTextField.setText("");
 		currentScorer.endTiming();
 
@@ -251,9 +262,8 @@ public class GamesModuleController extends Controller {
 	 * Pauses transition for two seconds before giving next attempt of the word.
 	 */
 	private void incorrectWord() {
-		char secondCharacter = currentQuestion.getLetter(1);
-		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
-		hintLabel.setText(parsedMessage);
+		hintLabel.setText(generateHint());
+		hintLabel.setVisible(true);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -292,9 +302,34 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		String encouragingMessage = pickRandomEncouragingMessage();
-		statusLabel.setText(encouragingMessage);
-		speak(encouragingMessage, false);
+		hintLabel.setVisible(false);
+		if (isPractice) {
+			statusLabel.setText(currentQuestion.getWord());
+		} else {
+			String encouragingMessage = pickRandomEncouragingMessage();
+			statusLabel.setText(encouragingMessage);
+			speak(encouragingMessage, false);
+		}
+	}
+	
+	private String generateHint() {
+		String parsedMessage = "";
+		
+		if (isPractice) {
+			parsedMessage = "The hint is: ";
+			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+				if (i%3 == 0) {
+					parsedMessage += currentQuestion.getLetter(i) + " ";
+				} else {
+					parsedMessage += "_ ";
+				}
+			}
+		} else {
+			char secondCharacter = currentQuestion.getLetter(1);
+			parsedMessage = "The second letter is '" + secondCharacter + "'.";
+		}
+		
+		return parsedMessage;
 	}
 
 	/**
@@ -338,14 +373,26 @@ public class GamesModuleController extends Controller {
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ResultScreen.fxml"));
+			String nextScene = "ResultScreen.fxml";
+			if (isPractice) {
+				nextScene = "PracticeResults.fxml";
+			} 
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + nextScene));
 			try {
 				Parent root = (Parent) loader.load();
-				ResultsView controller = loader.getController();
-				controller.setUp(scoreTracker);
-				Scene scene = new Scene(root);
-				primaryStage.setScene(scene);
-				primaryStage.show();
+				if (isPractice) {
+					PracticeResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				} else {
+					ResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -386,13 +433,24 @@ public class GamesModuleController extends Controller {
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
-	public void setUp(WordStore combinedWordList) {
+	public void setUp(WordStore combinedWordList, int numberOfQuestions, boolean isPractice) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 
 		// Initialize models for spelling quiz
-		questionManager = new QuestionManager(combinedWordList.getRandomWords(5));
-		scoreTracker = new ScoreTracker(5);
+		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
+		scoreTracker = new ScoreTracker(numberOfQuestions);
+		answerStatusTracker = new AnswerStatusTracker(numberOfQuestions);
+		answerAttemptTracker = new AnswerAttemptTracker(numberOfQuestions);
+		this.isPractice = isPractice;
+		
+		if (isPractice) {
+			bonusBar.setDisable(true);
+			bonusBar.setVisible(false);
+			bonusLabel.setVisible(false);
+			scoreLabel.setVisible(false);
+			scoreTitle.setVisible(false);
+		}
 
 		// Set up interface prior to start of game
 		isBeginning = true;
@@ -450,10 +508,10 @@ public class GamesModuleController extends Controller {
 				}
 
 				if (progress > 0.667) {
-					bonusBar.setStyle("-fx-accent: green");
+					bonusBar.setStyle("-fx-accent: #37A872");
 					bonusLabel.setText("+" + Integer.toString(highBonusReward));
 				} else if (progress > 0) {
-					bonusBar.setStyle("-fx-accent: orange");
+					bonusBar.setStyle("-fx-accent: #D79A2B");
 					bonusLabel.setText("+" + Integer.toString(lowBonusReward));
 				} else {
 					bonusLabel.setText("+" + Integer.toString(noBonusReward));

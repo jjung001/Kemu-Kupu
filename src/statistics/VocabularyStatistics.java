@@ -2,78 +2,77 @@ package statistics;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.HashSet;
 
 public class VocabularyStatistics {
-	private HashMap<String, Integer[]> statistics;
+	private HashSet<String> words;
+	private HashMap<String, Integer> masteredStatistics;
+	private HashMap<String, Integer> faultedStatistics;
+	private HashMap<String, Integer> failedStatistics;
 
 	public VocabularyStatistics() {
-		statistics = new HashMap<>();
-	}
-
-	public HashMap<String, Integer[]> getStatistics() {
-		return statistics;
+		words = new HashSet<>();
+		masteredStatistics = new HashMap<>();
+		faultedStatistics = new HashMap<>();
+		failedStatistics = new HashMap<>();
 	}
 
 	public ArrayList<String> getWords() {
 		ArrayList<String> wordList = new ArrayList<>();
-		for (Entry<String, Integer[]> entry : statistics.entrySet()) {
-			String word = entry.getKey();
+		for (String word : words) {
 			wordList.add(word);
 		}
 		return wordList;
 	}
 
-	public Integer[] getStatisticsForWord(String word) {
-		return statistics.get(word);
-	}
-
 	public int getMastered(String word) {
-		return getSpecificStatistic(word, 0);
+		return getSpecificStatistic(word, masteredStatistics);
 	}
 
 	public int getFaulted(String word) {
-		return getSpecificStatistic(word, 0);
+		return getSpecificStatistic(word, faultedStatistics);
 	}
 
 	public int getFailed(String word) {
-		return getSpecificStatistic(word, 0);
+		return getSpecificStatistic(word, failedStatistics);
 	}
 
-	private int getSpecificStatistic(String word, int statisticIndex) {
-		Integer[] wordStatistics = statistics.get(word);
-		return wordStatistics[statisticIndex];
-	}
-
-	public void incrementMastered(String word) {
-		incrementSpecificStatistic(word, 0);
-	}
-
-	public void incrementFaulted(String word) {
-		incrementSpecificStatistic(word, 1);
-	}
-
-	public void incrementFailed(String word) {
-		incrementSpecificStatistic(word, 2);
-	}
-
-	private void incrementSpecificStatistic(String word, int statisticIndex) {
+	private int getSpecificStatistic(String word, HashMap<String, Integer> statistics) {
 		if (statistics.containsKey(word)) {
-			addToExistingStatisticsForWord(word, statisticIndex);
+			return statistics.get(word);
 		} else {
-			createNewStatisticsForWord(word, statisticIndex);
+			return 0;
 		}
 	}
 
-	private void addToExistingStatisticsForWord(String word, int statisticIndex) {
-		Integer[] wordStatistic = statistics.get(word);
-		wordStatistic[statisticIndex]++;
+	public void incrementMastered(String word) {
+		incrementSpecificStatistic(word, masteredStatistics);
+	}
+
+	public void incrementFaulted(String word) {
+		incrementSpecificStatistic(word, faultedStatistics);
+	}
+
+	public void incrementFailed(String word) {
+		incrementSpecificStatistic(word, failedStatistics);
+	}
+
+	private void incrementSpecificStatistic(String word, HashMap<String, Integer> statistics) {
+		words.add(word);
+		if (statistics.containsKey(word)) {
+			addToExistingStatisticsForWord(word, statistics);
+		} else {
+			createNewStatisticsForWord(word, statistics);
+		}
+	}
+
+	private void addToExistingStatisticsForWord(String word, HashMap<String, Integer> statistics) {
+		int wordStatistic = statistics.get(word);
+		wordStatistic++;
 		statistics.put(word, wordStatistic);
 	}
 
-	private void createNewStatisticsForWord(String word, int statisticIndex) {
-		Integer[] wordStatistic = new Integer[3];
-		wordStatistic[statisticIndex] = 1;
-		statistics.put(word, wordStatistic);
+	private void createNewStatisticsForWord(String word, HashMap<String, Integer> statistics) {
+		statistics.put(word, 1);
 	}
 }

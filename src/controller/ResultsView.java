@@ -1,11 +1,15 @@
 package controller;
 
+import application.Cash;
+import fileio.CashIO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import quiz.AnswerAttemptTracker;
+import quiz.AnswerStatusTracker;
 import quiz.ResultsModel;
 import quiz.ScoreTracker;
 
@@ -24,18 +28,26 @@ public class ResultsView extends Controller {
 	@FXML
 	private Button backButton;
 	@FXML
+	private Button viewTreeButton;
+	@FXML
 	private Label scoreLabel;
 	@FXML
 	private Label levelLabel;
 	@FXML
-	private ImageView treeImage;
+	private ImageView cashImage;
+	@FXML
+	private Label wordOne, wordTwo, wordThree, wordFour, wordFive;
+	@FXML
+	private Label wordOneAttemptLabel, wordTwoAttemptLabel, wordThreeAttemptLabel, wordFourAttemptLabel, wordFiveAttemptLabel;
+	@FXML
+	private ImageView wordOneStatus, wordTwoStatus, wordThreeStatus, wordFourStatus, wordFiveStatus;
 	@FXML
 	LineChart<String, Number> scoreChart;
 
-	private String scoreDisplay;
-	private String level;
 	private int totalScore;
 	private ResultsModel resultsModel;
+	private AnswerAttemptTracker answerAttemptTracker;
+	private AnswerStatusTracker answerStatusTracker;
 
 	/**
 	 * Initially sets up the controller.
@@ -44,21 +56,37 @@ public class ResultsView extends Controller {
 	 * 
 	 * @param scoreTracker	ScoreTracker user data from the previous game screen that stores the score datas of questions
 	 */
-	public void setUp(ScoreTracker scoreTracker) {
+	
+	public void setUp(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker) {
 
-		resultsModel = new ResultsModel(scoreTracker);
+		resultsModel = new ResultsModel(scoreTracker, answerAttemptTracker, answerStatusTracker);
 
 		totalScore = scoreTracker.getTotalScore();
-		scoreDisplay = String.valueOf(totalScore);
-		scoreLabel.setText(scoreDisplay);
-
-		level = resultsModel.determineLevel(totalScore);
-		levelLabel.setText(level);
-
-		resultsModel.displayImage(level);
-		treeImage.setImage(resultsModel.displayImage(level));
+		scoreLabel.setText(String.valueOf(totalScore));
+		cashImage.setImage(resultsModel.displayImage(totalScore));
 
 		resultsModel.setChart(scoreChart);
+	
+		wordOne.setText(scoreTracker.getWord(1));
+		wordTwo.setText(scoreTracker.getWord(2));
+		wordThree.setText(scoreTracker.getWord(3));
+		wordFour.setText(scoreTracker.getWord(4));
+		wordFive.setText(scoreTracker.getWord(5));
+		
+		wordOneAttemptLabel.setText(resultsModel.getAttempt(1));
+		wordTwoAttemptLabel.setText(resultsModel.getAttempt(2));
+		wordThreeAttemptLabel.setText(resultsModel.getAttempt(3));
+		wordFourAttemptLabel.setText(resultsModel.getAttempt(4));
+		wordFiveAttemptLabel.setText(resultsModel.getAttempt(5));
+		
+		wordOneStatus.setImage(resultsModel.getStatusImage(1));
+		wordTwoStatus.setImage(resultsModel.getStatusImage(2));
+		wordThreeStatus.setImage(resultsModel.getStatusImage(3));
+		wordFourStatus.setImage(resultsModel.getStatusImage(4));
+		wordFiveStatus.setImage(resultsModel.getStatusImage(5));
+		
+		saveEarnings(scoreTracker);
+		
 	}
 
 	/**
@@ -68,5 +96,16 @@ public class ResultsView extends Controller {
 	public void playAgain(ActionEvent event) {
 		switchScene(event, "TopicList.fxml");
 	}
+	
+	public void viewTree(ActionEvent event) {
+		switchScene(event, "MyTree.fxml");
+	}
 
+	
+	private void saveEarnings(ScoreTracker scoreTracker) {
+		CashIO cashIO = new CashIO(FileSaveLocations.CASH);
+		Cash cash = new Cash();
+		cash.deposit(totalScore);
+		cashIO.saveCash(cash);
+	}
 }

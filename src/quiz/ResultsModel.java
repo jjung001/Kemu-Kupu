@@ -1,5 +1,7 @@
 package quiz;
 
+import enums.AnswerStatus;
+import enums.CashAmount;
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
@@ -15,29 +17,30 @@ import javafx.scene.image.Image;
  */
 public class ResultsModel {
 
-	private String level;
-	private String sprout = "Sprout";
-	private String sapling = "Sapling";
-	private String young = "Young";
-	private String grown = "Grown";
-	private String mature = "Mature";
-	private String blooming = "Blooming";
 	private ScoreTracker scoreTracker;
+	private CashAmount cashAmount;
 
 	//Get image from file to display for tree levels
-	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
-	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
-	Image youngImage = new Image(getClass().getResourceAsStream("/resources/Tree_2.png"));
-	Image grownImage = new Image(getClass().getResourceAsStream("/resources/Tree_3.png"));
-	Image matureImage = new Image(getClass().getResourceAsStream("/resources/Tree_4.png"));
-	Image bloomingImage = new Image(getClass().getResourceAsStream("/resources/Tree_final.png"));
+	Image oneCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin.png"));
+	Image twoCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin_2.png"));
+	Image threeCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin_3.png"));
+	Image fourCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin_4.png"));
+	Image lotCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin_5.png"));
+	Image maxCoinImage = new Image(getClass().getResourceAsStream("/resources/Coin_6.png"));
+	Image masteredIcon = new Image(getClass().getResourceAsStream("/resources/Mastered_icon.png"));
+	Image faultedIcon = new Image(getClass().getResourceAsStream("/resources/Faulted_icon.png"));
+	Image failedIcon = new Image(getClass().getResourceAsStream("/resources/Failed_icon.png"));
+	private AnswerAttemptTracker answerAttemptTracker;
+	private AnswerStatusTracker answerStatusTracker;
 
 	/**
 	 * Constructor receives the Score Tracker user data from the results view controller, from the games module
 	 * @param scoreTracker	Score Tracker instance with user data of the results of the quiz game. 
 	 */
-	public ResultsModel(ScoreTracker scoreTracker) {
+	public ResultsModel(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker) {
 		this.scoreTracker = scoreTracker;
+		this.answerAttemptTracker = answerAttemptTracker;
+		this.answerStatusTracker = answerStatusTracker;
 	}
 
 	/**
@@ -45,21 +48,21 @@ public class ResultsModel {
 	 * @param score	The total score of the user's quiz
 	 * @return String level	The tree level of the user's last quiz game. 
 	 */
-	public String determineLevel(int score) {
+	private CashAmount determineLevel(int score) {
 		if (score < 60) {
-			level = sprout;
+			cashAmount = CashAmount.ONECOIN;
 		} else if (score < 160) {
-			level = sapling;
+			cashAmount = CashAmount.TWOCOINS;
 		} else if (score < 300) {
-			level = young;
+			cashAmount = CashAmount.THREECOINS;
 		} else if (score < 650) {
-			level = grown;
+			cashAmount = CashAmount.FOURCOINS;
 		} else if (score < 1000) {
-			level = mature;
+			cashAmount = CashAmount.LOTSCOINS;
 		} else {
-			level = blooming;
+			cashAmount = CashAmount.MAXCOINS;
 		}
-		return level;
+		return cashAmount;
 	}
 
 	/**
@@ -67,26 +70,30 @@ public class ResultsModel {
 	 * @param level	The string name of the tree level. 
 	 * @return Image	image of the correct tree level
 	 */
-	public Image displayImage(String level) {
-		if (level.equals(sprout)) {
-			return sproutImage;
-		} else if (level.equals(sapling)) {
-			return saplingImage;
-		} else if (level.equals(young)) {
-			return youngImage;
-		} else if (level.equals(grown)) {
-			return grownImage;
-		} else if (level.equals(mature)) {
-			return matureImage;
+
+public Image displayImage(int score) {
+		
+		cashAmount = determineLevel(score);
+		
+		if (cashAmount == CashAmount.ONECOIN) {
+			return oneCoinImage;
+		} else if (cashAmount == CashAmount.TWOCOINS) {
+			return twoCoinImage;
+		} else if (cashAmount == CashAmount.THREECOINS) {
+			return threeCoinImage;
+		} else if (cashAmount == CashAmount.FOURCOINS) {
+			return fourCoinImage;
+		} else if (cashAmount == CashAmount.LOTSCOINS) {
+			return lotCoinImage;
 		} else {
-			return bloomingImage;
+			return maxCoinImage;
 		}
 	}
 
 	/**
 	 * Sets up the line chart that displays cumulative score after each word
 	 * Displays the progress of the score through the quiz
-	 * @param chart LineChart with x,y axis propoerties
+	 * @param chart LineChart with x,y axis properties
 	 */
 	public void setChart(LineChart<String, Number> chart) {
 		XYChart.Series<String, Number> series = new XYChart.Series<String, Number>();
@@ -102,5 +109,23 @@ public class ResultsModel {
 		chart.getData().add(series);
 		Node line = series.getNode().lookup(".chart-series-line");
 		line.setStyle("-fx-stroke: #2e979b");
+	}
+	
+	public String getAttempt(int questionNumber) {
+		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAILED) {
+			return answerAttemptTracker.getAnswerAttempt(questionNumber);
+		} else {
+			return "";
+		}
+	}
+	
+	public Image getStatusImage(int questionNumber) {
+		if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.MASTERED) {
+			return masteredIcon;
+		} else if (answerStatusTracker.getAnswerStatus(questionNumber) == AnswerStatus.FAULTED) {
+			return faultedIcon;
+		} else {
+			return failedIcon;
+		}
 	}
 }
