@@ -154,7 +154,25 @@ public class MyTreeController extends Controller {
 
     @FXML
     void useWaterEx(ActionEvent event) {
+    	Item itemWater = new Item();
+    	itemWater.setName("waterEx");
+    	ItemStock itemStocking = new ItemStock();
+    	ArrayList<Item> itemArray = itemStocking.getItems();
+//    	itemArray = stock.getItems();
+    	for (int i = 0; i < itemArray.size(); i++) {
+    		if (itemArray.get(i).equals(itemWater)) {
+    			itemStocking.removeItem(itemArray.get(i));
+    		}
+    	}
 
+//    	itemStockIO.saveStockNumbers(stock, offSetDateTime);
+    	    	
+//    	stock.removeItem(item);
+//    	itemStockIO.loadStockNumbers();
+    	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
+    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
+    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+    	}
     }
     
     @FXML
@@ -244,7 +262,7 @@ public class MyTreeController extends Controller {
     
     private void itemLabelHashMap(HashMap<String, Label> useButtons) {
     	useButtons.put("water", itemNoLabelWater);
-    	useButtons.put("WaterEx", itemNoLabelWaterEx);
+    	useButtons.put("waterEx", itemNoLabelWaterEx);
     	useButtons.put("fertiliser", itemNoLabelFertiliser);
     	useButtons.put("fertiliserPlus", itemNoLabelFertiliserPlus);
     	useButtons.put("sunlight", itemNoLabelSunlight);
