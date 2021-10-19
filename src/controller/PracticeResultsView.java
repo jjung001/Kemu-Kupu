@@ -10,7 +10,7 @@ import quiz.AnswerStatusTracker;
 import quiz.ResultsModel;
 import quiz.ScoreTracker;
 
-public class PracticeResultsView {
+public class PracticeResultsView extends Controller {
 	
 	@FXML
 	private Button viewUpButton, viewDownButton, viewStatsButton, repracticeButton, backButton;
@@ -48,6 +48,14 @@ public class PracticeResultsView {
 		wordThreeStatus.setImage(resultsModel.getStatusImage(3));
 		wordFourStatus.setImage(resultsModel.getStatusImage(4));
 		wordFiveStatus.setImage(resultsModel.getStatusImage(5));
+	}
+	
+	public void practiceAgain(ActionEvent event) {
+		switchScene(event, "PracticeTopic.fxml");
+	}
+	
+	public void viewVocabulary(ActionEvent event) {
+		switchScene(event, "MyVocabulary.fxml");
 	}
 
 }

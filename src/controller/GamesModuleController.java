@@ -380,11 +380,19 @@ public class GamesModuleController extends Controller {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + nextScene));
 			try {
 				Parent root = (Parent) loader.load();
-				ResultsView controller = loader.getController();
-				controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
-				Scene scene = new Scene(root);
-				primaryStage.setScene(scene);
-				primaryStage.show();
+				if (isPractice) {
+					PracticeResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				} else {
+					ResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
