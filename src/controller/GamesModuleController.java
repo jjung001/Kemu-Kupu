@@ -508,10 +508,10 @@ public class GamesModuleController extends Controller {
 				}
 
 				if (progress > 0.667) {
-					bonusBar.setStyle("-fx-accent: green");
+					bonusBar.setStyle("-fx-accent: #37A872");
 					bonusLabel.setText("+" + Integer.toString(highBonusReward));
 				} else if (progress > 0) {
-					bonusBar.setStyle("-fx-accent: orange");
+					bonusBar.setStyle("-fx-accent: #D79A2B");
 					bonusLabel.setText("+" + Integer.toString(lowBonusReward));
 				} else {
 					bonusLabel.setText("+" + Integer.toString(noBonusReward));
