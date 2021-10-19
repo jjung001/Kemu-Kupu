@@ -27,7 +27,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word1Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="79.0" text="word">
+                  <Label fx:id="word1Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
@@ -51,7 +51,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word2Label" layoutX="147.0" layoutY="28.0" prefHeight="30.0" prefWidth="79.0" text="word">
+                  <Label fx:id="word2Label" layoutX="147.0" layoutY="28.0" prefHeight="30.0" prefWidth="500.0" text="word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word3Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="79.0" text="word">
+                  <Label fx:id="word3Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
@@ -89,7 +89,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word4Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="79.0" text="word">
+                  <Label fx:id="word4Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
@@ -108,7 +108,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word5Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="79.0" text="word">
+                  <Label fx:id="word5Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
