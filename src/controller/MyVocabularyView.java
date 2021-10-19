@@ -290,6 +290,7 @@ public class MyVocabularyView extends Controller {
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
 		vocabularyStatistics = statisticsIO.getVocabularyStatistics(currentTopic);
 		words = vocabularyStatistics.getWords();
+		System.out.println(words);
 	}
 
 	private void determineWordsPaneVisibility() {
@@ -349,7 +350,7 @@ public class MyVocabularyView extends Controller {
 		}
 
 		if (isWord2Shown) {
-			String word = words.get(wordsPointer);
+			String word = words.get(wordsPointer + 1);
 			word2Label.setText(word);
 
 			int mastered = vocabularyStatistics.getMastered(word);
@@ -362,7 +363,7 @@ public class MyVocabularyView extends Controller {
 		}
 
 		if (isWord3Shown) {
-			String word = words.get(wordsPointer);
+			String word = words.get(wordsPointer + 2);
 			word3Label.setText(word);
 
 			int mastered = vocabularyStatistics.getMastered(word);
@@ -375,7 +376,7 @@ public class MyVocabularyView extends Controller {
 		}
 
 		if (isWord4Shown) {
-			String word = words.get(wordsPointer);
+			String word = words.get(wordsPointer + 3);
 			word4Label.setText(word);
 
 			int mastered = vocabularyStatistics.getMastered(word);
@@ -388,7 +389,7 @@ public class MyVocabularyView extends Controller {
 		}
 
 		if (isWord5Shown) {
-			String word = words.get(wordsPointer);
+			String word = words.get(wordsPointer + 4);
 			word5Label.setText(word);
 
 			int mastered = vocabularyStatistics.getMastered(word);
