@@ -1,6 +1,10 @@
 package controller;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -77,8 +81,37 @@ public class MyTreeShopController extends Controller {
     	item.setName(nameWater);
     	item.setCost(itemHashMap.get(nameWater));
     	buyItem(treeMoney, item, stock);
-    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney); 
+    	writeToFile2(".data/inventory", "2021-10-19T14:34:47.542239+13:00");
+    	writeToFile(".data/inventory", "water 2");
+    	writeToFile(".data/inventory", "insecticide 1");
     }
+    
+    static void writeToFile(String file, String write) { 
+    	try {
+    		FileWriter fw = new FileWriter(file, true);
+    		BufferedWriter bw = new BufferedWriter(fw);
+    		bw.write(write);
+    		bw.newLine();
+    		bw.close();
+    	} catch (IOException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
+    }
+    static void writeToFile2(String file, String write) { 
+    	try {
+    		FileWriter fw = new FileWriter(file);
+    		BufferedWriter bw = new BufferedWriter(fw);
+    		bw.write(write);
+    		bw.newLine();
+    		bw.close();
+    	} catch (IOException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
+    }
+    
     
     @FXML
     void buyWaterEx(ActionEvent event) {
@@ -129,7 +162,10 @@ public class MyTreeShopController extends Controller {
     	item.setName(nameWater);
     	item.setCost(itemHashMap.get(nameWater));
     	buyItem(treeMoney, item, stock);
-    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+//    	saveItemStockAndMoney(itemStockIO, stock, offSetDateTime, treeMoney);
+    	String money = String.valueOf(treeMoney.getCash());
+    	moneyLabel.setText(money);   
+    	cashIO.saveCash(treeMoney);
     }
 
     @FXML

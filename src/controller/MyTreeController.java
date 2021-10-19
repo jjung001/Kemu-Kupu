@@ -123,31 +123,33 @@ public class MyTreeController extends Controller {
     
     @FXML
     void useWater(ActionEvent event) {
-    	Item item = new Item();
-    	String nameWater = "water";
-    	item.setName(nameWater);
+//    	Item item = new Item();
+//    	String nameWater = "water";
+//    	item.setName(nameWater);
+////    	stock.removeItem(item);
+////    	itemStockIO.loadStockNumbers();
+//    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
+//    	stockNumbers = itemStockIO.loadStockNumbers();
+//    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
+//    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+//    	}
 //    	stock.removeItem(item);
+//    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
 //    	itemStockIO.loadStockNumbers();
-    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
-    	stockNumbers = itemStockIO.loadStockNumbers();
-    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
-    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-    	}
-    	stock.removeItem(item);
-    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-    	itemStockIO.loadStockNumbers();
-//    	String waterQuantity = Integer.toString(stock.getQuantity(item));
-//    	itemNoLabelWater.setText(waterQuantity);
-    	if (stock.isInStock(item)) {
-    		stock.getQuantity(item);
-        	System.out.println("water quantity= "+stock.getQuantity(item));
-    	} else {
-        	System.out.println("not in stock");
-
-    	}
-//    	itemNoLabelWater.setText("x2");
-//    	healthLabel.setText("EXCELLENT");
-//    	treeImage.setImage(sproutImage);
+////    	String waterQuantity = Integer.toString(stock.getQuantity(item));
+////    	itemNoLabelWater.setText(waterQuantity);
+//    	if (stock.isInStock(item)) {
+//    		stock.getQuantity(item);
+//        	System.out.println("water quantity= "+stock.getQuantity(item));
+//    	} else {
+//        	System.out.println("not in stock");
+//
+//    	}
+    	itemNoLabelWater.setText("x1");
+    	healthLabel.setText("EXCELLENT");
+    	statusLabel.setText("SAPLING");
+    	heightLabel.setText("5.0m");
+    	treeImage.setImage(saplingImage);
     }
 
     @FXML
@@ -172,7 +174,9 @@ public class MyTreeController extends Controller {
 
     @FXML
     void useInsecticide(ActionEvent event) {
-
+    	itemNoLabelInsecticide.setText("x0");
+    	healthLabel.setText("EXCELLENT");
+    	treeImage.setImage(sproutImage);
     }
     
     private void StatusHeightHealth() {
