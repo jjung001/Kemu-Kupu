@@ -8,7 +8,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.time.Duration;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -76,6 +78,7 @@ public class MyTreeController extends Controller {
 	private CashIO cashIO;
 	private ItemStockIO itemStockIO;
 	private ItemStock stock;
+	private TreeStatisticsIO treeStatisticsIO;
 
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
@@ -207,7 +210,14 @@ public class MyTreeController extends Controller {
     	String level = treeLevel.name();
     	statusLabel.setText(level);
     	
-    	treeImage.setImage(displayImage(level));
+    	if (level.equals(sprout)) {
+    		if (tree.getHealth() == 0) {
+    			treeImage.setVisible(false);
+    		}
+    	} else {
+        	treeImage.setImage(displayImage(level));
+    	}
+    	
     }
     
     public Image displayImage(String level) {
@@ -278,17 +288,62 @@ public class MyTreeController extends Controller {
     	itemNoLabelInsecticide.setText("x"+0);
     }
     
-    public void initialize() {
+    private void getDuration(ItemStockIO itemStockIO) {
     	offSetDateTime = OffsetDateTime.now(); 
+    	String s = offSetDateTime.format(DateTimeFormatter.ISO_DATE_TIME);
+    	System.out.println(s);
+    	OffsetDateTime date = treeStatisticsIO.getTreeLastSavedDateTime();
+      	Duration duration = Duration.between(date, offSetDateTime);
+    	System.out.println("Duration: " + duration);
+    	long durationSeconds = duration.getSeconds();
+        System.out.println("Difference: " + durationSeconds + " seconds");
+        decreaseHealth(durationSeconds);
+    }
+    
+    private void decreaseHealthSeconds(int seconds) {
+    	double treeHealth = tree.getHealth();
+		System.out.println("decreaseHealth = "+treeHealth);
+
+		if (treeHealth  - 25 <= 0) {
+			tree.setHealth(0);
+		} else {
+    		tree.setHealth(treeHealth-25);
+		}
+
+		TreeStatus treestatus = tree.getHealthStatus();
+		String name = treestatus.name();
+		healthLabel.setText(name);
+		double treeHealtha = tree.getHealth();
+		System.out.println("decreaseHealth = "+treeHealtha);
+    }
+    
+    private void decreaseHealth(long durationSeconds) {
+    	if (durationSeconds > 40) {
+    		decreaseHealthSeconds(40);
+    	} else if (durationSeconds > 20) {
+    		decreaseHealthSeconds(20);
+    	}
+    	treeStatisticsIO.saveTree(offSetDateTime, tree);
+    }
+    
+    public void initialize() {
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	
     	tree = new Tree();
+    	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
+    	tree = treeStatisticsIO.loadTree();
+    
+    	getDuration(itemStockIO);
+    	
+    	
     	cashIO = new CashIO(FileSaveLocations.CASH);
     	treeMoney = cashIO.loadCash();
     	String money = String.valueOf(treeMoney.getCash());
     	moneyLabel.setText(money);
-    	treeStatistics = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
-    	tree = treeStatistics.loadTree();
+
     	StatusHeightHealth();
-    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+
+    	
     	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
     	stockNumbers = itemStockIO.loadStockNumbers();
     	HashMap<String, Label> useButtons = new HashMap<>();
