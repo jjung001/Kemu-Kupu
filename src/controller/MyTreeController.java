@@ -222,37 +222,37 @@ public class MyTreeController extends Controller {
     
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return sproutImage;
 			} else {
 				return sproutImage2;
 			}
 		} else if (level.equals(sapling)) {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return saplingImage;
 			} else {
 				return saplingImage2;
 			}
 		} else if (level.equals(young)) {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return youngImage;
 			} else {
 				return youngImage2;
 			}
 		} else if (level.equals(grown)) {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return grownImage;
 			} else {
 				return grownImage2;
 			}
 		} else if (level.equals(mature)) {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return matureImage;
 			} else {
 				return matureImage2;
 			}
 		} else {
-			if (tree.getHealth() > 40) {
+			if (tree.getHealth() > 2) {
 				return bloomingImage;
 			} else {
 				return bloomingImage2;
@@ -304,10 +304,10 @@ public class MyTreeController extends Controller {
     	double treeHealth = tree.getHealth();
 		System.out.println("decreaseHealth = "+treeHealth);
 
-		if (treeHealth  - 25 <= 0) {
+		if (treeHealth-seconds <= 0) {
 			tree.setHealth(0);
 		} else {
-    		tree.setHealth(treeHealth-25);
+    		tree.setHealth(treeHealth-seconds);
 		}
 
 		TreeStatus treestatus = tree.getHealthStatus();
@@ -318,10 +318,18 @@ public class MyTreeController extends Controller {
     }
     
     private void decreaseHealth(long durationSeconds) {
-    	if (durationSeconds > 40) {
-    		decreaseHealthSeconds(40);
-    	} else if (durationSeconds > 20) {
-    		decreaseHealthSeconds(20);
+    	if (durationSeconds > 120) {
+    		decreaseHealthSeconds(6);
+    	} else if (durationSeconds > 100) {
+    		decreaseHealthSeconds(5);
+    	} else if (durationSeconds > 80) {
+    		decreaseHealthSeconds(4);
+    	} else if (durationSeconds > 60) {
+    		decreaseHealthSeconds(3);
+    	} else if (durationSeconds > 40) {
+    		decreaseHealthSeconds(2);
+    	} else if (durationSeconds > 20){
+    		decreaseHealthSeconds(1);
     	}
     	treeStatisticsIO.saveTree(offSetDateTime, tree);
     }
