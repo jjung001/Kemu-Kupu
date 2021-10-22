@@ -46,7 +46,7 @@ public class ItemStock {
 		if (stock.containsKey(item)) {
 			int currentQuantity = stock.get(item);
 			int newQuantity = currentQuantity - quantity;
-			if (newQuantity <= 0) {
+			if (newQuantity < 0) {
 				stock.remove(item);
 			} else {
 				stock.put(item, newQuantity);
