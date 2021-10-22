@@ -45,7 +45,7 @@
                </children>
             </AnchorPane>
             <AnchorPane fx:id="graphHolder" layoutX="11.0" layoutY="68.0" prefHeight="415.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;" />
-            <ToggleButton fx:id="timeScaleToggle" layoutX="116.0" layoutY="491.0" mnemonicParsing="false" onAction="#toggleTimeScale" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="timeScaleToggle" layoutX="101.0" layoutY="487.0" mnemonicParsing="false" onAction="#toggleTimeScale" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
          </children>
       </AnchorPane>
       <Button fx:id="controlsWordEarnings" layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
