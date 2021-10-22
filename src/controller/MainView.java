@@ -40,6 +40,7 @@ public class MainView extends Controller {
 	private TreeStatisticsIO treeStatisticsIO;
 	private Tree tree;
 	private ItemStock itemStock;
+	private StatisticsIO statisticsIO;
 
 	/**
 	 * Starts game module by switching scene to the topic list scene.
@@ -71,11 +72,13 @@ public class MainView extends Controller {
 			cashIO = new CashIO(FileSaveLocations.CASH);
 			itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
 	    	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
+			statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
 	    	cashIO.resetCash();
 	    	tree = new Tree();
 	    	treeStatisticsIO.saveTree(offSetDateTime, tree);
 	    	itemStock = new ItemStock();
 	    	itemStockIO.saveStockNumbers(itemStock, offSetDateTime);
+	    	statisticsIO.resetStatistics();
 		}
 	}
 
