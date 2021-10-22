@@ -109,7 +109,7 @@ public class MyTreeShopController extends Controller {
     	CashIO cashIO = new CashIO(FileSaveLocations.CASH);
     	ItemStockIO itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
     	cashIO.saveCash(treeMoney);
-    	itemStockIO.saveStockNumbers(stock, OffsetDateTime.now());
+    	itemStockIO.saveStockNumbers(stock, itemStockIO.getDateTimeSaved());
     }
 
     private void updateCashLabel() {
