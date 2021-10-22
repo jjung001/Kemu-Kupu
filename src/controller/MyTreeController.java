@@ -1,17 +1,8 @@
 package controller;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-
 import java.time.Duration;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,14 +10,19 @@ import java.util.Map;
 import application.AlertBox;
 import application.Cash;
 import application.FileSaveLocations;
-import enums.TreeStatus;
 import enums.TreeLevel;
-import tree.Item;
-import tree.ItemStock;
-import tree.Tree;
+import enums.TreeStatus;
 import fileio.CashIO;
 import fileio.ItemStockIO;
 import fileio.TreeStatisticsIO;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import tree.ItemStock;
+import tree.Tree;
 
 public class MyTreeController extends Controller {
 
@@ -70,7 +66,7 @@ public class MyTreeController extends Controller {
     private Button btnAxe;
 	@FXML
 	private Button btnBuyItems;
-	
+
 	private Tree tree;
 	private OffsetDateTime offSetDateTime;
 	private TreeStatisticsIO treeStatistics;
@@ -98,12 +94,12 @@ public class MyTreeController extends Controller {
 	private String grown = "GROWN";
 	private String mature = "MATURE";
 	private String blooming = "BLOOMING";
-	
+
 	@FXML
 	void quitMyTree(ActionEvent event) {
 		backToMain(event);
 	}
-	
+
 	@FXML
     void buyItems(ActionEvent event) {
 		switchScene(event, "MyTreeShop.fxml");
@@ -123,7 +119,7 @@ public class MyTreeController extends Controller {
 //			switchScene(event, "MyTree.fxml");
 		}
     }
-    
+
     @FXML
     void useWater(ActionEvent event) {
 //    	Item item = new Item();
@@ -157,27 +153,27 @@ public class MyTreeController extends Controller {
 
     @FXML
     void useWaterEx(ActionEvent event) {
-    	Item itemWater = new Item();
-    	itemWater.setName("waterEx");
-    	ItemStock itemStocking = new ItemStock();
-    	ArrayList<Item> itemArray = itemStocking.getItems();
+//    	Item itemWater = new Item();
+//    	itemWater.setName("waterEx");
+//    	ItemStock itemStocking = new ItemStock();
+//    	ArrayList<Item> itemArray = itemStocking.getItems();
 //    	itemArray = stock.getItems();
-    	for (int i = 0; i < itemArray.size(); i++) {
-    		if (itemArray.get(i).equals(itemWater)) {
-    			itemStocking.removeItem(itemArray.get(i));
-    		}
-    	}
+//    	for (int i = 0; i < itemArray.size(); i++) {
+//    		if (itemArray.get(i).equals(itemWater)) {
+//    			itemStocking.removeItem(itemArray.get(i));
+//    		}
+//    	}
 
 //    	itemStockIO.saveStockNumbers(stock, offSetDateTime);
-    	    	
+
 //    	stock.removeItem(item);
 //    	itemStockIO.loadStockNumbers();
-    	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
-    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
-    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-    	}
+//    	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
+//    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
+//    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+//    	}
     }
-    
+
     @FXML
     void useFertiliser(ActionEvent event) {
 
@@ -199,7 +195,7 @@ public class MyTreeController extends Controller {
     	healthLabel.setText("EXCELLENT");
     	treeImage.setImage(sproutImage);
     }
-    
+
     private void StatusHeightHealth() {
     	TreeStatus treestatus = tree.getHealthStatus();
     	String name = treestatus.name();
@@ -209,17 +205,23 @@ public class MyTreeController extends Controller {
     	TreeLevel treeLevel = tree.getTreeLevel();
     	String level = treeLevel.name();
     	statusLabel.setText(level);
-    	
-    	if (level.equals(sprout)) {
-    		if (tree.getHealth() == 0) {
-    			treeImage.setVisible(false);
-    		}
-    	} else {
+
+//    	if (level.equals(sprout)) {
+//    		if (tree.getHealth() == 0) {
+//    			treeImage.setVisible(false);
+//    		}
+//    	} else {
+//        	treeImage.setImage(displayImage(level));
+//    	}
+
+		if (tree.getHealth() == 0) {
+			treeImage.setVisible(false);
+		} else {
         	treeImage.setImage(displayImage(level));
     	}
-    	
+
     }
-    
+
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
 			if (tree.getHealth() > 2) {
@@ -259,7 +261,7 @@ public class MyTreeController extends Controller {
 			}
 		}
 	}
-    
+
     private void itemNoInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
     	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
     	    for (HashMap.Entry<String, Label> entry1 : useButtons.entrySet()) {
@@ -269,7 +271,7 @@ public class MyTreeController extends Controller {
     	    }
     	}
     }
-    
+
     private void itemLabelHashMap(HashMap<String, Label> useButtons) {
     	useButtons.put("water", itemNoLabelWater);
     	useButtons.put("waterEx", itemNoLabelWaterEx);
@@ -278,7 +280,7 @@ public class MyTreeController extends Controller {
     	useButtons.put("sunlight", itemNoLabelSunlight);
     	useButtons.put("insecticide", itemNoLabelInsecticide);
     }
-    
+
     private void initialiseItemLabels() {
     	itemNoLabelWater.setText("x"+0);
     	itemNoLabelWaterEx.setText("x"+0);
@@ -287,9 +289,9 @@ public class MyTreeController extends Controller {
     	itemNoLabelSunlight.setText("x"+0);
     	itemNoLabelInsecticide.setText("x"+0);
     }
-    
+
     private void getDuration(ItemStockIO itemStockIO) {
-    	offSetDateTime = OffsetDateTime.now(); 
+    	offSetDateTime = OffsetDateTime.now();
     	String s = offSetDateTime.format(DateTimeFormatter.ISO_DATE_TIME);
     	System.out.println(s);
     	OffsetDateTime date = treeStatisticsIO.getTreeLastSavedDateTime();
@@ -299,7 +301,7 @@ public class MyTreeController extends Controller {
         System.out.println("Difference: " + durationSeconds + " seconds");
         decreaseHealth(durationSeconds);
     }
-    
+
     private void decreaseHealthSeconds(int seconds) {
     	double treeHealth = tree.getHealth();
 		System.out.println("decreaseHealth = "+treeHealth);
@@ -316,7 +318,7 @@ public class MyTreeController extends Controller {
 		double treeHealtha = tree.getHealth();
 		System.out.println("decreaseHealth = "+treeHealtha);
     }
-    
+
     private void decreaseHealth(long durationSeconds) {
     	if (durationSeconds > 120) {
     		decreaseHealthSeconds(6);
@@ -333,17 +335,17 @@ public class MyTreeController extends Controller {
     	}
     	treeStatisticsIO.saveTree(offSetDateTime, tree);
     }
-    
+
     public void initialize() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-    	
+
     	tree = new Tree();
     	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
     	tree = treeStatisticsIO.loadTree();
-    
+
     	getDuration(itemStockIO);
-    	
-    	
+
+
     	cashIO = new CashIO(FileSaveLocations.CASH);
     	treeMoney = cashIO.loadCash();
     	String money = String.valueOf(treeMoney.getCash());
@@ -351,7 +353,7 @@ public class MyTreeController extends Controller {
 
     	StatusHeightHealth();
 
-    	
+
     	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
     	stockNumbers = itemStockIO.loadStockNumbers();
     	HashMap<String, Label> useButtons = new HashMap<>();
@@ -361,5 +363,5 @@ public class MyTreeController extends Controller {
 		stock = new ItemStock();
 
     }
-    	
+
 }
