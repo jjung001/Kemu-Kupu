@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import tree.Item;
 import tree.ItemStock;
 import tree.Tree;
 
@@ -75,6 +76,16 @@ public class MyTreeController extends Controller {
 	private ItemStockIO itemStockIO;
 	private ItemStock stock;
 	private TreeStatisticsIO treeStatisticsIO;
+	
+	private Item itemWater;
+	private Item itemWaterEx;
+	private Item itemFertiliser;
+	private Item itemFertiliserPlus;
+	private Item itemSunlight;
+	private Item itemInsecticide;
+	
+	private Map<String, Integer> stockNumbers;
+	private HashMap<String, Label> useButtons;
 
 	Image sproutImage = new Image(getClass().getResourceAsStream("/resources/Sprout_icon.png"));
 	Image saplingImage = new Image(getClass().getResourceAsStream("/resources/Tree_1.png"));
@@ -111,115 +122,89 @@ public class MyTreeController extends Controller {
 		String description = "Your tree will die.";
 		AlertBox alertBox = new AlertBox(header, description);
 		boolean result = alertBox.displayAndGetResult();
-
 		if (result) {
 	    	tree.kill();
 	    	StatusHeightHealth();
 	    	treeStatistics.saveTree(offSetDateTime, tree);
-//			switchScene(event, "MyTree.fxml");
 		}
     }
 
     @FXML
     void useWater(ActionEvent event) {
-//    	Item item = new Item();
-//    	String nameWater = "water";
-//    	item.setName(nameWater);
-////    	stock.removeItem(item);
-////    	itemStockIO.loadStockNumbers();
-//    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
-//    	stockNumbers = itemStockIO.loadStockNumbers();
-//    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
-//    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-//    	}
-//    	stock.removeItem(item);
-//    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-//    	itemStockIO.loadStockNumbers();
-////    	String waterQuantity = Integer.toString(stock.getQuantity(item));
-////    	itemNoLabelWater.setText(waterQuantity);
-//    	if (stock.isInStock(item)) {
-//    		stock.getQuantity(item);
-//        	System.out.println("water quantity= "+stock.getQuantity(item));
-//    	} else {
-//        	System.out.println("not in stock");
-//
-//    	}
-    	itemNoLabelWater.setText("x1");
-    	healthLabel.setText("EXCELLENT");
-    	statusLabel.setText("SAPLING");
-    	heightLabel.setText("5.0m");
-    	treeImage.setImage(saplingImage);
+    	useItem(itemWater);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useWaterEx(ActionEvent event) {
-//    	Item itemWater = new Item();
-//    	itemWater.setName("waterEx");
-//    	ItemStock itemStocking = new ItemStock();
-//    	ArrayList<Item> itemArray = itemStocking.getItems();
-//    	itemArray = stock.getItems();
-//    	for (int i = 0; i < itemArray.size(); i++) {
-//    		if (itemArray.get(i).equals(itemWater)) {
-//    			itemStocking.removeItem(itemArray.get(i));
-//    		}
-//    	}
+    	useItem(itemWaterEx);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
 
-//    	itemStockIO.saveStockNumbers(stock, offSetDateTime);
-
-//    	stock.removeItem(item);
-//    	itemStockIO.loadStockNumbers();
-//    	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
-//    	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
-//    	    System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-//    	}
     }
 
     @FXML
     void useFertiliser(ActionEvent event) {
-
+    	useItem(itemFertiliser);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useFertiliserPlus(ActionEvent event) {
-
+    	useItem(itemFertiliserPlus);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useSunlight(ActionEvent event) {
-
+    	useItem(itemSunlight);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useInsecticide(ActionEvent event) {
-    	itemNoLabelInsecticide.setText("x0");
-    	healthLabel.setText("EXCELLENT");
-    	treeImage.setImage(sproutImage);
+    	useItem(itemInsecticide);    	
+    	stockNumbers = itemStockIO.loadStockNumbers();
+    	itemNoInventory(stockNumbers, useButtons);
+    }
+    
+    public void useItem(Item item) {
+    	if (stock.isInStock(item)) {
+    		double healthImpact = item.getHealthImpact();
+    		double health = tree.getHealth()+healthImpact;
+    		if (health >= 6) {
+    			tree.setHealth(6);
+    		} else {
+        		tree.setHealth(health);
+    		}
+    		double heightImpact = item.getHeightImpact();
+    		double height = tree.getHeight()+heightImpact;
+    		tree.setHeight(height);
+    	}
+    	stock.removeItem(item);
+    	StatusHeightHealth();
+    	saveItemStockAndMoney();
+    }
+    
+    private void saveItemStockAndMoney() {
+    	cashIO.saveCash(treeMoney);
+    	itemStockIO.saveStockNumbers(stock, OffsetDateTime.now());
+    	treeStatisticsIO.saveTree(offSetDateTime, tree);
     }
 
     private void StatusHeightHealth() {
     	TreeStatus treestatus = tree.getHealthStatus();
-    	String name = treestatus.name();
-    	healthLabel.setText(name);
+    	String health = treestatus.name();
+    	healthLabel.setText(health);
     	String height = String.valueOf(tree.getHeight());
-    	heightLabel.setText(height+"m");
+    	heightLabel.setText(height+"cm");
     	TreeLevel treeLevel = tree.getTreeLevel();
     	String level = treeLevel.name();
     	statusLabel.setText(level);
-
-//    	if (level.equals(sprout)) {
-//    		if (tree.getHealth() == 0) {
-//    			treeImage.setVisible(false);
-//    		}
-//    	} else {
-//        	treeImage.setImage(displayImage(level));
-//    	}
-
-		if (tree.getHealth() == 0) {
-			treeImage.setVisible(false);
-		} else {
-        	treeImage.setImage(displayImage(level));
-    	}
-
     }
 
     public Image displayImage(String level) {
@@ -294,7 +279,7 @@ public class MyTreeController extends Controller {
     	offSetDateTime = OffsetDateTime.now();
     	String s = offSetDateTime.format(DateTimeFormatter.ISO_DATE_TIME);
     	System.out.println(s);
-    	OffsetDateTime date = treeStatisticsIO.getTreeLastSavedDateTime();
+    	OffsetDateTime date = itemStockIO.getDateTimeSaved();
       	Duration duration = Duration.between(date, offSetDateTime);
     	System.out.println("Duration: " + duration);
     	long durationSeconds = duration.getSeconds();
@@ -320,17 +305,20 @@ public class MyTreeController extends Controller {
     }
 
     private void decreaseHealth(long durationSeconds) {
+//    	if (durationSeconds > 120) {
+//    		decreaseHealthSeconds(6);
+//    	} else if (durationSeconds > 100) {
+//    		decreaseHealthSeconds(5);
+//    	} else if (durationSeconds > 80) {
+//    		decreaseHealthSeconds(4);
+//    	} else if (durationSeconds > 60) {
+//    		decreaseHealthSeconds(3);
+//    	} else if (durationSeconds > 40) {
+//    		decreaseHealthSeconds(2);
+//    	} else if (durationSeconds > 20){
+//    		decreaseHealthSeconds(1);
+//    	}
     	if (durationSeconds > 120) {
-    		decreaseHealthSeconds(6);
-    	} else if (durationSeconds > 100) {
-    		decreaseHealthSeconds(5);
-    	} else if (durationSeconds > 80) {
-    		decreaseHealthSeconds(4);
-    	} else if (durationSeconds > 60) {
-    		decreaseHealthSeconds(3);
-    	} else if (durationSeconds > 40) {
-    		decreaseHealthSeconds(2);
-    	} else if (durationSeconds > 20){
     		decreaseHealthSeconds(1);
     	}
     	treeStatisticsIO.saveTree(offSetDateTime, tree);
@@ -339,7 +327,7 @@ public class MyTreeController extends Controller {
     public void initialize() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
 
-    	tree = new Tree();
+//    	tree = new Tree();
     	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
     	tree = treeStatisticsIO.loadTree();
 
@@ -354,14 +342,64 @@ public class MyTreeController extends Controller {
     	StatusHeightHealth();
 
 
-    	Map<String, Integer> stockNumbers = new LinkedHashMap<>();
+    	stockNumbers = new LinkedHashMap<>();
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	HashMap<String, Label> useButtons = new HashMap<>();
+    	useButtons = new HashMap<>();
     	itemLabelHashMap(useButtons);
     	initialiseItemLabels();
     	itemNoInventory(stockNumbers, useButtons);
-		stock = new ItemStock();
+    	
+//		stock = new ItemStock();
+		
+		
+		
+    	initializeItems();
+    	initializeStock();
 
+    }
+    
+    private void initializeItems() {
+    	itemWater          = new Item("water",             200, "", 100,   0, 0, 0, 0);
+    	itemWaterEx        = new Item("waterEx",           300, "", 150,   0, 0, 0, 0);
+    	itemFertiliser     = new Item("fertiliser",        400, "",  50,   1, 0, 0, 0);
+    	itemFertiliserPlus = new Item("fertiliserPlus",    500, "", 100,   2, 0, 0, 0);
+    	itemSunlight       = new Item("sunlight",          200, "",   0,   2, 0, 0, 0);
+    	itemInsecticide    = new Item("insecticide",       600, "", 100,   4, 0, 0, 0);
+    }
+    
+    private void initializeStock() {
+    	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
+    	stock = new ItemStock();
+    	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
+
+    	for (String itemName : stockNumbers.keySet()) {
+    		loadStock(stock, stockNumbers, itemName);
+    	}
+    }
+
+    private void loadStock(ItemStock stock, Map<String, Integer> stockNumbers, String itemName) {
+    	int stockNumber = stockNumbers.get(itemName);
+    	Item item = determineItem(itemName);
+    	stock.addItem(item, stockNumber);
+    }
+
+    private Item determineItem(String itemName) {
+    	switch(itemName) {
+    	case "water":
+    		return itemWater;
+    	case "waterEx":
+    		return itemWaterEx;
+    	case "fertiliser":
+    		return itemFertiliser;
+    	case "fertiliserPlus":
+    		return itemFertiliserPlus;
+    	case "sunlight":
+    		return itemSunlight;
+    	case "insecticide":
+    		return itemInsecticide;
+    	default:
+    		return null;
+    	}
     }
 
 }
