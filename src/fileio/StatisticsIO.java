@@ -277,4 +277,8 @@ public class StatisticsIO extends FileIO {
 		String score = getStringPartFromLine(record, 4);
 		wordEarnings.addEarningsToWord(word, Integer.parseInt(score));
 	}
+	
+	public void resetStatistics() {
+		clearFile();
+	}
 }
