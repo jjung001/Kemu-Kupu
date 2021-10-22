@@ -40,27 +40,27 @@ public class MyTreeController extends Controller {
 	@FXML
 	private Label healthLabel;
 	@FXML
-    private Label itemNoLabelWater;
+    private Label itemLabelWater;
     @FXML
     private Button btnUseWater;
     @FXML
-    private Label itemNoLabelWaterEx;
+    private Label itemLabelWaterEx;
     @FXML
     private Button btnUseWaterEx;
     @FXML
-    private Label itemNoLabelFertiliser;
+    private Label itemLabelFertiliser;
     @FXML
     private Button btnUseFertiliser;
     @FXML
-    private Label itemNoLabelFertiliserPlus;
+    private Label itemLabelFertiliserPlus;
     @FXML
     private Button btnUseFertiliserPlus;
     @FXML
-    private Label itemNoLabelSunlight;
+    private Label itemLabelSunlight;
     @FXML
     private Button btnUseSunlight;
     @FXML
-    private Label itemNoLabelInsecticide;
+    private Label itemLabelInsecticide;
     @FXML
     private Button btnUseInsecticide;
     @FXML
@@ -98,6 +98,13 @@ public class MyTreeController extends Controller {
 	Image grownImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_3.png"));
 	Image matureImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_4.png"));
 	Image bloomingImage2 = new Image(getClass().getResourceAsStream("/resources/unwell_Tree_final.png"));
+	Image sproutImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Sprout.png"));
+	Image saplingImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Tree_1.png"));
+	Image youngImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Tree_2.png"));
+	Image grownImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Tree_3.png"));
+	Image matureImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Tree_4.png"));
+	Image bloomingImage3 = new Image(getClass().getResourceAsStream("/resources/Dying_Tree_final.png"));
+	Image deadSign = new Image(getClass().getResourceAsStream("/resources/Dead_sign.png"));
 	private String sprout = "SPROUT";
 	private String sapling = "SAPLING";
 	private String young = "YOUNG";
@@ -132,43 +139,42 @@ public class MyTreeController extends Controller {
     void useWater(ActionEvent event) {
     	useItem(itemWater);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useWaterEx(ActionEvent event) {
     	useItem(itemWaterEx);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
-
+    	itemInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useFertiliser(ActionEvent event) {
     	useItem(itemFertiliser);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useFertiliserPlus(ActionEvent event) {
     	useItem(itemFertiliserPlus);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useSunlight(ActionEvent event) {
     	useItem(itemSunlight);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     }
 
     @FXML
     void useInsecticide(ActionEvent event) {
     	useItem(itemInsecticide);    	
     	stockNumbers = itemStockIO.loadStockNumbers();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     }
     
     public void useItem(Item item) {
@@ -198,7 +204,8 @@ public class MyTreeController extends Controller {
     private void StatusHeightHealth() {
     	if (tree.getHealth() == 0) {
     		disableUseButton(true);
-    		treeImage.setVisible(false);
+//    		treeImage.setVisible(false);
+    		treeImage.setImage(deadSign);
     		setStatusHeightHealth();
     	} else {
     		disableUseButton(false);
@@ -231,45 +238,57 @@ public class MyTreeController extends Controller {
     
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
-			if (tree.getHealth() > 2) {
+			if (tree.getHealth() >= 5) {
 				return sproutImage;
-			} else {
+			} else if (tree.getHealth() >= 3) {
 				return sproutImage2;
-			}
-		} else if (level.equals(sapling)) {
-			if (tree.getHealth() > 2) {
-				return saplingImage;
 			} else {
+				return sproutImage3;
+			}	
+		} else if (level.equals(sapling)) {
+			if (tree.getHealth() >= 5) {
+				return saplingImage;
+			} else if (tree.getHealth() >= 3) {
 				return saplingImage2;
+			} else {
+				return saplingImage3;
 			}
 		} else if (level.equals(young)) {
-			if (tree.getHealth() > 2) {
+			if (tree.getHealth() >= 5) {
 				return youngImage;
-			} else {
+			} else if (tree.getHealth() >= 3) {
 				return youngImage2;
+			} else {
+				return youngImage3;
 			}
 		} else if (level.equals(grown)) {
-			if (tree.getHealth() > 2) {
+			if (tree.getHealth() >= 5) {
 				return grownImage;
-			} else {
+			} else if (tree.getHealth() >= 3) {
 				return grownImage2;
+			} else {
+				return grownImage3;
 			}
 		} else if (level.equals(mature)) {
-			if (tree.getHealth() > 2) {
+			if (tree.getHealth() >= 5) {
 				return matureImage;
-			} else {
+			} else if (tree.getHealth() >= 3) {
 				return matureImage2;
+			} else {
+				return matureImage3;
 			}
 		} else {
-			if (tree.getHealth() > 2) {
+			if (tree.getHealth() >= 5) {
 				return bloomingImage;
-			} else {
+			} else if (tree.getHealth() >= 3) {
 				return bloomingImage2;
+			} else {
+				return bloomingImage3;
 			}
 		}
 	}
 
-    private void itemNoInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
+    private void itemInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
     	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
     	    for (HashMap.Entry<String, Label> entry1 : useButtons.entrySet()) {
     	    	if (entry1.getKey().equals(entry.getKey())) {
@@ -280,21 +299,21 @@ public class MyTreeController extends Controller {
     }
 
     private void itemLabelHashMap(HashMap<String, Label> useButtons) {
-    	useButtons.put("water", itemNoLabelWater);
-    	useButtons.put("waterEx", itemNoLabelWaterEx);
-    	useButtons.put("fertiliser", itemNoLabelFertiliser);
-    	useButtons.put("fertiliserPlus", itemNoLabelFertiliserPlus);
-    	useButtons.put("sunlight", itemNoLabelSunlight);
-    	useButtons.put("insecticide", itemNoLabelInsecticide);
+    	useButtons.put("water", itemLabelWater);
+    	useButtons.put("waterEx", itemLabelWaterEx);
+    	useButtons.put("fertiliser", itemLabelFertiliser);
+    	useButtons.put("fertiliserPlus", itemLabelFertiliserPlus);
+    	useButtons.put("sunlight", itemLabelSunlight);
+    	useButtons.put("insecticide", itemLabelInsecticide);
     }
 
     private void initialiseItemLabels() {
-    	itemNoLabelWater.setText("x"+0);
-    	itemNoLabelWaterEx.setText("x"+0);
-    	itemNoLabelFertiliser.setText("x"+0);
-    	itemNoLabelFertiliserPlus.setText("x"+0);
-    	itemNoLabelSunlight.setText("x"+0);
-    	itemNoLabelInsecticide.setText("x"+0);
+    	itemLabelWater.setText("x"+0);
+    	itemLabelWaterEx.setText("x"+0);
+    	itemLabelFertiliser.setText("x"+0);
+    	itemLabelFertiliserPlus.setText("x"+0);
+    	itemLabelSunlight.setText("x"+0);
+    	itemLabelInsecticide.setText("x"+0);
     }
 
     private void getDuration(ItemStockIO itemStockIO) {
@@ -312,13 +331,11 @@ public class MyTreeController extends Controller {
     private void decreaseHealthSeconds(int seconds) {
     	double treeHealth = tree.getHealth();
 		System.out.println("decreaseHealth = "+treeHealth);
-
 		if (treeHealth-seconds <= 0) {
 			tree.setHealth(0);
 		} else {
     		tree.setHealth(treeHealth-seconds);
 		}
-
 		TreeStatus treestatus = tree.getHealthStatus();
 		String name = treestatus.name();
 		healthLabel.setText(name);
@@ -348,13 +365,9 @@ public class MyTreeController extends Controller {
 
     public void initialize() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-
-//    	tree = new Tree();
     	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
     	tree = treeStatisticsIO.loadTree();
-
     	getDuration(itemStockIO);
-
 
     	cashIO = new CashIO(FileSaveLocations.CASH);
     	treeMoney = cashIO.loadCash();
@@ -362,21 +375,16 @@ public class MyTreeController extends Controller {
     	moneyLabel.setText(money);
 
     	StatusHeightHealth();
-
-
+    	
     	stockNumbers = new LinkedHashMap<>();
     	stockNumbers = itemStockIO.loadStockNumbers();
     	useButtons = new HashMap<>();
     	itemLabelHashMap(useButtons);
     	initialiseItemLabels();
-    	itemNoInventory(stockNumbers, useButtons);
+    	itemInventory(stockNumbers, useButtons);
     	
-		
-		
-		
     	initializeItems();
     	initializeStock();
-
     }
     
     private void initializeItems() {
@@ -392,7 +400,6 @@ public class MyTreeController extends Controller {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
     	stock = new ItemStock();
     	Map<String, Integer> stockNumbers = itemStockIO.loadStockNumbers();
-
     	for (String itemName : stockNumbers.keySet()) {
     		loadStock(stock, stockNumbers, itemName);
     	}
