@@ -117,7 +117,7 @@ public class MyTreeController extends Controller {
 
     @FXML
     void cutDownTree(ActionEvent event) {
-    	String header = "Are you sure you want to cut down your tree?";
+    	String header = "Are you sure you want to cut down \nyour tree?";
 		String description = "Your tree will die.";
 		AlertBox alertBox = new AlertBox(header, description);
 		boolean result = alertBox.displayAndGetResult();
