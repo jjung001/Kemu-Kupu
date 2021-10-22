@@ -61,4 +61,8 @@ public class ItemStockIO extends FileIO {
 		int stockNumber = Integer.valueOf(stockNumberString);
 		stockNumbers.put(stockName, stockNumber);
 	}
+	
+	public void resetItemStock() {
+		clearFile();
+	}
 }
