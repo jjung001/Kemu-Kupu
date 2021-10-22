@@ -70,7 +70,6 @@ public class MyTreeController extends Controller {
 
 	private Tree tree;
 	private OffsetDateTime offSetDateTime;
-	private TreeStatisticsIO treeStatistics;
 	private Cash treeMoney;;
 	private CashIO cashIO;
 	private ItemStockIO itemStockIO;
@@ -125,7 +124,7 @@ public class MyTreeController extends Controller {
 		if (result) {
 	    	tree.kill();
 	    	StatusHeightHealth();
-	    	treeStatistics.saveTree(offSetDateTime, tree);
+	    	treeStatisticsIO.saveTree(offSetDateTime, tree);
 		}
     }
 
@@ -197,6 +196,28 @@ public class MyTreeController extends Controller {
     }
 
     private void StatusHeightHealth() {
+    	if (tree.getHealth() == 0) {
+    		disableUseButton(true);
+    		treeImage.setVisible(false);
+    		setStatusHeightHealth();
+    	} else {
+    		disableUseButton(false);
+    		treeImage.setVisible(true);
+    		String level = setStatusHeightHealth();
+    		treeImage.setImage(displayImage(level));
+    	}
+    }
+    
+    private void disableUseButton(boolean disable) {
+    	btnUseWater.setDisable(disable);
+		btnUseWaterEx.setDisable(disable);
+		btnUseFertiliser.setDisable(disable);
+		btnUseFertiliserPlus.setDisable(disable);
+		btnUseSunlight.setDisable(disable);
+		btnUseInsecticide.setDisable(disable);
+    }
+    
+    public String setStatusHeightHealth() {
     	TreeStatus treestatus = tree.getHealthStatus();
     	String health = treestatus.name();
     	healthLabel.setText(health);
@@ -205,8 +226,9 @@ public class MyTreeController extends Controller {
     	TreeLevel treeLevel = tree.getTreeLevel();
     	String level = treeLevel.name();
     	statusLabel.setText(level);
+    	return level;
     }
-
+    
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
 			if (tree.getHealth() > 2) {
@@ -349,7 +371,6 @@ public class MyTreeController extends Controller {
     	initialiseItemLabels();
     	itemNoInventory(stockNumbers, useButtons);
     	
-//		stock = new ItemStock();
 		
 		
 		
