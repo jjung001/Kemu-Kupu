@@ -26,9 +26,9 @@ public class Tree {
 
 	private void startAfresh() {
 		height = 1;
-		health = 100;
-		water = 50;
-		nutrient = 30;
+		health = 6;
+		water = 0;
+		nutrient = 0;
 		chemical = 0;
 	}
 
