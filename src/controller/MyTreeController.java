@@ -318,49 +318,38 @@ public class MyTreeController extends Controller {
 
     private void getDuration(ItemStockIO itemStockIO) {
     	offSetDateTime = OffsetDateTime.now();
-    	String s = offSetDateTime.format(DateTimeFormatter.ISO_DATE_TIME);
-    	System.out.println(s);
     	OffsetDateTime date = itemStockIO.getDateTimeSaved();
       	Duration duration = Duration.between(date, offSetDateTime);
-    	System.out.println("Duration: " + duration);
-    	long durationSeconds = duration.getSeconds();
-        System.out.println("Difference: " + durationSeconds + " seconds");
-        decreaseHealth(durationSeconds);
+    	long durationDays = duration.toDays();
+        decreaseHealth(durationDays);
     }
 
-    private void decreaseHealthSeconds(int seconds) {
+    private void decreaseHealthDays(int days) {
     	double treeHealth = tree.getHealth();
-		System.out.println("decreaseHealth = "+treeHealth);
-		if (treeHealth-seconds <= 0) {
+		if (treeHealth-days <= 0) {
 			tree.setHealth(0);
 		} else {
-    		tree.setHealth(treeHealth-seconds);
+    		tree.setHealth(treeHealth-days);
 		}
 		TreeStatus treestatus = tree.getHealthStatus();
 		String name = treestatus.name();
 		healthLabel.setText(name);
-		double treeHealtha = tree.getHealth();
-		System.out.println("decreaseHealth = "+treeHealtha);
     }
 
-    private void decreaseHealth(long durationSeconds) {
-//    	if (durationSeconds > 120) {
-//    		decreaseHealthSeconds(6);
-//    	} else if (durationSeconds > 100) {
-//    		decreaseHealthSeconds(5);
-//    	} else if (durationSeconds > 80) {
-//    		decreaseHealthSeconds(4);
-//    	} else if (durationSeconds > 60) {
-//    		decreaseHealthSeconds(3);
-//    	} else if (durationSeconds > 40) {
-//    		decreaseHealthSeconds(2);
-//    	} else if (durationSeconds > 20){
-//    		decreaseHealthSeconds(1);
-//    	}
-    	if (durationSeconds > 120) {
-    		decreaseHealthSeconds(1);
+    private void decreaseHealth(long durationDays) {
+    	if (durationDays >= 6) {
+    		decreaseHealthDays(6);
+    	} else if (durationDays >= 5) {
+    		decreaseHealthDays(5);
+    	} else if (durationDays >= 4) {
+    		decreaseHealthDays(4);
+    	} else if (durationDays >= 3) {
+    		decreaseHealthDays(3);
+    	} else if (durationDays >= 2) {
+    		decreaseHealthDays(2);
+    	} else if (durationDays >= 1) {
+    		decreaseHealthDays(1);
     	}
-    	treeStatisticsIO.saveTree(offSetDateTime, tree);
     }
 
     public void initialize() {
