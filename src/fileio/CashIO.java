@@ -26,4 +26,10 @@ public class CashIO extends FileIO {
 		cash.setCash(amount);
 		return cash;
 	}
+	
+	public void resetCash() {
+		ArrayList<String> lines = new ArrayList<>();
+		lines.add("0");
+		overwriteLines(lines);
+	}
 }

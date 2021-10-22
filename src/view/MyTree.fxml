@@ -101,7 +101,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelWater" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelWater" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -125,7 +125,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelWaterEx" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelWaterEx" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -149,7 +149,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelFertiliser" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelFertiliser" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -173,7 +173,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelFertiliserPlus" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelFertiliserPlus" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -197,7 +197,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelSunlight" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelSunlight" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
@@ -221,7 +221,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Label fx:id="itemNoLabelInsecticide" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
+                  <Label fx:id="itemLabelInsecticide" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="6.0" prefHeight="18.0" prefWidth="48.0" text="x1" textAlignment="RIGHT">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="14.0" />
                      </font>
