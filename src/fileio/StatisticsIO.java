@@ -261,8 +261,8 @@ public class StatisticsIO extends FileIO {
 		Calendar calendar = Calendar.getInstance();
 		int year = dateTime.getYear();
 		int monthValue = dateTime.getMonthValue();
-		int dayOfYear = dateTime.getDayOfYear();
-		calendar.set(year, monthValue, dayOfYear);
+		int dayOfMonth = dateTime.getDayOfMonth();
+		calendar.set(year, monthValue - 1, dayOfMonth);
 		return calendar.get(Calendar.WEEK_OF_YEAR);
 	}
 
