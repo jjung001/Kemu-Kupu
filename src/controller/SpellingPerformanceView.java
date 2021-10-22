@@ -87,6 +87,7 @@ public class SpellingPerformanceView extends Controller {
 
 		try {
 			LineChart lineChart = FXMLLoader.load(getClass().getResource("/view/SPTimeline.fxml"));
+			lineChart.getStylesheets().add("/application/application.css");
 			lineChart.getData().add(masteredSeries);
 			lineChart.getData().add(faultedSeries);
 			lineChart.getData().add(failedSeries);
@@ -126,6 +127,8 @@ public class SpellingPerformanceView extends Controller {
 
 		try {
 			PieChart pieChart = FXMLLoader.load(getClass().getResource("/view/SPProportions.fxml"));
+			pieChart.getStylesheets().add("/application/application.css");
+			pieChart.setStartAngle(270);
 			pieChart.setData(pieChartData);
 			setGraph(pieChart);
 		} catch (IOException e) {

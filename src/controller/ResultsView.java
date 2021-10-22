@@ -1,5 +1,8 @@
 package controller;
 
+import application.Cash;
+import application.FileSaveLocations;
+import fileio.CashIO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
@@ -47,6 +50,7 @@ public class ResultsView extends Controller {
 	private ResultsModel resultsModel;
 	private AnswerAttemptTracker answerAttemptTracker;
 	private AnswerStatusTracker answerStatusTracker;
+	private Cash cash;
 
 	/**
 	 * Initially sets up the controller. It calls methods from the helper model
@@ -86,7 +90,7 @@ public class ResultsView extends Controller {
 		wordFourStatus.setImage(resultsModel.getStatusImage(4));
 		wordFiveStatus.setImage(resultsModel.getStatusImage(5));
 
-//		saveEarnings(scoreTracker);
+		saveEarnings(totalScore);
 
 	}
 
@@ -104,10 +108,11 @@ public class ResultsView extends Controller {
 		switchScene(event, "MyTree.fxml");
 	}
 
-//	private void saveEarnings(ScoreTracker scoreTracker) {
-//		CashIO cashIO = new CashIO(FileSaveLocations.CASH);
-//		Cash cash = new Cash();
-//		cash.deposit(totalScore);
-//		cashIO.saveCash(cash);
-//	}
+	private void saveEarnings(int totalScore) {
+		CashIO cashIO = new CashIO(FileSaveLocations.CASH);
+		cash = cashIO.loadCash();
+		cash.deposit(totalScore);
+		cashIO.saveCash(cash);
+	}
+	
 }

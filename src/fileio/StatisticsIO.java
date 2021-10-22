@@ -91,30 +91,10 @@ public class StatisticsIO extends FileIO {
 	}
 
 	private void initialiseTimelineFeedForDay(TimelineFeed timelineFeed) {
-		timelineFeed.addData("0:00", 0);
-		timelineFeed.addData("1:00", 0);
-		timelineFeed.addData("2:00", 0);
-		timelineFeed.addData("3:00", 0);
-		timelineFeed.addData("4:00", 0);
-		timelineFeed.addData("5:00", 0);
-		timelineFeed.addData("6:00", 0);
-		timelineFeed.addData("7:00", 0);
-		timelineFeed.addData("8:00", 0);
-		timelineFeed.addData("9:00", 0);
-		timelineFeed.addData("10:00", 0);
-		timelineFeed.addData("11:00", 0);
-		timelineFeed.addData("12:00", 0);
-		timelineFeed.addData("13:00", 0);
-		timelineFeed.addData("14:00", 0);
-		timelineFeed.addData("15:00", 0);
-		timelineFeed.addData("16:00", 0);
-		timelineFeed.addData("17:00", 0);
-		timelineFeed.addData("18:00", 0);
-		timelineFeed.addData("19:00", 0);
-		timelineFeed.addData("20:00", 0);
-		timelineFeed.addData("21:00", 0);
-		timelineFeed.addData("22:00", 0);
-		timelineFeed.addData("23:00", 0);
+		for (int i = 0; i < 24; i++) {
+			String hourString = String.valueOf(i);
+			timelineFeed.addData(hourString + ":00", 0);
+		}
 	}
 
 	private void addRecordToTimelineIfSameDay(String record, OffsetDateTime currentDateTime, TimelineFeed timelineFeed,
@@ -261,8 +241,8 @@ public class StatisticsIO extends FileIO {
 		Calendar calendar = Calendar.getInstance();
 		int year = dateTime.getYear();
 		int monthValue = dateTime.getMonthValue();
-		int dayOfYear = dateTime.getDayOfYear();
-		calendar.set(year, monthValue, dayOfYear);
+		int dayOfMonth = dateTime.getDayOfMonth();
+		calendar.set(year, monthValue - 1, dayOfMonth);
 		return calendar.get(Calendar.WEEK_OF_YEAR);
 	}
 

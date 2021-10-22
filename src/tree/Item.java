@@ -10,6 +10,17 @@ public class Item {
 	private double nutrientImpact;
 	private double chemicalImpact;
 
+	public Item(String name, int cost, String imagePath, double heightImpact, double healthImpact, double waterImpact, double nutrientImpact, double chemicalImpact) {
+		this.name = name;
+		this.cost = cost;
+		this.imagePath = imagePath;
+		this.heightImpact = heightImpact;
+		this.healthImpact = healthImpact;
+		this.waterImpact = waterImpact;
+		this.nutrientImpact = nutrientImpact;
+		this.chemicalImpact = chemicalImpact;
+	}
+
 	@Override
 	public boolean equals(Object object) {
 		if (this == object) return true;

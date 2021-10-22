@@ -74,17 +74,17 @@ public class Tree {
 	}
 
 	public TreeStatus getHealthStatus() {
-		if (health > 90) {
+		if (health == 6) {
 			return TreeStatus.EXCELLENT;
-		} else if (health > 75) {
+		} else if (health == 5) {
 			return TreeStatus.VERYGOOD;
-		} else if (health > 60) {
+		} else if (health == 4) {
 			return TreeStatus.AVERAGE;
-		} else if (health > 40) {
+		} else if (health == 3) {
 			return TreeStatus.CONCERNING;
-		} else if (health > 15) {
+		} else if (health == 2) {
 			return TreeStatus.POOR;
-		} else if (health > 0) {
+		} else if (health == 1) {
 			return TreeStatus.DYING;
 		} else {
 			return TreeStatus.DEAD;
