@@ -81,5 +81,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <Button fx:id="helpButton" layoutX="66.0" layoutY="524.0" mnemonicParsing="false" onAction="#openHelpWindow" text="Help" />
    </children>
 </AnchorPane>
