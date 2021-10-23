@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class HelpBox {
 	
@@ -23,12 +24,13 @@ public class HelpBox {
 			controller.setUp(sceneName);
 
 			Stage stage = new Stage();
+			stage.initStyle(StageStyle.UNDECORATED);
 			stage.initModality(Modality.APPLICATION_MODAL);
 
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setResizable(false);
-			stage.setScene(scene);
+			stage.show();
 
 		} catch (Exception e) {
 			e.printStackTrace();

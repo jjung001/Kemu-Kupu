@@ -20,7 +20,7 @@ public class HelpBoxView {
 	}
 	
 	public void closeHelpWindow(ActionEvent event) {
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
+	    Stage stage = (Stage) closeButton.getScene().getWindow();
 	    stage.close();
 	}
 
