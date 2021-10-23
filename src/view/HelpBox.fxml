@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="controller.HelpBoxView">
    <children>
       <AnchorPane prefHeight="660.0" prefWidth="900.0">
          <children>
-            <ImageView fx:id="HelpImage" fitHeight="660.0" fitWidth="900.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="helpImage" fitHeight="660.0" fitWidth="900.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="closeButton" layoutX="26.0" layoutY="32.0" mnemonicParsing="false" onAction="#closeHelpWindow" text="Button" />
          </children>
       </AnchorPane>
    </children>
