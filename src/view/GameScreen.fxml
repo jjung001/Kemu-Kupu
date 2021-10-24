@@ -28,7 +28,10 @@
                            <image>
                               <Image url="@/resources/Replay_ver2.png" />
                            </image></ImageView>
-                     </graphic></Button>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Group layoutX="693.0" layoutY="48.0">
                      <children>
                         <Text fx:id="scoreTitle" fill="#666666" layoutX="-3.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:">
@@ -51,11 +54,17 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnIDontKnow" focusTraversable="false" layoutX="227.0" layoutY="543.0" onAction="#skipButton" prefHeight="66.0" prefWidth="240.0" style="-fx-background-color: a2c6ac; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="I _Don't Know" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="26.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnSubmit" focusTraversable="false" layoutX="498.0" layoutY="543.0" onAction="#submitButton" prefHeight="65.0" prefWidth="240.0" style="-fx-background-color: #714e42; -fx-background-radius: 6;" text="_Submit" textFill="#a2c6ac">
                      <font>
@@ -64,31 +73,49 @@
                      <effect>
                         <ColorAdjust />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnA" focusTraversable="false" layoutX="326.0" layoutY="477.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="ā" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnE" focusTraversable="false" layoutX="389.0" layoutY="477.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="ē" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnI" focusTraversable="false" layoutX="454.0" layoutY="477.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="ī" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnO" focusTraversable="false" layoutX="519.0" layoutY="477.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="ō" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnU" focusTraversable="false" layoutX="584.0" layoutY="477.0" mnemonicParsing="false" onAction="#pressMacronButton" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 5; -fx-border-radius: 6;" text="ū" textFill="#714e42">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <TextField fx:id="wordTextField" alignment="CENTER" layoutX="270.0" layoutY="371.0" onKeyPressed="#onKeyPressed" prefHeight="43.0" prefWidth="420.0" promptText="type here" style="-fx-text-fill: black; -fx-background-color: white; -fx-background-radius: 6;">
                      <font>
@@ -138,6 +165,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>
