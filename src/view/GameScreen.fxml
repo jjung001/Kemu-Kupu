@@ -152,7 +152,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="bonusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="196.0" prefHeight="26.0" prefWidth="150.0" text="+210" textAlignment="CENTER" textFill="#666666">
+                  <Label fx:id="bonusLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="196.0" prefHeight="26.0" prefWidth="150.0" textAlignment="CENTER" textFill="#666666">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="23.0" />
                      </font>

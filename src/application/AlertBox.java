@@ -33,6 +33,7 @@ public class AlertBox {
 
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
+			stage.setResizable(false);
 
 			stage.showAndWait();
 			boolean result = controller.getResult();
