@@ -184,7 +184,7 @@ public class TopicsView extends Controller {
 	}
 	
 	public void openHelpWindow(ActionEvent event) {
-		String sceneName = "TopicsList";
+		String sceneName = "TopicList";
 		if (isPractice) {
 			sceneName = "PracticeTopic";
 		}
