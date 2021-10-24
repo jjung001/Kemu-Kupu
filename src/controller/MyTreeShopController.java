@@ -6,6 +6,7 @@ import java.util.Map;
 
 import application.Cash;
 import application.FileSaveLocations;
+import application.HelpBox;
 import fileio.CashIO;
 import fileio.ItemStockIO;
 import javafx.event.ActionEvent;
@@ -37,6 +38,8 @@ public class MyTreeShopController extends Controller {
     private Button btnRight;
 	@FXML
     private Button back;
+	@FXML
+	private Button helpButton;
 
 	private OffsetDateTime offSetDateTime;
 	private ItemStockIO itemStockIO;
@@ -171,4 +174,10 @@ public class MyTreeShopController extends Controller {
     		return null;
     	}
     }
+    
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "ItemShop";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
+	}
 }

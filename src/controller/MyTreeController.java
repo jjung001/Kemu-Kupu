@@ -10,6 +10,7 @@ import java.util.Map;
 import application.AlertBox;
 import application.Cash;
 import application.FileSaveLocations;
+import application.HelpBox;
 import enums.TreeLevel;
 import enums.TreeStatus;
 import fileio.CashIO;
@@ -29,6 +30,8 @@ public class MyTreeController extends Controller {
 
 	@FXML
 	private Button back;
+	@FXML
+	private Button helpButton;
 	@FXML
 	private Label moneyLabel;
 	@FXML
@@ -418,5 +421,11 @@ public class MyTreeController extends Controller {
     		return null;
     	}
     }
+    
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "MyTree";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
+	}
 
 }
