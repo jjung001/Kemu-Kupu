@@ -1,17 +1,17 @@
 package controller;
 
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.Random;
 
 import application.AlertBox;
-import application.Festival;
-import application.Language;
-import game.AnswerStatus;
-import game.Question;
-import game.Quiz;
-import game.ScoreTracker;
-import game.Scorer;
+import application.FileSaveLocations;
+import application.HelpBox;
+import application.TTS;
+import enums.AnswerStatus;
+import enums.Language;
+import fileio.StatisticsIO;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.PauseTransition;
@@ -31,13 +31,21 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import words.WordList;
+import quiz.AnswerAttemptTracker;
+import quiz.AnswerStatusTracker;
+import quiz.Question;
+import quiz.QuestionManager;
+import quiz.ScoreTracker;
+import quiz.Scorer;
+import quiz.WordStore;
 
 /**
- * This is the controller class for the Games module. 
- * It starts the game Kēmu Kupu. 
+ * This is the controller class for the Games module. It starts the game Kēmu
+ * Kupu.
+ *
  * @author Jared Daniel Recomendable
  * @author Juwon Jung
  *
@@ -66,6 +74,8 @@ public class GamesModuleController extends Controller {
 	@FXML
 	public Button btnIdontKnow;
 	@FXML
+	public Button helpButton;
+	@FXML
 	public TextField wordTextField;
 	@FXML
 	public Label hintLabel;
@@ -85,6 +95,8 @@ public class GamesModuleController extends Controller {
 	public ProgressBar bonusBar;
 	@FXML
 	public Timeline timeline;
+	@FXML
+	public Text scoreTitle;
 
 	public String word;
 	public String charA = "ā";
@@ -101,18 +113,22 @@ public class GamesModuleController extends Controller {
 	public double progress;
 	public Thread th;
 	public boolean quitOrNot;
+	public boolean isPractice;
 	public double currentBonus;
-	private WordList combinedWordList;
-	private Quiz quiz;
+	private WordStore combinedWordList;
+	private QuestionManager questionManager;
 	private ScoreTracker scoreTracker;
 	boolean isBeginning;
 	Question currentQuestion;
 	Scorer currentScorer;
 	private Timeline bonusBarTimeline;
+	private AnswerStatusTracker answerStatusTracker;
+	private AnswerAttemptTracker answerAttemptTracker;
 
 	/**
 	 * When ENTER key is pressed the word is submitted to check if spelt correclty,
 	 * instead of pressing the submit button.
+	 *
 	 * @param e KeyEvent when ENTER is pressed on keyboard
 	 */
 	@FXML
@@ -123,8 +139,9 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Alert Box appears when back button is pressed.
-	 * If ok is selected the screen returns to main main.
+	 * Alert Box appears when back button is pressed. If ok is selected the screen
+	 * returns to main main.
+	 *
 	 * @param event ActionEvent when back button is pressed
 	 */
 	@FXML
@@ -163,12 +180,12 @@ public class GamesModuleController extends Controller {
 		wordTextField.positionCaret(caretPosition + 1);
 	}
 
-	/** 
-	 * Sets up the interface for accepting question and gets the first word.
-	 * If there is another question canProceed boolean is true, to run getNextQuestion.
-	 * Pauses the screen for a duration of two seconds before moving onto next word or next screen
-	 * to show the status label. 
-	 * Sets the status label as Spell it on the first attempt of the word.
+	/**
+	 * Sets up the interface for accepting question and gets the first word. If
+	 * there is another question canProceed boolean is true, to run getNextQuestion.
+	 * Pauses the screen for a duration of two seconds before moving onto next word
+	 * or next screen to show the status label. Sets the status label as Spell it on
+	 * the first attempt of the word.
 	 */
 	public void submitButton() {
 		toggleButtonVisibility(true, true, false);
@@ -195,17 +212,21 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Checks if word is spelt correct case insensitive.
-	 * BonusBar pauses from decreasing when answer is being checked.
-	 * WordTextField is reset to empty after each attempt.
-	 * Gets current bonus points from end of timing and store in current score.
-	 * Stores each state of answer as emu AnswerStatus
-	 * @return the state of answer and whether to proceed to next question or give another attempt.
+	 * Checks if word is spelt correct case insensitive. BonusBar pauses from
+	 * decreasing when answer is being checked. WordTextField is reset to empty
+	 * after each attempt. Gets current bonus points from end of timing and store in
+	 * current score. Stores each state of answer as emu AnswerStatus
+	 *
+	 * @return the state of answer and whether to proceed to next question or give
+	 *         another attempt.
 	 */
 	private boolean submitQuestion() {
 		bonusBarTimeline.pause();
+		int questionNumber = questionManager.getQuestionNumber();
 		String answer = wordTextField.getText().strip().toLowerCase();
+		answerAttemptTracker.update(questionNumber, answer);
 		AnswerStatus answerStatus = currentQuestion.checkAnswer(answer);
+		answerStatusTracker.update(questionNumber, answerStatus);
 		wordTextField.setText("");
 		currentScorer.endTiming();
 
@@ -228,32 +249,32 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Answer status as mastered and question gains a score.
-	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
-	 * Status label replaces with CORRECT.
-	 * Method speak is calls to run festival command "correct." in english voice.
+	 * Answer status as mastered and question gains a score. scoreTracker updates
+	 * with question Number and scoreLabel updates to show total score of the game.
+	 * Status label replaces with CORRECT. Method speak is calls to run festival
+	 * command "correct." in english voice.
 	 */
 	private void masteredWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 		statusLabel.setText("CORRECT");
+		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
+		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.MASTERED, score);
 		speak("correct", false);
 	}
 
 	/**
-	 * Answer status is incorrect.
-	 * Provides the user with a hint with second character of word.
-	 * Status label is updated to "INCORRECT, SPELL AGAIN".
+	 * Answer status is incorrect. Provides the user with a hint with second
+	 * character of word. Status label is updated to "INCORRECT, SPELL AGAIN".
 	 * Method speak calls to run festival command "incorrect." in english voice.
 	 * Pauses transition for two seconds before giving next attempt of the word.
 	 */
 	private void incorrectWord() {
-		char secondCharacter = currentQuestion.getSecondLetter();
-		String parsedMessage = "The second letter is '" + secondCharacter + "'.";
-		hintLabel.setText(parsedMessage);
+		hintLabel.setText(generateHint());
+		hintLabel.setVisible(true);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -264,37 +285,66 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Answer status is faulted.
-	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
-	 * Status label is updated to "GOOD JOB".
-	 * Method speak calls to run festival command "Good job." in English voice.
+	 * Answer status is faulted. scoreTracker updates with question Number and
+	 * scoreLabel updates to show total score of the game. Status label is updated
+	 * to "GOOD JOB". Method speak calls to run festival command "Good job." in
+	 * English voice.
 	 */
 	private void faultedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = currentScorer.getFaultedScore();
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 		statusLabel.setText("GOOD JOB");
+		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
+		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAULTED, score);
 		speak("Good job.", false);
 	}
 
 	/**
-	 * Answer status is failed and question fails to gain score.
-	 * scoreTracker updates with question Number and scoreLabel updates to show total score of the game.
-	 * Status label shows encouraging message.
-	 * Method speak calls to run festival command of encouraging message in English voice.
-
+	 * Answer status is failed and question fails to gain score. scoreTracker
+	 * updates with question Number and scoreLabel updates to show total score of
+	 * the game. Status label shows encouraging message. Method speak calls to run
+	 * festival command of encouraging message in English voice.
+	 *
 	 */
 	private void failedWord() {
-		int questionNumber = quiz.getQuestionNumber();
+		int questionNumber = questionManager.getQuestionNumber();
 		int score = 0;
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		String encouragingMessage = pickRandomEncouragingMessage();
-		statusLabel.setText(encouragingMessage);
-		speak(encouragingMessage, false);
+		hintLabel.setVisible(false);
+		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
+		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAILED, score);
+		if (isPractice) {
+			statusLabel.setText(currentQuestion.getWord());
+		} else {
+			String encouragingMessage = pickRandomEncouragingMessage();
+			statusLabel.setText(encouragingMessage);
+			speak(encouragingMessage, false);
+		}
+	}
+
+	private String generateHint() {
+		String parsedMessage = "";
+
+		if (isPractice) {
+			parsedMessage = "The hint is: ";
+			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+				if (i % 3 == 0) {
+					parsedMessage += currentQuestion.getLetter(i) + " ";
+				} else {
+					parsedMessage += "_ ";
+				}
+			}
+		} else {
+			char secondCharacter = currentQuestion.getLetter(1);
+			parsedMessage = "The second letter is '" + secondCharacter + "'.";
+		}
+
+		return parsedMessage;
 	}
 
 	/**
@@ -318,34 +368,45 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Gets next question of the word list and tests.
-	 * Hint label is set as empty.
-	 * Status label updates to "SPELL IT".
-	 * QuestionNum label shows the current question number out of 5.
-	 * If there is no question left, screen changes to results screen.
-
+	 * Gets next question of the word list and tests. Hint label is set as empty.
+	 * Status label updates to "SPELL IT". QuestionNum label shows the current
+	 * question number out of 5. If there is no question left, screen changes to
+	 * results screen.
+	 *
 	 */
 	private void getNextQuestion() {
-		if (quiz.hasNextQuestion()) {
+		if (questionManager.hasNextQuestion()) {
 			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
-			currentQuestion = quiz.getNextQuestion();
+			currentQuestion = questionManager.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
 			testWord();
 
-			int questionNumber = quiz.getQuestionNumber();
-			int totalNumberOfQuestions = quiz.getTotalNumberOfQuestions();
+			int questionNumber = questionManager.getQuestionNumber();
+			int totalNumberOfQuestions = questionManager.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
 		} else {
 			Stage primaryStage = (Stage) statusLabel.getScene().getWindow();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ResultScreen.fxml"));
+			String nextScene = "ResultScreen.fxml";
+			if (isPractice) {
+				nextScene = "PracticeResults.fxml";
+			}
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/" + nextScene));
 			try {
 				Parent root = (Parent) loader.load();
-				ResultsView controller = loader.getController();
-				controller.setUp(scoreTracker);
-				Scene scene = new Scene(root);
-				primaryStage.setScene(scene);
-				primaryStage.show();
+				if (isPractice) {
+					PracticeResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				} else {
+					ResultsView controller = loader.getController();
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					Scene scene = new Scene(root);
+					primaryStage.setScene(scene);
+					primaryStage.show();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -369,8 +430,8 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Method speak calls to run festival command of "Spell the word." in English voice.
-	 * Pauses transition for two seconds before saying the question word.
+	 * Method speak calls to run festival command of "Spell the word." in English
+	 * voice. Pauses transition for two seconds before saying the question word.
 	 */
 	private void introduceWord() {
 		speak("Spell the word.", false);
@@ -382,17 +443,29 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Setup of games module prior to start the game and initliaizes models for spelling quiz.
+	 * Setup of games module prior to start the game and initliaizes models for
+	 * spelling quiz.
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
 	 */
-	public void setUp(WordList combinedWordList) {
+	public void setUp(WordStore combinedWordList, int numberOfQuestions, boolean isPractice) {
 		// labels show according to progress of game
 		currentSpeed = speedOfSpeech.getValue();
 
 		// Initialize models for spelling quiz
-		quiz = new Quiz(combinedWordList.getRandomWords(5));
-		scoreTracker = new ScoreTracker(5);
+		questionManager = new QuestionManager(combinedWordList.getRandomWords(numberOfQuestions));
+		scoreTracker = new ScoreTracker(numberOfQuestions);
+		answerStatusTracker = new AnswerStatusTracker(numberOfQuestions);
+		answerAttemptTracker = new AnswerAttemptTracker(numberOfQuestions);
+		this.isPractice = isPractice;
+
+		if (isPractice) {
+			bonusBar.setDisable(true);
+			bonusBar.setVisible(false);
+			bonusLabel.setVisible(false);
+			scoreLabel.setVisible(false);
+			scoreTitle.setVisible(false);
+		}
 
 		// Set up interface prior to start of game
 		isBeginning = true;
@@ -407,8 +480,11 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * All Buttons expect for Start and wordTextField set as disabled prior to starting the game.
-	 * @param visibilityState boolean set as true for buttons and textField that is disabled.
+	 * All Buttons expect for Start and wordTextField set as disabled prior to
+	 * starting the game.
+	 *
+	 * @param visibilityState boolean set as true for buttons and textField that is
+	 *                        disabled.
 	 */
 	private void toggleButtonVisibility(boolean visibilityState, boolean applyToControlButtons,
 			boolean applyToMacrons) {
@@ -428,9 +504,10 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * ProgressBar decreases as it counts down in seconds from dependent bonus points for each question and attempt number.
-	 * The possible amount of bonus score available is visible on top of the progress bar.
-	 * When ProgressBar is in high bonus range progress Bar is green, changes to orange in low bonus bar
+	 * ProgressBar decreases as it counts down in seconds from dependent bonus
+	 * points for each question and attempt number. The possible amount of bonus
+	 * score available is visible on top of the progress bar. When ProgressBar is in
+	 * high bonus range progress Bar is green, changes to orange in low bonus bar
 	 * and no bonus range when progress bar is empty.
 	 */
 	private void startProgressBarCountdown() {
@@ -450,10 +527,10 @@ public class GamesModuleController extends Controller {
 				}
 
 				if (progress > 0.667) {
-					bonusBar.setStyle("-fx-accent: green");
+					bonusBar.setStyle("-fx-accent: #37A872");
 					bonusLabel.setText("+" + Integer.toString(highBonusReward));
 				} else if (progress > 0) {
-					bonusBar.setStyle("-fx-accent: orange");
+					bonusBar.setStyle("-fx-accent: #D79A2B");
 					bonusLabel.setText("+" + Integer.toString(lowBonusReward));
 				} else {
 					bonusLabel.setText("+" + Integer.toString(noBonusReward));
@@ -466,20 +543,22 @@ public class GamesModuleController extends Controller {
 
 	/**
 	 * Method sends run festival command.
-	 * @param text String word wanting to be spoken.
+	 *
+	 * @param text    String word wanting to be spoken.
 	 * @param isMaori Boolean of whether Maori or English voice is required.
 	 */
 	private void speak(String text, boolean isMaori) {
 		double speed = speedOfSpeech.getValue();
 		if (isMaori) {
-			Festival.festival(speed, text, Language.MAORI);
+			TTS.speak(speed, text, Language.MAORI);
 		} else {
-			Festival.festival(speed, text, Language.ENGLISH);
+			TTS.speak(speed, text, Language.ENGLISH);
 		}
 	}
 
 	/**
-	 * Calls speak method with the "-" replaced with " " as Maori voice cannot read "-".
+	 * Calls speak method with the "-" replaced with " " as Maori voice cannot read
+	 * "-".
 	 */
 	private void sayWord() {
 		String currentWord = currentQuestion.getWord();
@@ -488,10 +567,10 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Skips word if I dont Know button is pressed.
-	 * Progress Bar stops decreasing and wordTextField is reset to empty.
-	 * Pauses transition for two seconds before going onto next question word.
-
+	 * Skips word if I dont Know button is pressed. Progress Bar stops decreasing
+	 * and wordTextField is reset to empty. Pauses transition for two seconds before
+	 * going onto next question word.
+	 *
 	 *
 	 * @param event
 	 */
@@ -529,9 +608,10 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Updates speed label according to slider changes.
-	 * If speed slider drags to < 0.75 Speed is determined as fast,
-	 * speed < 1.25 is normal else is determined as slow.
+	 * Updates speed label according to slider changes. If speed slider drags to <
+	 * 0.75 Speed is determined as fast, speed < 1.25 is normal else is determined
+	 * as slow.
+	 *
 	 * @param event MouseEvent slider is dragged in speed ranges.
 	 */
 	@FXML
@@ -569,6 +649,15 @@ public class GamesModuleController extends Controller {
 		bonusBarTimeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
 				new KeyFrame(Duration.millis(totalDuration * 1000), new KeyValue(bonusBar.progressProperty(), 0)));
 		bonusBarTimeline.play();
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "GamesModule";
+		if (isPractice) {
+			sceneName = "PracticeModule";
+		}
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 
 }
