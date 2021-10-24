@@ -20,12 +20,12 @@
       </Text>
       <AnchorPane layoutX="49.0" layoutY="137.0" prefHeight="534.0" prefWidth="862.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
          <children>
-            <Text layoutX="26.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Day">
+            <Text layoutX="586.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Day">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                </font>
             </Text>
-            <Text layoutX="199.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Week">
+            <Text layoutX="755.0" layoutY="515.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Week">
                <font>
                   <Font name="DejaVu Sans Condensed Bold" size="19.0" />
                </font>
@@ -45,7 +45,7 @@
                </children>
             </AnchorPane>
             <AnchorPane fx:id="graphHolder" layoutX="11.0" layoutY="68.0" prefHeight="415.0" prefWidth="840.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;" />
-            <ToggleButton fx:id="timeScaleToggle" layoutX="101.0" layoutY="487.0" mnemonicParsing="false" onAction="#toggleTimeScale" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
+            <ToggleButton fx:id="timeScaleToggle" layoutX="664.0" layoutY="488.0" mnemonicParsing="false" onAction="#toggleTimeScale" prefHeight="34.0" prefWidth="71.0" style="-fx-graphic: url('resources/Toggle_Button_Off.png'); -fx-background-color: transparent;" />
          </children>
       </AnchorPane>
       <Button fx:id="controlsWordEarnings" layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
@@ -69,6 +69,15 @@
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/Back_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="helpButton" layoutX="44.0" layoutY="609.0" mnemonicParsing="false" onAction="#openHelpWindow" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Help_icon.png" />
                </image>
             </ImageView>
          </graphic>

@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import application.FileSaveLocations;
+import application.HelpBox;
 import fileio.StatisticsIO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,8 @@ public class MyVocabularyView extends Controller {
 	private Button topic2Button;
 	@FXML
 	private Button topic3Button;
+	@FXML
+	private Button helpButton;
 
 	@FXML
 	private AnchorPane word1Container;
@@ -411,5 +414,11 @@ public class MyVocabularyView extends Controller {
 	@FXML
 	private void goToHighestEarnings(ActionEvent event) {
 		switchScene(event, "HighestEarnings.fxml");
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "MyVocabulary";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 }
