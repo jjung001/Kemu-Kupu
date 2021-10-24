@@ -15,7 +15,7 @@ public class HelpBoxView {
 	private Button closeButton;
 	
 	public void setUp(String sceneName) {
-		Image helpImageSource = new Image(getClass().getResourceAsStream("/resources/"+sceneName+"_helpImage.png"));
+		Image helpImageSource = new Image(getClass().getResourceAsStream("/resources/"+sceneName+"_Help.png"));
 		helpImage.setImage(helpImageSource);
 	}
 	
