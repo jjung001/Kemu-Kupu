@@ -2,6 +2,7 @@ package controller;
 
 import application.Cash;
 import application.FileSaveLocations;
+import application.HelpBox;
 import fileio.CashIO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,6 +31,8 @@ public class ResultsView extends Controller {
 	private Button backButton;
 	@FXML
 	private Button viewTreeButton;
+	@FXML
+	private Button helpButton;
 	@FXML
 	private Label scoreLabel;
 	@FXML
@@ -115,4 +118,9 @@ public class ResultsView extends Controller {
 		cashIO.saveCash(cash);
 	}
 	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "GameResults";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
+	}
 }
