@@ -7,6 +7,7 @@ import java.util.Random;
 
 import application.AlertBox;
 import application.FileSaveLocations;
+import application.HelpBox;
 import application.TTS;
 import enums.AnswerStatus;
 import enums.Language;
@@ -72,6 +73,8 @@ public class GamesModuleController extends Controller {
 	public Button btnRepeat;
 	@FXML
 	public Button btnIdontKnow;
+	@FXML
+	public Button helpButton;
 	@FXML
 	public TextField wordTextField;
 	@FXML
@@ -646,6 +649,15 @@ public class GamesModuleController extends Controller {
 		bonusBarTimeline = new Timeline(new KeyFrame(Duration.millis(0), new KeyValue(bonusBar.progressProperty(), 1)),
 				new KeyFrame(Duration.millis(totalDuration * 1000), new KeyValue(bonusBar.progressProperty(), 0)));
 		bonusBarTimeline.play();
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "GamesModule";
+		if (isPractice) {
+			sceneName = "PracticeModule";
+		}
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 
 }

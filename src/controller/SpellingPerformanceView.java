@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import application.FileSaveLocations;
+import application.HelpBox;
 import fileio.StatisticsIO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,6 +33,8 @@ public class SpellingPerformanceView extends Controller {
 	private Button timelineTabButton;
 	@FXML
 	private Button proportionsTabButton;
+	@FXML
+	private Button helpButton;
 	@FXML
 	private ToggleButton timeScaleToggle;
 	@FXML
@@ -171,5 +174,11 @@ public class SpellingPerformanceView extends Controller {
 	@FXML
 	private void goToHighestEarnings(ActionEvent event) {
 		switchScene(event, "HighestEarnings.fxml");
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "TimeLine";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 }

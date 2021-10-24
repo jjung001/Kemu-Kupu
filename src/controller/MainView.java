@@ -4,6 +4,7 @@ import java.time.OffsetDateTime;
 
 import application.AlertBox;
 import application.FileSaveLocations;
+import application.HelpBox;
 import fileio.CashIO;
 import fileio.ItemStockIO;
 import fileio.StatisticsIO;
@@ -33,6 +34,8 @@ public class MainView extends Controller {
 	private Button myTreeButton;
 	@FXML
 	private Button resetBinButton;
+	@FXML
+	private Button helpButton;
 	
 	private OffsetDateTime offSetDateTime;
 	private CashIO cashIO;
@@ -82,6 +85,12 @@ public class MainView extends Controller {
 		}
 	}
 
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "MainMenu";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
+	}
+	
 	/**
 	 * Exits and shuts down window when the quit button is pressed. 
 	 * @param quit	ActionEvent from quit button
