@@ -1,5 +1,6 @@
 package controller;
 
+import application.HelpBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import quiz.ScoreTracker;
 public class PracticeResultsView extends Controller {
 	
 	@FXML
-	private Button viewUpButton, viewDownButton, viewStatsButton, repracticeButton, backButton;
+	private Button viewUpButton, viewDownButton, viewStatsButton, repracticeButton, backButton, helpButton;
 	@FXML
 	private Label wordOne, wordTwo, wordThree, wordFour, wordFive;
 	@FXML
@@ -56,6 +57,12 @@ public class PracticeResultsView extends Controller {
 	
 	public void viewVocabulary(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "PracticeResults";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 
 }

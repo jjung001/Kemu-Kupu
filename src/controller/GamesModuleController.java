@@ -653,6 +653,9 @@ public class GamesModuleController extends Controller {
 	
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "GamesModule";
+		if (isPractice) {
+			sceneName = "PracticeModule";
+		}
 		HelpBox helpBox = new HelpBox(sceneName);
 		helpBox.display();
 	}
