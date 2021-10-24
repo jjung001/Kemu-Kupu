@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -110,6 +111,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -134,6 +138,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -158,6 +165,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -182,6 +192,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -206,6 +219,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -230,6 +246,9 @@
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="9.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="114.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -253,6 +272,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#quitMyTree" style="-fx-background-color: transparent;">
          <graphic>
@@ -262,11 +284,17 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="btnBuyItems" layoutX="664.0" layoutY="173.0" mnemonicParsing="false" onAction="#buyItems" prefHeight="45.0" prefWidth="232.0" style="-fx-background-color: transparent; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6;" text="Buy Items" textFill="#714e42">
          <font>
             <Font name="DejaVu Sans Condensed Bold" size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="715.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -281,6 +309,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
    </children>
 </AnchorPane>
