@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import application.AlertBox;
+import application.HelpBox;
 import fileio.WordFileReader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,6 +40,8 @@ public class TopicsView extends Controller {
 			university, software;
 	@FXML
 	private Button start, back;
+	@FXML
+	private Button helpButton;
 	@FXML
 	private Label startWarning;
 	@FXML
@@ -178,6 +181,12 @@ public class TopicsView extends Controller {
 			backToMain(event);
 		}
 		
+	}
+	
+	public void openHelpWindow(ActionEvent event) {
+		String sceneName = "TopicList";
+		HelpBox helpBox = new HelpBox(sceneName);
+		helpBox.display();
 	}
 
 }
