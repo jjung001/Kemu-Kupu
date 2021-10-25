@@ -46,14 +46,6 @@
             <Group layoutX="569.0" layoutY="125.0" />
             <Group layoutX="59.0" layoutY="119.0" />
             <Group layoutX="262.0" layoutY="312.0" />
-            <Button fx:id="viewStatsButton" layoutX="385.0" layoutY="595.0" onAction="#viewVocabulary" prefHeight="65.0" prefWidth="250.0" style="-fx-background-color: #a2c6ac; -fx-border-color: #714e42; -fx-border-width: 6; -fx-border-radius: 6; -fx-background-radius: 6;" text="My Vocabulary" textFill="#714e42">
-               <font>
-                  <Font name="DejaVu Sans Condensed Bold" size="26.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <AnchorPane layoutX="61.0" layoutY="146.0" prefHeight="427.0" prefWidth="839.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
                <children>
                   <AnchorPane layoutX="13.0" layoutY="18.0" prefHeight="59.0" prefWidth="813.0" style="-fx-background-color: #cccccc; -fx-background-radius: 6;">
@@ -151,7 +143,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="viewDownButton" layoutX="438.0" layoutY="365.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: #eeeeee; -fx-background-radius: 6;">
+                  <Button fx:id="viewDownButton" layoutX="438.0" layoutY="365.0" mnemonicParsing="false" onAction="#changeWordList" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: #eeeeee; -fx-background-radius: 6;">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                            <image>
@@ -162,7 +154,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Button>
-                  <Button fx:id="viewUpButton" layoutX="353.0" layoutY="365.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: #eeeeee; -fx-background-radius: 6;">
+                  <Button fx:id="viewUpButton" layoutX="353.0" layoutY="365.0" mnemonicParsing="false" onAction="#changeWordList" prefHeight="48.0" prefWidth="70.0" style="-fx-background-color: #eeeeee; -fx-background-radius: 6;">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -274,7 +275,6 @@ public class GamesModuleController extends Controller {
 	 */
 	private void incorrectWord() {
 		hintLabel.setText(generateHint());
-		hintLabel.setVisible(true);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -315,7 +315,6 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		hintLabel.setVisible(false);
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
 		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAILED, score);
 		if (isPractice) {
@@ -328,22 +327,45 @@ public class GamesModuleController extends Controller {
 	}
 
 	private String generateHint() {
+		ArrayList<Integer> spacePositions = currentQuestion.getSpacePositions();
 		String parsedMessage = "";
-
-		if (isPractice) {
-			parsedMessage = "The hint is: ";
-			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+		for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+			if (isPractice) {
 				if (i % 3 == 0) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
 				} else {
-					parsedMessage += "_ ";
+					parsedMessage = printLetter(spacePositions, i, parsedMessage);
+				}
+			} else {
+				if (i == 1) {
+					parsedMessage += currentQuestion.getLetter(i) + " ";
+				} else {
+					parsedMessage = printLetter(spacePositions, i, parsedMessage);
 				}
 			}
-		} else {
-			char secondCharacter = currentQuestion.getLetter(1);
-			parsedMessage = "The second letter is '" + secondCharacter + "'.";
 		}
-
+		return parsedMessage;
+	}
+	
+	private String printLetter(ArrayList<Integer> spacePositions, int i, String parsedMessage) {
+		if (spacePositions.contains(i)) {
+			parsedMessage += "  ";
+		} else {
+			parsedMessage += "_ ";
+		}
+		return parsedMessage;
+	}
+	
+	private String generateLetter() {
+		ArrayList<Integer> spacePositions = currentQuestion.getSpacePositions();
+		String parsedMessage = "";
+		for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+			if (spacePositions.contains(i)) {
+				parsedMessage += "  ";
+			} else {
+				parsedMessage += "_ ";
+			}
+		}
 		return parsedMessage;
 	}
 
@@ -376,12 +398,12 @@ public class GamesModuleController extends Controller {
 	 */
 	private void getNextQuestion() {
 		if (questionManager.hasNextQuestion()) {
-			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
 			currentQuestion = questionManager.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
+			hintLabel.setText(generateLetter());
 			testWord();
-
+			
 			int questionNumber = questionManager.getQuestionNumber();
 			int totalNumberOfQuestions = questionManager.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
@@ -396,7 +418,7 @@ public class GamesModuleController extends Controller {
 				Parent root = (Parent) loader.load();
 				if (isPractice) {
 					PracticeResultsView controller = loader.getController();
-					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker, questionManager.getTotalNumberOfQuestions());
 					Scene scene = new Scene(root);
 					primaryStage.setScene(scene);
 					primaryStage.show();

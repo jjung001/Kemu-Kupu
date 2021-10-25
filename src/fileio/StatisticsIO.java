@@ -10,7 +10,6 @@ import enums.AnswerStatus;
 import statistics.ProportionsFeed;
 import statistics.TimelineFeed;
 import statistics.VocabularyStatistics;
-import statistics.WordEarnings;
 
 public class StatisticsIO extends FileIO {
 
@@ -263,21 +262,6 @@ public class StatisticsIO extends FileIO {
 		}
 	}
 
-	public WordEarnings getWordEarnings(int numberOfWords) {
-		WordEarnings wordEarnings = new WordEarnings();
-		ArrayList<String> records = readLines();
-		for (String record : records) {
-			addEarningsToWord(record, wordEarnings);
-		}
-		return wordEarnings;
-	}
-
-	private void addEarningsToWord(String record, WordEarnings wordEarnings) {
-		String word = getStringPartFromLine(record, 1);
-		String score = getStringPartFromLine(record, 4);
-		wordEarnings.addEarningsToWord(word, Integer.parseInt(score));
-	}
-	
 	public void resetStatistics() {
 		clearFile();
 	}
