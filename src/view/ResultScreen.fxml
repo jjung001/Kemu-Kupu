@@ -28,7 +28,7 @@
                      <graphic>
                         <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/Back_icon.png" />
+                              <Image url="@/resources/Back_icon.png" />
                            </image></ImageView>
                      </graphic>
                      <cursor>
@@ -66,7 +66,7 @@
                               <Ellipse fill="#eeeeee" radiusX="76.0" radiusY="76.0" stroke="#714e42" strokeType="INSIDE" strokeWidth="0.0" />
                               <ImageView fx:id="cashImage" fitHeight="115.0" fitWidth="115.0" layoutX="-57.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/Coin_6.png" />
+                                    <Image url="@/resources/Coin_6.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -113,7 +113,7 @@
                               </Label>
                               <ImageView fx:id="wordOneStatus" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
-                                    <Image url="@../resources/Mastered_icon.png" />
+                                    <Image url="@/resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="wordOneAttemptLabel" alignment="CENTER_RIGHT" layoutX="179.0" layoutY="9.0" prefHeight="21.0" prefWidth="169.0" textFill="#c05353">
@@ -132,7 +132,7 @@
                               </Label>
                               <ImageView fx:id="wordTwoStatus" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
-                                    <Image url="@../resources/Failed_icon.png" />
+                                    <Image url="@/resources/Failed_icon.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="wordTwoAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="169.0" textFill="#c05353">
@@ -151,7 +151,7 @@
                               </Label>
                               <ImageView fx:id="wordThreeStatus" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
-                                    <Image url="@../resources/Faulted_icon.png" />
+                                    <Image url="@/resources/Faulted_icon.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="wordThreeAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="169.0" textFill="#c05353">
@@ -170,7 +170,7 @@
                               </Label>
                               <ImageView fx:id="wordFourStatus" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
-                                    <Image url="@../resources/Failed_icon.png" />
+                                    <Image url="@/resources/Failed_icon.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="wordFourAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="169.0" textFill="#c05353">
@@ -189,7 +189,7 @@
                               </Label>
                               <ImageView fx:id="wordFiveStatus" fitHeight="38.0" fitWidth="39.0" layoutX="353.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="165.0">
                                  <image>
-                                    <Image url="@../resources/Mastered_icon.png" />
+                                    <Image url="@/resources/Mastered_icon.png" />
                                  </image>
                               </ImageView>
                               <Label fx:id="wordFiveAttemptLabel" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="9.0" prefHeight="21.0" prefWidth="169.0" textFill="#c05353">
@@ -205,7 +205,7 @@
                      <graphic>
                         <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/Help_icon.png" />
+                              <Image url="@/resources/Help_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>

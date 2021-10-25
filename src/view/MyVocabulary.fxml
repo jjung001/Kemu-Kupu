@@ -51,7 +51,7 @@
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../resources/Next_icon.png" />
+                              <Image url="@/resources/Next_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,7 +63,7 @@
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                            <image>
-                              <Image url="@../resources/Next_icon.png" />
+                              <Image url="@/resources/Next_icon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -77,7 +77,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Next_icon2.png" />
+                        <Image url="@/resources/Next_icon2.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -89,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Next_icon2.png" />
+                        <Image url="@/resources/Next_icon2.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -121,17 +121,17 @@
                   </Label>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Mastered_icon.png" />
+                        <Image url="@/resources/Mastered_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Faulted_icon.png" />
+                        <Image url="@/resources/Faulted_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Failed_icon.png" />
+                        <Image url="@/resources/Failed_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -160,17 +160,17 @@
                   </Label>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Mastered_icon.png" />
+                        <Image url="@/resources/Mastered_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Faulted_icon.png" />
+                        <Image url="@/resources/Faulted_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Failed_icon.png" />
+                        <Image url="@/resources/Failed_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -199,17 +199,17 @@
                   </Label>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Mastered_icon.png" />
+                        <Image url="@/resources/Mastered_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Faulted_icon.png" />
+                        <Image url="@/resources/Faulted_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Failed_icon.png" />
+                        <Image url="@/resources/Failed_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -238,17 +238,17 @@
                   </Label>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Mastered_icon.png" />
+                        <Image url="@/resources/Mastered_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Faulted_icon.png" />
+                        <Image url="@/resources/Faulted_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Failed_icon.png" />
+                        <Image url="@/resources/Failed_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -277,17 +277,17 @@
                   </Label>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Mastered_icon.png" />
+                        <Image url="@/resources/Mastered_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="627.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Faulted_icon.png" />
+                        <Image url="@/resources/Faulted_icon.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="759.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Failed_icon.png" />
+                        <Image url="@/resources/Failed_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -298,7 +298,7 @@
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Highest_Earnings_icon.png" />
+                  <Image url="@/resources/Highest_Earnings_icon.png" />
                </image></ImageView>
          </graphic>
          <cursor>
@@ -309,7 +309,7 @@
          <graphic>
             <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Graphs_icon.png" />
+                  <Image url="@/resources/Graphs_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -321,7 +321,7 @@
          <graphic>
             <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/My_Vocabulary_icon.png" />
+                  <Image url="@/resources/My_Vocabulary_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -333,7 +333,7 @@
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Back_icon.png" />
+                  <Image url="@/resources/Back_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -345,7 +345,7 @@
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Help_icon.png" />
+                  <Image url="@/resources/Help_icon.png" />
                </image>
             </ImageView>
          </graphic>

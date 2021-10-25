@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HighestEarningsView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HighestEarningsView">
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Rectangle fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
@@ -35,7 +35,7 @@
                   </Label>
                   <ImageView fitHeight="54.0" fitWidth="54.0" layoutX="93.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/Highest_Earnings_icon.png" />
+                        <Image url="@/resources/Highest_Earnings_icon.png" />
                      </image>
                   </ImageView>
                </children>
@@ -102,7 +102,7 @@
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Highest_Earnings_icon.png" />
+                  <Image url="@/resources/Highest_Earnings_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -114,7 +114,7 @@
          <graphic>
             <ImageView fitHeight="61.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Graphs_icon.png" />
+                  <Image url="@/resources/Graphs_icon.png" />
                </image></ImageView>
          </graphic>
          <cursor>
@@ -125,7 +125,7 @@
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/My_Vocabulary_icon.png" />
+                  <Image url="@/resources/My_Vocabulary_icon.png" />
                </image></ImageView>
          </graphic>
          <cursor>
@@ -136,7 +136,7 @@
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Back_icon.png" />
+                  <Image url="@/resources/Back_icon.png" />
                </image>
             </ImageView>
          </graphic>

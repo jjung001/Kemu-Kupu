@@ -35,7 +35,7 @@
                <children>
                   <ImageView fitHeight="127.0" fitWidth="127.0" layoutX="49.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/water_icon.png" />
+                        <Image url="@/resources/water_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -50,7 +50,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200">
                <font>
@@ -70,7 +70,7 @@
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="63.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/good_fertiliser_icon.png" />
+                        <Image url="@/resources/good_fertiliser_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -85,7 +85,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="500">
                <font>
@@ -105,7 +105,7 @@
                <children>
                   <ImageView fitHeight="127.0" fitWidth="127.0" layoutX="49.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/good_water_icon.png" />
+                        <Image url="@/resources/good_water_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -120,7 +120,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="300">
                <font>
@@ -140,7 +140,7 @@
                <children>
                   <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="63.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/fertiliser_icon.png" />
+                        <Image url="@/resources/fertiliser_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -155,7 +155,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="400">
                <font>
@@ -175,7 +175,7 @@
                <children>
                   <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="54.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/sunlight_icon.png" />
+                        <Image url="@/resources/sunlight_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -190,7 +190,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="200">
                <font>
@@ -210,7 +210,7 @@
                <children>
                   <ImageView fitHeight="108.0" fitWidth="107.0" layoutX="59.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../resources/insecticide_icon.png" />
+                        <Image url="@/resources/insecticide_icon.png" />
                      </image></ImageView>
                </children>
             </AnchorPane>
@@ -225,7 +225,7 @@
             </Button>
             <ImageView fitHeight="16.25" fitWidth="16.25" layoutX="76.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Coin.png" />
+                  <Image url="@/resources/Coin.png" />
                </image></ImageView>
             <Text layoutX="45.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="600">
                <font>
@@ -238,7 +238,7 @@
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Next_icon.png" />
+                  <Image url="@/resources/Next_icon.png" />
                </image></ImageView>
          </graphic>
          <cursor>
@@ -249,7 +249,7 @@
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                <image>
-                  <Image url="@../resources/Next_icon.png" />
+                  <Image url="@/resources/Next_icon.png" />
                </image></ImageView>
          </graphic>
          <cursor>
@@ -258,14 +258,14 @@
       </Button>
       <ImageView fitHeight="52.8" fitWidth="52.8" layoutX="850.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/Coin.png" />
+            <Image url="@/resources/Coin.png" />
          </image>
       </ImageView>
       <Button fx:id="back" layoutX="48.0" layoutY="49.0" mnemonicParsing="false" onAction="#quitShop" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Back_icon.png" />
+                  <Image url="@/resources/Back_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -277,7 +277,7 @@
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Help_icon.png" />
+                  <Image url="@/resources/Help_icon.png" />
                </image>
             </ImageView>
          </graphic>
