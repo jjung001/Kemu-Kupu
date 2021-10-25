@@ -16,6 +16,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -117,6 +118,14 @@ public class SpellingPerformanceView extends Controller {
 			proportionsFeed = statisticsIO.getProportionsFeedForWeek();
 		} else {
 			proportionsFeed = statisticsIO.getProportionsFeedForDay();
+		}
+
+		if (proportionsFeed.getMastered() == 0 && proportionsFeed.getFaulted() == 0
+				&& proportionsFeed.getFailed() == 0) {
+			Label label = new Label();
+			label.setText("Play a game to view your performance.");
+			setGraph(label);
+			return;
 		}
 
 		ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
