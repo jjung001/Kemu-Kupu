@@ -147,7 +147,7 @@
                         <Font name="DejaVu Sans Condensed Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label fx:id="questionNumLabel" layoutX="141.0" layoutY="67.0" prefHeight="36.0" prefWidth="103.0" style="-fx-text-fill: #666666;">
+                  <Label fx:id="questionNumLabel" layoutX="141.0" layoutY="67.0" prefHeight="36.0" prefWidth="131.0" style="-fx-text-fill: #666666;">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
