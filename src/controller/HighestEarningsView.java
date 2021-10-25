@@ -9,6 +9,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * Controller class for the Highest Earnings view of the Statistics screen.
+ *
+ * @author Jared Daniel Recomendable
+ *
+ */
 public class HighestEarningsView extends Controller {
 	@FXML
 	private AnchorPane word1Container;
@@ -32,6 +38,9 @@ public class HighestEarningsView extends Controller {
 	@FXML
 	private Label score5Label;
 
+	/**
+	 * Called as soon as the window is shown.
+	 */
 	@FXML
 	private void initialize() {
 		HighestEarningsIO highestEarningsIO = new HighestEarningsIO(FileSaveLocations.QUIZ_EARNINGS);
@@ -41,6 +50,12 @@ public class HighestEarningsView extends Controller {
 		fillUpLabels(numberOfScores, highestEarningsStrings);
 	}
 
+	/**
+	 * Determines the visibility of the containers, depending on whether they can be
+	 * filled up or not.
+	 *
+	 * @param numberOfScores
+	 */
 	private void resetLabelVisibility(int numberOfScores) {
 		word1Container.setVisible(false);
 		word2Container.setVisible(false);
@@ -66,6 +81,9 @@ public class HighestEarningsView extends Controller {
 
 	}
 
+	/**
+	 * Fill up the labels with the content, if any.
+	 */
 	private void fillUpLabels(int numberOfScores, ArrayList<String> scoresString) {
 		if (numberOfScores > 0) {
 			score1Label.setText(scoresString.get(0));
@@ -84,11 +102,17 @@ public class HighestEarningsView extends Controller {
 		}
 	}
 
+	/**
+	 * Navigate to the Spelling Performance view.
+	 */
 	@FXML
 	private void goToSpellingPerformance(ActionEvent event) {
 		switchScene(event, "SpellingPerformance.fxml");
 	}
 
+	/**
+	 * Navigate to the My Vocabulary view.
+	 */
 	@FXML
 	private void goToMyVocabulary(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
