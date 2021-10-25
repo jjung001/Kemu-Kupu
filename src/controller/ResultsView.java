@@ -119,11 +119,20 @@ public class ResultsView extends Controller {
 		switchScene(event, "MyTree.fxml");
 	}
 
+	/**
+	 * Saves the earnings of the score and cash from each game.
+	 * @param totalScore Integer of total cash/score earned from each game
+	 */
 	private void saveEarnings(int totalScore) {
 		saveCash(totalScore);
 		recordEarningsToStatistics(totalScore);
 	}
 
+	/**
+	 * Adds the total cash earned from each game into the total amount of cash stored
+	 * in the cash file. Save and store the updated total amount of cash.
+	 * @param totalScore Integer of total cash earned from each game.
+	 */
 	private void saveCash(int totalScore) {
 		CashIO cashIO = new CashIO(FileSaveLocations.CASH);
 		cash = cashIO.loadCash();
@@ -131,6 +140,10 @@ public class ResultsView extends Controller {
 		cashIO.saveCash(cash);
 	}
 
+	/**
+	 * Save the total Score of each game into the file quiz earnings.
+	 * @param totalScore Integer of total score from each game.
+	 */
 	private void recordEarningsToStatistics(int totalScore) {
 		HighestEarningsIO highestEarningsIO = new HighestEarningsIO(FileSaveLocations.QUIZ_EARNINGS);
 		highestEarningsIO.recordQuizEarning(totalScore);
