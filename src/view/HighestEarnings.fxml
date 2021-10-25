@@ -28,11 +28,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word1Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="28.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="score1Label" alignment="CENTER_RIGHT" layoutX="704.0" layoutY="28.0" prefHeight="30.0" prefWidth="100.0" text="1000" textFill="#2e979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
@@ -52,11 +47,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word2Label" layoutX="147.0" layoutY="28.0" prefHeight="30.0" prefWidth="500.0" text="word">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="28.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="score2Label" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="704.0" layoutY="28.0" prefHeight="30.0" prefWidth="100.0" text="800" textFill="#2e979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
@@ -71,11 +61,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word3Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="28.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="score3Label" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="704.0" layoutY="28.0" prefHeight="30.0" prefWidth="100.0" text="600" textFill="#2e979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
@@ -90,11 +75,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word4Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="28.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="score4Label" alignment="CENTER_RIGHT" layoutX="704.0" layoutY="28.0" prefHeight="30.0" prefWidth="100.0" text="500" textFill="#2e979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
@@ -109,11 +89,6 @@
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
                      </font>
                   </Text>
-                  <Label fx:id="word5Label" layoutX="147.0" layoutY="26.0" prefHeight="30.0" prefWidth="500.0" text="word">
-                     <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="28.0" />
-                     </font>
-                  </Label>
                   <Label fx:id="score5Label" alignment="CENTER_RIGHT" layoutX="704.0" layoutY="28.0" prefHeight="30.0" prefWidth="100.0" text="200" textFill="#2e979b">
                      <font>
                         <Font name="DejaVu Sans Condensed Bold" size="28.0" />
