@@ -6,6 +6,7 @@ import application.AlertBox;
 import application.FileSaveLocations;
 import application.HelpBox;
 import fileio.CashIO;
+import fileio.HighestEarningsIO;
 import fileio.ItemStockIO;
 import fileio.StatisticsIO;
 import fileio.TreeStatisticsIO;
@@ -17,6 +18,7 @@ import tree.Tree;
 
 /**
  * This is a controller class for Main Menu.
+ *
  * @author Julie Kim
  *
  */
@@ -36,7 +38,7 @@ public class MainView extends Controller {
 	private Button resetBinButton;
 	@FXML
 	private Button helpButton;
-	
+
 	private OffsetDateTime offSetDateTime;
 	private CashIO cashIO;
 	private ItemStockIO itemStockIO;
@@ -44,27 +46,29 @@ public class MainView extends Controller {
 	private Tree tree;
 	private ItemStock itemStock;
 	private StatisticsIO statisticsIO;
+	private HighestEarningsIO highestEarningsIO;
 
 	/**
 	 * Starts game module by switching scene to the topic list scene.
-	 * @param play	ActionEvent from play game button 
+	 *
+	 * @param play ActionEvent from play game button
 	 */
 	public void playGame(ActionEvent play) {
 		switchScene(play, "TopicList.fxml");
 	}
-	
+
 	public void playPractice(ActionEvent play) {
 		switchScene(play, "PracticeTopic.fxml");
 	}
-	
+
 	public void viewMyTree(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
 	}
-	
+
 	public void viewStatistics(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
 	}
-	
+
 	public void resetAll(ActionEvent event) {
 		String header = "Are you sure you want to reset?";
 		String description = "You will lose all your data.";
@@ -74,14 +78,16 @@ public class MainView extends Controller {
 			offSetDateTime = OffsetDateTime.now();
 			cashIO = new CashIO(FileSaveLocations.CASH);
 			itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
-	    	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
+			treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
 			statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
-	    	cashIO.resetCash();
-	    	tree = new Tree();
-	    	treeStatisticsIO.saveTree(offSetDateTime, tree);
-	    	itemStock = new ItemStock();
-	    	itemStockIO.saveStockNumbers(itemStock, offSetDateTime);
-	    	statisticsIO.resetStatistics();
+			highestEarningsIO = new HighestEarningsIO(FileSaveLocations.QUIZ_EARNINGS);
+			cashIO.resetCash();
+			tree = new Tree();
+			treeStatisticsIO.saveTree(offSetDateTime, tree);
+			itemStock = new ItemStock();
+			itemStockIO.saveStockNumbers(itemStock, offSetDateTime);
+			statisticsIO.resetStatistics();
+			highestEarningsIO.resetHighestEarnings();
 		}
 	}
 
@@ -90,10 +96,11 @@ public class MainView extends Controller {
 		HelpBox helpBox = new HelpBox(sceneName);
 		helpBox.display();
 	}
-	
+
 	/**
-	 * Exits and shuts down window when the quit button is pressed. 
-	 * @param quit	ActionEvent from quit button
+	 * Exits and shuts down window when the quit button is pressed.
+	 *
+	 * @param quit ActionEvent from quit button
 	 */
 	public void quitGame(ActionEvent quit) {
 		System.exit(0);
