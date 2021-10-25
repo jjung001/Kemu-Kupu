@@ -25,6 +25,12 @@ import javafx.scene.paint.Paint;
 import statistics.ProportionsFeed;
 import statistics.TimelineFeed;
 
+/**
+ * Controller class for the Spelling Performance view of the Statistics screen.
+ *
+ * @author Jared Daniel Recomendable
+ *
+ */
 public class SpellingPerformanceView extends Controller {
 	@FXML
 	private Button timelineTabButton;
@@ -42,15 +48,24 @@ public class SpellingPerformanceView extends Controller {
 	private Image onButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_On.png"));
 	private Image offButtonImage = new Image(getClass().getResourceAsStream("/resources/Toggle_Button_Off.png"));
 
+	/**
+	 * Called as soon as the window is shown.
+	 */
 	@FXML
 	private void initialize() {
 		viewTimeline();
 	}
 
+	/**
+	 * Causes the central to hold the node in question.
+	 */
 	private void setGraph(Node node) {
 		graphHolder.getChildren().setAll(node);
 	}
 
+	/**
+	 * Switches to the timeline view.
+	 */
 	@FXML
 	private void viewTimeline() {
 		isProportions = false;
@@ -97,6 +112,9 @@ public class SpellingPerformanceView extends Controller {
 		}
 	}
 
+	/**
+	 * Loads the timelines to be shown in the Timeline view.
+	 */
 	private void loadTimelineFeedToSeries(TimelineFeed timelineFeed, XYChart.Series<String, Integer> series) {
 		ArrayList<String> categoryStrings = timelineFeed.getCategories();
 		for (String category : categoryStrings) {
@@ -105,6 +123,9 @@ public class SpellingPerformanceView extends Controller {
 		}
 	}
 
+	/**
+	 * Switches to the proportions view.
+	 */
 	@FXML
 	private void viewProportions() {
 		isProportions = true;
@@ -144,16 +165,29 @@ public class SpellingPerformanceView extends Controller {
 		}
 	}
 
+	/**
+	 * Darkens the button to show that it is the currently selected state.
+	 *
+	 * @param button An FXML Button object to darken.
+	 */
 	private void darkenButton(Button button) {
 		button.setTextFill(Paint.valueOf("#eeeeee"));
 		button.setStyle("-fx-background-color: #714e42;");
 	}
 
+	/**
+	 * Lightens the button to show that it can be selected.
+	 *
+	 * @param button An FXML Button object to lighten .
+	 */
 	private void lightenButton(Button button) {
 		button.setTextFill(Paint.valueOf("#666666"));
 		button.setStyle("-fx-background-color: #EEEEEE;");
 	}
 
+	/**
+	 * Toggle between Day and Week views.
+	 */
 	@FXML
 	private void toggleTimeScale() {
 		if (isWeekly) {
@@ -171,16 +205,25 @@ public class SpellingPerformanceView extends Controller {
 		}
 	}
 
+	/**
+	 * Navigates to the My Vocabulary view.
+	 */
 	@FXML
 	private void goToMyVocabulary(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
 	}
 
+	/**
+	 * Navigates to the Highest Earnings view.
+	 */
 	@FXML
 	private void goToHighestEarnings(ActionEvent event) {
 		switchScene(event, "HighestEarnings.fxml");
 	}
 
+	/**
+	 * Opens help in a separate window for this window.
+	 */
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "TimeLine";
 		HelpBox helpBox = new HelpBox(sceneName);
