@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -326,21 +327,30 @@ public class GamesModuleController extends Controller {
 	}
 
 	private String generateHint() {
+		ArrayList<Integer> spacePositions = currentQuestion.getSpacePositions();
 		String parsedMessage = "";
 		if (isPractice) {
-			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+			for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
 				if (i % 3 == 0) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
 				} else {
-					parsedMessage += "_ ";
+					if (spacePositions.contains(i)) {
+						parsedMessage += "  ";
+					} else {
+						parsedMessage += "_ ";
+					}
 				}
 			}
 		} else {
-			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+			for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
 				if (i == 1) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
 				} else {
-					parsedMessage += "_ ";
+					if (spacePositions.contains(i)) {
+						parsedMessage += "  ";
+					} else {
+						parsedMessage += "_ ";
+					}
 				}
 			}
 		}
@@ -348,9 +358,14 @@ public class GamesModuleController extends Controller {
 	}
 	
 	private String generateLetter() {
+		ArrayList<Integer> spacePositions = currentQuestion.getSpacePositions();
 		String parsedMessage = "";
-		for (int i = 0; i < currentQuestion.getWord().length(); i++) {
-			parsedMessage += "_ ";
+		for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+			if (spacePositions.contains(i)) {
+				parsedMessage += "  ";
+			} else {
+				parsedMessage += "_ ";
+			}
 		}
 		return parsedMessage;
 	}
