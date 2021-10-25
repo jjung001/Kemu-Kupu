@@ -14,7 +14,7 @@ import quiz.ScoreTracker;
 public class PracticeResultsView extends Controller {
 	
 	@FXML
-	private Button viewUpButton, viewDownButton, viewStatsButton, repracticeButton, backButton, helpButton;
+	private Button viewUpButton, viewDownButton, repracticeButton, backButton, helpButton;
 	@FXML
 	private Label wordOne, wordTwo, wordThree, wordFour, wordFive;
 	@FXML
@@ -53,10 +53,6 @@ public class PracticeResultsView extends Controller {
 	
 	public void practiceAgain(ActionEvent event) {
 		switchScene(event, "PracticeTopic.fxml");
-	}
-	
-	public void viewVocabulary(ActionEvent event) {
-		switchScene(event, "MyVocabulary.fxml");
 	}
 	
 	public void openHelpWindow(ActionEvent event) {
