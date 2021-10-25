@@ -64,6 +64,15 @@ public class Question {
 	}
 
 	/**
+	 * Returns the number of characters in the word associated with the question.
+	 *
+	 * @return An integer indicating the number of characters in the word.
+	 */
+	public int getNumberOfCharacters() {
+		return word.length();
+	}
+
+	/**
 	 * Returns the number of letters in the word associated with the question.
 	 *
 	 * @return An integer indicating the number of letters in the word.
