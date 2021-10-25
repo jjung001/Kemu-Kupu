@@ -18,7 +18,7 @@
          <graphic>
             <ImageView fitHeight="89.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/View_tree_icon.png" />
+                  <Image url="@/resources/View_tree_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -30,7 +30,7 @@
          <graphic>
             <ImageView fitHeight="117.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Spelling_Performance_icon.png" />
+                  <Image url="@/resources/Spelling_Performance_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -57,7 +57,7 @@
             <Point3D z="7.0" />
          </rotationAxis>
          <image>
-            <Image url="@../resources/KemuKupu_logo.png" />
+            <Image url="@/resources/KemuKupu_logo.png" />
          </image></ImageView>
       <Text fill="#2e979b" layoutX="171.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Improve your te reo Māori spelling using Kēmu Kupu" textAlignment="CENTER">
          <font>
@@ -92,7 +92,7 @@
          <graphic>
             <ImageView fitHeight="87.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Reset_bin_icon.png" />
+                  <Image url="@/resources/Reset_bin_icon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -104,7 +104,7 @@
          <graphic>
             <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/Help_icon.png" />
+                  <Image url="@/resources/Help_icon.png" />
                </image>
             </ImageView>
          </graphic>
