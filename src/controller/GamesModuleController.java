@@ -49,6 +49,7 @@ import quiz.WordStore;
  *
  * @author Jared Daniel Recomendable
  * @author Juwon Jung
+ * @author Julie Kim
  *
  */
 public class GamesModuleController extends Controller {
@@ -396,8 +397,9 @@ public class GamesModuleController extends Controller {
 	/**
 	 * Gets next question of the word list and tests. Hint label is set as empty.
 	 * Status label updates to "SPELL IT". QuestionNum label shows the current
-	 * question number out of 5. If there is no question left, screen changes to
-	 * results screen.
+	 * question number out of 5. If there is no question left, screen changes.
+	 * If user is currently on Game screen, proceed to game results. 
+	 * It user is currently on Practice, proceed to practice results. 
 	 *
 	 */
 	private void getNextQuestion() {
@@ -469,10 +471,12 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Setup of games module prior to start the game and initliaizes models for
+	 * Setup of games module prior to start the game and initliaises models for
 	 * spelling quiz.
 	 *
 	 * @param combinedWordList selectedWords is implemented to get the random words.
+	 * @param numberOfQuestions number of questions selected from topic list is imported. This is set default to 5 for games. 
+	 * @param isPractice is boolean variable that indicates if the user selected practice module. 
 	 */
 	public void setUp(WordStore combinedWordList, int numberOfQuestions, boolean isPractice) {
 		// labels show according to progress of game
@@ -593,7 +597,7 @@ public class GamesModuleController extends Controller {
 	}
 
 	/**
-	 * Skips word if I dont Know button is pressed. Progress Bar stops decreasing
+	 * Skips word if I don't Know button is pressed. Progress Bar stops decreasing
 	 * and wordTextField is reset to empty. Pauses transition for two seconds before
 	 * going onto next question word.
 	 *

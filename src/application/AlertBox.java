@@ -16,11 +16,20 @@ public class AlertBox {
 	String header;
 	String description;
 	
+	/**
+	 * Initialise the alertBox.
+	 * @param header
+	 * @param description
+	 */
 	public AlertBox(String header, String description) {
 		this.header = header;
 		this.description = description;
 	}
 
+	/**
+	 * Load alertBox. Show stage and wait until yes or no is selected.
+	 * @return close the stage
+	 */
 	public boolean displayAndGetResult() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/AlertBox.fxml"));
 		try {
