@@ -329,30 +329,29 @@ public class GamesModuleController extends Controller {
 	private String generateHint() {
 		ArrayList<Integer> spacePositions = currentQuestion.getSpacePositions();
 		String parsedMessage = "";
-		if (isPractice) {
-			for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+		for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+			if (isPractice) {
 				if (i % 3 == 0) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
 				} else {
-					if (spacePositions.contains(i)) {
-						parsedMessage += "  ";
-					} else {
-						parsedMessage += "_ ";
-					}
+					parsedMessage = printLetter(spacePositions, i, parsedMessage);
 				}
-			}
-		} else {
-			for (int i = 0; i < currentQuestion.getNumberOfCharacters(); i++) {
+			} else {
 				if (i == 1) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
 				} else {
-					if (spacePositions.contains(i)) {
-						parsedMessage += "  ";
-					} else {
-						parsedMessage += "_ ";
-					}
+					parsedMessage = printLetter(spacePositions, i, parsedMessage);
 				}
 			}
+		}
+		return parsedMessage;
+	}
+	
+	private String printLetter(ArrayList<Integer> spacePositions, int i, String parsedMessage) {
+		if (spacePositions.contains(i)) {
+			parsedMessage += "  ";
+		} else {
+			parsedMessage += "_ ";
 		}
 		return parsedMessage;
 	}
