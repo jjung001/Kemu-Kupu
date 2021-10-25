@@ -58,7 +58,7 @@
                </cursor></ToggleButton>
          </children>
       </AnchorPane>
-      <Button fx:id="controlsWordEarnings" layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button layoutX="825.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToHighestEarnings" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -69,12 +69,24 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="controlsVocabulary" layoutX="723.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToMyVocabulary" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+      <Button disable="true" layoutX="723.0" layoutY="44.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Graphs_icon.png" />
+               </image></ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="621.0" layoutY="44.0" mnemonicParsing="false" onAction="#goToMyVocabulary" prefHeight="68.0" prefWidth="86.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 6;">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/My_Vocabulary_icon.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
