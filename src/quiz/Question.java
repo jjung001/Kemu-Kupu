@@ -1,5 +1,7 @@
 package quiz;
 
+import java.util.ArrayList;
+
 import enums.AnswerStatus;
 
 /**
@@ -67,7 +69,27 @@ public class Question {
 	 * @return An integer indicating the number of letters in the word.
 	 */
 	public int getNumberOfLetters() {
-		return word.length();
+		ArrayList<Integer> spaceIndices = getSpacePositions();
+		int numberOfSpaces = spaceIndices.size();
+		return word.length() - numberOfSpaces;
+	}
+
+	/**
+	 * Returns the positions of spaces in the word associated with the question.
+	 * Zero-based. If there are no spaces found, it returns an empty array list.
+	 *
+	 * @return An ArrayList of integers containing the positions of the spaces in
+	 *         the word.
+	 */
+	public ArrayList<Integer> getSpacePositions() {
+		ArrayList<Integer> spacePositions = new ArrayList<Integer>();
+		int wordLength = word.length();
+		for (int i = 0; i < wordLength; i++) {
+			if (word.charAt(i) == ' ') {
+				spacePositions.add(i);
+			}
+		}
+		return spacePositions;
 	}
 
 	/**
