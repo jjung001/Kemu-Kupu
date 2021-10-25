@@ -117,7 +117,7 @@ your system.
 
 Then run the following command:
 ```shell
-java -Djdk.gtk.version=2 --module-path "$JAVAFX_PATH" --add-modules javafx.controls,javafx.media,javafx.base,javafx.fxml -Dfile.encoding=UTF-8 -jar assignment-3-and-project-team-23.jar
+java -Djdk.gtk.version=2 --module-path "$JAVAFX_PATH" --add-modules javafx.controls,javafx.media,javafx.base,javafx.fxml -Dfile.encoding=UTF-8 -jar triple-js-final.jar
 ```
 where `$JAVAFX_PATH` is the shell variable assigned before this command.
 
