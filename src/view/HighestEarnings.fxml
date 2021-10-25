@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HighestEarningsView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: A2C6AC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HighestEarningsView">
    <children>
       <Rectangle fill="#2197ff00" height="660.0" layoutX="5.0" layoutY="5.0" stroke="#2e979b" strokeType="INSIDE" strokeWidth="5.0" width="900.0" x="25.0" y="25.0" />
       <Rectangle fill="#714e42" height="88.0" layoutX="35.0" layoutY="35.0" stroke="#714e42" strokeType="INSIDE" width="890.0" />
@@ -21,7 +21,7 @@
       </Text>
       <AnchorPane layoutX="49.0" layoutY="137.0" prefHeight="534.0" prefWidth="862.0" style="-fx-background-color: #888888; -fx-background-radius: 6;">
          <children>
-            <AnchorPane fx:id="word1Container" layoutX="11.0" layoutY="10.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+            <AnchorPane fx:id="container1" layoutX="11.0" layoutY="10.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
                <children>
                   <Text layoutX="35.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 1">
                      <font>
@@ -40,7 +40,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="word2Container" layoutX="11.0" layoutY="115.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+            <AnchorPane fx:id="container2" layoutX="11.0" layoutY="115.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
                <children>
                   <Text layoutX="35.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 2">
                      <font>
@@ -54,7 +54,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="word3Container" layoutX="11.0" layoutY="220.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+            <AnchorPane fx:id="container3" layoutX="11.0" layoutY="220.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
                <children>
                   <Text layoutX="35.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 3">
                      <font>
@@ -68,7 +68,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="word4Container" layoutX="11.0" layoutY="325.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+            <AnchorPane fx:id="container4" layoutX="11.0" layoutY="325.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
                <children>
                   <Text layoutX="35.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 4">
                      <font>
@@ -82,7 +82,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="word5Container" layoutX="11.0" layoutY="430.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
+            <AnchorPane fx:id="container5" layoutX="11.0" layoutY="430.0" prefHeight="91.0" prefWidth="840.0" style="-fx-background-radius: 6; -fx-background-color: #cccccc;">
                <children>
                   <Text layoutX="35.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# 5">
                      <font>

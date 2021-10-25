@@ -17,15 +17,15 @@ import javafx.scene.layout.AnchorPane;
  */
 public class HighestEarningsView extends Controller {
 	@FXML
-	private AnchorPane word1Container;
+	private AnchorPane container1;
 	@FXML
-	private AnchorPane word2Container;
+	private AnchorPane container2;
 	@FXML
-	private AnchorPane word3Container;
+	private AnchorPane container3;
 	@FXML
-	private AnchorPane word4Container;
+	private AnchorPane container4;
 	@FXML
-	private AnchorPane word5Container;
+	private AnchorPane container5;
 
 	@FXML
 	private Label score1Label;
@@ -57,26 +57,26 @@ public class HighestEarningsView extends Controller {
 	 * @param numberOfScores
 	 */
 	private void resetLabelVisibility(int numberOfScores) {
-		word1Container.setVisible(false);
-		word2Container.setVisible(false);
-		word3Container.setVisible(false);
-		word4Container.setVisible(false);
-		word5Container.setVisible(false);
+		container1.setVisible(false);
+		container2.setVisible(false);
+		container3.setVisible(false);
+		container4.setVisible(false);
+		container5.setVisible(false);
 
 		if (numberOfScores > 0) {
-			word1Container.setVisible(true);
+			container1.setVisible(true);
 		}
 		if (numberOfScores > 1) {
-			word2Container.setVisible(true);
+			container2.setVisible(true);
 		}
 		if (numberOfScores > 2) {
-			word3Container.setVisible(true);
+			container3.setVisible(true);
 		}
 		if (numberOfScores > 3) {
-			word4Container.setVisible(true);
+			container4.setVisible(true);
 		}
 		if (numberOfScores > 4) {
-			word5Container.setVisible(true);
+			container5.setVisible(true);
 		}
 
 	}
