@@ -57,18 +57,34 @@ public class MainView extends Controller {
 		switchScene(play, "TopicList.fxml");
 	}
 
+	/**
+	 * Starts practice module by switching scene to the practice topics scene. 
+	 * @param play ActionEvent from practice button
+	 */
 	public void playPractice(ActionEvent play) {
 		switchScene(play, "PracticeTopic.fxml");
 	}
 
+	/**
+	 * Switches screen to the My Tree view
+	 * @param event ActionEvent from the tree icon button
+	 */
 	public void viewMyTree(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
 	}
 
+	/**
+	 * Switches screen to the statistics My Vocabulary view
+	 * @param event ActionEvent from the statistics icon button
+	 */
 	public void viewStatistics(ActionEvent event) {
 		switchScene(event, "MyVocabulary.fxml");
 	}
 
+	/**
+	 * Resets all user data stored in files including my tree, cash balance and academic statistics history
+	 * @param event ActionEvent from the rubbish bin icon button
+	 */
 	public void resetAll(ActionEvent event) {
 		String header = "Are you sure you want to reset?";
 		String description = "You will lose all your data.";
@@ -91,6 +107,10 @@ public class MainView extends Controller {
 		}
 	}
 
+	/**
+	 * Opens the help window for main menu
+	 * @param event ActionEvent from the help icon button
+	 */
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "MainMenu";
 		HelpBox helpBox = new HelpBox(sceneName);
