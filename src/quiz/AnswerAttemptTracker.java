@@ -39,8 +39,10 @@ public class AnswerAttemptTracker {
 	 * a specific position in the quiz.
 	 *
 	 * @param questionNumber An integer that indicates the position of a question in
-	 *                       hte quiz, where 1 is the first question.
-	 * @return
+	 *                       the quiz, where 1 is the first question.
+	 * @return A Sstring containing the attempted user spelling attempt of the word
+	 *         of the question found in the position indicated by the question
+	 *         number.
 	 */
 	public String getAnswerAttempt(int questionNumber) {
 		return answerAttempts[questionNumber - 1];
