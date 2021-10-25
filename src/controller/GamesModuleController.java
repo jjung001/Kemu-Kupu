@@ -274,7 +274,6 @@ public class GamesModuleController extends Controller {
 	 */
 	private void incorrectWord() {
 		hintLabel.setText(generateHint());
-		hintLabel.setVisible(true);
 		statusLabel.setText("INCORRECT, SPELL AGAIN:");
 		speak("Incorrect.", false);
 		PauseTransition pauseBeforeTesting = new PauseTransition(Duration.seconds(2));
@@ -315,7 +314,6 @@ public class GamesModuleController extends Controller {
 		String word = currentQuestion.getWord();
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
-		hintLabel.setVisible(false);
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
 		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAILED, score);
 		if (isPractice) {
@@ -329,9 +327,7 @@ public class GamesModuleController extends Controller {
 
 	private String generateHint() {
 		String parsedMessage = "";
-
 		if (isPractice) {
-			parsedMessage = "The hint is: ";
 			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
 				if (i % 3 == 0) {
 					parsedMessage += currentQuestion.getLetter(i) + " ";
@@ -340,10 +336,22 @@ public class GamesModuleController extends Controller {
 				}
 			}
 		} else {
-			char secondCharacter = currentQuestion.getLetter(1);
-			parsedMessage = "The second letter is '" + secondCharacter + "'.";
+			for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+				if (i == 1) {
+					parsedMessage += currentQuestion.getLetter(i) + " ";
+				} else {
+					parsedMessage += "_ ";
+				}
+			}
 		}
-
+		return parsedMessage;
+	}
+	
+	private String generateLetter() {
+		String parsedMessage = "";
+		for (int i = 0; i < currentQuestion.getWord().length(); i++) {
+			parsedMessage += "_ ";
+		}
 		return parsedMessage;
 	}
 
@@ -376,12 +384,12 @@ public class GamesModuleController extends Controller {
 	 */
 	private void getNextQuestion() {
 		if (questionManager.hasNextQuestion()) {
-			hintLabel.setText("");
 			statusLabel.setText("SPELL IT:");
 			currentQuestion = questionManager.getNextQuestion();
 			currentScorer = new Scorer(currentQuestion.getWord());
+			hintLabel.setText(generateLetter());
 			testWord();
-
+			
 			int questionNumber = questionManager.getQuestionNumber();
 			int totalNumberOfQuestions = questionManager.getTotalNumberOfQuestions();
 			questionNumLabel.setText(questionNumber + " of " + totalNumberOfQuestions);
