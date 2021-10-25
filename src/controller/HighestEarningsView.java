@@ -1,15 +1,13 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import application.FileSaveLocations;
-import fileio.StatisticsIO;
+import fileio.HighestEarningsIO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import statistics.WordEarnings;
 
 public class HighestEarningsView extends Controller {
 	@FXML
@@ -24,17 +22,6 @@ public class HighestEarningsView extends Controller {
 	private AnchorPane word5Container;
 
 	@FXML
-	private Label word1Label;
-	@FXML
-	private Label word2Label;
-	@FXML
-	private Label word3Label;
-	@FXML
-	private Label word4Label;
-	@FXML
-	private Label word5Label;
-
-	@FXML
 	private Label score1Label;
 	@FXML
 	private Label score2Label;
@@ -47,93 +34,54 @@ public class HighestEarningsView extends Controller {
 
 	@FXML
 	private void initialize() {
-		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
-		WordEarnings wordEarnings = statisticsIO.getWordEarnings(0);
-		ArrayList<String> topWords = wordEarnings.getTopWordsOnly(5);
-		HashMap<String, Integer> topWordsWithScores = (HashMap<String, Integer>) wordEarnings.getTopWordsWithScores(5);
-		int numberOfWords = topWords.size();
-
-		resetLabelVisibility(numberOfWords);
-		fillUpLabels(numberOfWords, topWords, topWordsWithScores);
+		HighestEarningsIO highestEarningsIO = new HighestEarningsIO(FileSaveLocations.QUIZ_EARNINGS);
+		ArrayList<String> highestEarningsStrings = highestEarningsIO.getHighestQuizEarningsAsStrings();
+		int numberOfScores = highestEarningsStrings.size();
+		resetLabelVisibility(numberOfScores);
+		fillUpLabels(numberOfScores, highestEarningsStrings);
 	}
 
-	private void resetLabelVisibility(int numberOfWords) {
+	private void resetLabelVisibility(int numberOfScores) {
 		word1Container.setVisible(false);
 		word2Container.setVisible(false);
 		word3Container.setVisible(false);
 		word4Container.setVisible(false);
 		word5Container.setVisible(false);
 
-		if (numberOfWords > 0) {
+		if (numberOfScores > 0) {
 			word1Container.setVisible(true);
 		}
-		if (numberOfWords > 1) {
+		if (numberOfScores > 1) {
 			word2Container.setVisible(true);
 		}
-		if (numberOfWords > 2) {
+		if (numberOfScores > 2) {
 			word3Container.setVisible(true);
 		}
-		if (numberOfWords > 3) {
+		if (numberOfScores > 3) {
 			word4Container.setVisible(true);
 		}
-		if (numberOfWords > 4) {
+		if (numberOfScores > 4) {
 			word5Container.setVisible(true);
 		}
 
 	}
 
-	private void fillUpLabels(int numberOfWords, ArrayList<String> topWords,
-			HashMap<String, Integer> topWordsWithScores) {
-		if (numberOfWords > 0) {
-			fillUpLabelSet1(topWords, topWordsWithScores);
+	private void fillUpLabels(int numberOfScores, ArrayList<String> scoresString) {
+		if (numberOfScores > 0) {
+			score1Label.setText(scoresString.get(0));
 		}
-		if (numberOfWords > 1) {
-			fillUpLabelSet2(topWords, topWordsWithScores);
+		if (numberOfScores > 1) {
+			score2Label.setText(scoresString.get(1));
 		}
-		if (numberOfWords > 2) {
-			fillUpLabelSet3(topWords, topWordsWithScores);
+		if (numberOfScores > 2) {
+			score3Label.setText(scoresString.get(2));
 		}
-		if (numberOfWords > 3) {
-			fillUpLabelSet4(topWords, topWordsWithScores);
+		if (numberOfScores > 3) {
+			score4Label.setText(scoresString.get(3));
 		}
-		if (numberOfWords > 4) {
-			fillUpLabelSet5(topWords, topWordsWithScores);
+		if (numberOfScores > 4) {
+			score5Label.setText(scoresString.get(4));
 		}
-	}
-
-	private void fillUpLabelSet1(ArrayList<String> topWords, HashMap<String, Integer> topWordsWithScores) {
-		String word = topWords.get(0);
-		int score = topWordsWithScores.get(word);
-		word1Label.setText(word);
-		score1Label.setText(String.valueOf(score));
-	}
-
-	private void fillUpLabelSet2(ArrayList<String> topWords, HashMap<String, Integer> topWordsWithScores) {
-		String word = topWords.get(1);
-		int score = topWordsWithScores.get(word);
-		word2Label.setText(word);
-		score2Label.setText(String.valueOf(score));
-	}
-
-	private void fillUpLabelSet3(ArrayList<String> topWords, HashMap<String, Integer> topWordsWithScores) {
-		String word = topWords.get(2);
-		int score = topWordsWithScores.get(word);
-		word3Label.setText(word);
-		score3Label.setText(String.valueOf(score));
-	}
-
-	private void fillUpLabelSet4(ArrayList<String> topWords, HashMap<String, Integer> topWordsWithScores) {
-		String word = topWords.get(3);
-		int score = topWordsWithScores.get(word);
-		word4Label.setText(word);
-		score4Label.setText(String.valueOf(score));
-	}
-
-	private void fillUpLabelSet5(ArrayList<String> topWords, HashMap<String, Integer> topWordsWithScores) {
-		String word = topWords.get(4);
-		int score = topWordsWithScores.get(word);
-		word5Label.setText(word);
-		score5Label.setText(String.valueOf(score));
 	}
 
 	@FXML
