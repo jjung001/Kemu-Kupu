@@ -16,6 +16,13 @@ import javafx.scene.control.Label;
 import tree.Item;
 import tree.ItemStock;
 
+/**
+ * This is the controller class for My Tree Shop.
+ * Items can be bought from the shop using the cash earned from the game quiz.
+ * @author Juwon Jung
+ * @author Jared Daniel Recomendable 
+ *
+ */
 public class MyTreeShopController extends Controller {
 
 	@FXML
@@ -53,52 +60,75 @@ public class MyTreeShopController extends Controller {
 	private Item itemSunlight;
 	private Item itemInsecticide;
 
+	/**
+	 * Returns to the my tree screen
+	 * @param event ActionEvent when back button is pressed
+	 */
     @FXML
     void quitShop(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
     }
-
-    public HashMap<String, Integer> itemHashMap() {
-    	HashMap<String, Integer> itemHashMap = new HashMap<String, Integer>();
-    	itemHashMap.put("water", 200);
-    	itemHashMap.put("waterEx", 300);
-    	itemHashMap.put("fertiliser", 400);
-    	itemHashMap.put("fertiliserPlus", 500);
-    	itemHashMap.put("sunlight", 200);
-    	itemHashMap.put("insecticide", 600);
-    	return itemHashMap;
-    }
-
+    
+    /**
+     * Buy item water.
+     * @param event ActionEvent when buy button for water is pressed 
+     */
     @FXML
     void buyWater(ActionEvent event) {
     	buyItem(itemWater);
     }
 
+    /**
+     * Buy item water extra.
+     * @param event ActionEvent when buy button for water extra is pressed 
+     */
     @FXML
     void buyWaterEx(ActionEvent event) {
     	buyItem(itemWaterEx);
     }
 
+    /**
+     * Buy item fertiliser.
+     * @param event ActionEvent when buy button for fertiliser is pressed 
+     */
     @FXML
     void buyFertiliser(ActionEvent event) {
     	buyItem(itemFertiliser);
     }
 
+    /**
+     * Buy item fertiliser.
+     * @param event ActionEvent when buy button for fertiliser plus is pressed 
+     */
     @FXML
     void buyFertiliserPlus(ActionEvent event) {
     	buyItem(itemFertiliserPlus);
     }
 
+    /**
+     * Buy item insecticide.
+     * @param event ActionEvent when buy button for insecticide is pressed 
+     */
     @FXML
     void buyInsecticide(ActionEvent event) {
     	buyItem(itemInsecticide);
     }
 
+    /**
+     * Buy item sunlight.
+     * @param event ActionEvent when buy button for sunlight is pressed 
+     */
     @FXML
     void buySunlight(ActionEvent event) {
     	buyItem(itemSunlight);
     }
 
+    /**
+     * Buy items if there is enough funds. Withdraw the cost of the item bought.
+     * Store the changed total of cash and update cash label. Add the item to stock and 
+     * store item quantity.
+     * @param item
+     */
     public void buyItem(Item item) {
     	if (treeMoney.hasEnoughFunds(item.getCost())) {
     		treeMoney.withdraw(item.getCost());
@@ -108,6 +138,9 @@ public class MyTreeShopController extends Controller {
     	}
     }
 
+    /**
+     * Store item stock and cash to files inventory and cash.
+     */
     private void saveItemStockAndMoney() {
     	CashIO cashIO = new CashIO(FileSaveLocations.CASH);
     	ItemStockIO itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
@@ -115,11 +148,17 @@ public class MyTreeShopController extends Controller {
     	itemStockIO.saveStockNumbers(stock, itemStockIO.getDateTimeSaved());
     }
 
+    /**
+     * Update the cash label
+     */
     private void updateCashLabel() {
     	String money = String.valueOf(treeMoney.getCash());
     	moneyLabel.setText(money);
     }
 
+    /**
+     * Initialise the cash stored in cash file and the item stock.
+     */
     public void initialize() {
     	btnRight.setVisible(false);
     	btnLeft.setVisible(false);
@@ -131,6 +170,10 @@ public class MyTreeShopController extends Controller {
     	initializeStock();
     }
 
+    /**
+     * Initialise each item with the name, cost, height impact and health impact.
+
+     */
     private void initializeItems() {
     	itemWater          = new Item("water",             200, "", 100,   0, 0, 0, 0);
     	itemWaterEx        = new Item("waterEx",           300, "", 150,   0, 0, 0, 0);
@@ -140,6 +183,9 @@ public class MyTreeShopController extends Controller {
     	itemInsecticide    = new Item("insecticide",       600, "", 100,   4, 0, 0, 0);
     }
 
+    /**
+     * Initialise stock stored in inventory file
+     */
     private void initializeStock() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
     	stock = new ItemStock();
@@ -150,12 +196,23 @@ public class MyTreeShopController extends Controller {
     	}
     }
 
+    /**
+     * Load stock of item stored in inventory file
+     * @param stock Stock of item
+     * @param stockNumbers quantity of item stored
+     * @param itemName Name of item
+     */
     private void loadStock(ItemStock stock, Map<String, Integer> stockNumbers, String itemName) {
     	int stockNumber = stockNumbers.get(itemName);
     	Item item = determineItem(itemName);
     	stock.addItem(item, stockNumber);
     }
 
+    /**
+     * Determine the name of item
+     * @param itemName String Name of item
+     * @return Name of item
+     */
     private Item determineItem(String itemName) {
     	switch(itemName) {
     	case "water":
@@ -175,6 +232,10 @@ public class MyTreeShopController extends Controller {
     	}
     }
     
+	/**
+	 * Opens the help window for the My Tree Shop screen
+	 * @param event ActionEvent from the help icon button
+	 */
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "ItemShop";
 		HelpBox helpBox = new HelpBox(sceneName);
