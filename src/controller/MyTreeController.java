@@ -26,6 +26,14 @@ import tree.Item;
 import tree.ItemStock;
 import tree.Tree;
 
+/**
+ * This is the controller class for My Tree.
+ * Items bought from the shop can be used. The items will impact on the status, 
+ * height or health of the tree. 
+ * @author Juwon Jung
+ * @author Jared Daniel Recomendable 
+ *
+ */
 public class MyTreeController extends Controller {
 
 	@FXML
@@ -115,16 +123,29 @@ public class MyTreeController extends Controller {
 	private String mature = "MATURE";
 	private String blooming = "BLOOMING";
 
+	/**
+	 * Returns to main menu when back button is pressed.
+	 * @param event ActionEvent when back button is pressed
+	 */
 	@FXML
 	void quitMyTree(ActionEvent event) {
 		backToMain(event);
 	}
 
+	/**
+	 * Navigates to shop screen, where items can be purchased.
+	 * @param event ActionEvent when buy items button is pressed
+	 */
 	@FXML
     void buyItems(ActionEvent event) {
 		switchScene(event, "MyTreeShop.fxml");
     }
 
+	/**
+	 * Alert Box appears when cut down tree (axe) button is pressed. If yes is selected
+	 * the tree data is reset. 
+	 * @param event ActionEvent when cut down tree button is pressed
+	 */
     @FXML
     void cutDownTree(ActionEvent event) {
     	String header = "Are you sure you want to cut down \nyour tree?";
@@ -138,6 +159,10 @@ public class MyTreeController extends Controller {
 		}
     }
 
+    /**
+     * Use item water.
+     * @param event ActionEvent when use button for water is pressed
+     */
     @FXML
     void useWater(ActionEvent event) {
     	useItem(itemWater);    	
@@ -145,6 +170,10 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
 
+    /**
+     * Use item water extra.
+     * @param event ActionEvent when use button for water extra is pressed
+     */
     @FXML
     void useWaterEx(ActionEvent event) {
     	useItem(itemWaterEx);    	
@@ -152,6 +181,10 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
 
+    /**
+     * Use item fertiliser.
+     * @param event ActionEvent when use button for fertiliser is pressed
+     */
     @FXML
     void useFertiliser(ActionEvent event) {
     	useItem(itemFertiliser);    	
@@ -159,6 +192,10 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
 
+    /**
+     * TUse item fertiliser plus.
+     * @param event ActionEvent when use button for fertiliser plus is pressed
+     */
     @FXML
     void useFertiliserPlus(ActionEvent event) {
     	useItem(itemFertiliserPlus);    	
@@ -166,6 +203,10 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
 
+    /**
+     * Use item sunlight.
+     * @param event ActionEvent when use button for sunlight is pressed
+     */
     @FXML
     void useSunlight(ActionEvent event) {
     	useItem(itemSunlight);    	
@@ -173,6 +214,10 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
 
+    /**
+     * Use item insecticide.
+     * @param event ActionEvent when use button for insecticide is pressed
+     */
     @FXML
     void useInsecticide(ActionEvent event) {
     	useItem(itemInsecticide);    	
@@ -180,6 +225,12 @@ public class MyTreeController extends Controller {
     	itemInventory(stockNumbers, useButtons);
     }
     
+    /**
+     * To use item, check if item is in stock. Get the health and height impact of the 
+     * item, and update the health and height of the tree. Remove the item from stock
+     * after use and save item stock. Update the status, height and health labels
+     * @param item
+     */
     public void useItem(Item item) {
     	if (stock.isInStock(item)) {
     		double healthImpact = item.getHealthImpact();
@@ -198,16 +249,22 @@ public class MyTreeController extends Controller {
     	saveItemStockAndMoney();
     }
     
+    /**
+     * Store total cash, save stock numbers and save tree statistics.
+     */
     private void saveItemStockAndMoney() {
     	cashIO.saveCash(treeMoney);
     	itemStockIO.saveStockNumbers(stock, OffsetDateTime.now());
     	treeStatisticsIO.saveTree(offSetDateTime, tree);
     }
 
+    /**
+     * Set the status, height and health of the tree. Display image of tree. 
+     * If the tree health is 0, display the dead image and disable all use item buttons.
+     */
     private void StatusHeightHealth() {
     	if (tree.getHealth() == 0) {
     		disableUseButton(true);
-//    		treeImage.setVisible(false);
     		treeImage.setImage(deadSign);
     		setStatusHeightHealth();
     	} else {
@@ -218,6 +275,10 @@ public class MyTreeController extends Controller {
     	}
     }
     
+    /**
+     * Disable all the use buttons.
+     * @param disable Boolean if health equals zero
+     */
     private void disableUseButton(boolean disable) {
     	btnUseWater.setDisable(disable);
 		btnUseWaterEx.setDisable(disable);
@@ -227,6 +288,10 @@ public class MyTreeController extends Controller {
 		btnUseInsecticide.setDisable(disable);
     }
     
+    /**
+     * Set the status, height and health labels
+     * @return String level
+     */
     public String setStatusHeightHealth() {
     	TreeStatus treestatus = tree.getHealthStatus();
     	String health = treestatus.name();
@@ -239,6 +304,11 @@ public class MyTreeController extends Controller {
     	return level;
     }
     
+    /**
+     * Display the image according to the correct tree status and health level.
+     * @param level String of tree status
+     * @return Image of tree
+     */
     public Image displayImage(String level) {
 		if (level.equals(sprout)) {
 			if (tree.getHealth() >= 5) {
@@ -291,6 +361,11 @@ public class MyTreeController extends Controller {
 		}
 	}
 
+    /**
+     * Display the item stock in my items
+     * @param stockNumbers Map with key: String of item, value: stock of each item
+     * @param useButtons Map with key: String of item, value: item label
+     */
     private void itemInventory(Map<String, Integer> stockNumbers, HashMap<String, Label> useButtons) {
     	for (Map.Entry<String, Integer> entry : stockNumbers.entrySet()) {
     	    for (HashMap.Entry<String, Label> entry1 : useButtons.entrySet()) {
@@ -301,6 +376,10 @@ public class MyTreeController extends Controller {
     	}
     }
 
+    /**
+     * Each use button label is assigned to a string using a HashMap
+     * @param useButtons Map with key: String of item, value: item label
+     */
     private void itemLabelHashMap(HashMap<String, Label> useButtons) {
     	useButtons.put("water", itemLabelWater);
     	useButtons.put("waterEx", itemLabelWaterEx);
@@ -310,6 +389,9 @@ public class MyTreeController extends Controller {
     	useButtons.put("insecticide", itemLabelInsecticide);
     }
 
+    /** 
+     * Initialise item labels to zero
+     */
     private void initialiseItemLabels() {
     	itemLabelWater.setText("x"+0);
     	itemLabelWaterEx.setText("x"+0);
@@ -319,6 +401,10 @@ public class MyTreeController extends Controller {
     	itemLabelInsecticide.setText("x"+0);
     }
 
+    /**
+     * Get duration of last time an item has been used
+     * @param itemStockIO stock of item stored
+     */
     private void getDuration(ItemStockIO itemStockIO) {
     	offSetDateTime = OffsetDateTime.now();
     	OffsetDateTime date = itemStockIO.getDateTimeSaved();
@@ -327,6 +413,11 @@ public class MyTreeController extends Controller {
         decreaseHealth(durationDays);
     }
 
+    /**
+     * Health of tree decreases in for each day. Update health label and display tree
+     * image.
+     * @param days duration of number of days
+     */
     private void decreaseHealthDays(int days) {
     	double treeHealth = tree.getHealth();
 		if (treeHealth-days <= 0) {
@@ -339,6 +430,10 @@ public class MyTreeController extends Controller {
 		healthLabel.setText(name);
     }
 
+    /**
+     * Set decrease of health depending on the duration of days from last use of item
+     * @param durationDays Time duration in days 
+     */
     private void decreaseHealth(long durationDays) {
     	if (durationDays >= 6) {
     		decreaseHealthDays(6);
@@ -355,6 +450,10 @@ public class MyTreeController extends Controller {
     	}
     }
 
+    /**
+     * Initliase the status, height and health of tree from the data stored in files.
+     * Set up cash saved in file and initialise items and stock.
+     */
     public void initialize() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
     	treeStatisticsIO = new TreeStatisticsIO(FileSaveLocations.TREE_STATISTICS);
@@ -379,6 +478,9 @@ public class MyTreeController extends Controller {
     	initializeStock();
     }
     
+    /**
+     * Initialise each item with the name, cost, height impact and health impact.
+     */
     private void initializeItems() {
     	itemWater          = new Item("water",             200, "", 100,   0, 0, 0, 0);
     	itemWaterEx        = new Item("waterEx",           300, "", 150,   0, 0, 0, 0);
@@ -388,6 +490,9 @@ public class MyTreeController extends Controller {
     	itemInsecticide    = new Item("insecticide",       600, "", 100,   4, 0, 0, 0);
     }
     
+    /**
+     * Initialise stock stored in inventory file
+     */
     private void initializeStock() {
     	itemStockIO = new ItemStockIO(FileSaveLocations.INVENTORY);
     	stock = new ItemStock();
@@ -397,12 +502,23 @@ public class MyTreeController extends Controller {
     	}
     }
 
+    /**
+     * Load stock of item stored in inventory file
+     * @param stock Stock of item
+     * @param stockNumbers quantity of item stored
+     * @param itemName Name of item
+     */
     private void loadStock(ItemStock stock, Map<String, Integer> stockNumbers, String itemName) {
     	int stockNumber = stockNumbers.get(itemName);
     	Item item = determineItem(itemName);
     	stock.addItem(item, stockNumber);
     }
 
+    /**
+     * Determine the name of item
+     * @param itemName String Name of item
+     * @return Name of item
+     */
     private Item determineItem(String itemName) {
     	switch(itemName) {
     	case "water":
@@ -422,6 +538,10 @@ public class MyTreeController extends Controller {
     	}
     }
     
+	/**
+	 * Opens the help window for the My Tree screen
+	 * @param event ActionEvent from the help icon button
+	 */
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "MyTree";
 		HelpBox helpBox = new HelpBox(sceneName);
