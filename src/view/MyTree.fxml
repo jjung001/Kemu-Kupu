@@ -298,7 +298,7 @@
       </Button>
       <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="715.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/Shopping_icon.png" />
+            <Image url="@/resources/Shopping_icon.png" />
          </image>
       </ImageView>
       <Button fx:id="helpButton" layoutX="44.0" layoutY="609.0" mnemonicParsing="false" onAction="#openHelpWindow" style="-fx-background-color: transparent;">
