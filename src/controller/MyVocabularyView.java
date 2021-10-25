@@ -294,7 +294,6 @@ public class MyVocabularyView extends Controller {
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
 		vocabularyStatistics = statisticsIO.getVocabularyStatistics(currentTopic);
 		words = vocabularyStatistics.getWords();
-		System.out.println(words);
 	}
 
 	private void determineWordsPaneVisibility() {
@@ -415,7 +414,7 @@ public class MyVocabularyView extends Controller {
 	private void goToHighestEarnings(ActionEvent event) {
 		switchScene(event, "HighestEarnings.fxml");
 	}
-	
+
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "MyVocabulary";
 		HelpBox helpBox = new HelpBox(sceneName);
