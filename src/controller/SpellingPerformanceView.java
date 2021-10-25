@@ -26,10 +26,6 @@ import statistics.TimelineFeed;
 
 public class SpellingPerformanceView extends Controller {
 	@FXML
-	private Button controlsVocabulary;
-	@FXML
-	private Button controlsWordEarnings;
-	@FXML
 	private Button timelineTabButton;
 	@FXML
 	private Button proportionsTabButton;
@@ -175,7 +171,7 @@ public class SpellingPerformanceView extends Controller {
 	private void goToHighestEarnings(ActionEvent event) {
 		switchScene(event, "HighestEarnings.fxml");
 	}
-	
+
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "TimeLine";
 		HelpBox helpBox = new HelpBox(sceneName);
