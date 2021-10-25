@@ -22,17 +22,6 @@ public class HighestEarningsView extends Controller {
 	private AnchorPane word5Container;
 
 	@FXML
-	private Label word1Label;
-	@FXML
-	private Label word2Label;
-	@FXML
-	private Label word3Label;
-	@FXML
-	private Label word4Label;
-	@FXML
-	private Label word5Label;
-
-	@FXML
 	private Label score1Label;
 	@FXML
 	private Label score2Label;
