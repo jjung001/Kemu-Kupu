@@ -137,9 +137,9 @@
                         </Label>
                      </children>
                   </Group>
-                  <Label fx:id="hintLabel" alignment="CENTER" layoutX="163.0" layoutY="420.0" prefHeight="28.0" prefWidth="634.0" textAlignment="CENTER" textFill="#2e979b">
+                  <Label fx:id="hintLabel" alignment="CENTER" layoutX="164.0" layoutY="426.0" prefHeight="28.0" prefWidth="634.0" textAlignment="CENTER" textFill="#2e979b">
                      <font>
-                        <Font name="DejaVu Sans Condensed Bold" size="17.0" />
+                        <Font name="DejaVu Sans Condensed Bold" size="22.0" />
                      </font>
                   </Label>
                   <Label fx:id="statusLabel" alignment="CENTER" layoutX="229.0" layoutY="205.0" prefHeight="75.0" prefWidth="500.0" style="-fx-text-fill: #714e42;" text="SPELL IT:" textFill="#714e42">
