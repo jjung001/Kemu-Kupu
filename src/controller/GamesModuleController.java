@@ -418,7 +418,7 @@ public class GamesModuleController extends Controller {
 				Parent root = (Parent) loader.load();
 				if (isPractice) {
 					PracticeResultsView controller = loader.getController();
-					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker);
+					controller.setUp(scoreTracker, answerAttemptTracker, answerStatusTracker, questionManager.getTotalNumberOfQuestions());
 					Scene scene = new Scene(root);
 					primaryStage.setScene(scene);
 					primaryStage.show();

@@ -35,13 +35,13 @@ public class PracticeResultsView extends Controller {
 	private ArrayList<Label> wordsAttemptLabel = new ArrayList<Label>();
 	private ArrayList<ImageView> wordsStatusImageView = new ArrayList<ImageView>();
 	
-	public void setUp(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker) {
+	public void setUp(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker, AnswerStatusTracker answerStatusTracker, int numberOfQuestions) {
 		this.resultsModel = new ResultsModel(scoreTracker, answerAttemptTracker, answerStatusTracker);
 		this.scoreTracker = scoreTracker;
 		
 		initialiseArrayList();
 		
-		numberOfQuestions = 8;
+		this.numberOfQuestions = numberOfQuestions;
 		wordsTested = new String[numberOfQuestions];
 		wordsAttempt = new String[numberOfQuestions];
 		wordsStatusImage = new Image[numberOfQuestions];
