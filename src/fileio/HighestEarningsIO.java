@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class HighestEarningsIO extends FileIO {
+	private int numberOfEarningsToRecord;
 
 	public HighestEarningsIO(String filepath) {
 		super(filepath);
+		numberOfEarningsToRecord = 5;
 	}
 
 	public void recordQuizEarning(int totalScoreForQuiz) {
@@ -42,5 +44,13 @@ public class HighestEarningsIO extends FileIO {
 
 	public ArrayList<String> getHighestQuizEarningsAsStrings() {
 		return readLines();
+	}
+
+	public void resetHighestEarnings() {
+		ArrayList<String> lines = new ArrayList<String>();
+		for (int i = 0; i < numberOfEarningsToRecord; i++) {
+			lines.add("0");
+		}
+		overwriteLines(lines);
 	}
 }
