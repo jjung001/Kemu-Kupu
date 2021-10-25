@@ -48,7 +48,7 @@ public class PracticeResultsView extends Controller {
 		
 		for (int i = 0; i < numberOfQuestions; i++) {
 			wordsTested[i] = scoreTracker.getWord(i+1);
-			wordsAttempt[i] = answerAttemptTracker.getAnswerAttempt(i+1);
+			wordsAttempt[i] = resultsModel.getAttempt(i+1);
 			wordsStatusImage[i] = resultsModel.getStatusImage(i+1);
 		}
 		
@@ -75,7 +75,9 @@ public class PracticeResultsView extends Controller {
 	private void setScreenOne() {
 		
 		viewUpButton.setDisable(true);
-		viewDownButton.setDisable(false);
+		if (numberOfQuestions > 5) {
+			viewDownButton.setDisable(false);
+		}
 		
 		for (int j = 0; j < wordsTestedLabel.size(); j++) {
 			wordsTestedLabel.get(j).setText(wordsTested[j]);

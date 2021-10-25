@@ -263,7 +263,9 @@ public class GamesModuleController extends Controller {
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 		statusLabel.setText("CORRECT");
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
-		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.MASTERED, score);
+		if(!isPractice) {
+			statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.MASTERED, score);
+		}
 		speak("correct", false);
 	}
 
@@ -298,7 +300,9 @@ public class GamesModuleController extends Controller {
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 		statusLabel.setText("GOOD JOB");
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
-		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAULTED, score);
+		if(!isPractice) {
+			statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAULTED, score);
+		}
 		speak("Good job.", false);
 	}
 
@@ -316,10 +320,10 @@ public class GamesModuleController extends Controller {
 		scoreTracker.update(questionNumber, score, word);
 		scoreLabel.setText(Integer.toString(scoreTracker.getTotalScore()));
 		StatisticsIO statisticsIO = new StatisticsIO(FileSaveLocations.STATISTICS);
-		statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAILED, score);
 		if (isPractice) {
 			statusLabel.setText(currentQuestion.getWord());
 		} else {
+			statisticsIO.recordWordSpelling(OffsetDateTime.now(), word, "Colours", AnswerStatus.FAILED, score);
 			String encouragingMessage = pickRandomEncouragingMessage();
 			statusLabel.setText(encouragingMessage);
 			speak(encouragingMessage, false);
