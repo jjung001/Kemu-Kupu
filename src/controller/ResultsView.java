@@ -17,11 +17,12 @@ import quiz.ResultsModel;
 import quiz.ScoreTracker;
 
 /**
- * This is a controller class for the Results View screen. It displays the
- * result of the quiz taken. The informations displayed are: total score, the
- * tree level of the user, the tree image, and a graph of score progress.
+ * This is a controller class for the Results View screen. 
+ * It displays the result of the quiz taken. The informations displayed are: total score, 
+ * the cash level image the user earned, the table for spelling results,and a graph of score progress.
  *
  * @author Julie Kim
+ * @author Juwon Jung
  *
  */
 public class ResultsView extends Controller {
@@ -59,10 +60,14 @@ public class ResultsView extends Controller {
 	/**
 	 * Initially sets up the controller. It calls methods from the helper model
 	 * class ResultsModel to get the values and image to display. It sets up the
-	 * total score, the level and image of tree of the test, and a line chart.
+	 * total score, the cash level, the word results and a line chart.
 	 *
 	 * @param scoreTracker ScoreTracker user data from the previous game screen that
-	 *                     stores the score datas of questions
+	 *                     stores the score datas of questions.
+	 * @param answerAttemptTracker AnswerAttemptTracker user data from the previous practice game screen
+	 * 							   that stores the user attempts of the practice questions. 
+	 * @param answerStatusTracker AnswerStatusTracker user data from the previous practice game screen
+	 * 							   that stores the status of each questions in the practice. 
 	 */
 
 	public void setUp(ScoreTracker scoreTracker, AnswerAttemptTracker answerAttemptTracker,
@@ -100,14 +105,16 @@ public class ResultsView extends Controller {
 
 	/**
 	 * Switches current scene to the topic list scene for another game.
-	 *
 	 * @param event ActionEvent from the play again button.
 	 */
 	public void playAgain(ActionEvent event) {
 		switchScene(event, "TopicList.fxml");
 	}
 
-	@FXML
+	/**
+	 * Switches current scene to the My tree screen
+	 * @param event ActionEvent from the view my tree button
+	 */
 	public void viewTree(ActionEvent event) {
 		switchScene(event, "MyTree.fxml");
 	}
@@ -129,6 +136,10 @@ public class ResultsView extends Controller {
 		highestEarningsIO.recordQuizEarning(totalScore);
 	}
 
+	/**
+	 * Opens the help window for the results screen
+	 * @param event ActionEvent from the help icon button
+	 */
 	public void openHelpWindow(ActionEvent event) {
 		String sceneName = "GameResults";
 		HelpBox helpBox = new HelpBox(sceneName);
